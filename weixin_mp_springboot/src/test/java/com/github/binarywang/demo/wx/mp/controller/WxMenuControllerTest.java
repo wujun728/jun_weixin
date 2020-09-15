@@ -2,9 +2,10 @@ package com.github.binarywang.demo.wx.mp.controller;
 
 import io.restassured.http.ContentType;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
-import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+
+import org.junit.Test;
 
 /**
  * 菜单测试.
@@ -14,11 +15,22 @@ import static io.restassured.RestAssured.given;
  */
 public class WxMenuControllerTest extends BaseControllerTest {
 
+//    @Test
+//    public void testMenuCreate() {
+//        given()
+//            .when()
+//            .body(new WxMenu())
+//            .contentType(ContentType.JSON)
+//            .post("/wx/menu/wxappid/create")
+//            .then()
+//            .log().everything();
+//    }
+	
     @Test
     public void testMenuCreate() {
         given()
             .when()
-            .body(new WxMenu())
+//            .body(new WxMenu())
             .contentType(ContentType.JSON)
             .post("/wx/menu/wxappid/create")
             .then()

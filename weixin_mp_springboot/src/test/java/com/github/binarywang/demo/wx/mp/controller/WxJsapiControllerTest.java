@@ -1,8 +1,9 @@
 package com.github.binarywang.demo.wx.mp.controller;
 
-import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+
+import org.junit.Test;
 
 /**
  * jsapi 测试.
@@ -10,9 +11,9 @@ import static io.restassured.RestAssured.given;
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  * @date 2020-04-25
  */
-@Test
 public class WxJsapiControllerTest extends BaseControllerTest {
-    @Test(invocationCount = 1000, threadPoolSize = 5)
+	
+    @Test
     public void testGetJsapiTicket() {
         given()
             .when().get("/wx/jsapi/xxxx/getJsapiTicket")

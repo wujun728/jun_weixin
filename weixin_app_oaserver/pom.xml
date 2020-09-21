@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.app.oa</groupId>
+	<artifactId>app-oaserver</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+  <modules>
+    <module>app-eureka</module>
+    <module>app-producer</module>
+    <module>app-consumer</module>
+    <module>app-zuul</module>
+    <module>app-zipkin</module>
+    <module>app-common</module>
+    <module>app-producer-hastoken</module>
+    <module>app-producer-hasauth</module>
+    <module>app-solr</module>
+    <module>app-producer-wechat</module>
+    <module>app-consumer-wechat</module>
+  </modules>
+</project>

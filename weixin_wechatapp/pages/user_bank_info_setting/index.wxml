@@ -1,0 +1,21 @@
+
+  <form class='info_Form' catchsubmit="user_bank_info_setting_Submit">
+    <view class='inputGroup'>
+      <input name='trueName' value='{{UserInfo.trueName}}' placeholder="真实姓名（如-张三）"></input>
+      <input name='bankName' value='{{UserInfo.bankName}}' placeholder="开户行(如-中国农业银行)"></input>
+      <input name='subBankName' value='{{UserInfo.subBankName}}' placeholder="支行名称"></input>
+      <input name='bankNo' value='{{UserInfo.bankNo}}' placeholder=" 银行账户"></input>
+      <input name='zfbNo' value='{{UserInfo.zfbNo}}' placeholder="支付宝账户"></input>
+    </view>
+    <!-- <checkbox-group class='CheckBox' bindchange="checkboxChange">
+      <label>
+        <text>同意《用户三级分销协议》</text>
+        <checkbox checked='{{agree}}' value='agree' color='{{setting.platformSetting.defaultColor}}'></checkbox>
+      </label>  
+    </checkbox-group> -->
+    <button formType="submit" disabled='{{!agree}}' class='signIn'  style='background:{{setting.platformSetting.defaultColor}}'>立即提交</button>
+  </form>
+
+  <!-- <button  class='footer_botton' bindtap='lookUserXY' style='color:{{setting.platformSetting.defaultColor}}'>
+    查看《用户三级分销协议》
+  </button> -->

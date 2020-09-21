@@ -1,0 +1,11 @@
+<!-- swiper轮播图 -->
+<import src="first_jifen_list.wxml"/>  <!-- 正常的标题 -->
+
+   <block>
+    <template is="firstJifenList" data="{{...someData,sysWidth,...setting}}"></template> 
+  </block> 
+
+
+<slot></slot>
+
+

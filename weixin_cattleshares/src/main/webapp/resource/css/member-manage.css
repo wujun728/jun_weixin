@@ -1,0 +1,21 @@
+.search-top{border-bottom: 1px solid #E0E0E0;}
+
+.usermessage{width: 100px;margin-right: 10px;}
+.member-select{margin-right: 10px;}
+#search{padding: 2px 10px;} #search:hover{opacity: 0.8;color: #fff;} #search:focus{color: #fff;}
+.member-operation input{
+	font-size: 11px;
+}
+.member-operation input{border: none;border-radius: 10px;background: #1b9af7;color: #fff;outline: none;}
+.member-operation input:hover{opacity: 0.8;}
+#user_message{margin-left: -60px;margin-top: 5px;}
+
+.fade-content{padding: 20px 15px 10px 30px;}
+.fade-content div{margin:5px;}
+.fade-content div p{display: inline-block;width: 70px;}
+#integration{margin-left: 35px;}
+.remark p{position:absolute;margin-top: 20px;}
+.remark textarea{margin-left: 72px;resize: none;}
+.label-recharge{margin-right: 45px;}
+.btn-addconfirm{float: right;margin: 15px 0;}
+.Wdate{width:100px}

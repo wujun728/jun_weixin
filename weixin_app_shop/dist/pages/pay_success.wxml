@@ -1,0 +1,27 @@
+
+  <view class="pay_success">
+    <view class="icon">
+      <view><i class="iconfont icon-success"/></view>
+      <view class="success_doc">恭喜支付成功</view>
+    </view>
+    <view class="pay_type">
+      <view class="block">
+        <i class="iconfont icon-paytype"/>
+        <view class="title fz24">支付方式</view>
+        <view class="type fz24">微信支付</view>
+      </view>
+    </view>
+    <view class="pay_money">
+      <view class="block">
+        <i class="iconfont icon-money"/>
+        <view class="title fz24">支付金额</view>
+        <view class="type fz24">{{totalFee}}</view>
+      </view>
+    </view>
+    <view class="pay_btn">
+      <view class="block btn_group">
+        <view class="btn order_detail" bindtap="goOrderDetail">查看订单</view>
+        <view class="btn get_store" bindtap="goIndex">继续购物</view>
+      </view>
+    </view>
+  </view>

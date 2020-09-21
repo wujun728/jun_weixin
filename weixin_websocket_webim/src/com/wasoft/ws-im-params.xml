@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params>	
+
+	<protocol>http</protocol>	
+
+	<wsdl>/portal/services/IMService</wsdl>
+	
+	<server>localhost</server>
+	
+	<port>8080</port>
+	
+</params>

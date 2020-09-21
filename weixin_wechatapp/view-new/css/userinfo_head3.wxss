@@ -1,0 +1,123 @@
+.userinfo_head3{
+  width: 100%;
+  height: 450rpx;
+  background: #eee;
+  position: relative;
+  z-index: 0;
+}
+.userinfo_head3_gray{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background:rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.userinfo_head3_wrap{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.userinfo_head3_bg{
+    width:100%;
+    height:100%;
+    -webkit-filter: blur(15rpx);
+    -moz-filter: blur(15rpx);
+    -o-filter: blur(15rpx);
+    -ms-filter: blur(15rpx);
+    filter: blur(15rpx);    
+}
+
+.userinfo_head3_content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.userinfo_head3_name{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.loginOut_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo_head3_content .loginOut_icon text{
+  font-size: 24rpx;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.userinfo_head3_content .loginOut_icon image{
+  width: 33rpx;
+  height: 33rpx;
+  margin-right: 14rpx;
+}
+.userinfo_head3_content > image{
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+}
+.userinfo_head3_content text{
+  margin: 20rpx 0;
+  color: #fff;
+  line-height: 32rpx;
+}
+.user_level{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  height: 36rpx;
+  border-radius: 36rpx;
+  padding:6rpx 10rpx;
+  margin-bottom: 10rpx;
+}
+.user_level_img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.user_level_name{
+  margin-right: 10rpx;
+  color: #fff;
+  font-size: 22rpx;
+}
+.userShareEwm{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.userEwmCode{
+  width: 100rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
+.userBindWxGz{
+  position: absolute;
+  right: 40rpx;
+  top: 100rpx;
+}
+.userBindWxGzCode{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}

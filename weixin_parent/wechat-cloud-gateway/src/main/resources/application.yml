@@ -1,0 +1,84 @@
+spring:
+  application:
+    name: apigetwat2
+  cloud:
+  ##整合Eureka路由转发 (请求路径： http://网关地址/服务名称/服务方法) http://localhost:8074/wechat-api/api/base/getInfo
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+#--------------------------指定路由限流配置 http:localhost:8074//api/服务方法-----------------------------------
+      - id: wechat-api
+        uri: lb://wechat-api
+        predicates:
+#        - Path=/api/base/**
+         - Path=/api/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 1
+            key-resolver: "#{@ipKeyResolver}"
+#----------------外链跳转配置-----------------------------
+      - id: path_route
+        #跳转的外链域名
+        uri: http://cxytiandi.com
+        #跳转的方法
+        predicates:
+        - Path=/course
+        filters:
+        - name: RequestRateLimiter
+          args:
+           #允许用户每秒处理多少个请求
+            redis-rate-limiter.replenishRate: 1
+            #令牌桶的容量，允许在一秒钟内完成的最大请求数
+            redis-rate-limiter.burstCapacity: 1
+            #启动内配置的bean
+            key-resolver: "#{@ipKeyResolver}"
+  boot:
+    admin:
+      client:
+        instance:
+          name: ${spring.application.name}
+          service-url: http://${eureka.instance.hostname}:${server.port}
+          prefer-ip: true
+        url: http://localhost:8088/wechat-monitoring
+        username: gzpflm
+        password: gzpflm
+        enabled: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+server:
+  port: 8074
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  connection-timeout: 5000ms
+logging:
+  file: F:/log/${spring.application.name}/spring.log
+  level:
+    com,pflm: debug
+    org.springframework.cloud.gateway: trace
+#    org.springframework.http.server.reactive: debug
+#    org.springframework.web.reactive: debug
+#    reactor.ipc.netty: debug
+  path: F:/log/${spring.application.name}
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://gzpflm:gzpflm@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${server.port}/${spring.application.name}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

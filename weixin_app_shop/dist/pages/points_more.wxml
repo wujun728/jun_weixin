@@ -1,0 +1,39 @@
+
+  <scroll-view scroll-y="true" class="swiper-item-box" style="height:{{winHeight}}px" bindscrolltolower="onReachBottom">
+    <!-- 积分记录 -->
+    
+  <view class="detai-content">
+    <view class="detai-list"  wx:for="{{$pointsDetail$list}}" wx:key="item">
+      <view class="detai-left">
+        <view class="detai-name" wx:if="{{item.isdeleted==0}}">每日签到获得</view>
+        <view class="detai-name" wx:if="{{item.isdeleted==2}}">连续签到7天获得</view>
+        <view class="detai-time">{{item.signTime}}</view>
+      </view>
+      <view class="detail-right">
+        <span class="detail-money">+{{item.signPoint}}</span>
+      </view>
+    </view>
+  </view>
+  <!--暂无数据显示-->
+  
+    <view class="empty-placeholder row-center"  wx:if="{{$pointsDetail$placeholder$show}}">
+        <image class="icon-xl" src="../images/empty.png"/>
+        <view class="txt">{{$pointsDetail$placeholder$message}}</view>
+    </view>
+
+
+    <!--加载更多时动画-->
+    
+    <view class="loadMoreGif"  wx:if="{{$bottomLoadMore$show}}">
+        <image src="../images/loadding.gif"/>
+        <text>{{$bottomLoadMore$message}}</text>
+    </view>
+
+    <!--暂无数据显示-->
+    
+    <view class="empty-placeholder row-center"  wx:if="{{$placeholder$show}}">
+        <image class="icon-xl" src="../images/empty.png"/>
+        <view class="txt">{{$placeholder$message}}</view>
+    </view>
+
+  </scroll-view>

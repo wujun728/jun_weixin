@@ -1,0 +1,579 @@
+/* pages/cart/index.wxss */
+
+
+/* @import '../../view-new/aikucun/aikucun_hot_product.wxss'; */
+@import '../../view-new/aikucun/aikucun_new_title.wxss';/*  detail_list_card  */ 
+ @import '../../view-new/aikucun/measure_card.wxss'; 
+ @import '../../view-new/aikucun/kefu.wxss'; 
+
+
+.hasMoreCart{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  background: #eee;
+  font-size: 0.8em;
+}
+.container{ 
+    background: #f3f3f3;
+    font-size: 0.8em;
+    
+  min-height: 10em;
+}
+/* 购物车列表 */
+.cartContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #888;
+  background: #fff;
+}
+.cartShopName{
+  padding: 15px 10px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd; 
+}
+
+.cartItems{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-bottom: 1px solid #dddddd;
+  /* height: 6em; */
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  height:260rpx;
+}
+.slidingItem{
+  position:absolute;
+  transition: left 0.2s linear;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background:#fff;
+  z-index: 2
+}
+.deleteItem{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+
+}
+.deleteItemImg{
+  width: 30rpx;
+  height: 30rpx;
+}
+.delBtn{
+  width:120rpx;
+  height:100%;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1
+}
+.carItemsInfo{
+  display:flex;
+  flex-direction:row;
+  /* overflow:hidden; */
+  align-items:center;
+  justify-content:flex-start;
+  padding:0 20rpx;
+  box-sizing:border-box;
+}
+.promotionBean{
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.promotionBean_line{
+  border-left:2rpx solid #ddd;
+  border-right:2rpx solid #ddd;
+  width: 80rpx;
+  height: 10rpx;
+}
+.promotionName{
+  color: #fff;
+  font-size: 24rpx;
+  height: 24rpx
+}
+.promotionBean_bg{
+  padding:5rpx 10rpx;
+  border-radius: 10rpx;
+}
+.itemCheckbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right:28rpx;
+  width: 48rpx;
+  height: 36rpx;
+  }
+.itemCheckbox_image{
+  width: 160rpx;
+  height: 160rpx;
+  border: 1rpx solid #eee;
+  border-radius: 16rpx;
+}
+
+.item_infomation{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  padding-left:10px;
+  min-height:160rpx;
+  width:60%;
+}
+.item_infomation_name{
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #333;
+  font-size:28rpx;
+
+}
+.cart_stock_warn{
+  font-size: 0.8em;
+  color: #aaa;
+}
+.cart_infoMeasure{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: #999;
+  font-size:24rpx;
+}
+.cart_infoMeasure_name{
+  margin-right:10rpx;
+  text-decoration:ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display:block;
+
+}
+.cart_infoMeasure view{
+  margin-right: 10px;
+}
+
+.cart_star{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  word-break: break-all;
+  font-size: 24rpx
+}
+.cart_star > view{
+  margin-right: 10px;
+  background: #7fdb8a;
+  padding: 0 0.4em;
+  border-radius: 0.4em;
+  color: #fff;
+  max-width:10em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+
+}
+.item_infomation_money{
+  font-weight: bold;
+  color: red;
+  font-size: 32rpx
+}
+
+.item_infomation_nums_cart_not_add{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+.item_infomation_nums_cart_not_add > .x_butn{
+  margin-right: 0.2em;
+}
+
+/* 加和减 */
+.item_infomation_nums_cart{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 2em;
+  bottom: 10px;
+}
+
+.item_infomation_nums_cart image{
+  height: 1.2em;
+  width: 1.2em;
+  padding: 5px;
+  border: 1rpx solid #aaa;
+}
+.item_infomation_nums_cart text{
+  height: 1.2em;
+  width: 1.2em;
+  padding: 5px;
+  border-top: 1rpx solid #aaa;
+  border-bottom: 1rpx solid #aaa;
+}
+
+.dellCart_butn{
+  position: absolute;
+  top: 0.4em;
+  right:1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.xxx_edit{
+  padding: 0.6em;
+}
+.xxx_edit > image{
+  width: 1em;
+  height: 1em;
+}
+.xxx{
+  padding: 0.4em;
+}
+.xxx > image{
+  width: 1em;
+  height: 1em;
+}
+/* 删除 */
+
+.butn_container{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1em #eee solid;
+}
+.butn_container view{
+  width: 7em;
+  height: 2.6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: aaa;
+  border: 1rpx solid silver;
+  font-size: 0.8em;
+  margin-right: 10px;
+}
+
+/* 操作订单加减 */
+
+.editCart_item_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  padding: 0.6em 0;
+  align-items:center;
+
+}
+.dellCart_butn_container{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  width:8rem;
+
+  height: 100%;
+  justify-content:space-between;
+}
+.dellCart_butn_container_1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  width:230rpx;
+  height: 56rpx;
+  border:2rpx solid #FF996E;
+  border-radius: 28rpx;
+  box-sizing:border-box;
+}
+.subCarNum{
+  width: 28rpx;
+  height: 2rpx;
+}
+.carIcon{
+  width: 56rpx;
+  height: 56rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center
+
+}
+.addVertical{
+  width: 28rpx;
+  height: 2rpx;
+}
+.addCross{
+  width: 2rpx;
+  height: 28rpx;
+  position: absolute;
+  left: 28rpx
+}
+.dellCart_butn_container_mesure{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius:0.2em;
+  width:90%;
+  margin-top:0.4em;
+  padding:0.2em 5%;
+  flex-wrap:wrap;
+
+}
+.cantAdd{
+  color: #ccc;
+}
+.dellCart_butn_container_mesure > text{
+  margin-right: 0.4em;
+  color: #aaa;
+}
+.sureCart_butn_container{
+  width: 20%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #eee;
+  position:absolute;
+  right:0;
+  top: 25%;
+  bottom: 25%;
+}
+
+
+/* 底部下单按钮 */
+.cart_buttomHeight{
+  height: 4em;
+}
+.cart_buttom{
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  width: 100%;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background:#fff;
+}
+.chooseAll{
+  font-size: x-small;
+  padding-left: 1em;
+}
+.chooseAll checkbox{
+  background: #fff
+}
+.toJieSuan{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.toJieSuan_money{
+  height: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  color: grey;
+  font-size: 0.8em;
+  padding-right: 5px;
+}
+.toJieSuan_butn{
+  width:240rpx;
+  height:80rpx;
+  border-radius:40px; 
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  margin-right: 6rpx ;
+  margin-left: 24rpx
+}
+/* none */
+.noCart{
+  color: #555;
+  background: #fff;
+  height: 590rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2rpx solid #d7d7d7;
+}
+.noCartImg{
+  width: 400rpx;
+  height: 320rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-end;
+  }
+.noCart image{
+  width: 300rpx;
+  height: 240rpx;
+  margin-right:40rpx;
+}
+.toLook{
+  width:200rpx;
+  height:76rpx;
+  border-radius:10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-top: 45rpx;
+}
+
+
+
+/* 选择活动的卡片 */
+.kefu_wx_huodong{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:11;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width: 100%;
+  height: 100%;
+}
+.kefu_bg_zhezhao{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.6;
+  z-index: 12;
+}
+
+.kefu_wx_card_hongdong{
+  position: fixed;
+  left:15%;
+  right:15%;
+  top: 30%;
+  background: #fff;
+  z-index: 13;
+  font-size: 0.8em;
+  border-radius: 0.4em;
+  overflow: hidden;
+
+}
+.kefu_wx_card_hongdong > .name{
+  padding: 1.6em;
+  font-size: 1em;
+
+}
+
+.code_container{
+  display: flex;
+  flex-direction: column;
+  padding: 0.2em 1.6em;
+}
+.radioItems{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.8em;
+  word-break: break-all;
+}
+.radioItems > radio{
+  margin-right: 0.8em;
+}
+
+.tips_buy_butn_container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 1rpx solid #ccc;
+  height: 3.6em;
+}
+.code_item{
+  
+  word-break: break-all; 
+}
+.tips_buy_butn_container > view{
+  width: 50%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.backtoCart_butn{
+  background: #fff;
+  color: #333;
+}
+.go_to_pay_butn{
+background: red;
+  color: #fff;
+}
+
+/* 热销商品 */
+.hotProductContainer{
+  padding:  10px;
+  background: #f9f9f9;
+}
+
+checkbox .wx-checkbox-input{
+   border-radius: 36rpx ;/* 圆角 */
+   width: 36rpx; /* 背景的宽 */
+   height: 36rpx; /* 背景的高 */
+   border:2rpx solid #FF996E
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background:linear-gradient(116deg,rgba(255,153,110,1) 0%,rgba(254,55,55,1) 100%);
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 36rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 36rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 36rpx;
+   text-align: center;
+   font-size:24rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

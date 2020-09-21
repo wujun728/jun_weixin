@@ -1,0 +1,115 @@
+.container{
+  position: relative;
+}
+.resource_info_top{
+  display: flex;
+  flex-direction: column;
+  height: 320rpx;
+  width: 100%;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+  padding:30rpx;
+  box-sizing:border-box;
+
+}
+.platform_logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+  padding:20rpx;
+}
+.platform_logo_img{
+  width:100rpx;
+  height:100rpx;
+  border:1px solid #fff;
+  border-radius:100rpx;
+
+}
+.resource_detail_info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:700rpx;
+  position: absolute;
+  top: 260rpx;
+  left: 50%;
+  margin-left: -350rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  padding:30rpx 20rpx;
+  box-sizing:border-box;
+  color: #555;
+}
+.resource_name_title{
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 20rpx
+}
+.resource_validation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top:30rpx;
+}
+.resource_validation_input{
+  border: 1rpx solid #ccc;
+  border-radius: 5rpx;
+  width: 100rpx;
+  padding: 6rpx 20rpx;
+  margin-right:10rpx;
+  text-align:right;
+  min-height:40rpx;
+  height:40rpx;
+}
+.resource_entry_tip{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.tip_icon{
+  margin-right: 6rpx;
+}
+.gain_resource_btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 700rpx;
+  position: absolute;
+  top: 560rpx;
+  left: 50%;
+  margin-left: -350rpx;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing:border-box;
+}
+.cancel{
+  width: 45%;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius:10rpx;
+  margin-right:20rpx;
+  color:#666;
+}
+.sure{
+  width: 45%;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius:10rpx;
+  color: #fff
+}

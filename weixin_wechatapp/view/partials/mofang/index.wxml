@@ -1,0 +1,16 @@
+<!-- 魔方 -->
+<wxs src="../../../public/publicFun.wxs" module="publicFun"></wxs>
+<view>
+    <view style='padding:0 0 0 0;'>
+    <view class='mofang_templete'
+     style='height:{{750/width*height}}rpx;position:relative' >
+      <view class='mofang_item' wx:for='{{items}}' wx:key='{{index}}' style='position:absolute;overflow:hidden;left:{{(item.startPointX>item.endPointX?item.endPointX:item.startPointX)*750/width}}rpx;top:{{(item.startPointY>item.endPointY?item.endPointY:item.startPointY)*750/width}}rpx;width:{{(publicFun.toAbs(item.endPointX-item.startPointX)+1)*750/width}}rpx;height:{{(publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/width}}rpx;'>
+             <image mode='scaleToFill' src='{{item.imageUrl}}' data-link='{{item.linkUrl}}' bindtap='tolinkUrl' style='border-radius: {{item.borderRadius}}px;width:100%;height:100%;padding:{{imagePadding}}rpx;box-sizing:border-box'></image>     
+
+    
+     </view> 
+
+    
+    </view>
+    </view>
+</view>

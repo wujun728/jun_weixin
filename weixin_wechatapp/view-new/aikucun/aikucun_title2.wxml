@@ -1,0 +1,16 @@
+<!-- aikucun_title -->
+
+<!-- title -->
+<template name="aikucun_title2" >
+  <view class='aikucun_title' style='border-radius:0.4em;'>
+    <view class='aikucun_title_tags'>
+      <!-- <view class='border_style_sanjiao' style='border-color:  transparent #000 #000 transparent;'></view> -->
+      <view class='leftImage'><image src='../../images/icons/aikucun_title2_left.png'></image></view>
+       <view class='aikucun_title_container'>
+          <view class='aikucun_title_text' style='color:#00a6e3;' >{{title}}</view>
+       </view>
+       <view class='leftImage'><image src='../../images/icons/aikucun_title2_right.png'></image></view>
+      <!-- <view class='border_style_sanjiao' style='border-color:transparent transparent #000 #000;'></view>     -->
+    </view>
+  </view>
+</template>

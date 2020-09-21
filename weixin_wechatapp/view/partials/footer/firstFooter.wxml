@@ -1,0 +1,6 @@
+<!--第一种banner -->
+<template name="firstFooter">
+ 
+  <view class='buttom' bindtap='buttom'><text>技术支持：{{platformSetting.jishuzhichi}}</text></view>
+
+</template>

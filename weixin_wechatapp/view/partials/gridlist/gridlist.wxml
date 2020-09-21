@@ -1,0 +1,21 @@
+<!-- grid行列导航 -->
+<import src="simpleGridlist.wxml"/>  <!-- 正常的标题 -->
+<import src="second_navigation_with_shadow/second_navigation_with_shadow.wxml"/>  <!-- 引入带有背景阴影的 -->
+<import src="vertical_column_navigation/index.wxml"/>  <!-- 引入竖排导航 -->
+
+ 
+     <!-- 当 androidTemplate为空的时候去引入普通列表样式  -->  
+  <block wx:if='{{data.androidTemplate == ""}}'>
+  <template is="simpleGridlist" 
+       data="{{...data}}"></template> 
+  </block>
+       <!-- 引入带有背景阴影的  -->  
+  <block wx:if='{{data.androidTemplate == "second_navigation_with_shadow"}}'>
+  <template is="second_navigation_with_shadow" 
+       data="{{...data}}"></template> 
+  </block>
+  <!--  引入竖排导航-->
+  <block wx:if='{{data.androidTemplate == "vertical_column_navigation"}}'>
+  <template is="vertical_column_navigation" 
+       data="{{...data,listData}}"></template> 
+  </block>

@@ -1,0 +1,62 @@
+<template name="pupuProductListOne">
+
+  <block wx:if='{{relateBean.length != 0}}'>
+    <view class='product_items3' wx:for="{{relateBean}}" wx:for-item="result" wx:key="{{index}}" wx:if="{{index<jsonData.count}}" data-info='{{result}}' bindtap='tolinkUrl'>
+      <view class='product_items3_promotion_name' wx:if="{{result.tagArray[0]}}">{{result.tagArray[0]}}</view>
+      <image class='product_items3_img' mode="aspectFill" src='{{result.imagePath||result.itemIcon}}?x-oss-process=style/preview'></image>
+      <view class='product_items3_view1'>
+        <text class='product_name'>{{result.name||result.itemName}}</text>
+        <text class='location_name' wx:if="{{result.addTime&&!result.name}}">添加时间：{{result.addTime||result.addTime}}</text>
+        <text class='location_name' wx:if="{{result.longitude>0}}">{{result.location}}</text>
+        <text class='location_name' wx:else>{{result.description}}</text>
+        <view class='sale_item3' wx:if="{{result.itemSpecialSaleType&&result.itemSpecialSaleType!=0}}">
+        <!--  style='background:{{defaultColor}}' -->
+          <view class='sale_item3_title'>
+            <text wx:if="{{result.itemSpecialSaleType==1}}">满减</text>
+            <text wx:if="{{result.itemSpecialSaleType==2}}">买赠</text>
+            <text wx:if="{{result.itemSpecialSaleType==3}}">限购</text>
+            <text wx:if="{{result.itemSpecialSaleType==4}}">日限购</text>
+            <text wx:if="{{result.itemSpecialSaleType==5}}">周限购</text>
+            <text wx:if="{{result.itemSpecialSaleType==6}}">月限购</text>
+            <text wx:if="{{result.itemSpecialSaleType==7}}">活动限购</text>
+            <text wx:if="{{result.itemSpecialSaleType==8}}">会员特卖</text>
+          </view>
+          <!--  style='color:{{defaultColor}}' -->
+          <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==1}}">
+            满<text>{{result.itemSpecialSaleValue1}}元</text>减<text>{{result.itemSpecialSaleValue2}}元</text>
+          </view>
+          <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==2}}">
+            买<text>{{result.itemSpecialSaleValue1}}</text>赠<text>{{result.itemSpecialSaleValue2}}</text>
+          </view>
+          <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==3}}">
+            限购<text>{{result.itemSpecialSaleValue1}}件</text>
+          </view>
+        </view>
+        <!-- <scroll-view class='tags_content' scroll-x wx:else>
+          <text class='tags_item' wx:if="{{result.tagArray}}" wx:for='{{result.tagArray}}' wx:for-item="tags" wx:key='{{index}}'>{{tags}}</text>
+          <text class='tags_item' wx:if="{{result.tagArray}}" wx:for='{{result.tagArray}}' wx:for-item="tags" wx:key='{{index}}'>{{tags}}</text>
+          <text class='tags_item' wx:if="{{result.tagArray}}" wx:for='{{result.tagArray}}' wx:for-item="tags" wx:key='{{index}}'>{{tags}}</text>
+        </scroll-view> -->
+        <text class='location_name'>{{result.unitShow}}</text>
+        <view class='product_price'>
+          <text class='price' wx:if="{{result.promotion&&result.promotion!=0}}">￥{{result.promotionPrice}}</text>
+          <text class='price' wx:else>￥{{result.price||result.itemPrice}}</text>
+          <text class='price' wx:if='{{result.maxPrice>result.price}}'>-{{result.maxPrice}}</text>
+          <text wx:if='{{result.maxPrice<=result.price&&result.tagPrice>result.price}}' class="tag_price">￥{{result.tagPrice}}</text>
+        </view>
+      </view>
+      <view class='to_car3' style='background:{{defaultColor}}' wx:if="{{jsonData.showCard==1}}" catchtap='readyAddCar' data-product="{{result}}">
+        <image  wx:if="{{result.promotion==0}}" class='to_car3_icon' src='http://image1.sansancloud.com/xianhua/2019_3/20/10/45/42_450.jpg?x-oss-process=style/preview_120'></image>
+        <text style='font-size:24rpx;padding:0rpx 10rpx;' wx:if="{{result.promotion!=0}}">立即抢购</text>
+        <text class='to_car3_text' wx:else>选购</text>
+      </view>
+    </view>
+  </block>
+    <block wx:else>
+      <view class="noproduct">
+        <image mode="widthFix" src='/images/icons/no-product.png'></image>
+        <text>没有相关产品</text>
+      </view>
+    </block>
+
+</template>

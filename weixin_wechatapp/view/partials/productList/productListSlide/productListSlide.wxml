@@ -1,0 +1,41 @@
+<!--正常的标题 -->
+<template name="productListSlide">
+
+<block  wx:if="{{relateBean.length!=0}}">
+
+
+  <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+    <block wx:for="{{relateBean}}" wx:key="index">
+      <view class="recommend_hot_box" style='background-color:{{color}};'  bindtap='tolinkUrl' data-info='{{item}}'>
+      <view class='CouponsImg'>   <image  mode='aspectFill'  src="{{item.imagePath}}?x-oss-process=style/preview"></image> </view>
+      <view class='chooseName1'>{{item.name}}</view>
+             <!--价格和购物车图片  -->
+       <view class='productListSlidePrice'>
+         <view class='money {{jsonData.showCard==1?"limit":""}}'>
+            <text class='price' wx:if="{{item.promotion>0}}">￥{{item.promotionPrice}}</text>
+            <text class='price' wx:else>￥{{item.price}}</text>
+            <text class='price' wx:if='{{item.maxPrice>item.price}}'>-{{item.maxPrice}}</text>
+            <text wx:if='{{item.unitShow}}' style='color:#bbb;font-size:24rpx;margin-left:4rpx;letter-spacing:4rpx;'>/{{item.unitShow}}</text>
+            <text wx:if='{{item.maxPrice<=item.price&&item.tagPrice>item.price}}' class="tag_price">￥{{item.tagPrice}}</text>
+         </view>
+         <text class='cart' wx:if="{{jsonData.showCard==1}}" catchtap='readyAddCar' data-product="{{item}}">+</text>
+       </view>
+     
+      </view>
+           
+    </block> 
+      
+  </scroll-view>
+
+
+
+</block>
+
+<block wx:if="{{relateBean.length==0}}">
+            <view class="noproduct">
+              <image mode="widthFix" src='/images/icons/no-product.png'></image>
+              <text>没有相关商品</text>
+            </view>
+          </block>
+
+</template>

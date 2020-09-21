@@ -1,0 +1,56 @@
+/* pages/today/today.wxss */
+.load-failure-image{
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.temp-top-image{
+    width: 100%;
+    height: 400rpx;
+    background-color: #eeeeee;
+}
+
+.temp-container{
+    background-color: #ffffff;
+    border-radius: 10rpx;
+    border:2rpx solid #cccccc;
+    box-shadow: 4rpx 4rpx 6rpx #cccccc;
+    margin: 16rpx;
+    padding: 32rpx;
+    position: relative;
+}
+
+.temp-tag{
+    font-size: 32rpx;
+    font-weight: 900;
+    margin-bottom: 16rpx;
+}
+
+.temp-single{
+    margin-bottom: 8rpx;
+}
+
+.temp-singleItem{
+    font-size: 30rpx;
+    margin-bottom: 12rpx;
+    color: grey;
+    margin: 24rpx;
+}
+
+.temp-item-image{
+    display: inline;
+}
+
+.temp-image{
+    width: 300rpx;
+    height: 400rpx;
+    margin: 6rpx;
+    background-color: #eeeeee;
+    position: relative;
+}

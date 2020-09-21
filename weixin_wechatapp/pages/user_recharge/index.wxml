@@ -1,0 +1,30 @@
+<view class='container'>
+  <view class='chongzhijine'>
+    <text>充值金额</text>
+    <input value='{{money}}' bindinput='getBuyerScript'  placeholder=''></input>
+  </view>
+  <view class='chongzhiList'>
+    <view class='chongzhiItem' catchtap='selectItemFun' data-info="{{item}}" wx:for="{{setting.platformSetting.rechargeList}}" style='border:1rpx solid {{setting.platformSetting.defaultColor}};color:{{setting.platformSetting.defaultColor}}'>
+      <text class='price'>￥{{item.value}}</text>
+      <text class='rewardPrice'>赠送￥{{item.reward}}</text>
+    </view>
+  </view>
+  <view class='way'>
+   <view class='payName'>支付方式</view>
+  <radio-group bindchange="getPayWay">
+   
+
+    <label class='payWay'>
+      <radio color="{{setting.platformSetting.defaultColor}}" checked='true' value='3'></radio>
+      <text>微信支付</text>
+    </label>
+ <!--   <label class='payWay'>
+      <radio color="{{setting.platformSetting.defaultColor}}" checked='false' value='4'></radio>
+      <text>支付宝</text>
+    </label> -->
+  </radio-group>
+  </view>
+
+  <view ></view>
+  <button loading='{{butn_show_loading}}' bindtap='subMitButn' class='subMitButn' style='background:{{setting.platformSetting.defaultColor}}'>立即充值</button>
+</view>

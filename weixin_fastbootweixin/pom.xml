@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mxixm</groupId>
+    <artifactId>fastboot-weixin</artifactId>
+    <version>0.7.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>FastBootWeixin</name>
+    <description>Weixin Fast Boot Framework</description>
+    <url>https://github.com/FastBootWeixin/FastBootWeixin</url>
+    <organization>
+        <name>Guangshan Technology, Inc.</name>
+        <url>http://www.mxixm.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/FastBootWeixin/FastBootWeixin.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>guangshan</id>
+            <name>HikariShine</name>
+            <email>guangshan1992 at qq.com</email>
+            <organization>Guangshan Technology, Inc.</organization>
+            <organizationUrl>https://github.com/FastBootWeixin/FastBootWeixin</organizationUrl>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+        <developer>
+            <id>liguopeng</id>
+            <name>Li Guopeng</name>
+            <email>375062849@qq.com</email>
+            <organization>Guangshan Technology, Inc.</organization>
+            <organizationUrl>https://github.com/FastBootWeixin/FastBootWeixin</organizationUrl>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <!-- Inherit defaults from Spring Boot -->
+    <!--<parent>-->
+    <!--<groupId>org.springframework.boot</groupId>-->
+    <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--<version>1.5.4.RELEASE</version>-->
+    <!--</parent>-->
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <wx.httpclient.version>4.5.6</wx.httpclient.version>
+        <!--<wx.springboot.version>2.0.2.RELEASE</wx.springboot.version>-->
+        <wx.springboot.version>1.5.6.RELEASE</wx.springboot.version>
+    </properties>
+
+    <!-- Add typical dependencies for a web application -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${wx.springboot.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${wx.httpclient.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--这种方式不被推荐使用了，如果要引用自己的jar包请使用mvn install:install-file -Dfile=libpubnub-3.1.jar -DgroupId=pubnub -DartifactId=pubnub -Dversion=3.1 -Dpackaging=jar-->
+        <!--如果依赖系统的rt.jar等，这种方式也不行，具体原因是因为javac在1.7以上时被限制访问了rt.jar-->
+        <!--因为rt.jar是sun自己的私有api运行时环境，不同系统下可能不一样，使用这种私有api可能会带来一定的问题-->
+        <!--详细内容参考http://blog.csdn.net/ppvqq/article/details/48269661-->
+        <!--<dependency>-->
+        <!--<groupId>com.system</groupId>-->
+        <!--<artifactId>runtime</artifactId>-->
+        <!--<version>1</version>-->
+        <!--<scope>system</scope>-->
+        <!--<systemPath>${java.home}/lib/rt.jar</systemPath>-->
+        <!--<type>jar</type>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.mapdb/mapdb -->
+        <!-- 本来想用最新版本的，但是最新版本依赖太多了！兼职就是巨无霸，于是换成老版本-->
+        <!--直接把源码放入本项目-->
+        <!--自动生成spring-configuration-metadata-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${wx.springboot.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.sun.xml.bind</groupId>-->
+            <!--<artifactId>jaxb-impl</artifactId>-->
+            <!--<version>2.3.2</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.sun.istack/istack-commons-runtime &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.sun.istack</groupId>-->
+            <!--<artifactId>istack-commons-runtime</artifactId>-->
+            <!--<version>3.0.8</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArguments>
+                        <bootclasspath>${java.home}/lib/rt.jar${path.separator}${java.home}/lib/jce.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <links>
+                                <link>http://weixin.mxixm.com/</link>
+                            </links>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <tags>
+                                <tag>
+                                    <name>date</name>
+                                    <placement>a</placement>
+                                    <head>时间:</head>
+                                </tag>
+                                <tag>
+                                    <name>update</name>
+                                    <placement>a</placement>
+                                    <head>更新:</head>
+                                </tag>
+                            </tags>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <name>Sonatype Nexus Snapshots</name>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <name>Maven Central Staging Repository</name>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>

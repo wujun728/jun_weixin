@@ -1,0 +1,35 @@
+<!--正常的标题 -->
+<template name="ticketOneColumnSlide">
+<block  wx:if="{{relateBean.length!=0}}">
+  <scroll-view class='ticket_one_column_slide' scroll-x="true">
+    <view class='ticket_one_column_slide_item' wx:for="{{relateBean}}" wx:for-item="result" wx:key="{{index}}"  bindtap='tolinkUrl' data-info='{{result}}'>
+       <view class='ticket_one_column_slide_item_top'>
+         <image class='ticket_img' mode='aspectFill' src='{{result.imagePath}}?x-oss-process=style/preview'></image>
+         <view class='ticket_discount' wx:if="{{result.discount}}" style='background:{{defaultColor}}'>
+           <text style='font-size:28rpx;font-weight:bold;color:#fff;margin-bottom:6rpx;'>{{result.discount}}</text>
+           <text style='font-size:20rpx;color:#fff'>折起</text>
+         </view>
+       </view>
+       <view class='ticket_one_column_slide_item_bottom'>
+         <text class='ticket_name'>{{result.name}}</text>
+         <text class='ticket_time'>{{result.readyTimeStr}}</text>
+         <view class='ticket_one_column_slide_item_price' wx:if="{{result.promotion}}">
+            ￥<text class='ticket_one_column_slide_item_true_price'>{{result.promotionPrice}}</text>
+            <view class='font_color'><text class='ticket_one_column_slide_item_tagprice'>元起</text></view>
+          </view>
+          <view class='ticket_one_column_slideitem_price' wx:else>
+            ￥<text class='ticket_one_column_slide_item_true_price'>{{result.price}}</text>
+            <view class='font_color'><text class='ticket_one_column_slide_item_tagprice'>元起</text></view>
+            <!-- ￥{{result.tagPrice}} -->
+          </view>
+       </view>
+    </view>
+  </scroll-view>
+</block>
+<block wx:if="{{relateBean.length==0}}">
+  <view class="noproduct">
+    <image mode="widthFix" src='/images/icons/no-product.png'></image>
+    <text>没有相关商品</text>
+  </view>
+</block>
+</template>

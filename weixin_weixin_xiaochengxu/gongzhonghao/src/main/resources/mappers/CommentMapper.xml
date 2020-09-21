@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmy.booksserver.mapper.CommentMapper">
+	 <select id="writeComment" resultType="Comment">
+		insert into comment (cmid,uid,uname,ccontent,bkname,bkid,uavatar,ctime)
+		values (#{cmid},#{uid},#{uname},#{ccontent},#{bkname},#{bkid}
+		,#{uavatar},#{ctime,jdbcType=DATE})
+	</select>
+</mapper>

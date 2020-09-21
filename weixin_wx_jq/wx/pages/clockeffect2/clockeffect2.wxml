@@ -1,0 +1,13 @@
+<!--pages/clockeffect2/clockeffect2.wxml-->
+<view class="container">
+    <view>时钟特效（指针平滑）</view>
+    <view class="center">
+    	  <view id="wordClock">{{hh}}:{{mm}}:{{ss}}</view>
+        <view id="chartClock">
+            <image class='chartClock-back' mode="scaleToFill" src="../../images/clockeffect/0cback1.png"></image>
+        	  <view id="hh" style='transform:rotate({{deghh}}deg);'><image class='chartClock-back' mode="scaleToFill" src="../../images/clockeffect/0ch1.png"></image></view>
+            <view id="mm" style='transform:rotate({{degmm}}deg);'><image class='chartClock-back' mode="scaleToFill" src="../../images/clockeffect/0cm1.png"></image></view>
+            <view id="ss" style='transform:rotate({{degss}}deg);'><image class='chartClock-back' mode="scaleToFill" src="../../images/clockeffect/0cs1.png"></image></view>
+        </view>
+    </view>
+</view>

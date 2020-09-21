@@ -1,0 +1,14 @@
+<!--pages/formcheck/formcheck.wxml-->
+<view class="container">
+    <view>表单校验</view>
+    <view class='form-box'>
+      <input class='form-input' type="text" placeholder="请输入手机号" maxlength="100" bindinput="userNameInput" />
+    </view>
+    <view class='form-box'>
+      <input class='form-input' type="password" placeholder="请输入密码" maxlength="100" bindinput="pwdInput" />
+    </view>
+    <view class='form-err' style="visibility:{{errShow?'visible':'hidden'}}">{{errTxt}}</view>
+    <view class='form-box'>
+      <button bindtap='goto' loading="{{isloading}}">进入</button>
+    </view>
+</view>

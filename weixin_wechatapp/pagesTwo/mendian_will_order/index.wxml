@@ -1,0 +1,59 @@
+<view class='container'>
+ <block wx:if='{{!List}}'>  
+    <view class='none'>没有相关订单</view>
+ </block>
+ <block wx:else> 
+    <view class='cartContainer' wx:for='{{List}}' wx:for-item='list' wx:key='{{index}}'>
+      <view class='cartbannerName'> 
+        <text class='font1'>客户名：</text>
+        <text class='marginleft' style='color:{{setting.platformSetting.defaultColor}}'>{{list.buyerName}}</text>
+      </view>
+      <view class='cartShopName'> 
+        <text class='font1'>{{list.addTime}}</text>
+        <text class='' style='color:{{setting.platformSetting.defaultColor}}'>{{list.orderStatusStr }}</text>
+      </view>
+
+      <view class='cartItems'>
+        <view class='itemCheckbox'>
+          <image mode='aspectFill' src='{{list.itemIcon?list.itemIcon:"http://image1.sansancloud.com/yunjishi/2018_12/5/11/1/31_158.jpg"}}?x-oss-process=style/preview'></image>
+        </view>
+        <view class='item_infomation'>
+          <view class='item_infomation_name font1'>{{list.itemName}}</view>
+
+          <view class='item_infomation_name2' wx:if='{{!!list.measureCartesianId}}'>{{list.measures}}</view>
+          <view class='item_infomation_nums'> 
+            <text class='flexCenter'>x {{list.itemCount}}</text>
+          </view>
+          <view class='item_infomation_money'>
+            <view >单价:￥<text class='fontPrice'>{{list.itemPrice}}</text></view>
+            <text>订单号:{{list.orderNo}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view  class='butn_container'>
+          <!-- <text>订单金额￥{{list.supplyPrice }}</text> -->
+          <text wx:if="{{list.getMendianSelfStorage==1}}" style='color:{{setting.platformSetting.defaultColor}}'>（预估收入￥{{list.supplyPrice}}）</text>
+          <text wx:else style='color:{{setting.platformSetting.defaultColor}}'>（预估收入￥{{list.distributeProfitResult}}）</text>
+      </view>
+      <!-- 订单类型不同，按钮不一样 -->
+      <view wx:if='{{list.easyStatus == 2}}' class='butn_container2'>
+          <text data-order='{{list}}' bindtap='editOrder'>编辑订单</text>
+          <text data-order='{{list}}' bindtap='pay'>立即付款</text>
+          <text data-orderNo='{{list.orderNo}}' bindtap='delectOrder'>删除订单</text>
+      </view>
+      <view wx:if='{{list.easyStatus == 3}}' class='butn_container2'>
+        <text data-orderNo='{{list.orderNo}}' bindtap='cancelOrder'>取消订单</text>
+      </view>
+      <view wx:if='{{list.easyStatus == 4}}' class='butn_container2'>
+          <text data-orderNo='{{list.orderNo}}' bindtap='arriverOrder'>确认收货</text>
+      </view>
+
+      <!-- <view wx:if='{{list.easyStatus == 5}}' class='butn_container2'>
+          <text data-orderNo='{{list.orderNo}}' bindtap='pingjiaOrder'>评价</text>
+      </view> -->
+
+    </view>
+ </block>
+  
+</view>

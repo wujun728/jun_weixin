@@ -1,0 +1,44 @@
+<form class='container' bindsubmit="sureBackItem">
+    
+  <view class='backText'>
+    
+    <view class='backTextContainer'>
+      <view class='backText_name'>选择问题类型</view>
+        <radio-group class='backTags_container' name='tags' bindchange='chooseTag'>
+          <label class='font_08' wx:for='{{tags}}' wx:for-item='tag' wx:for-index="i" wx:key='{{i}}'
+          data-index='{{i}}' catchtap='radioChange'>
+            <view class='{{chooseTag == i? "activeTag":""}}'>{{tag.tagName }}</view>
+            <radio checked='{{chooseTag == i}}' value='{{tag.tagName }}' hidden='true'></radio>
+          </label>
+        </radio-group>
+    </view>  
+
+    <view class='backTextContainer'>
+      <view class='backText_name'>您的意见</view>
+       <view class='inputContainer'>
+         <textarea name='content' maxlength='200' placeholder='请写下您的意见...' value=''></textarea>
+      </view>
+    </view>  
+    
+     <view class='backTextContainer'>
+      <view class='backText_name'>您的称呼</view>
+      <view class='inputContainer'>
+        <input name='name' value='' maxlength='10' placeholder='您的姓名（可不填）' ></input>
+      </view>
+    </view>  
+
+    <view class='backTextContainer'>
+      <view class='backText_name'>您的联系方式</view>
+      <view class='inputContainer'>
+        <input name='telno' maxlength='20'placeholder='您的联系方式（可不填）'  value='' ></input>
+      </view>
+    </view>  
+
+      <view class='inputContainer'>
+        <button formType="submit"  style='background:{{setting.platformSetting.defaultColor}}'>提交</button>
+      </view>
+    
+  </view>
+</form>
+    
+    

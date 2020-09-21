@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.InviteMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		invi_id AS inviId, invi_username AS inviUsername, invi_acceptuserId AS inviAcceptuserid, invi_acceptuser AS inviAcceptuser, invi_acceptmobile AS inviAcceptmobile, invi_registtime AS inviRegisttime, invi_userstate AS inviUserstate, invi_gold AS inviGold, invi_mark AS inviMark
+	</sql>
+
+</mapper>

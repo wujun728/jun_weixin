@@ -1,0 +1,82 @@
+.authorization{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index:10001;
+}
+.authorizationBg{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index:10000;
+}
+.authorizationPopup{
+  width: 500rpx;
+  height: 200rpx;
+  background: #fff;
+  border-radius:10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-between
+}
+.buttonArray{
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}
+.tipContent{
+  padding: 30rpx;
+}
+.button{
+  border: 2rpx solid #ddd;
+  width: 50%;
+  border-radius: 0rpx;
+  border-bottom: none;
+}
+.confirm{
+  border-left: none;
+  border-right: none;
+}
+.cancel{
+  border-left: none;
+}
+.popupPage{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 6%;
+  left: 50%;
+  width: 680rpx;
+  height: 86%;
+  margin-left: -340rpx;
+  background: #fff;
+  padding: 20rpx;
+  z-index: 10002;
+  box-sizing:border-box;
+}
+.submitBtn{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom:7%;
+  left: 50%;
+  width: 650rpx;
+  margin-left: -325rpx;
+  color: #fff;
+  padding: 20rpx;
+  z-index: 10002;
+  box-sizing:border-box;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+}

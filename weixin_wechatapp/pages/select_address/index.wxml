@@ -1,0 +1,35 @@
+<view class='container'>
+  <view class='selectList'>
+    <view class='selectItem' catchtap="tolinkUrl" data-link="select_location.html">
+      <view class='selectItemLeft'>
+        <image class='selectItemLeftIcon' src='http://image1.sansancloud.com/xianhua/2019_5/8/11/4/11_202.jpg?x-oss-process=style/preview_120'></image>
+        <text class='selectItemText'>选择小区/写字楼等</text>
+      </view>
+      <image class='selectItemRightIcon' src='http://image1.sansancloud.com/xianhua/2019_4/3/18/3/24_160.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+    <view class='selectItem' catchtap='getLocationAddress'>
+      <view class='selectItemLeft'>
+        <image class='selectItemLeftIcon' src='http://image1.sansancloud.com/xianhua/2019_5/8/11/4/11_200.jpg?x-oss-process=style/preview_120'></image>
+        <text class='selectItemText'>点击定位当前地点</text>
+      </view>
+      <image class='selectItemRightIcon' src='http://image1.sansancloud.com/xianhua/2019_4/3/18/3/24_160.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+  </view>
+  <view class='addrtop'><text>我的收货地址</text></view>
+  <view class='addrItems' wx:for='{{addrData}}' wx:for-item='addr' wx:key="{{addr.id}}" catchtap='selectAddressFun' data-info="{{addr}}">
+    <view class='addrItems_left'>
+      <image class='addr_icon' mode='aspectFit'  src='/images/icons/addr.png' ></image>
+      <view class='addrItems_info'>
+        <text style='font-size:30rpx;font-weight: bold' wx:if="{{addr.community}}">{{addr.community}}</text>
+        <text style='font-size:30rpx;font-weight: bold' wx:else>{{addr.province}} {{addr.city}} {{addr.area}} {{addr.address}}</text>
+        <text class='font2' wx:if="{{addr.community}}">{{addr.address}}</text>
+        <text class='font2'>{{addr.contactName}} {{addr.telNo}}</text>
+      </view>
+    </view>
+    <image data-id='{{addr.id}}' catchtap='writeAddr' class='edit_icon' mode='aspectFit' src='http://image1.sansancloud.com/xianhua/2019_4/25/16/12/2_533.jpg?x-oss-process=style/preview_120'></image>
+  </view>
+</view>
+<view class='addnewAddr' catchtap='tolinkUrl' data-link="add_address.html" style='background:{{setting.platformSetting.defaultColor}}'>
+  <image src='/images/icons/adda.png'></image>
+  <view>新增地址</view>
+</view>

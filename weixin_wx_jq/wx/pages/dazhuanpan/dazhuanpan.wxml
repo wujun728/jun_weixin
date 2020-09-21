@@ -1,0 +1,20 @@
+<!--pages/dazhuanpan/dazhuanpan.wxml-->
+<view class="container">
+    <view>圆形大转盘抽奖</view>
+	  <!--圆形大转盘抽奖-->
+    <view id="box">
+      <view id="back">
+          <image mode="scaleToFill" src="../../images/dazhuanpan/back.png"></image>
+      </view>
+      <view id="zhizhen" style='transform:rotate({{ change_angle}}deg)' bindtap='start'>
+          <image mode="scaleToFill" src="../../images/dazhuanpan/pointer.png"></image>
+      </view>
+    </view>
+    <!--圆形大转盘抽奖-->
+    <view>
+    获奖结果：{{result_val}}
+    </view>
+    <view>
+    剩余抽奖次数：{{available_num}}
+    </view>
+</view>

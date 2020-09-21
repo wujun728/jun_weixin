@@ -1,0 +1,7 @@
+@import "./../components/common/placeholder.wxss";
+@import "./../components/common/bottomLoadMore.wxss";
+@import "./../components/shop_grid_list.wxss";
+@import "./../components/filterSlider.wxss";
+@import "./../components/filter_bar.wxss";
+@import "./../components/search.wxss";
+.history{padding:20px 27px}.doc{color:#999;font-size:26rpx}.lable{margin-top:20rpx;display:flex;flex-wrap:wrap;align-items:center;margin-left:-20rpx}.lable .child{background:#dedede;padding:10rpx 20rpx;border-radius:300rpx;margin-left:20rpx;font-size:26rpx;margin-top:5rpx;color:#000}.btn_box{width:377rpx;margin:0 auto;padding-top:88rpx}.btn_box .button{color:#999}.active{border:1px solid #f23737;color:#f23737}

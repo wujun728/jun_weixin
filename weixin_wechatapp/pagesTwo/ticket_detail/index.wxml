@@ -1,0 +1,74 @@
+<view class='main_box'>
+  <view class='ticket_top_bg'>
+    <image mode='aspectFill' class='ticket_top_bg_img' src='{{productData.productInfo.imagePath}}'></image>
+  </view>
+  <view class='ticket_info'>
+    <view class='ticket_base_info'>
+      <view class='ticket_base_info_left'>
+        <image mode='aspectFill' class='ticket_img' src='{{productData.productInfo.imagePath}}'></image>
+      </view>
+      <view class='ticket_base_info_right'>
+        <text class='ticket_name'>{{productData.productInfo.name}}</text>
+        <view class='ticket_price_block'>
+          <text class='price' style='color:{{color}}' wx:if="{{productData.productInfo.promotion>0}}">￥{{productData.productInfo.promotionPrice}}</text>
+          <text class='price' style='color:{{color}}' wx:else>￥{{productData.productInfo.price}}</text>
+          <text class='price' style='color:{{color}}' wx:if='{{productData.productInfo.maxPrice>productData.productInfo.price}}'>-{{productData.productInfo.maxPrice}}</text>
+          <text wx:if='{{productData.productInfo.unitShow}}' class="unitShow">/{{productData.productInfo.unitShow}}</text>
+          <text wx:if='{{productData.productInfo.maxPrice<=productData.productInfo.price&&productData.productInfo.tagPrice>productData.productInfo.price}}' class="tag_price">￥{{productData.productInfo.tagPrice}}</text>
+        </view>
+      </view>
+      <!--折扣  -->
+      <view class='discount' wx:if="{{productData.productInfo.discount}}" style='background:{{color}};box-shadow:2rpx 2rpx 14rpx {{color}}'>
+        <text style='font-size:32rpx;font-weight: bold;'>{{productData.productInfo.discount}}</text>
+        <text style='font-size:24rpx;'>折起</text>
+      </view>
+    </view>
+    <view class='ticket_detail_info'>
+      <view class='ticket_detail_info_one'>
+        <view class='ticket_sale_time'>
+          <image class='ticket_item_icon' src='http://image1.sansancloud.com/xianhua/2019_6/13/16/17/59_428.jpg?x-oss-process=style/preview_120'></image>
+          <text class='ticket_sale_time_text'>{{productData.productInfo.readyTimeStr}}</text>
+        </view>
+        <view class='ticket_perform_addr'>
+          <view class='ticket_perform_addr_left'>
+            <image class='ticket_item_icon' src='http://image1.sansancloud.com/xianhua/2019_6/13/16/19/10_399.jpg?x-oss-process=style/preview_120'></image>
+            <text class='ticket_perform_addr_text'>{{productData.productInfo.location}}</text>
+          </view>
+          <view class='navTo' bindtap='clickCatch'>
+            <image class='navTo_icon' src='http://image1.sansancloud.com/xianhua/2019_6/13/16/21/37_88.jpg?x-oss-process=style/preview_120'></image>
+          </view>
+        </view>
+      </view>
+      <!-- 首页组件-私有产品详情装饰-->
+      <component-customPage data="{{sendProductData}}" wx:if="{{sendProductData}}"></component-customPage>  
+      <view class='ticket_description' wx:if="{{productData.description.description!=''&&productData.description.description!='<p><br></p>'}}">
+        <text class='ticket_description_title'>详情介绍</text>
+        <import src="../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+        <view class="ticket_description_text">
+          <view class='wxParseHtmlContainer'> <template is="1" data="{{wxParseData:article.nodes}}"></template> </view>
+        </view>
+      </view>
+      <!-- 首页组件-公共产品详情装饰-->
+      <component-customPage data="{{sendIndexData}}" wx:if="{{sendIndexData}}"></component-customPage> 
+    </view>
+  </view>
+</view>
+<!-- 底部按钮 -->
+<view class='ticket_bottom_block'>
+  <view class='ticket_bottom_block_left'>
+    <button open-type="contact" plain='true' hover-class="none" style='border:none' class="ticket_kefu">
+      <image class='ticket_kefu_icon' src='http://image1.sansancloud.com/xianhua/2019_6/13/17/9/7_869.jpg?x-oss-process=style/preview_120'></image>
+    </button>
+    <view class='ticket_favorite' data-itemId="{{productData.productInfo.productId}}" catchtap='{{productData.productInfo.favorite==0?"addToFavourite":"removeFavourite"}}'>
+      <image wx:if="{{productData.productInfo.favorite==1}}" class='ticket_favorite_icon'  src='http://image1.sansancloud.com/xianhua/2019_6/13/17/56/48_461.jpg?x-oss-process=style/preview_120'></image>
+      <image wx:if="{{productData.productInfo.favorite==0}}" class='ticket_favorite_icon'  src='http://image1.sansancloud.com/xianhua/2019_6/13/17/9/7_881.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+  </view>
+  <view class='ticket_bottom_block_right'>
+    <view class='ticket_buy' data-way='buy' bindtap='readyPay2'  style='background:{{color}}'>
+      <text class='ticket_buy_text'>立即购票</text>
+    </view>
+  </view>
+</view>
+<import src="../../view-new/aikucun/measure_card2.wxml"/>
+ <template is="measure_card2" data="{{setting:setting,showCount,minCount,focusData:productData.productInfo,measures:productData.measures,byNowParams:byNowParams,measurementJson:measurementJson,type:bindway}}"></template> 

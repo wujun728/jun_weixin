@@ -1,0 +1,104 @@
+
+<view class='container'>
+    <!-- <view class='tab'>
+      <view wx:for='{{tab}}' style='width:{{(100/(tab.length))}}%;' wx:key='{{index}}'  class='{{showTabIndex == index ? "activeTab":"noneUse"}}'  
+        data-id='{{index}}' bindtap='bindTab'>{{item.name}}</view>        
+    </view> -->
+
+    <swiper class='Tab_page' current='{{showTabIndex}}' style='height: {{sysHeight-40}}px;' bindchange='changeIndex'> 
+      <swiper-item wx:for='{{tab}}' wx:key='{{index}}' wx:for-item='tab'>
+        <view class='swiperPageContainer'>
+          <view class='freshView'>
+            <view class='freshView_text'>{{refreshText}}</view>
+            <image src='http://image1.sansancloud.com/aikucun/2018_03/16/15/36/57_988.jpg?x-oss-process=style/preview_120'></image>
+          </view>
+           <scroll-view  style='height: {{sysHeight-40}}px;' class='tab_page_list' scroll-y upper-threshold='-60' lower-threshold='10' 
+            data-index='{{index}}' bindscroll='scrollEvent'  bindscrolltoupper='scrollTopToReflesh' bindscrolltolower='scrollBottomToLoadMore'>
+            
+            <view class='tab_page_list_container' >
+                <block wx:if='{{!tab.List}}'>  
+                    <view class='noneList'>没有相关订单</view>
+                </block>
+                <block wx:else> 
+                    <view class='cartContainer' wx:for='{{tab.List}}' wx:for-item='list' wx:for-index='i' wx:key='{{i}}'>
+                       <view class='promotionNameItem' wx:if='{{list.promotionName}}'>
+                          <view class='promotionNameLine'></view>
+                          <view class='promotionName' style='background:{{setting.platformSetting.defaultColor}}'><text>{{list.promotionName}}</text></view>
+                       </view>
+                      <view class='cartShopName'> 
+                        <view class='storageName' wx:if='{{list.storageName}}'><text>{{list.storageName}}</text></view>
+                        <!-- <text class="vity_tag" wx:if='{{list.storageName}}'>{{list.storageName}}</text> 
+                        <text class="vity_tag" wx:if='{{list.promotionName}}'>{{list.promotionName}}</text> -->
+                        <block wx:if='{{list.easyStatusStr == "作废"}}'> 
+                          <text class='' style='color:{{setting.platformSetting.defaultColor}}'>已作废</text>
+                        </block>
+                        <block wx:elif='{{list.easyStatusStr == "完成"}}'> 
+                          <text class='' style='color:{{setting.platformSetting.defaultColor}}'>交易成功</text>
+                        </block>
+                        <block wx:elif='{{list.easyStatusStr == "待评价"}}'> 
+                          <text class='' style='color:{{setting.platformSetting.defaultColor}}'>待完成</text>
+                        </block>
+                        <block wx:else>
+                          <text class='' style='color:{{setting.platformSetting.defaultColor}}'>{{list.easyStatusStr}}</text>
+                        </block>
+                      </view>
+
+                      <view class='cartItems' wx:for='{{list.orderItems}}' 
+                        wx:for-item='orderItem' wx:key='{{orderItem.itemId}}' 
+                        data-orderNo='{{list.orderNo}}' bindtap='lookMore'>
+                        <view class='itemCheckbox'>
+                          <image mode='aspectFill' src='{{orderItem.itemIcon}}?x-oss-process=style/preview'></image>
+                        </view>
+                        <view class='item_infomation'>
+                          <view class='item_infomation_name font1'>{{orderItem.itemName}}</view>
+
+                          <view class='item_infomation_name2' wx:if='{{!!orderItem.measureCartesianId}}'>{{orderItem.measures}}</view>
+                          <view class='item_infomation_nums'> 
+                            <text class='flexCenter'>x {{orderItem.itemCount}}</text>
+                          </view>
+                          <view class='item_infomation_money'>
+                            <view >单价:￥<text class='fontPrice'>{{orderItem.itemPrice}}</text></view>
+                            <text>订单号:{{list.orderNo}}</text>
+                          </view>
+                        </view>
+                      </view>
+
+                      <view  class='butn_container'>
+                          <view>
+                            <view class='orderType'>
+                               <image class='orderTypeIcon' src='http://image1.sansancloud.com/sansancloud/2018_9/11/14/57/30_666.jpg?x-oss-process=style/preview_120'></image>
+                            </view>
+                          </view>
+                          <text>订单金额￥{{list.goodsAmount - list.youhuiAmount}}</text>
+                          <text>（优惠￥{{list.youhuiAmount}}）</text>
+                          <text>（运费￥{{list.yunfeiAmount}}）</text>
+                      </view>
+                      <!-- 订单类型不同，按钮不一样 -->
+                      <!-- <view wx:if='{{list.easyStatus == 2}}' class='butn_container2'>
+                         <text class='mr80' wx:if="{{list.mendianZiti==1}}">门店自提</text>
+
+                          <text data-order='{{list}}' bindtap='editOrder'>编辑订单</text>
+                          <text data-order='{{list}}' bindtap='pay'>立即付款</text>
+                          <text data-orderNo='{{list.orderNo}}' data-index='{{index}}' bindtap='delectOrder'>删除订单</text>
+                      </view>
+                      <view wx:if='{{list.payStatus == 1 && list.orderStatus  == 1}}' class='butn_container2'>
+                        <text data-orderNo='{{list.orderNo}}' data-index='{{index}}' bindtap='cancelOrder'>取消订单</text>
+                      </view>
+                      <view wx:if='{{list.easyStatus == 4}}' class='butn_container2'>
+                          <text data-orderNo='{{list.orderNo}}' data-index='{{index}}' bindtap='arriverOrder'>确认收货</text>
+                      </view> -->
+
+                      <!-- <view wx:if='{{list.easyStatus == 5}}' class='butn_container2'>
+                          <text data-orderNo='{{list.orderNo}}' bindtap='pingjiaOrder'>评价</text>
+                      </view> -->
+
+                    </view>
+                     <view wx:if='{{tab.state.listEnd}}' class='dixian'> 我是有底线的 ~</view> 
+                </block>
+            </view>
+          </scroll-view>
+        </view>
+         
+      </swiper-item>
+    </swiper>
+</view>

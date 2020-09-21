@@ -1,0 +1,158 @@
+<view class='content_bg'>
+<view class="user_mendian_info_content">
+<image class='user_info_bg' src='http://image.tunzai.vip/tunzai/2018_10/31/16/53/30_615.jpg'></image>
+ <block wx:if="{{loginUser}}"> 
+   <view class='user_head_img' bindtap='loginOut'>
+     <image class='head_img' src='{{loginUser.platformUser.headimgurl}}'></image>
+   </view>
+   <view class='user_name' bindtap='loginOut'><text>{{loginUser.platformUser.nickname}}</text></view>
+ </block>
+ <block wx:else> 
+   <view class='user_head_img' bindtap='login'>
+     <image class='head_img' src=''></image>
+   </view>
+   <view class='user_name' bindtap='login'><text>未登录</text></view>
+ </block>
+<!--top end -->
+</view>
+<!--（服务员）data start -->
+     <view class='data_column' wx:if='{{loginUser.platformUser.managerServantId&&!loginUser.platformUser.managerMendianId}}' style='background:#fff'>
+      <view class='data_column_top'>
+
+        <view class='data_bottom_items' data-link='servant_zijin.html' bindtap='tolinkUrl'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/yuan2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>总收益</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.totalEarningAmount}}</text>
+          </view>
+          
+          <view class='data_bottom_items'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/money_collect2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>工费收益</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.realizedServiceProfit||0}}</text>
+         </view>
+          
+          <view class='data_bottom_items'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/yuan2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>推广收益</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.realizedParentServiceProfit||0}}</text>
+          </view>
+      </view>
+
+      <view class='data_column_bottom'>
+          <view class='data_bottom_items' data-link='servant_account.html' bindtap='tolinkUrl'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/money_collect2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>账户{{properties.alias_yue||'余额'}}</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.account.account||0}}</text>
+         </view>
+
+         <view class='data_bottom_items'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/calendar-check2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>接单数</text>
+            </view>
+            <text class='data_bottom_num'>{{myData.serviceCount||0}}</text>
+          </view>
+
+          <view class='data_right' data-link='servant_user.html' bindtap='tolinkUrl'>
+            <image src='../../../images/myImg/user2.png' style='width:32rpx;height:32rpx;margin-right:8rpx'></image>
+            <text class='data_right_id'>组员明细</text>
+            <image src='../../../images/check.png' style='width:20rpx;height:20rpx;margin-left:24rpx'></image>
+          </view>
+
+      </view>
+    </view>
+<!--（服务员）data end -->
+
+<!--（门店）data start -->
+     <view class='data_column' wx:if='{{loginUser.platformUser.managerMendianId}}' style='background:#fff'>
+      <view class='data_column_top'>
+
+        <view class='data_bottom_items' data-link='mendian_zijin.html' bindtap='tolinkUrl' style='flex:0 0 44%'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/yuan2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>总收益</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.totalEarningAmount}}</text>
+          </view>
+          
+          <view class='data_bottom_items' data-link='tunzhu_account.html' bindtap='tolinkUrl' style='flex:0 0 44%'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/money_collect2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>{{properties.alias_yue||'余额'}}</text>
+            </view>
+            <text class='data_bottom_num'>¥{{myData.account.account}}</text>
+         </view>
+          
+      </view>
+
+      <view class='data_column_bottom'>
+          <view class='data_bottom_items' style='flex:0 0 44%'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/calendar-check2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>当月施工台次</text>
+            </view>
+            <text class='data_bottom_num'>{{myData.curMonthServiceCount}}</text>
+         </view>
+
+         <view class='data_bottom_items' style='flex:0 0 44%'>
+            <view class='data_bottom_img_text'>
+                <image src='../../../images/myImg/calendar-check2.png' style='width:27rpx;height:20rpx;margin-right:10rpx'></image>
+                <text class='data_bottom_text'>总施工台次</text>
+            </view>
+            <text class='data_bottom_num'>{{myData.totalServiceCount}}</text>
+          </view>
+      </view>
+    </view>
+<!--（门店）data end -->
+<!--我的功能 start -->
+    <view class='profit_block profit_block mg_mendian'>
+        <view class='profit_block_fun_border'>
+          <view class='function_block_top'>
+            <view class='profit_top_name'>
+              <text>我的功能</text>
+            </view>
+          </view>
+          <view class='function_block_list'>
+            <view class='function_block_items'>
+              <button open-type="contact" class='kefu_buttom widthA' plain='true' hover-class="none" style='border:none'>
+                <view class='image_content'>
+                  <image class='function_items_img' src='http://image.tunzai.vip/tunzai/2018_10/31/20/53/7_55.jpg?x-oss-process=style/preview_120' style='width:40rpx;height:44rpx; box-sizing: border-box;padding-bottom:-5rpx'></image>
+                </view>
+                <text class='function_items_text'>专属客服</text>
+              </button>
+              <view><image class='profit_check_img' src='../../../images/check.png'></image></view>
+            </view>
+            <view class='function_block_items' data-link='about_us.html?id=30645' bindtap='tolinkUrl'>
+              <button class='kefu_buttom' plain='true' hover-class="none" style='border:none'>
+                <view class='image_content'>
+                  <image class='function_items_img' src='http://image.tunzai.vip/tunzai/2018_10/31/20/53/7_60.jpg?x-oss-process=style/preview_120' style='width:44rpx;height:44rpx'></image>
+                </view>
+              <text class='function_items_text' >关于我们</text>
+              </button>
+              <view><image class='profit_check_img' src='../../../images/check.png'></image></view>
+            </view>
+            <!-- <view class='function_block_items' data-link='{{(!loginUser.platformUser.managerServantId&&loginUser.platformUser.managerMendianId)||(loginUser.platformUser.managerServantId&&loginUser.platformUser.managerMendianId)?"mendian_qrcode.html":"servant_qrcode.html"}}' bindtap='tolinkUrl'>
+              <button class='kefu_buttom' plain='true' hover-class="none" style='border:none'>
+                <view class='image_content'>
+                  <image class='function_items_img' src='http://image1.sansancloud.com/yunjishi/2018_12/17/13/58/39_480.jpg?x-oss-process=style/preview_120' style='width:44rpx;height:44rpx'></image>
+                </view>
+              <text class='function_items_text' >我的二维码</text>
+              </button>
+              <view><image class='profit_check_img' src='../../../images/check.png'></image></view>
+            </view> -->
+          </view>  
+        </view>
+    </view>
+<!--我的功能 end -->
+<view class='ewmCode' wx:if='{{loginUser.platformUser.managerServantId||loginUser.platformUser.managerMendianId}}'>
+  <image class='ewmCodeImg' data-imageUrl='{{ewmCode}}' bindtap='lookBigImage' bindlongpress='saveImageToLocal' mode='widthFix' src='{{ewmCode}}'></image>
+</view>
+</view>

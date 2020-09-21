@@ -1,0 +1,35 @@
+<view class='container'>
+  <view class='product_page_container2'>
+        <block wx:if = "{{!!VisitList}}">
+          <view class='product_items2' wx:for='{{VisitList}}'
+           wx:for-item='visit' wx:key='{{visit.id}}' data-info='{{visit}}' bindtap='toProductDetail'>
+            <image mode="aspectFill" src='{{visit.itemIcon}}?x-oss-process=style/preview'></image>
+            <!-- <view class='product_items2_view1'>
+              <view>
+                <text class='name'>{{visit.itemName}}</text>
+                <text class='visite'>访问次数：{{visit.visitCount}}</text>
+              </view>
+              <text class='font2'>最近访问时间 {{visit.lastestVisitTime}}</text>
+            </view> -->
+            <view class='product_items2_view1'>
+              
+              <text class='name'>{{visit.itemName}}</text>
+
+              
+                <text class='font2'>访问时间 {{visit.lastestVisitTime}}</text>
+                <text class='visite'>访问次数：{{visit.visitCount}}</text>
+             
+              
+              
+            </view>
+          </view>
+        </block>
+ 
+        <block wx:else>
+          <view class="none">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关商品</text>
+          </view>
+        </block>
+      </view>
+</view>

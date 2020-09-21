@@ -1,0 +1,33 @@
+
+
+<import src="../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+
+
+<view class='wxParseHtmlContainer'>
+    <view class='newsTitle'><text>{{Data.title}}</text></view>
+    <view class='newsSubTitle'>
+      <image class='logo' src='{{setting.platformSetting.logo||"http://image1.sansancloud.com/jianzhan/2018_7/6/10/33/31_45.jpg"}}'></image>
+      <view class='group'>
+        <view class='newsType'>{{Data.typeName}}</view>
+        <view class='releaseTime'>{{Data.publishTime}}</view>
+      </view>
+    </view>
+    <view class='wxParseData'>
+      <template is="1"   data="{{wxParseData:article.nodes}}"></template> 
+    </view>
+</view>
+<component-customPage data="{{sendNewsData}}" wx:if="{{sendNewsData}}"></component-customPage> 
+<!-- 首页组件-公共新闻详情装饰-->
+<component-customPage data="{{sendIndexData}}"></component-customPage> 
+<view class='bottomBar'>
+  <button open-type='share' class='shareToFriends' >
+    <image class='shareToFriendsIcon' src='http://image1.sansancloud.com/jianzhan/2018_12/14/14/30/55_49.jpg'></image>
+    <text>分享给好友</text>
+  </button>
+  <view class='createPoster' bindtap='showPoster'>
+    <image class='createPosterIcon' src='http://image1.sansancloud.com/jianzhan/2018_12/14/14/30/55_324.jpg'></image>
+    <text>生成海报</text>
+  </view>
+</view>
+<news-posters newsId="{{params.id||params.newsId}}" ewmImgUrl='{{ewmImgUrl}}'  wx:if='{{posterState}}' bind:closePoaster="getChilrenPoster"></news-posters> 
+

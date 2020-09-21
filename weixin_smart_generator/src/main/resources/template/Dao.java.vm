@@ -1,0 +1,21 @@
+/**
+ * Copyright &copy; 2017-2018 <a href="https://www.smartwx.info">smartwx</a> All rights reserved.
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+package ${package}.${moduleName}.dao;
+
+import ${package}.${moduleName}.entity.${className};
+import com.smart.common.IBase;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @version 2.0
+ * @date ${datetime}
+ */
+public interface ${className}Mapper extends IBase<${className}> {
+	
+}

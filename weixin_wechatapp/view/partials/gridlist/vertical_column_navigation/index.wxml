@@ -1,0 +1,22 @@
+<!-- grid行列导航 标题 -->
+
+<template name="vertical_column_navigation">
+  <view class='user_menu'>
+    <view class='user_menu_item'  wx:for="{{jsonData.cells}}" wx:for-item="cells" wx:key="{{index}}">
+      <view class="user_menu_item_link" wx:if="{{cells.linkUrl!='contact'}}" data-link='{{cells.linkUrl}}' bindtap='tolinkUrl'>
+        <view class='user_menu_item_left'>
+          <image class='user_menu_item_icon' src='{{cells.iconPath}}'></image>
+          <text class='user_menu_item_name'>{{cells.text}}</text>
+        </view>
+        <image class='user_menu_item_more' src='http://image1.sansancloud.com/xianhua/2019_3/27/15/44/8_298.jpg?x-oss-process=style/preview_120'></image>
+      </view>
+      <button open-type="contact" plain='true' hover-class="none" style='border:none' class="user_menu_item_link kefu" wx:else>
+        <view class='user_menu_item_left'>
+          <image class='user_menu_item_icon' src='{{cells.iconPath}}'></image>
+          <text class='user_menu_item_name'>{{cells.text}}</text>
+        </view>
+        <image class='user_menu_item_more' src='http://image1.sansancloud.com/xianhua/2019_3/27/15/44/8_298.jpg?x-oss-process=style/preview_120'></image>
+      </button>
+    </view>
+  </view>
+</template> 

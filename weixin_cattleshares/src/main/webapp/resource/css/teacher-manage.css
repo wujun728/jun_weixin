@@ -1,0 +1,11 @@
+.introduce{width: 150px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;margin:0 auto}
+.goodat{background: #ffdee0;color: #f6868f;border: 1px solid #fac3c3;padding: 2px 2px;border-radius: 3px;}
+.title{padding: 2px;background: #ff4351;color: #fff;border-radius: 3px;}
+
+.fade-content{padding: 13px 13px 13px 40px;background: #fff;height: 430px;}
+.fade-addmessage{margin-bottom: -6px}
+.fade-addmessage p{display: inline-block;width: 60px;}
+.fade-addmessage textarea{margin-left:62px;resize: none;margin-top: 10px;}
+.fade-addmessage-intraduce p{position: absolute;margin-top: 35px;}
+.btn-addconfirm{float: right;margin-top: 15px;}
+.teach-img{width:38px;height:38px}

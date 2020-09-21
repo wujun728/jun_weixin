@@ -1,0 +1,10 @@
+    <!-- 当 androidTemplate为空的时候去引入普通列表样式simpleProductList -->  
+<import src="type_one/index.wxml"/>  <!-- 可以滑动的票务产品列表 -->
+<import src="type_two/index.wxml"/>  <!-- 票务产品列表 -->
+
+<block wx:if='{{!data.type||data.type=="typeOne"}}'>
+  <template is="typeOne" data="{{limitState,data,OrganizeshowWay,organizeList,localPoint,organizeName}}"></template> 
+</block>
+<block wx:if='{{data.type  == "typeTwo"}}'>
+  <template is="typeTwo" data="{{limitState,data,OrganizeshowWay,organizeList,localPoint,organizeName}}"></template> 
+</block>

@@ -1,0 +1,57 @@
+
+/* 通知 */
+.report_area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:10px;
+}
+.report_area_s{
+  width: 100%;
+  background: #fff;
+   opacity:0.8;
+  border-radius: 0.4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.2em 0;
+}
+
+ .report_icon {
+    width: 1.4em;
+    height: 1.4em;
+    margin-left: 1em;
+}
+.report_area .report_list{
+    padding-left: 10px;
+    width: 80%;
+    height: 100%;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report_list2{
+    padding-left: 1em;
+    width: 80%;
+    color: #999;
+
+    height: 2em;
+
+}
+.reportText{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.reportText text{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

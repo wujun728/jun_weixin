@@ -1,0 +1,53 @@
+<!-- 头部服务商 -->
+<template name="aikucun_index_head">
+    <view class='headerContainer'>
+        <view  style='height:{{(sysWidth-20)*0.45}}px;width:100%;'  class='{{loginUser.platformUser.mendian? "header_bg_banner":"header_bg_banner_2"}}'>
+             <image wx:if='{{loginUser.platformUser.mendian.banner && loginUser.platformUser.mendian.banner != 0 }}'
+                    data-name='{{loginUser.platformUser.mendian.name}}'
+                    data-content='{{loginUser.platformUser.mendian.content}}'
+                    bindtap='showMendianHtml'
+                    style='height:{{(sysWidth-20)*0.45}}px;width:100%;'
+                    src='{{loginUser.platformUser.mendian.banner}}'
+                    mode='aspectFill'
+            >
+            </image>
+
+            <image wx:elif='{{platformSetting.defaultShopBean.shopBanner}}'
+              data-name='{{loginUser.platformUser.mendian.name}}'
+              data-content='{{loginUser.platformUser.mendian.content}}'
+              bindtap='showMendianHtml'
+              style='height:{{(sysWidth-20)*0.45}}px;width:100%;'
+              src='{{platformSetting.defaultShopBean.shopBanner}}'
+              mode='aspectFill' >
+            </image>
+
+            <image wx:else
+              data-name='{{loginUser.platformUser.mendian.name}}'
+              data-content='{{loginUser.platformUser.mendian.content}}'
+              bindtap='showMendianHtml'
+              style='height:{{(sysWidth-20)*0.45}}px;width:100%;'
+              src='/images/icons/mendian_banner_default.jpg'
+              mode='aspectFill' >
+            </image>
+
+        </view>
+
+        <view class="header_mendian_wrap">
+            <view class="server_area_icon" wx:if="{{loginUser.platformUser.mendian.logo && loginUser.platformUser.mendian.logo != 0}}">
+                <image data-url="{{loginUser.platformUser.mendian.logo}}" bindtap="lookBigWxCode" src="{{loginUser.platformUser.mendian.logo}}"></image>
+            </view>
+            <view class="server_area_icon" wx:else>
+                <image src="/images/icons/logo.jpg"></image>
+            </view>
+            <view class="server_area" wx:if="{{loginUser.platformUser.mendian}}">
+                <block wx:if="{{loginUser.platformUser.mendian.name}}">
+                    <text  class="server_area_text" data-name="{{loginUser.platformUser.mendian.name}}" data-content="{{loginUser.platformUser.mendian.content}}" bindtap="showMendianHtml">{{loginUser.platformUser.mendian.name}}</text>
+                </block>
+                <block wx:else>
+                    <text class="server_area_text"></text>
+                </block>
+            </view>
+            <view class="header_pro_icon"><image src='/images/icons/header_pro_icon.png'></image></view>
+        </view>
+    </view>
+</template>

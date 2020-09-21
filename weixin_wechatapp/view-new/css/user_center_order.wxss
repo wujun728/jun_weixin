@@ -1,0 +1,25 @@
+.showTypeContainer_new{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+.grid_cell_new{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-small;
+}
+.grid_cell_new image{
+  width: 20px;
+  height:20px;
+}
+.grid_cell_new_text{
+  margin-top: 10px;
+  color: #777;
+}

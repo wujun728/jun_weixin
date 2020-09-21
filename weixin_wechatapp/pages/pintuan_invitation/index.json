@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "拼团详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "time": "/view/partials/time/time"
+  }
+}

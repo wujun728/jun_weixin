@@ -1,0 +1,142 @@
+<view>
+  <!--首页轮播图-->
+  <view class="banner" bindtap='changeBannerPhoto'>
+    <image mode="aspectFill" src='{{userInfo.userBanner}}'></image>
+  </view>
+
+  <!--用户信息-->
+  <view class='userInfo'>
+    <!-- <view class='userPhoto'>
+      <view class="p1"><image bindtap='changeUserPhoto' src='{{userInfo.userPhoto}}'></image></view>      
+    </view> -->
+
+    <view class='userName'>
+      <image bindtap='editorUser'  wx:if="{{!isEditUser && userInfo.flag==1}}" class='im1' src='../../assets/images/userEditor.png'></image>
+      <span wx:if="{{!isEditUser}}">{{userInfo.userName}}</span>
+      <span wx:if="{{isEditUser}}">
+        <input class="inp1" bindinput='userNameInput' value="{{userInfo.userName}}" />
+      </span>
+      <image class='im2' wx:if="{{!isEditUser}}" src='../../assets/images/userSex.png'></image>
+    </view>
+    <view class='userTag' wx:if="{{!isEditUser}}">{{userInfo.userTag}}</view>
+    <view class='userTag1' wx:if="{{isEditUser}}">
+      <input value="{{userInfo.userTag}}" bindinput='userTagInput' auto-focus/>
+    </view>
+
+    <!--好感度-->
+    <!-- <view wx:if="{{!isEditUser}}" class="energy">
+      <view class='e1'>好感</view>
+      <view class='e2'>40%</view>
+    </view> -->
+
+    <!--确定按钮-->
+    <view class="submitUser" wx:if="{{isEditUser}}">
+      <span bindtap="submitUser">确定</span>
+      <span bindtap="cancelUser">取消</span>
+    </view>
+
+  </view>
+
+  <!--用户心情-->
+  <view class='userMood'>
+    <!--编辑按钮-->
+    <view class='editor'>
+      <image wx:if="{{!isEditMood && userInfo.flag==1}}" bindtap="editorMood" class='im3' src='../../assets/images/userMoodEditor.png'></image>
+      <view class='ed2' wx:if="{{isEditMood}}">
+        <span bindtap="submitMood">确定</span>
+        <span bindtap="cancelMood">取消</span>
+      </view>
+    </view>
+
+    <!--用户心情-->
+    <view class='item'>
+      <span class="sp1">
+        <image class='p1' src='../../assets/images/mood1.png'></image>
+      </span>
+      <span class="sp2">
+        <view class='t1'>心情</view>
+        <view class='t2'>美好的一天</view>
+      </span>
+      <span class="sp3">
+
+        <image wx:if="{{userInfo.userMood.mood1 >= 1}}" bindtap='addMood' data-count="1" class='p2_1' src='../../assets/images/mood1_1_1.png'></image>
+        <image wx:if="{{userInfo.userMood.mood1 < 1}}" bindtap='addMood' data-count="1" class='p2_1' src='../../assets/images/mood1_1.png'></image>
+
+        <image wx:if="{{userInfo.userMood.mood1 >= 2}}" bindtap='addMood' data-count="2" class='p2_1' src='../../assets/images/mood1_1_1.png'></image>
+        <image wx:if="{{userInfo.userMood.mood1 < 2}}" bindtap='addMood' data-count="2" class='p2_1' src='../../assets/images/mood1_1.png'></image>
+
+        <image wx:if="{{userInfo.userMood.mood1 >= 3}}" bindtap='addMood' data-count="3" class='p2_1' src='../../assets/images/mood1_1_1.png'></image>
+        <image wx:if="{{userInfo.userMood.mood1 < 3}}" bindtap='addMood' data-count="3" class='p2_1' src='../../assets/images/mood1_1.png'></image>
+
+        <image wx:if="{{userInfo.userMood.mood1 >= 4}}" bindtap='addMood' data-count="4" class='p2_1' src='../../assets/images/mood1_1_1.png'></image>
+        <image wx:if="{{userInfo.userMood.mood1 < 4}}" bindtap='addMood' data-count="4" class='p2_1' src='../../assets/images/mood1_1.png'></image>
+
+        <image wx:if="{{userInfo.userMood.mood1 >= 5}}" bindtap='addMood' data-count="5" class='p2_1' src='../../assets/images/mood1_1_1.png'></image>
+        <image wx:if="{{userInfo.userMood.mood1 < 5}}" bindtap='addMood' data-count="5" class='p2_1' src='../../assets/images/mood1_1.png'></image>
+        
+      </span>
+
+      
+
+    </view>
+
+    <!--用户心情-->
+    <view class='item'>
+      <span class="sp1">
+        <image class='p1' src='../../assets/images/mood2.png'></image>
+      </span>
+      <span class="sp2">
+        <view class='t1'>烦扰</view>
+        <view class='t2'>好烦，好气</view>
+      </span>
+      <span class="sp3">
+
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 >= 1}}" bindtap='addMood2' data-count="1" src='../../assets/images/mood2_2_2.png'></image>
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 < 1}}" bindtap='addMood2' data-count="1" src='../../assets/images/mood2_2.png'></image>
+
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 >= 2}}" bindtap='addMood2' data-count="2" src='../../assets/images/mood2_2_2.png'></image>
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 < 2}}" bindtap='addMood2' data-count="2" src='../../assets/images/mood2_2.png'></image>
+
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 >= 3}}" bindtap='addMood2' data-count="3" src='../../assets/images/mood2_2_2.png'></image>
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 < 3}}" bindtap='addMood2' data-count="3" src='../../assets/images/mood2_2.png'></image>
+
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 >= 4}}" bindtap='addMood2' data-count="4" src='../../assets/images/mood2_2_2.png'></image>
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 < 4}}" bindtap='addMood2' data-count="4" src='../../assets/images/mood2_2.png'></image>
+
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 >= 5}}" bindtap='addMood2' data-count="5" src='../../assets/images/mood2_2_2.png'></image>
+        <image class='p2_2' wx:if="{{userInfo.userMood.mood2 < 5}}" bindtap='addMood2' data-count="5" src='../../assets/images/mood2_2.png'></image>
+
+      </span>
+    </view>
+
+    <!--用户心情-->
+    <view class='item'>
+      <span class="sp1">
+        <image class='p1' src='../../assets/images/mood3.png'></image>
+      </span>
+      <span class="sp2">
+        <view class='t1'>撒娇</view>
+        <view class='t2'>宝宝需要关心</view>
+      </span>
+      <span class="sp3">
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 >= 1}}" bindtap='addMood3' data-count="1" src='../../assets/images/mood3_3_3.png'></image>
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 < 1}}" bindtap='addMood3' data-count="1" src='../../assets/images/mood3_3.png'></image>
+
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 >= 2}}" bindtap='addMood3' data-count="2" src='../../assets/images/mood3_3_3.png'></image>
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 < 2}}" bindtap='addMood3' data-count="2" src='../../assets/images/mood3_3.png'></image>
+
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 >= 3}}" bindtap='addMood3' data-count="3" src='../../assets/images/mood3_3_3.png'></image>
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 < 3}}" bindtap='addMood3' data-count="3" src='../../assets/images/mood3_3.png'></image>
+
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 >= 4}}" bindtap='addMood3' data-count="4" src='../../assets/images/mood3_3_3.png'></image>
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 < 4}}" bindtap='addMood3' data-count="4" src='../../assets/images/mood3_3.png'></image>
+
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 >= 5}}" bindtap='addMood3' data-count="5" src='../../assets/images/mood3_3_3.png'></image>
+        <image class='p2_3' wx:if="{{userInfo.userMood.mood3 < 5}}" bindtap='addMood3' data-count="5" src='../../assets/images/mood3_3.png'></image>
+
+      </span>
+    </view>
+
+  </view>
+
+</view>

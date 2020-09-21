@@ -1,0 +1,91 @@
+
+  <view class="sgin_in">
+    <image src="../images/bc_qdyl.png" class="head_bc"/>
+    <view class="qd_content">
+      <view class="jf">积分:{{score}}</view>
+      <view class="out_crl">
+        <view class="second_crl" bindtap="sign">
+          <view class="in_crl">
+            <text class="sign_state">
+                  <text  wx:if="{{signed}}">已签到</text>
+            <text  wx:if="{{!signed}}">签到</text>
+            </text>
+            <view class="line"/>
+            <text class="sign_times">连续{{conDays}}天</text>
+          </view>
+        </view>
+      </view>
+      <view class="sign_doc" wx:if="{{signed}}">今日已签到，获得{{todayScore}}积分</view>
+      <view class="sign_doc" wx:if="{{!signed}}">今日还未签到</view>
+    </view>
+    <view class="line-box">
+      
+  <view class="time_line_box">
+    <view class="time_line" style="width:100%">
+      <view>
+        <view class="day-box"  wx:for="{{$wepySignTime$list}}" wx:key="item" wx:index="index">
+          <view class="order_item {{item.signed==1?'selected':''}}" style="left:{{index*15.3}}%">{{item.signTime}}</view>
+          <view class="award-jf" wx:if="{{item.award}}">{{item.award}}</view>
+        </view>
+      </view>
+      <span class="filling_line" style="transform: scaleX({{$wepySignTime$aways*0.165}})"/>
+    </view>
+  </view>
+
+    </view>
+    <!--tab模块-->
+    <view class="tab_box">
+      
+  <!--index.wxml-->
+  <view class="swiper-tab">
+    <view  wx:for="{{$tab$tabList}}" wx:key="index" class="swiper-tab-list {{$tab$currentTab==index ? 'active' : ''}}" data-current="{{index}}" bindtap="$tab$swichNav">
+      {{item.name? item.name:item}}
+      <view class=" {{item.dotNum>=100?'dotbig':'dot'}}" wx:if="{{item.dotNum>0}}">{{item.dotNum}}</view>
+    </view>
+  </view>
+
+    </view>
+    <scroll-view scroll-y="true" class="swiper-item-box" style="height:{{winHeight - 275}}px">
+      <!-- 积分规则 -->
+      
+  <view class="jf_rule" wx:if="{{currentTab==0}}">
+    <view class="title tc">捷微商城积分规则</view>
+    <!--<view class="jf_jz_title tc">积分价值</view>-->
+    <view class="jf_content">
+      <view class="sec_title">1.签到积分规则 </view>
+      <view class="jf_ins">亲，每天签到送积分啦！每天签到一次送10积分，多签多得，积分可以抵消现金的，记得每天签到一次哦。</view>
+    </view>
+    <view class="jf_content">
+      <view class="sec_title">2.积分使用规则 </view>
+      <view class="jf_ins">亲，签到的积分可以享受满立减，下单更优惠！即满100积分可抵消5元现金；在您下单微信支付界面，系统会自动显示你的总积分多少可用多少，微信付款之后在商品金额上系统会自动减去5元。</view>
+    </view>
+    <!--<view class="jf_content">
+      <view class="sec_title">积分社区的价值</view>
+      <view class="jf_ins">小e们听过各种社区互动获得的积分可以用于提升小嗨的等级，等级越高开启的社区特权越多。</view>
+    </view>-->
+  </view>
+
+      <!-- 积分记录 -->
+      
+  <view class="detai-content" wx:if="{{currentTab==1}}">
+    <view class="detai-list"  wx:for="{{$pointsDetail$list}}" wx:key="item">
+      <view class="detai-left">
+        <view class="detai-name" wx:if="{{item.isdeleted==0}}">每日签到获得</view>
+        <view class="detai-name" wx:if="{{item.isdeleted==2}}">连续签到7天获得</view>
+        <view class="detai-time">{{item.signTime}}</view>
+      </view>
+      <view class="detail-right">
+        <span class="detail-money">+{{item.signPoint}}</span>
+      </view>
+    </view>
+  </view>
+  <!--暂无数据显示-->
+  
+    <view class="empty-placeholder row-center"  wx:if="{{$pointsDetail$placeholder$show}}">
+        <image class="icon-xl" src="../images/empty.png"/>
+        <view class="txt">{{$pointsDetail$placeholder$message}}</view>
+    </view>
+
+
+    </scroll-view>
+  </view>

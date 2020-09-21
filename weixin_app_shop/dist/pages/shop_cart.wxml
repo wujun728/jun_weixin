@@ -1,0 +1,69 @@
+
+  <view class="shop_cart">
+    
+  <view class="goodsList">
+    <block wx:for="{{$shopCart$list}}" wx:for-index="$shopCart$index" wx:for-item="$shopCart$item" wx:key="$shopCart$index">
+      <view class="list_box">
+        
+  <view class="swipe-item-wrapper">
+    <view class="swipe-content" style="left:{{$shopCart$item.style === 0 || $shopCart$item.style=='undefined'? '0' : $shopCart$item.style + 'rpx'}}" bindtouchstart="$shopCart$swipeDelete$ts" bindtouchmove="$shopCart$swipeDelete$tm" bindtouchend="$shopCart$swipeDelete$te" data-com-index="{{$shopCart$index}}">
+      
+          <!-- <view class="a-goods-conts {{item.ischecked? 'active':''}}"  > -->
+          <view class="goods-info">
+            <icon class="icon_check" type="success" color="{{$shopCart$item.ischecked?'red':'rgb(153,153,153)'}}" catchtap="$shopCart$selectTap" data-index="{{$shopCart$index}}" data-id="{{$shopCart$item.id}}" size="20"/>
+            <view class="img-box">
+              <image src="{{$shopCart$img_domain}}/{{$shopCart$item.thumLogo}}" class="img"/>
+            </view>
+            <view class="text-box">
+              <view class="goods-title">
+                <navigator url="/pages/goods_detail?id={{$shopCart$item.goodsId}}&priceId={{$shopCart$item.priceId}}&purchasetype={{$shopCart$item.type}}&special=0">
+                  {{$shopCart$item.goodsName}}
+                </navigator>
+              </view>
+              <!--  -->
+              <view class="lable">
+                <view class="goods-lable">{{$shopCart$item.goodsSkuValName}}</view>
+                <view class="bo-label"  wx:if="{{$shopCart$item.type==2}}">补货</view>
+              </view>
+              <view class="goods-price">¥ {{$shopCart$item.price}}</view>
+              <view class="buy-num">
+                <view class="jian-btn {{$shopCart$item.num==1? 'disabled' : ''}}" catchtap="$shopCart$jianBtnTap" data-index="{{$shopCart$index}}" data-id="{{$shopCart$item.id}}">-</view>
+                <input type="number" value="{{$shopCart$item.num}}" disabled/>
+                <view class="jia-btn {{$shopCart$item.num==1000? 'disabled' : ''}}" catchtap="$shopCart$jiaBtnTap" data-index="{{$shopCart$index}}" data-id="{{$shopCart$item.id}}">+</view>
+              </view>
+            </view>
+          </view>
+          <!--   </view> -->
+        
+    </view>
+    <view class="swipe-actions actions-right">
+      <view class="swipe-btn del" catchtap="$shopCart$swipeDelete$handleRightBtnTap" data-com-index="{{$shopCart$index}}" data-wpyhandlerightbtntap-a="{{$shopCart$item}}">删除</view>
+    </view>
+  </view>
+
+      </view>
+    </block>
+    <view class="list_box">
+    </view>
+  </view>
+  <view class="empty_cart"  wx:if="{{$shopCart$list.length==0}}">
+    <image src="../images/empty_cart.png" class="empty_cart_img"/>
+    <view class="empty_cart_text">购物车还是空的</view>
+    <view class="shop_btn">
+      <view class="block btn_group">
+        <view class="btn get_store" bindtap="$shopCart$goIndex">去逛逛</view>
+      </view>
+    </view>
+  </view>
+  <view class="jiesuan-box"  wx:if="{{$shopCart$list.length>0}}">
+    <view class="left-price">
+      <view catchtap="$shopCart$selectAll" class="all_select_box">
+        <icon type="success" size="20" color="{{$shopCart$allChecked?'red':'rgb(153,153,153)'}}"/>
+        <view class="all_select">全选</view>
+      </view>
+      <view class="total" hidden="{{$shopCart$noSelect}}">合计：¥ {{$shopCart$totalPrice}}</view>
+    </view>
+    <view class="to-pay-btn {{$shopCart$noSelect?'no-select':''}}" hidden="{{!$shopCart$saveHidden}}" bindtap="$shopCart$toPayOrder">去结算</view>
+  </view>
+
+  </view>

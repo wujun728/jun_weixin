@@ -1,0 +1,72 @@
+<!-- grid行列导航 标题 -->
+
+<template name="second_navigation_with_shadow">
+  <view  class="showTypeContainer" wx:if="{{jsonData.showType == 0}}">
+   <view class='boxShadow'>
+    <block wx:if="{{jsonData.iconType == 0 }}">
+      <view class="grid_cell" style="width:{{100/ jsonData.column}}%;" 
+         wx:for="{{jsonData.cells}}" wx:for-item="cells" wx:key="{{index}}">
+        <view class=" {{cells.linkUrl}}" >{{cells.text}}</view>
+      </view>
+    </block>
+    
+    <block wx:else>
+
+      <view class="grid_cell" style="width:{{100/ jsonData.column}}%;"  wx:for="{{jsonData.cells}}" wx:for-item="cells" wx:key="{{index}}">
+        <view class='grid_cell_item' wx:if="{{cells.linkUrl!='contact'}}" data-link="{{cells.linkUrl}}" catchtap='tolinkUrl'>
+          <image wx:if="{{cells.iconPath}}" src="{{cells.iconPath}}?x-oss-process=style/preview"></image>
+          <view class=" {{cells.loginCheck}}" site_url="{{cells.linkUrl}}"  targetType="{{cells.targetType}}">
+            {{cells.text}}
+          </view>
+        </view>
+        <button open-type="contact" plain='true' hover-class="none" style='border:none' class="grid_cell_item kefu" wx:else>
+          <image wx:if="{{cells.iconPath}}" src="{{cells.iconPath}}?x-oss-process=style/preview"></image>
+          <view class=" {{cells.loginCheck}}" site_url="{{cells.linkUrl}}"  targetType="{{cells.targetType}}">
+            {{cells.text}}
+          </view>
+        </button>
+      </view>
+    </block>
+</view>
+  </view>
+<!-- 到时候再改这个，先往下面看吧 -->
+  <view style="border:1px solid rgb(214,214,214);border-bottom:none;"
+   class="showTypeContainer" wx:if="{{jsonData.showType == 1}}">
+
+    <block wx:if="{{jsonData.iconType == 0 }}">
+    <view>222</view>
+          <view class="grid_cell" style="width:{{100/ column}}%;"  wx:for="{{cells}}" wx:for-item="cells" wx:key="{{index}}">
+        <view class=" {{cells.linkUrl}}" >{{cells.text}}</view>
+      </view>
+    </block>
+    
+    <block wx:else>
+       <view>1111</view>
+      <view class="grid_cell" style="width:{{100/ column}}%;"  wx:for="{{cells}}" wx:for-item="cells" wx:key="{{index}}">
+        <image src="{{cells.iconPath}}"></image>
+        <view class=" {{cells.loginCheck}}" site_url="{{cells.linkUrl}}"  targetType="{{cells.targetType}}">
+          {{cells.text}}
+        </view>
+      </view>
+    </block>
+
+  </view>
+
+
+  <view  class="showTypeContainer3" 
+     wx:if="{{showType == 3}}">
+      <block  wx:for="{{cells}}" wx:for-item="cells" wx:key="{{index}}">
+        <block wx:if="{{index == 0}}">
+          <view class="grid_cell3_1" data-link = "{{cells.linkUrl}}" bindtap="tolinkUrl">
+            <image mode='scaleToFill' src="{{cells.iconPath}}?x-oss-process=style/preview"></image>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="grid_cell3_2" data-link = "{{cells.linkUrl}}" bindtap="tolinkUrl">
+            <image mode='scaleToFill' src="{{cells.iconPath}}?x-oss-process=style/preview"></image>
+          </view>
+        </block>
+      </block>
+  </view>
+
+</template> 

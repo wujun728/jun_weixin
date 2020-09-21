@@ -1,0 +1,22 @@
+/* pages/tabchange/tabchange.wxss */
+/*tab切换效果  */
+.tab{ padding: 20rpx 0;}
+.tab-nav{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.tab-nav view{
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ccc;
+  width: 33.33%;
+  font-size: 30rpx;
+  text-align: center;
+  color: #000;
+}
+.tab-nav view.on{
+  background: #3c8dbc;
+  color: #fff;
+}
+/*tab切换效果  */

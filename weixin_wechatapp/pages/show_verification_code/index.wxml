@@ -1,0 +1,12 @@
+<view class='container'>
+  <view class='cardVoucher_logo'><image class='cardVoucher_logo_img' src='{{verificationCodeData.icon}}'></image></view>
+  <view class='cardVoucher_ewm'>
+    <image class='cardVoucher_ewm_img' src='{{ewmCode}}'></image>
+  </view>
+  <view class='cardVoucher_code'>
+    <text class='cardVoucher_code_text'>{{verificationCodeData.verifyScanCode}}</text>
+  </view>
+  <view class='cardVoucher_describe'>
+    <text>{{verificationCodeData.description}}</text>
+  </view>
+</view>

@@ -1,0 +1,313 @@
+<form bindsubmit="formSubmit" report-submit>
+<view class='content'>
+  <view class='formBanner' wx:if="{{formData.banner}}">
+    <image class='bannerUrl' src='{{formData.banner}}' mode='widthFix'></image>
+  </view>
+  <view class='formContent'>
+  <!-- 0字符串   1数字 2下拉框  3单选框  4复选框  5日期  6时间  7 图片  8 间隔 -->
+    <view wx:for='{{formData.items}}' wx:for-item='items' wx:if="{{controlFieldShow[items.name]}}">
+      
+        <!-- 字符串 -->
+        <view class='inputString common' wx:if='{{items.type==0}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <input name="{{items.name}}" data-name="{{items.name}}" bindinput="saveSearchValue" value='{{items.defaultValue}}' placeholder='{{items.remark}}'></input>
+        </view>
+        <!-- 数字 -->
+        <view class='inputString common' wx:if='{{items.type==1}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <input type="digit" name="{{items.name}}" data-name="{{items.name}}" bindinput="saveSearchValue" value='{{items.defaultValue}}' placeholder='{{items.remark}}'></input>
+        </view>
+        <!-- 间隔 -->
+        <view class='inputString' wx:if='{{items.type==9999}}'>
+          <view class='interval' style='height:{{items.splitStyle.height}}px;background:{{items.splitStyle.backgroundColor}}' wx:if="{{!items.splitStyle.banner}}">
+            <text style='width:100%;font-size:{{items.splitStyle.fontSize}}px;color:{{items.splitStyle.color}};text-align:{{items.splitStyle.textAlign}}'>{{items.splitStyle.title}}</text>
+          </view>
+          <image class='interval_banner' mode='widthFix' wx:else src='{{items.splitStyle.banner}}'></image>
+        </view>
+        <!-- 下拉框 -->
+        <view class='selectType common' wx:if='{{items.type==2}}'>
+          <view class='selectName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker class='picker' data-index="{{index}}" data-value="{{items.listValues}}" bindchange="bindPickerChange" name='{{items.name}}' value="{{items.defaultValue}}" range="{{items.listValues}}">
+            <view class="pickerValue"><text>{{selectPicker["picker_"+index]}}</text></view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker >
+        </view>
+        <!-- 对错选项 -->
+        <view class='selectType common' wx:if='{{items.type==3}}' style='align-items:flex-start;padding:10px;flex-direction:column;'>
+          <view class='selectName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <radio-group bindchange="radioChange" data-index="{{index}}"  data-name="{{items.name}}" data-value="{{items.listValues}}" style="margin:10rpx 20rpx" class="checkboxList">
+            <label class="checkbox" wx:for="{{items.listValues}}">
+              <radio color="{{setting.platformSetting.defaultColor}}" value="{{item.value}}" checked="{{showRadioState[index]}}"/>{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+        <!-- 复选框 -->
+        <view class='selectType common' wx:if='{{items.type==4}}' style='align-items:flex-start;padding:10px;flex-direction:column;'>
+          <view class='selectName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <checkbox-group bindchange="checkboxChange" data-index="{{index}}"  data-value="{{items.listValues}}" style="margin:10rpx 20rpx" class="checkboxList">
+            <label class="checkbox" wx:for="{{items.listValues}}">
+              <checkbox color="{{setting.platformSetting.defaultColor}}" value="{{item}}" checked="{{showCheckBoxState[index]}}" />
+              {{item}}
+            </label>
+          </checkbox-group>
+        </view>
+        <!-- 日期 -->
+        <view class='inputString common' wx:if='{{items.type==5}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker mode="date" value="{{date}}" name="{{items.name}}" data-index="{{index}}" bindchange="bindDateChange">
+            <view class="picker">
+              {{dataAndTime[items.name]}}
+            </view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker>
+        </view>
+        <!-- 时间 -->
+        <view class='inputString common' wx:if='{{items.type==6}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker mode="time" data-index="{{index}}" name="{{items.name}}" value="{{time}}" bindchange="bindTimeChange">
+            <view class="picker">
+              {{dataAndTime[items.name]}}
+            </view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker>
+        </view>
+        <!-- 日期时间 -->
+        <view class='selectType common' wx:if='{{items.type==8}}'>
+          <view class='selectName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker class='picker' mode="multiSelector" data-itemData="{{items}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" value="{{dateTimeIndexObj[items.name]}}" range="{{dateTimeObj[items.name]}}">
+            <view class="pickerValue">{{dataAndTime[items.name]}}</view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker >
+        </view>
+        <!-- 图片 -->
+        <view class='imgType common' wx:if='{{items.type==7}}'>
+          <view class='imgName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <view class='upload'>
+          <!-- wx:for="{{upLoadImageList['img_'+index]}}" wx:for-item="imgs"  -->
+            <view class='uploadedImg' wx:for="{{upLoadImageList['img_'+index]}}" wx:for-item="img" wx:for-index="idx">
+              <view class='removeImgIcon' bindtap='removeImg' data-index="{{index}}" data-num='{{idx}}'><text>x</text></view>
+              <image data-imageUrl='{{img}}' data-link='{{img}}' bindlongpress='saveImageToLocal' bindtap='toImgUrl' class='uploadedImgUrl' src="{{img}}" mode='aspectFill'></image>
+            </view>
+            <view class='uploadImg' bindtap='addCommitImage' data-index='{{index}}' data-type="{{items.type}}">
+              <image class='uploadImgIcon' src='http://image1.sansancloud.com/jianzhan/2018_10/22/18/4/3_874.jpg?x-oss-process=style/preview_120'></image>
+              <text style='font-size:24rpx;color:#555;margin-top:10rpx'>添加图片</text>
+            </view>
+          </view>
+        </view>
+         <!-- 多行文本 -->
+        <view class='inputString common' wx:if='{{items.type==9}}' style='align-items:flex-start;padding:10px;flex-direction:column;'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <textarea  maxlength="-1" auto-height="" data-name="{{items.name}}" bindinput="saveSearchValue" placeholder='{{items.remark}}' value='{{items.defaultValue}}' name="{{items.name}}"/>
+        </view>
+        <!-- 地址 -->
+        <view class='inputString common' wx:if='{{items.type==10}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker mode="region" data-index="{{index}}" name='{{items.name}}' value="{{region}}"  bindchange="bindRegionChange">
+            <view class="picker">
+              {{region['address_'+index]}}
+            </view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker>
+        </view>
+        <!-- 多图片 -->
+        <view class='imgType common' wx:if='{{items.type==11}}'>
+          <view class='imgName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <view class='upload'>
+          <!-- wx:for="{{upLoadImageList['img_'+index]}}" wx:for-item="imgs"  -->
+            <view class='uploadedImg' wx:for="{{upLoadImageList['img_'+index]}}" wx:for-item="imgs" wx:for-index="idx">
+              <view class='removeImgIcon' bindtap='removeImg'  data-index="{{index}}" data-num='{{idx}}'><text>x</text></view>
+              <image data-imageUrl='{{imgs}}' data-link='{{imgs}}' bindlongpress='saveImageToLocal' bindtap='toImgUrl' class='uploadedImgUrl' src="{{imgs}}" mode='aspectFill'></image>
+            </view>
+            <view class='uploadImg' bindtap='addCommitImage' data-index='{{index}}' data-type="{{items.type}}">
+              <image class='uploadImgIcon' src='http://image1.sansancloud.com/jianzhan/2018_10/22/18/4/3_874.jpg?x-oss-process=style/preview_120'></image>
+              <text style='font-size:24rpx;color:#555;margin-top:10rpx'>添加图片</text>
+            </view>
+          </view>
+        </view>
+        <!-- 位置 -->
+        <view class='inputString common' wx:if='{{items.type==12}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <view class='location' catchtap="tolinkUrl" data-link="select_location.html" data-index="{{index}}">
+            <input class='select_address' style='width:80%' disabled="disabled" value="{{locationList['position_'+index].value}}" placeholder='{{items.remark}}'></input>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 多级联 -->
+        <view class='selectType common' wx:if='{{items.type==13}}'>
+          <view class='selectName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <picker class='picker' mode="multiSelector" bindtap='getCurrentData' data-itemData="{{items}}" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex[items.name]}}" range="{{multistageData[items.name]}}">
+            <view class="pickerValue">{{multistageData[items.name][0][multiIndex[items.name][0]]}} {{multistageData[items.name][1][multiIndex[items.name][1]]}} {{multistageData[items.name][2][multiIndex[items.name][2]]}} {{multistageData[items.name][3][multiIndex[items.name][3]]}} {{multistageData[items.name][4][multiIndex[items.name][4]]}}</view>
+            <view class='pickerRight'>
+              <image class='pickerImg' src='http://image1.sansancloud.com/jianzhan/2018_9/11/13/41/53_722.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </picker >
+        </view>
+         <!-- 电话 -->
+        <view class='inputString common' wx:if='{{items.type==14}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{items.title}}</text>
+          </view>
+          <input  name="{{items.name}}" data-name="{{items.name}}" bindinput="saveSearchValue" value='{{items.defaultValue}}' placeholder='{{items.remark}}'></input>
+        </view>
+        <!-- 进程轴栏目 -->
+        <view class='process_line common' wx:if='{{items.type==15}}'>
+          <view class='process_list' wx:if="{{processLineData[items.name]&&processLineData[items.name].length!=0}}">
+            <view class='process_item' wx:for="{{processLineData[items.name]}}" wx:for-item="processLineItem">
+              <view class='delete_process_item' data-name="{{items.name}}" data-index="{{index}}" catchtap='deleteProcessItem'>删除</view>
+              <view class='process_item_top'>
+                <text class='process_dot' style='background:{{setting.platformSetting.defaultColor}}'></text>
+                <text class='process_item_title'>{{processLineItem.title}}</text>
+              </view>
+              <view class='process_item_content' style='border-left:1rpx solid {{setting.platformSetting.defaultColor}}'>
+                <text class='process_item_content_text'>{{processLineItem.content}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='add_process' data-item="{{items}}" catchtap='addProcessLineItemFun'>
+            <image class='add_process_icon' src='http://image1.sansancloud.com/jianzhan/2018_10/22/18/4/3_874.jpg?x-oss-process=style/preview_120'></image>
+            <text>添加{{items.title}}</text>
+          </view>
+        </view>
+        <!--  进程轴栏目end-->
+        </view>
+        <!-- 多规格栏目 -->
+        <view class='support_measure common' wx:if='{{formData.attendSupportMeasures==1}}'>
+          <view class='inputName'>
+            <text wx:if="{{items.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>多规格</text>
+          </view>
+          <view class='support_measure_list' wx:if="{{measurePriceList&&measurePriceList.length!=0}}">
+            <view class='support_measure_item' style='background:{{setting.platformSetting.defaultColor}}' wx:for="{{measurePriceList}}" wx:for-item="measurePriceItem">
+              <text class='support_measure_item_name'>{{measurePriceItem.attendMeasureName}}-￥{{measurePriceItem.attendPrice}}</text>
+              <view class='delete_support_measure_item' data-index="{{index}}" catchtap='deleteMeasureItem'>x</view>
+            </view>
+          </view>
+          <view class='no_support_measure_list' wx:else>
+            <text>暂无数据</text>
+          </view>
+          <view class='add_measures' catchtap='addMeasuresItemFun'>
+            <image class='add_measures_icon' src='http://image1.sansancloud.com/jianzhan/2018_10/22/18/4/3_874.jpg?x-oss-process=style/preview_120'></image>
+          </view>
+        </view>
+        <!--  多规格栏目end-->
+        <!-- 保存 -->
+        <view class='saveData' wx:if="{{showformSubmitBtn}}">
+          <button class='saveBtn' formType="submit" style='background:{{setting.platformSetting.defaultColor}};color:#fff'>{{formData.commitName}}</button>
+          <button class='checkFormList' bindtap='toFormCommitList' style='background:{{setting.platformSetting.secondColor}};color:#fff'>我的记录</button>
+    </view>
+  </view>
+  <view class='formHead' wx:if="{{formData.description}}">
+    <!-- <view class='formName'>
+      <text>{{formData.formName}}</text>
+    </view> -->
+    <view class='formDescription'>
+      <view class='tip'>
+        <image class='tipIcon' src='http://image1.sansancloud.com/xianhua/2019_1/11/10/6/7_837.jpg'></image>
+        <text>Tip:</text>
+      </view>
+      <text class='tipText'>{{formData.description}}</text>
+    </view>
+  </view>
+</view>
+<view class='zhezhao' wx:if="{{showMask||showMaskTwo}}" bindtap='closeZhezhao'></view>
+<view class='add_measures_popup' wx:if="{{showMask}}" >
+  <view class='add_measures_popup_title'>
+    <text>添加规格</text>
+  </view>
+  <form bindsubmit="sureMeasuresData" report-submit class='add_measures_popup_list'>
+    <view class='add_measures_popup_item'>
+      <text class='add_measures_popup_item_name'>名称</text>
+      <input name="attendMeasureName" class='add_measures_popup_item_input' placeholder='请输入名称'></input>
+    </view>
+    <view class='add_measures_popup_item'>
+      <text class='add_measures_popup_item_name'>价格</text>
+      <input type="digit" name="attendPrice" class='add_measures_popup_item_input' placeholder='请输入价格'></input>
+    </view>
+    <view class='add_measures_popup_item'>
+      <text class='add_measures_popup_item_name'>供货价</text>
+      <input type="digit" name="attendSupplyPrice" class='add_measures_popup_item_input' placeholder='请输入供货价'></input>
+    </view>
+    <view class='add_measures_popup_item'>
+      <text class='add_measures_popup_item_name'>库存</text>
+      <input type="number" name="attendStock" class='add_measures_popup_item_input' placeholder='请输入库存'></input>
+    </view>
+    <view class='saveData'>
+      <button class='saveBtn' formType="submit" style='background:{{setting.platformSetting.defaultColor}};color:#fff'>确定</button>
+    </view>
+  </form>
+</view>
+<!-- 添加进程 -->
+<view class='add_measures_popup' wx:if="{{showMaskTwo}}" >
+  <view class='add_measures_popup_title'>
+    <text>添加{{currentProcessLineData.title}}</text>
+  </view>
+  <form bindsubmit="sureProcessData" report-submit class='add_measures_popup_list'>
+    <view class='add_measures_popup_item'>
+      <text class='add_measures_popup_item_name'>{{currentProcessLineData.remark&&currentProcessLineData.remark.title?currentProcessLineData.remark.title:"标题"}}</text>
+      <input name="title" class='add_measures_popup_item_input' placeholder='请输入{{currentProcessLineData.remark&&currentProcessLineData.remark.title?currentProcessLineData.remark.title:"标题"}}'></input>
+    </view>
+    <view class='add_measures_popup_item' style='align-items:flex-start;'>
+      <text class='add_measures_popup_item_name'>{{currentProcessLineData.remark&&currentProcessLineData.remark.content?currentProcessLineData.remark.content:"内容"}}</text>
+      <textarea class='add_measures_popup_item_input' style='height:190rpx;' maxlength="-1" auto-height="" placeholder='请输入{{currentProcessLineData.remark&&currentProcessLineData.remark.content?currentProcessLineData.remark.content:"内容"}}' name="content"/>
+    </view>
+    <view class='saveData'>
+      <button class='saveBtn' formType="submit" style='background:{{setting.platformSetting.defaultColor}};color:#fff'>确定</button>
+    </view>
+  </form>
+</view>
+</form>

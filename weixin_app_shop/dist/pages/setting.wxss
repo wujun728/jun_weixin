@@ -1,0 +1,1 @@
+.list_block{padding-top:20rpx}.item_bock{display:flex;align-items:center;justify-content:space-between;padding:40rpx 25rpx;border-bottom:1px solid #f7f7f7;background:#fff}.title{color:#808080;font-size:32rpx}.item_content{font-size:32rpx;color:#333333}

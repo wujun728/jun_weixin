@@ -1,0 +1,444 @@
+.container{
+  background: #f2f2f2;
+}
+/* 订单生成时间 */
+.orderTime{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
+  padding: 1em;
+  margin-top: 20rpx
+} 
+.orderTime text{
+  padding: 2px;
+}
+.cardVoucher_ewm{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cardVoucher_ewm_img{
+  width: 500rpx;
+  height: 500rpx;
+}
+.server_container{
+  margin: 0.4em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #888;
+  background: #fff;
+  border-radius: 0.2em;
+  padding:20rpx 30rpx;
+
+}
+.server_container_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.storageIcon{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+/* 订单生成时间 */
+.orderTime2{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.4em;
+} 
+.wuliuItem{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1rpx solid #eee;
+}
+.wuliuItem > .time{
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.orderTime2 text{
+  padding: 2px;
+}
+/* 订单状态 */
+.orderSateContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: flex-start;
+  background: #fff;
+  margin-bottom: 0.4em;
+}
+.oooo{
+  display: flex;
+  flex-direction: row;
+
+}
+.oooo_view > text{
+  padding: 2px;
+}
+.payStatus{
+  display: flex;
+  flex-direction: row;
+}
+.payStatus text{
+  display: inline;
+}
+.orderSateContainer image{
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 1em;
+  margin-top:0.2em;
+
+}
+.oooo view{
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
+}
+.font5{
+  color: #333;
+}
+
+.orderSateContainer > text{
+  color: #8B572A;
+}
+
+
+.orderKuaidi{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+  margin-bottom: 0.4em;
+  color: #aaa;
+}
+.orderKuaidi_no{
+  margin-top: 0.4em;
+}
+
+
+
+/* 地址 */
+.editAddr{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background:#fff;
+  border-bottom:1rpx dashed #ddd;
+}
+.editAddr > image{
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.addrItems2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+  margin-bottom: 0.4em;
+}
+.navigation{
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  border: 1rpx solid #333;
+  border-radius: 10rpx;
+  padding: 6rpx 10rpx;
+}
+.addrItemsLeft{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* .addrItems2 image{
+  width: 1.4em;
+  height: 1.4em;
+
+} */
+.addr_icon{
+  width:36rpx;
+  height:36rpx;
+  margin-right:10rpx;
+
+}
+.addrItems2 .addrInfo{
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  width:80%;
+
+}
+.addrInfo > view{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width:100%;
+
+}
+.addrItems2 .font2{
+  margin-top: 5px;
+}
+
+/* 购物车列表 */
+.cartContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #888;
+  background: #fff;
+}
+.cartShopName{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+.cartItems{
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  overflow: hidden;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+}
+.itemCheckbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemCheckbox image{
+  width: 5em;
+  height: 5em;
+  background: #eee;
+}
+
+.item_infomation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1em;
+}
+.item_infomation_name{
+  width: 12em;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.item_infomation_name_measure{
+  word-break: break-all; 
+  width: 12em;
+}
+.item_infomation_money{
+  color: #8B572A;
+}
+/* 加和减 */
+.item_infomation_nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 2em;
+  top: 2.2em;
+}
+
+.item_infomation_nums text{
+  padding: 5px;
+  color: #aaa;
+}
+
+
+.butn_container2{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+.butn_container2 .Input{
+  margin-left: 5px;
+}
+
+
+
+
+
+/* 地址框框 */
+.OtherArrContainer{
+  position: fixed;
+  z-index: 12;
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  left: 20%;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+}
+.addnewarr{
+  padding: 1em;
+  text-align: center;
+  color: #8B572A;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.addrItems2_now{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+}
+
+.addrItems2_now image{
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.addrItems2_now view{
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.addrItems2_now .font2{
+  margin-top: 0.4em;
+}
+/* 订单生成时间 */
+.orderTime2{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.4em;
+} 
+.wuliuItem{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1rpx solid #eee;
+}
+.wuliuItem > .time{
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.orderTime2 text{
+  padding: 2px;
+}
+.check_info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:18%;
+}
+.check_info_text{
+  color: #a5c1dd;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.check_info_icon{
+  width: 26rpx;
+  height: 26rpx;
+}
+.check_form_detail{
+  display: flex;
+  align-items: center;
+}
+/* 地图 */
+.play{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: -40rpx;
+  margin-top: -70rpx;
+}
+.mapItem{
+  position: relative;
+}
+.bottom_tap{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 60rpx;
+  margin-bottom:20rpx;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.return_index{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 28rpx;
+  border-radius: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 20rpx;
+}
+.return_index_img{
+  width: 40rpx;
+  height: 40rpx;
+  background-blend-mode:lighten;
+  background-size:cover;
+  }
+ .location{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 28rpx;
+  border-radius: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 20rpx;
+ }
+ .location_img{
+  width: 50rpx;
+  height: 50rpx;
+  background-blend-mode:lighten;
+  background-size:cover;
+  }
+  /* success */
+.successIcon{
+  padding: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}

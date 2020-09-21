@@ -1,0 +1,403 @@
+<wxs src="../../../public/publicFun.wxs" module="publicFun"></wxs>
+<import src="../../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+<view class='zhezhao' wx:if="{{showType||showTypeTwo}}" bindtap='closeZhezhao'></view>
+<block wx:if="{{!loading}}">
+<view class='content' wx:if="{{allFormData.belongFormType==0}}">
+  <view class='formContent'>
+  <!-- 0字符串   1数字 2下拉框  3单选框  4复选框  5日期  6时间  7 图片  8 间隔 -->
+    <view wx:for='{{customForm.items}}' wx:for-item='item' wx:if="{{item.formHide==0}}">
+      
+        <!-- 字符串 -->
+        <view class='inputString common' wx:if='{{item.type!=11&&item.type!=7&&item.type!=9&&item.type!=9999}}'>
+          <view class='inputName'>
+            <text wx:if="{{item.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{item.title}}</text>
+          </view>
+          <input name="{{item.name}}" class='select_address' disabled value='{{item.defaultValue}}'></input>
+        </view>
+        <!-- 间隔 -->
+        <view class='inputString' wx:if='{{item.type==9999}}'>
+          <view class='interval' style='height:{{item.splitStyle.height}}px;background:{{item.splitStyle.backgroundColor}}' wx:if="{{!item.splitStyle.banner}}">
+            <text style='font-size:{{item.splitStyle.fontSize}}px;color:{{item.splitStyle.color}}'>{{item.splitStyle.title}}</text>
+          </view>
+          <image class='interval_banner' mode='widthFix' wx:else src='{{item.splitStyle.banner}}'></image>
+        </view>
+        <!-- 图片 -->
+        <view class='imgType common' wx:if='{{item.type==7||item.type==11}}'>
+          <view class='imgName'>
+            <text wx:if="{{item.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{item.title}}</text>
+          </view>
+          <view class='upload'>
+            <view class='uploadedImg' wx:if="{{upLoadImageList['img_'+index].length!=0}}">
+              <!-- <view class='removeImgIcon' bindtap='removeImg' data-index='{{index}}'><text>x</text></view> -->
+              <image data-imageUrl='{{img}}' data-link='{{img}}' bindlongpress='saveImageToLocal' bindtap='tolinkUrl' class='uploadedImgUrl'  wx:for="{{upLoadImageList['img_'+index]}}" wx:for-item='img' src="{{img}}" mode='aspectFill'></image>
+            </view>
+          </view>
+        </view>
+         <!-- 多行文本 -->
+        <view class='inputString common' wx:if='{{item.type==9}}' style='align-items:flex-start;padding:10px;flex-direction:column;'>
+          <view class='inputName'>
+            <text wx:if="{{item.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>{{item.title}}</text>
+          </view>
+          <!-- <textarea auto-height="" disabled='disabled' placeholder="{{item.defaultValue?item.defaultValue:'空空如也'}}" name="{{item.name}}"/> -->
+          <view class='wxParseHtmlContainer'> <template is="1" data="{{wxParseData:richTextList[item.name].nodes}}"></template> </view>
+          <cover-view class='copyText' data-value="{{item.defaultValue}}" bindtap='copyText'>复制</cover-view>
+        </view>
+        <!-- 进程轴栏目 -->
+        <view class='process_line common' wx:if='{{item.type==15}}'>
+          <view class='process_list' wx:if="{{item.defaultValue&&item.defaultValue.length!=0}}">
+            <view class='process_item' wx:for="{{item.defaultValue}}" wx:for-item="processLineItem">
+              <view class='process_item_top'>
+                <text class='process_dot' style='background:{{color}}'></text>
+                <text class='process_item_title'>{{processLineItem.title}}</text>
+              </view>
+              <view class='process_item_content' style='border-left:1rpx solid {{color}}'>
+                <text class='process_item_content_text'>{{processLineItem.content}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--  进程轴栏目end-->
+        </view>
+         <!-- 回复 -->
+        <view class='inputString common' wx:if='{{allFormData.reply}}' style='align-items:flex-start;padding:10px;flex-direction:column;'>
+          <view class='inputName'>
+            <text wx:if="{{item.mustInput==1}}" style='color:red;margin-right:4rpx;width:18rpx'>*</text>
+            <text>平台回复</text>
+          </view>
+          <textarea auto-height="" disabled="disabled" readonly="readonly"  value='{{allFormData.reply}}' />
+        </view>
+        <!-- 保存 -->
+        <view class='saveData' wx:if="{{showBtn=='true'}}">
+          <button class='saveBtn' bindtap="back" style='background:{{setting.platformSetting.defaultColor}};color:#fff'>返回</button>
+        </view>
+  </view>
+  <view class='formHead' wx:if="{{customForm.description}}">
+    <!-- <view class='formName'>
+      <text>{{formData.formName}}</text>
+    </view> -->
+    <view class='formDescription'>
+      <view class='tip'>
+        <image class='tipIcon' src='http://image1.sansancloud.com/xianhua/2019_1/11/10/6/7_837.jpg'></image>
+        <text>Tip:</text>
+      </view>
+      <text class='tipText'>{{customForm.description}}</text>
+    </view>
+  </view>
+</view>
+<view class='content2' wx:else style='padding-bottom:120rpx'>
+  <view class='form_detail_top'>
+    <view class='form_detail_top_left'>
+      <image class='user_head_img' src='{{allFormData.commitPlatformUserIcon}}'></image>
+      <view class='user_base_info'>
+        <text class='user_base_name'>{{allFormData.commitPlatformUserName}}</text>
+        <text class='release_time'>{{allFormData.commitDate}}</text>
+      </view>
+    </view>
+    <text wx:if="{{allFormData.owner==1}}" catchtap='sureDeleteFormItemFun' class='delete_form_item'>删除</text>
+    <!-- <image class='telno_icon' data-phonenumber="{{customForm.telno}}" catchtap='calling'  src='http://image1.sansancloud.com/xianhua/2019_3/20/11/1/46_426.jpg?x-oss-process=style/preview_120'></image> -->
+  </view>
+  <view class='form_detail_center' wx:if="{{!formDetailStyle||formDetailStyle.length==0}}">
+  <!--  wx:if="{{!formDetailStyle||formDetailStyle.detailViewMagic.length==0}}" -->
+    <view class='read_number'>
+      <text>1314</text>
+      <text>阅读</text>
+    </view>
+    <view class='form_detail_center_item' wx:for="{{customForm.commitArr}}" wx:key="*this" wx:for-item="itemData" wx:if="{{itemData.type!=7&&itemData.type!=11&&itemData.type!=15}}">
+      <text class='center_part_item_title' wx:if="{{itemData.type!=9}}">{{itemData.title}}</text>
+      <text class='interval' wx:if="{{itemData.type!=9}}">:</text>
+      <text class='center_part_item_value' wx:if="{{itemData.type!=12&&itemData.type!=9}}">{{itemData.value}}</text>
+      <text class='center_part_item_value' wx:if="{{itemData.type==12&&itemData.type!=9}}">{{itemData.value.value}}</text>
+      <view class='wxParseHtmlContainer' wx:if="{{itemData.type==9}}">
+        <template is="1" data="{{wxParseData:richTextList[itemData.name].nodes}}"></template>
+      </view>
+      <view class='to_navigation' style='background:{{color}}' wx:if="{{itemData.type==12}}" catchtap='clickCatch' data-item="{{itemData.value}}">
+        <text>去导航</text>
+      </view>
+    </view>
+    <view class='form_detail_center_arr' wx:for="{{customForm.commitArr}}" wx:key="*this" wx:for-item="itemData" wx:if="{{itemData.type==7}}">
+      <image class='form_detail_center_arr_img' wx:if="{{itemData.value}}" mode='aspectFill' src='{{itemData.value}}'></image>
+    </view>
+    <view class='form_detail_center_arr' wx:for="{{customForm.commitArr}}" wx:key="*this" wx:for-item="itemData" wx:if="{{itemData.type==11}}">
+      <image class='form_detail_center_arr_img' mode='aspectFill' src='{{img}}' wx:for="{{itemData.value}}" wx:for-item="img"></image>
+    </view>
+    <!-- 进程轴栏目 -->
+    <view class='process_line common' wx:for="{{customForm.commitArr}}" wx:for-item="itemData" wx:if='{{itemData.type==15}}'>
+      <view class='process_list' wx:if="{{itemData.value&&itemData.value.length!=0}}">
+        <view class='process_item' wx:for="{{itemData.value}}" wx:for-item="processLineItem">
+          <view class='process_item_top'>
+            <text class='process_dot' style='background:{{color}}'></text>
+            <text class='process_item_title'>{{processLineItem.title}}</text>
+          </view>
+          <view class='process_item_content' style='border-left:1rpx solid {{color}}'>
+            <text class='process_item_content_text'>{{processLineItem.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--  进程轴栏目end-->
+    <view class='form_detail_bottom' wx:if="{{allFormData.commentAble==1}}">
+      <view class='form_detail_bottom_top'>
+        <view class='bottom_top_item'>
+          <image class='bottom_top_item_icon' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_487.jpg?x-oss-process=style/preview_120'></image>
+          <text class='bottom_top_item_text'>1314</text>
+        </view>
+        <view class='bottom_top_item'>
+          <image class='bottom_top_item_icon' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_496.jpg?x-oss-process=style/preview_120'></image>
+          <text class='bottom_top_item_text'>1314</text>
+        </view>
+      </view>
+      <view class='comments_list'>
+        <view class='comments_item' wx:for="{{conmmentList}}" wx:key="*this" wx:for-item="conmmentItem" wx:if="{{conmmentList.length!=0}}">
+          <image class='user_img' src='{{conmmentItem.commentUserIcon}}'></image>
+          <view class='comments_item_right'>
+            <text class='user_name'>{{conmmentItem.commentUserName}}</text>
+            <text class='user_need'>{{conmmentItem.comment}}</text>
+            <view class='other_reply_item' wx:for="{{conmmentItem.recomments}}" wx:key="*this" wx:for-item="reconmmentItem" wx:if="{{conmmentItem.length!=0}}">
+              <text class="other_reply_name" >{{reconmmentItem.commentUserName}}</text>
+              <text class='interval'>:</text>
+              <text class='other_reply_text'>{{reconmmentItem.comment}}</text>
+            </view>
+            <view class='more_reply' data-link="form_reply.html?id={{conmmentItem.id}}" bindtap='tolinkUrl' wx:if="{{conmmentItem.recommentCount>3}}">
+              <text>查看更多回复...</text>
+            </view>
+            <view class='comments_item_bottom'>
+              <text class='user_time'>{{conmmentItem.commentTime}}</text>
+              <image class='comments_icon' data-link="form_reply.html?id={{conmmentItem.id}}" bindtap='tolinkUrl' src='http://image1.sansancloud.com/jianzhan/2019_3/13/17/6/38_907.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </view>
+        </view>
+        <view class='no_item_reply' wx:if="{{conmmentList.length==0}}">
+          <text wx:if="{{allFormData.commentAble==1}}">主人~该帖子还没有人回复哦！</text>
+          <!-- <text wx:else>主人~改帖子设置了不能回复哦！</text> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class='mofang_templete' >
+      <view wx:for='{{formDetailStyle}}' wx:key='{{index}}' wx:for-item="itemData" style='height:{{itemData.type==2?"":750/12*itemData.height*publicFun.toNum(itemData.aspectRatio)}}rpx;position:relative'>
+        <view class='mofang_item' data-link='{{item.linkUrl}}' catchtap='tolinkUrl' wx:if="{{itemData.type==1}}" wx:for='{{itemData.data.detailViewMagic}}' wx:key='{{index}}' style='position:absolute;overflow:hidden;left:{{item.startPointX*750/12}}rpx;top:{{(((item.startPointY>item.endPointY?item.endPointY:item.startPointY)*750/12)+1)*publicFun.toNum(itemData.aspectRatio)}}rpx;width:{{(publicFun.toAbs(item.endPointX-item.startPointX)+1)*750/12}}rpx;height:{{publicFun.toAbs((publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12)*publicFun.toNum(itemData.aspectRatio)}}rpx;background:{{item.backgroundImage?"":item.backgroudColor}};'>
+          <view class='lunbotu' wx:if="{{commitJson[item.propertieName].type==11}}">
+            <component-tag-banner wx:if="{{banner['banner_'+item.propertieName]}}" data="{{banner['banner_'+item.propertieName]}}"></component-tag-banner>  <!-- 4 标题 -->
+          </view>
+          <!-- 左右布局 height:{{publicFun.toAbs((item.endPointY-item.startPointY+1)*750/width)+1}}rpx;-->
+          <view class='form_detail_center_item' style="display:flex;margin:0;background:{{item.backgroudColor}};flex-direction:{{item.placeType==0?'row':'row-reverse'}};align-items:center;justify-content:{{item.align}};border-top-width:{{item.borderTop}}rpx;border-bottom-width:{{item.borderBottom}}rpx;border-left-width:{{item.borderLeft}}rpx;border-right-width:{{item.borderRight}}rpx;border-color:{{item.borderColor}};border-style:solid;padding:{{item.paddingBottomTop}}rpx {{item.paddingNum}}rpx ;margin:{{item.marginBottomTop}}rpx {{item.marginNum}}rpx;border-radius: {{item.borderRadius}}rpx;height:{{item.marginBottomTop?(((publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12)*publicFun.toNum(itemData.aspectRatio))-2*item.marginBottomTop:((publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12)*publicFun.toNum(itemData.aspectRatio)}}rpx" wx:if="{{(commitJson[item.propertieName].type!=7&&commitJson[item.propertieName].type!=11)&&(item.placeType==0||item.placeType==3)}}">
+            <view class="titleStyle" wx:if="{{item.propertiesType==0}}">
+              <image  wx:if="{{item.propertieIcon}}" mode='aspectFit' style='height:{{publicFun.toNum(item.titleSize)+2}}px;width:{{publicFun.toNum(item.titleSize)+2}}px;margin-right:12rpx;' src='{{item.propertieIcon}}'></image>
+              <text class='center_part_item_title' style='font-size:{{item.titleSize}}px;color:{{item.titleColor}};font-weight:{{item.titleWeight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type!=9&&item.propertiesType==0}}">{{item.propertieTitle}}</text>
+            </view>
+            <view class='center_part_item_title' style="height:{{(publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12}}rpx;display:flex;margin:0;background:{{item.backgroudColor}};flex-direction:{{item.placeType==0?'row':'row-reverse'}};align-items:flex-start;justify-content:{{item.align}}" wx:if="{{item.propertiesType==1}}">
+              <image wx:if="{{item.propertieIcon}}" mode='aspectFit' style='height:{{publicFun.toNum(item.titleSize)+2}}px;width:{{publicFun.toNum(item.titleSize)+2}}px;margin-right:12rpx;' src='{{item.propertieIcon}}'></image>
+              <text style='font-size:{{item.titleSize}}px;color:{{item.titleColor}};padding-bottom:{{item.borderBottom!=0?"8rpx":""}};padding-top:{{item.borderTop!=0?"8rpx":""}};font-weight:{{item.titleWeight==1?"bold":"0"}}'>{{item.propertieTitle}}</text>
+            </view>
+            <view class='center_part_item_title' style="height:{{(publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12}}rpx;display:flex;margin:0;background:{{item.backgroudColor}};flex-direction:{{item.placeType==0?'row':'row-reverse'}};align-items:flex-start;justify-content:{{item.align}}" wx:if="{{item.propertiesType==2}}">
+              <image wx:if="{{item.backgroundImage}}" mode='aspectFit' style='height:{{(publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12}}rpx;width:{{(publicFun.toAbs(item.endPointX-item.startPointX)+1)*750/12}}rpx' src='{{item.backgroundImage}}'></image>
+            </view>
+            <text class='center_part_item_value' style='font-size:{{item.fontSize}}px;color:{{item.fontColor}};font-weight:{{item.weight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type!=12}}">{{commitJson[item.propertieName].value}}</text>
+            <text class='center_part_item_value' style='font-size:{{item.fontSize}}px;color:{{item.fontColor}};font-weight:{{item.weight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type==12}}">{{commitJson[item.propertieName].value.value}}</text>
+            <view class='to_navigation' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{commitJson[item.propertieName].type==12}}" catchtap='clickCatch' data-item="{{commitJson[item.propertieName].value}}">
+              <text>去导航</text>
+            </view>
+          </view>
+          <!--上下布局  height:{{publicFun.toAbs((item.endPointY-item.startPointY+1)*750/width)+1}}rpx;-->
+          <view class='form_detail_center_item' style="display:flex;margin:0;background:{{item.backgroudColor}};flex-direction:{{item.placeType==1?'column':'column-reverse'}};align-items:{{item.align}};justify-content:center;border-top-width:0rpx;border-bottom-width:0rpx;border-left-width:{{item.borderLeft}}rpx;border-right-width:{{item.borderRight}}rpx;border-color:{{item.borderColor}};border-style:solid;padding:{{item.paddingBottomTop}}rpx {{item.paddingNum}}rpx;margin:{{item.marginBottomTop}}rpx {{item.marginNum}}rpx;border-radius: {{item.borderRadius}}rpx;height:{{item.marginBottomTop?(((publicFun.toAbs(item.endPointY-item.startPointY)+1)*750/12))-2*item.marginBottomTop:''}}rpx" wx:if="{{(commitJson[item.propertieName].type!=7&&commitJson[item.propertieName].type!=11)&&(item.placeType==1||item.placeType==2)}}">
+            <view class="titleStyle" wx:if="{{item.propertiesType==0}}">
+              <image  wx:if="{{item.propertieIcon}}" mode='aspectFit' style='height:{{publicFun.toNum(item.titleSize)+2}}px;width:{{publicFun.toNum(item.titleSize)+2}}px;margin-right:12rpx;' src='{{item.propertieIcon}}'></image>
+              <text class='center_part_item_title' style='font-size:{{item.titleSize}}px;color:{{item.titleColor}};font-weight:{{item.titleWeight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type!=9}}">{{item.propertieTitle}}</text>
+            </view>
+            <view class='center_part_item_title' style='font-size:{{item.titleSize}}px;color:{{item.titleColor}}' wx:if="{{item.propertiesType==1}}">
+              <image wx:if="{{item.propertieIcon}}" mode='aspectFit' style='height:{{publicFun.toNum(item.titleSize)+2}}px;width:{{publicFun.toNum(item.titleSize)+2}}px;margin-right:12rpx;' src='{{item.propertieIcon}}'></image>
+              <text style='font-size:{{item.titleSize}}px;color:{{item.titleColor}};padding-bottom:{{item.borderBottom!=0?"8rpx":""}};padding-top:{{item.borderTop!=0?"8rpx":""}};font-weight:{{item.titleWeight==1?"bold":"0"}}'>{{item.propertieTitle}}</text>
+            </view>
+            <view class='center_part_item_title' wx:if="{{item.propertiesType==2}}">
+              <image mode='aspectFit' style='width:100%' src='{{item.backgroundImage}}'></image>
+            </view>
+            <text class='center_part_item_value' style='font-size:{{item.fontSize}}px;color:{{item.fontColor}};font-weight:{{item.weight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type!=12}}">{{commitJson[item.propertieName].value}}</text>
+            <text class='center_part_item_value' style='font-size:{{item.fontSize}}px;color:{{item.fontColor}};font-weight:{{item.weight==1?"bold":"0"}}' wx:if="{{commitJson[item.propertieName].type==12}}">{{commitJson[item.propertieName].value.value}}</text>
+            <view class='to_navigation' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{commitJson[item.propertieName].type==12}}" catchtap='clickCatch' data-item="{{commitJson[item.propertieName].value}}">
+              <text>去导航</text>
+            </view>
+          </view>
+          <view style='width:100%;height:100%;padding:{{imagePadding}}rpx;box-sizing:border-box' wx:if="{{commitJson[item.propertieName].type==7}}">
+            <image mode='aspectFill' src='{{commitJson[item.propertieName].value}}' data-link='{{commitJson[item.propertieName].value}}' bindtap='tolinkUrl' style='border-radius: {{item.borderRadius}}px;width:100%;height:100%;padding:20rpx;box-sizing:border-box' wx:if="{{commitJson[item.propertieName].type==7&&commitJson[item.propertieName].value&&commitJson[item.propertieName].value!='支付后可见'}}"></image>
+            <text style='font-size:{{item.fontSize}}px;color:{{item.fontColor}};font-weight:{{item.weight==1?"bold":"0"}}' wx:else>{{commitJson[item.propertieName].value}}</text>
+          </view>     
+        </view>
+        <!-- 模块自适应 -->
+        <view wx:if="{{itemData.type==2}}">
+          <view style="display:flex;margin:0;background:{{itemData.data.backgroudColor}};flex-direction:{{itemData.data.placeType==1?'column':'column-reverse'}};align-items:{{itemData.data.align}};justify-content:center;border-top-width:0rpx;border-bottom-width:0rpx;border-left-width:{{itemData.data.borderLeft}}rpx;border-right-width:{{itemData.data.borderRight}}rpx;border-color:{{itemData.data.borderColor}};border-style:solid;padding:{{itemData.data.paddingBottomTop}}rpx {{itemData.data.paddingNum}}rpx;margin:{{itemData.data.marginBottomTop}}rpx {{itemData.data.marginNum}}rpx;border-radius: {{itemData.data.borderRadius}}rpx;font-size:{{itemData.data.fontSize}}px;color:{{itemData.data.fontColor}};font-weight:{{itemData.data.weight==1?'bold':'0'}}">
+            <!-- <text>自定义模块</text> -->
+            <view wx:if="{{!upLoadImageList['img_'+itemData.data.propertieName]}}">
+              <!-- <text wx:if="{{itemData.data.propertiesType==0}}">{{commitJson[itemData.data.propertieName].value}}</text> -->
+              <view class='wxParseHtmlContainer' wx:if="{{itemData.data.propertiesType==0}}">
+                <template is="1" data="{{wxParseData:richTextList[itemData.data.propertieName].nodes}}"></template>
+              </view> 
+              <text wx:else>{{itemData.data.propertieTitle}}</text>
+            </view>
+            <view class='img_block' wx:else>
+              <image class='img_item' src='{{item}}' mode="widthFix" wx:for="{{upLoadImageList['img_'+itemData.data.propertieName]}}" ></image>
+            </view>
+            <!--  -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 评论区 -->
+    <view class='form_detail_bottom' wx:if="{{allFormData.commentAble==1}}">
+      <view class='form_detail_bottom_top'>
+        <view class='bottom_top_item'>
+          <image class='bottom_top_item_icon' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_487.jpg?x-oss-process=style/preview_120'></image>
+          <text class='bottom_top_item_text'>1314</text>
+        </view>
+        <view class='bottom_top_item'>
+          <image class='bottom_top_item_icon' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_496.jpg?x-oss-process=style/preview_120'></image>
+          <text class='bottom_top_item_text'>1314</text>
+        </view>
+      </view>
+      <view class='comments_list'>
+        <view class='comments_item' wx:for="{{conmmentList}}" wx:key="*this" wx:for-item="conmmentItem" wx:if="{{conmmentList.length!=0}}">
+          <image class='user_img' src='{{conmmentItem.commentUserIcon}}'></image>
+          <view class='comments_item_right'>
+            <text class='user_name'>{{conmmentItem.commentUserName}}</text>
+            <text class='user_need'>{{conmmentItem.comment}}</text>
+            <view class='other_reply_item' wx:for="{{conmmentItem.recomments}}" wx:key="*this" wx:for-item="reconmmentItem" wx:if="{{conmmentItem.length!=0}}">
+              <text class="other_reply_name" >{{reconmmentItem.commentUserName}}</text>
+              <text class='interval'>:</text>
+              <text class='other_reply_text'>{{reconmmentItem.comment}}</text>
+            </view>
+            <view class='more_reply' data-link="form_reply.html?id={{conmmentItem.id}}" bindtap='tolinkUrl' wx:if="{{conmmentItem.recommentCount>3}}">
+              <text>查看更多回复...</text>
+            </view>
+            <view class='comments_item_bottom'>
+              <text class='user_time'>{{conmmentItem.commentTime}}</text>
+              <image class='comments_icon' data-link="form_reply.html?id={{conmmentItem.id}}" bindtap='tolinkUrl' src='http://image1.sansancloud.com/jianzhan/2019_3/13/17/6/38_907.jpg?x-oss-process=style/preview_120'></image>
+            </view>
+          </view>
+        </view>
+        <view class='no_item_reply' wx:if="{{conmmentList.length==0}}">
+          <text wx:if="{{allFormData.commentAble==1}}">主人~该帖子还没有人回复哦！</text>
+          <text wx:else>主人~改帖子设置了不能回复哦！</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 已付费人员 -->
+  <view class='havePayUserBlock' wx:if="{{allFormData.attendList&&allFormData.attendList.result.length!=0&&allFormData.attendCountPerUser!=1}}">
+    <view class='havePayUserTitle'>
+      <text>已报名({{allFormData.attendList.totalSize}})</text>
+      <view class='havePayUserTitleRight' data-link="more_attend_list.html?formCommitId={{allFormData.id}}&type=more" catchtap='tolinkUrl'>
+        <text style='color:{{color}}'>更多报名</text>
+        <image class='more_user_icon' src='http://image1.sansancloud.com/xianhua/2019_5/14/17/27/34_899.jpg?x-oss-process=style/preview_120'></image>
+      </view>
+    </view>
+    <view class='havePayUserList'>
+      <view class='myPayUserItem' wx:if="{{allFormData.myAttendList&&allFormData.myAttendList.totalSize!=0}}" data-link="more_attend_list.html?formCommitId={{allFormData.id}}&type=my" catchtap='tolinkUrl'>
+        <image class='userIcon' src='{{allFormData.myAttendList.result[0].attendPlatformUserIcon}}'></image>
+        <text class='userName' >{{allFormData.myAttendList.result[0].attendPlatformUserName}}</text>
+        <text class='my_attend_count' style='background:{{color}}'>{{allFormData.myAttendList.totalSize}}</text>
+      </view>
+      <view class='parting_line' wx:if="{{allFormData.myAttendList&&allFormData.myAttendList.totalSize!=0}}"></view>
+      <scroll-view scroll-x class="havePayUserScrollList" scroll-with-animation='true' style='width:{{allFormData.myAttendList&&allFormData.myAttendList.totalSize!=0?"74%":"100%"}}'>
+      <view class='havePayUserItem' wx:for="{{allFormData.attendList.result}}">
+        <image class='userIcon' src='{{item.attendPlatformUserIcon}}'></image>
+        <text class='userName' >{{item.attendPlatformUserName}}</text>
+      </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+<view class='comments_part' wx:if="{{allFormData.belongFormType==2&&allFormData.commentAble==1&&showBtn=='true'}}">
+  <input class='comments_input b' bindconfirm='sendComments'  bindinput="saveData" value='{{commentValue}}' cursor-spacing="130" placeholder='发表评论...' maxlength="76" ></input>
+  <image class='comments_img_icon' bindtap='sendComments' src='http://image1.sansancloud.com/jianzhan/2019_3/13/18/4/57_119.jpg?x-oss-process=style/preview_120' mode="aspectFitf"></image>
+</view>
+<!-- 表单按钮功能区 -->
+<view class='bottomBtn' wx:if="{{allFormData.belongFormType!=0&&showBtn=='true'&&(customForm.commentAble!=0&&customForm.commentAble!=1)&&(customForm.readLimit==0||customForm.readLimit==1)}}">
+   <view class='bottomBtnTel {{customForm.commentAble==2?"w100per":"w48per"}}' wx:if="{{customForm.commentAble==2||customForm.commentAble==23}}" data-phonenumber="{{customForm.telno}}" catchtap='calling' style=' border: 2rpx solid {{color}};color:{{color}}'>
+     <text>拨打电话</text>
+   </view>
+   <view class='bottomBtnForm {{customForm.commentAble==3?"w100per":"w48per"}}' catchtap='popupFormPage' wx:if="{{customForm.commentAble==3||customForm.commentAble==23}}" style=' border: 2rpx solid {{allFormData.canAttendStatus==1?color:"#999"}};color:{{allFormData.canAttendStatus==1?color:"#999"}}' wx:if="{{customForm.commentAble==3||customForm.commentAble==23}}" >
+   <!--  data-link="form_detail.html?customFormId={{customForm.replyFormId}}" catchtap='tolinkUrl' -->
+     <text wx:if='{{allFormData.canAttendStatus==1}}'>{{customForm.replyButtonName}}</text>
+     <text wx:elif='{{allFormData.canAttendStatus==0}}'>不可报名参加</text>
+     <text wx:elif='{{allFormData.canAttendStatus==2}}'>报名名额已满</text>
+     <text wx:elif='{{allFormData.canAttendStatus==3}}'>已报名成功</text>
+     <text wx:elif='{{allFormData.canAttendStatus==4}}'>未开始报名</text>
+     <text wx:elif='{{allFormData.canAttendStatus==5}}'>已结束报名</text>
+   </view>
+</view>
+<view class='bottomBtn' wx:if="{{allFormData.belongFormType==2&&showBtn=='true'&&(customForm.commentAble!=0&&customForm.commentAble!=1)&&(customForm.readLimit==2||customForm.readLimit==3)}}">
+   <view class='bottomBtnTel {{customForm.commentAble==2?"w48per":"w32per"}}' wx:if="{{customForm.commentAble==2||customForm.commentAble==23}}" data-phonenumber="{{customForm.telno}}" catchtap='calling' style=' border: 2rpx solid {{color}};color:{{color}}'>
+     <text>拨打电话</text>
+   </view>
+   <view class='bottomBtnForm {{customForm.commentAble==3?"w48per":"w32per"}}' catchtap='popupFormPage' style=' border: 2rpx solid {{allFormData.canAttendStatus==1?color:"#999"}};color:{{allFormData.canAttendStatus==1?color:"#999"}}' wx:if="{{customForm.commentAble==3||customForm.commentAble==23}}" >
+   <!--  data-link="form_detail.html?customFormId={{customForm.replyFormId}}" catchtap='tolinkUrl' -->
+     <text wx:if='{{allFormData.canAttendStatus==1}}'>{{customForm.replyButtonName}}</text>
+     <text wx:elif='{{allFormData.canAttendStatus==0}}'>不可报名参加</text>
+     <text wx:elif='{{allFormData.canAttendStatus==2}}'>报名名额已满</text>
+     <text wx:elif='{{allFormData.canAttendStatus==3}}'>已报名成功,无需再报名</text>
+     <text wx:elif='{{allFormData.canAttendStatus==4}}'>未开始报名</text>
+     <text wx:elif='{{allFormData.canAttendStatus==5}}'>已结束报名</text>
+   </view>
+   <view class='bottomBtnPay {{customForm.commentAble==23?"w32per":"w48per"}}' data-commitId="{{allFormData.id}}" catchtap='payToCheckForm' style=' background-image:linear-gradient(to right,{{secondColor}},{{color}});box-shadow:0px 0px 6px 0px {{color}};'>
+     <text>付费查看</text>
+   </view>
+</view>
+<view class='bottomBtn' wx:if="{{allFormData.belongFormType==2&&showBtn=='true'&&customForm.commentAble==0&&(customForm.readLimit==2||customForm.readLimit==3)}}">
+   <view class='bottomBtnPay w100per' data-commitId="{{allFormData.id}}" catchtap='payToCheckForm' style=' background-image:linear-gradient(to right,{{secondColor}},{{color}});box-shadow:0px 0px 6px 0px {{color}};'>
+     <text>付费查看</text>
+   </view>
+</view>
+<!-- 填写表单弹窗动画 -->
+<view class='popupFormDetail' animation="{{animationData}}" wx:if="{{sendOptionData&&showAddressForm}}">
+  <view class='form_title' wx:if="{{nextStepState}}">
+    <image catchtap='nextStepFun' class='return_select_measure_icon' src='http://image1.sansancloud.com/xianhua/2019_7/31/15/25/40_519.jpg?x-oss-process=style/preview_120' wx:if="{{measurePriceList.length!=0}}"></image>
+    <text wx:else></text>
+    <text>请填写以下信息</text>
+    <image class='close_popup_icon' src='http://image1.sansancloud.com/xianhua/2019_7/31/15/25/40_755.jpg?x-oss-process=style/preview_120' catchtap='closeZhezhao'></image>
+  </view>
+  <scroll-view scroll-y  style='max-height:700rpx'>
+    <view class='measure_price_list' wx:if="{{measurePriceList.length!=0&&!nextStepState}}">
+      <view class='measure_price_list_title'>
+        <text>选择规格</text>
+      </view>
+      <view class='measure_price_item' wx:for="{{measurePriceList}}" wx:for-item="measurePriceItem" style='border:1rpx solid {{selectMeasureIndex==index?setting.platformSetting.defaultColor:"#eee"}}' catchtap='selectMeasureItem' data-index="{{index}}">
+        <text class='attend_measure_name'>{{measurePriceItem.attendMeasureName}}</text>
+        <view class='attend_measure_count' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{allFormData.mulBuyObject==1}}">
+          <text style='margin-right:10rpx;'>x</text><text>{{measurePriceItem.buyCount}}</text>
+        </view>
+        <view class='attend_price' style='color:{{setting.platformSetting.defaultColor}}'>
+          <text wx:if="{{allFormData.attendPrice!=0}}">￥{{measurePriceItem.attendPrice}}</text>
+          <text wx:else>免费</text>
+        </view>
+        <text class='cell_tag_bg' wx:if="{{selectMeasureIndex==index}}" style='border-top: 30px solid {{setting.platformSetting.defaultColor}}'></text>
+        <text class='cell_tag_text' wx:if="{{selectMeasureIndex==index}}">✓</text>
+      </view>
+      <view class='measure_price_list_title' wx:if="{{allFormData.mulBuyObject==1}}">
+        <text>选择数量</text>
+      </view>
+      <view class='select_measure_count' wx:if="{{allFormData.mulBuyObject==1}}">
+        <view class='select_measure_count_item' catchtap='subBuyCount' style='font-size:40rpx;'><text>-</text></view>
+        <view class='select_measure_count_item'><text>{{buyCount}}</text></view>
+        <view class='select_measure_count_item' catchtap='addBuyCount' style='font-size:40rpx;'><text>+</text></view>
+      </view>
+    </view>
+    <view wx:if="{{sendOptionData&&showAddressForm&&nextStepState}}">
+       <component-form-detail id="submitForm" data="{{sendOptionData}}" showTitle="true" showBtn="false" userAddressCustomFormCommitId="{{userInfoFormCommitId}}" bind:sendDataFun="getDataFun"></component-form-detail><!-- 弹窗-->
+    </view>
+    </scroll-view>
+</view>
+<view' wx:if="{{showType&&nextStepState}}" class='submitBtn' style='background:{{setting.platformSetting.defaultColor}}' catchtap='submitData'>
+  <text>提交资料</text>
+</view>
+<!-- 选择规格的底部按钮 -->
+<view wx:if="{{showType&&!nextStepState}}" class='nextSubmitBtn'>
+  <view class='submit_btn_left'>合计
+    <text class='total_price' wx:if="{{allFormData.attendPrice!=0}}" style='color:{{setting.platformSetting.defaultColor}}'>￥{{totalPrice}}</text>
+    <text class='total_price' wx:else style='color:{{setting.platformSetting.defaultColor}}'>￥0</text>
+  </view>
+  <text class='submit_btn_right' catchtap='nextStepFun' style='background:{{setting.platformSetting.defaultColor}}'>下一步</text>
+</view>
+</block>

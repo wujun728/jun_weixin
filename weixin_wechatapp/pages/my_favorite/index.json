@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "收藏夹",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f1f1f1",
+  "usingComponents": {
+    "component-tag-product-list": "../../view/partials/productList/productList"
+  }
+}

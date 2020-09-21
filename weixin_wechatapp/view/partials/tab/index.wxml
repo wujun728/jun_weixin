@@ -1,0 +1,17 @@
+
+
+
+<view  class='wrap'  wx:if="{{arr.length!=0}}">
+    <!-- <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" style='background:{{data.jsonData.bgColor}} ;'>
+        <view wx:for="{{data.jsonData.tabs}}" class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" 
+        data-html="{{item.linkUrl}}" bindtap="swichNav" style='color:{{data.jsonData.fontColor}} ;'>{{item.title}}</view>
+
+
+    </scroll-view> -->
+    <scroll-view scroll-x class="{{firstDistance&&(firstDistance<=scroll-4)?'tab-h fixed':'tab-h'}}" id="tab-h" scroll-with-animation='true' style='background:{{data.jsonData.bgColor||"#fff"}}'>
+         <view  wx:for="{{data.jsonData.tabs}}" wx:for-item="type" wx:key="{{index}}" data-index="{{index}}" data-item="{{type}}" bindtap='swichNav' id="{{'tab_'+type.id}}" class='tab-item' style='font-size:{{currentTab==index?"32rpx":"28rpx"}};color:{{currentTab==index?data.jsonData.fontHoverColor:data.jsonData.fontColor}};border-bottom:{{currentTab==index?"4rpx solid "+data.jsonData.fontHoverColor:data.jsonData.fontColor}};'>{{type.title}}</view>
+       </scroll-view>
+ 
+</view>
+
+<component-tag-customPage data="{{sendData}}" wx:if="{{show}}"></component-tag-customPage> <!-- 首页组件-->

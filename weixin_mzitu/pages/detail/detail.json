@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText":"干货详情",
+    "component": true,
+    "usingComponents": {
+      "wxc-abnor": "/packages/wxc-abnor/dist/index",
+      "towxml": "/towxml/towxml",
+      "van-skeleton": "/common/vant/skeleton/index"
+    }
+}

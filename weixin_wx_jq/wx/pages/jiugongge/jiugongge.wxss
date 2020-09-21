@@ -1,0 +1,41 @@
+/* pages/jiugongge/jiugongge.wxss */
+/*九宫格大转盘  */
+#lottery{width:700rpx;height:700rpx;margin:20rpx auto 0; position:relative;}
+#lottery view{
+  width:175rpx;
+  height:175rpx;
+  line-height: 175rpx;
+  text-align:center;
+  font-size:24rpx;
+  color:#333; 
+  float:left;
+}
+#lottery .cent{ background:#C33;}
+#lottery .lottery-unit-0{ background:#CC6;}
+#lottery .lottery-unit-1{ background:#F99;}
+#lottery .lottery-unit-2{ background:#CC6;}
+#lottery .lottery-unit-3{ background:#F99;}
+#lottery .lottery-unit-4{ background:#CC6;}
+#lottery .lottery-unit-5{ background:#F99;}
+#lottery .lottery-unit-6{ background:#CC6;}
+#lottery .lottery-unit-7{ background:#F99;}
+#lottery .lottery-unit-8{ background:#CC6;}
+#lottery .lottery-unit-9{ background:#F99;}
+#lottery .lottery-unit-10{ background:#CC6;}
+#lottery .lottery-unit-11{ background:#F99;}
+
+#lottery view.select{background:#F0F;}
+
+#lottery .start{ 
+  position:absolute; 
+  left:175rpx; 
+  top:175rpx; 
+  height:350rpx; 
+  width:350rpx
+  ;background:#C33; 
+  font-size:30rpx; 
+  text-align:center; 
+  line-height:350rpx; 
+  color:#fff;
+}
+/*九宫格大转盘  */

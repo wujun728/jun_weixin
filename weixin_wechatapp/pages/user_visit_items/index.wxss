@@ -1,0 +1,51 @@
+ /* pages/my_pages/user_visit_items/index.wxss */
+.product_page_container2{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.product_items2{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  height: 5em;
+  
+}
+.product_items2 image{
+  width: 4em;
+  height: 4em;
+}
+.product_items2 .product_items2_view1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 10px;
+  height: 4em;
+  width: 70%;
+  overflow: hidden;
+}
+
+.product_items2_view1 .name{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 28px;
+}
+.product_items2_view1 .visite{
+  white-space: nowrap;
+  text-align: left;
+  color: #aaa;
+  font-size: small;
+}
+.product_items2_view1 .font2{
+  text-align: left;
+  color: #aaa;
+  font-size: small;
+}
+
+/* 没有商品时 */

@@ -1,0 +1,42 @@
+/* pages/pullReachForEle/pullReachForEle.wxss */
+/*下拉刷新上拉加载  */
+page{
+  background:#eeeeee;
+}
+.title{
+margin-top:80rpx; 
+height: 70rpx;
+line-height: 70rpx;
+font-size: 35rpx;
+background:#eeeeee;
+}
+.box{
+  background:#ffffff;
+  
+  height: 400px;
+}
+.list{
+ padding: 20rpx 0;
+}
+.item{
+   padding: 0 50rpx;
+  margin-bottom: 20rpx;
+  background: #dddddd;
+}
+.item-name{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.item-box{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 25rpx;
+}
+.item-status{
+  float: left;
+}
+.item-time{
+ float: right;
+}
+/*下拉刷新上拉加载  */

@@ -1,0 +1,79 @@
+<template name="measure_card2"> 
+<wxs src="../../public/publicFun.wxs" module="publicFun"></wxs>
+<view class='measure_card' catchtouchmove='true' wx:if='{{showCount}}'>
+  <view class='countContainer'> 
+     <view class='countContainer_top'>
+        <view class='countContainer_top_image'>
+          <image mode='aspectFill' data-url='{{focusData.imagePath}}' data-urls='{{focusData.imageListWatcher}}' bindtap='_watchBigImage' src='{{focusData.imagePath}}'></image>
+        </view>
+        <view class='countContainer_top_product_info_container'>
+           <view class='font_1'>{{focusData.name}}</view>
+           <view class='font_aaa font_08'>商品编号: {{focusData.orderNumber}}</view>
+           <view class='price font_14' wx:if='{{measures.length == 0||!measures}}'>
+             <text wx:if="{{focusData.promotion>0&&type!='pintuanOne'}}">￥{{focusData.promotionPrice}}</text>
+             <text wx:else>￥{{focusData.price}}</text>
+           </view>
+           <view class='price font_14 price_group' wx:else>
+              <view class='pintuan' wx:if="{{focusData.promotionBean&&focusData.promotionBean.pintuanStrategy&&(type=='pintuanMore'||type=='addPintuan')}}">
+                <text class='show_price' wx:if="{{measurementJson.promotionPrice}}">￥{{measurementJson.promotionPrice}}</text>
+                <text class='loading_price' wx:else>￥{{measurementJson.price}}</text>
+              </view>
+              <view class='noPintuan' wx:else>￥{{measurementJson.price}}</view>
+              <text class='tagPrice_font' wx:if='{{measurementJson.price<measurementJson.tagPrice}}'>￥{{measurementJson.tagPrice}}</text>
+              <text style='color:#aaa;font-size:24rpx;margin-left:8rpx;' wx:if='{{(measures.length == 0||!measures)&&focusData.stock<=10}}'>(仅剩：{{focusData.stock}})</text>
+              <text style='color:#aaa;font-size:24rpx;margin-left:8rpx' wx:if="{{(measures.length != 0&&measures)&&measurementJson.stock<=10}}">(仅剩：{{measurementJson.stock}})</text>
+           </view>
+           
+        </view>
+     </view>
+    <view class='measureItemContainer' >
+        <view class='cardMid'  wx:for='{{measures}}' wx:for-item='types' wx:key='{{index}}'>
+          <view class='cardMidName'>{{types.name}}</view>
+          <radio-group class='cardMidGuigeContainer' name='{{types.name}}' bindchange='chooseMeasure'>
+            <label class='font_08' wx:for='{{types.productAssignMeasure}}' wx:for-item='Measure' wx:for-index="i" wx:key='{{i}}'
+            data-index='{{index}}-{{i}}' catchtap='radioChange' data-value='{{Measure.measureName}}' data-type='{{types.name}}'>
+              <view class='{{types.checkedMeasureItem == i? "activeMeasure":""}}' style='background:{{types.checkedMeasureItem == i? setting.platformSetting.defaultColor:""}};color:{{types.checkedMeasureItem == i? "#fff":setting.platformSetting.defaultColor}}'>{{Measure.measureName}}</view>
+              <radio checked='{{types.checkedMeasureItem == i}}' value='{{Measure.measureTypeName}}-{{Measure.id}}' hidden='true'></radio>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class='error_view font_08' style='background:{{setting.platformSetting.defaultColor}}' wx:if='{{measurementJson.stock < byNowParams.itemCount}}'>
+        <text>库存不足:(</text>
+        <text wx:for='{{measurementJson.measurements}}' wx:for-item='mtype'>-{{mtype.measureName}}</text>
+        
+        <text>)剩余库存【{{measurementJson.stock}}】</text>
+      </view>
+
+      <view class='ItemCountDell'>
+        <view class='font_777 font_09'>购买数量</view>
+        <!-- <view class='item_infomation_nums'> 
+            <image src='/images/icons/add2.png' class='{{byNowParams.itemCount == 1 ?"noadd":""}}' catchtap='subNum'></image>
+            <text class='flexCenter'>{{byNowParams.itemCount}}</text>
+            <image src='/images/icons/add.png' class='{{byNowParams.itemCount > measurementJson.stock?"noadd":""}}'
+              data-cantadd='{{byNowParams.itemCount > measurementJson.stock?1:0}} '  catchtap='addNum' ></image>
+          </view> -->
+
+          <view class='item_infomation_nums'> 
+            <image style='border-top-left-radius: 0.2em;border-bottom-left-radius: 0.2em;' 
+              src='/images/icons/add2.png' class='{{byNowParams.itemCount == minCount ?"noadd":""}}'  catchtap='subNum'></image>
+            <text class='flexCenter'>{{byNowParams.itemCount}}</text>
+            <image style='border-top-right-radius: 0.2em; border-bottom-right-radius: 0.2em;' 
+              src='/images/icons/add.png' class='{{byNowParams.itemCount > measurementJson.stock?"noadd":""}}'
+            data-cantadd='{{byNowParams.itemCount > measurementJson.stock?1:0}} '  catchtap='addNum' ></image>
+          </view>
+      </view>
+      <button wx:if="{{type !== 'select'}}" style='background:{{setting.platformSetting.defaultColor}}' 
+      class='sureButn' disabled='{{byNowParams.itemCount > measurementJson.stock||!measurementJson.waitDataState}}' bindtap='buyNow'>确定</button>
+      <view class='selectType'>
+          <button wx:if="{{type == 'select'}}" style='background:{{setting.platformSetting.defaultColor}}' 
+            class='sureButnType' disabled='{{byNowParams.itemCount > measurementJson.stock}}' data-way='cart' bindtap='buyNow'>加入购物车</button>
+          <button wx:if="{{type == 'select'}}" style='background:{{setting.platformSetting.defaultColor}}' 
+            class='sureButnType' disabled='{{byNowParams.itemCount > measurementJson.stock}}' data-way='buy' bindtap='buyNow'>立即购买</button>
+      </view>
+
+  </view>
+
+  <view class='zhezhao' wx:if="{{showCount}}" bindtap='closeZhezhao'></view>
+</view>
+</template>

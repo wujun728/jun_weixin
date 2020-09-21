@@ -1,0 +1,2 @@
+@import "./../components/comment_list.wxss";
+.block{padding:27rpx 0;background:#fff}.block .block_title{color:#000;height:30rpx;line-height:30rpx;border-left:6px solid #f73c3c;padding-left:20rpx}.block .block_content{padding:38rpx 22rpx}

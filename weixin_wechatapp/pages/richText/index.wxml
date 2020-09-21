@@ -1,0 +1,7 @@
+<import src="../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+
+<view class='wxParseHtmlContainer'>
+
+
+<template is="1"   data="{{wxParseData:article.nodes}}"></template> 
+</view>

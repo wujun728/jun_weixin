@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "店铺详情",
+  "backgroundColor": "#f1f1f1",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#ffffff",
+  "enablePullDownRefresh":true,
+  "usingComponents": {
+    "posterActive": "../../view/partials/canvas_shop/index",
+    "component-customPage": "/view/partials/custom_page/index"
+  }
+}

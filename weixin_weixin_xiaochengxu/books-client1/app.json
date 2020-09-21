@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/books/books",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "swiper",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar":{
+    "position":"bottom",
+    "list":[
+      {
+        "pagePath":"pages/books/books",
+        "text":"书架",
+        "iconPath":"images/book.png",
+        "selectedIconPath":"images/bookSelected.png"
+      },
+      {
+        "pagePath":"pages/books/books",
+        "text":"书架",
+        "iconPath":"images/my.png",
+        "selectedIconPath":"images/mySelected.png"
+      }
+    ]
+  }
+}

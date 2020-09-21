@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="320">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<meta name="msapplication-tap-highlight" content="no">
+		<title>商品详情</title>
+		<link rel="stylesheet" href="../seckill_mobile/css/app.css">
+		<link rel="stylesheet" href="../seckill_mobile/css/swiper.min.css">
+		<script type="text/javascript" src="../ajs/common.js?v=2"></script>
+	</head>
+<style>
+.verifyWrap{width:100%;height:100%;-webkit-transition:opacity 0.15s linear;transition:opacity 0.15s linear}
+.verifyWrap .mask{position:fixed;left:0px;top:0px;width:100%;height:100%;background-color:black;z-index:1000;opacity:0.5}
+.verifyWrap .verify{position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:1001}
+.verifyWrap .verifyBox{border-radius:0.13333rem;background-color:white;position:absolute;left:50%;top:40%;width:8rem;height:9.33333rem;margin:0 auto;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
+.verifyWrap .vtitle{background-image:url(../seckill_mobile/img/v_banner.png);background-repeat:no-repeat;background-size:cover;width:8rem;height:2rem}
+.verifyWrap .ct{height:6.13333rem;padding:0;padding-top:0.4rem}
+.verifyWrap .ct .imgwrap{margin:0 auto;position:relative;cursor:pointer;width:4.18667rem;height:4.18667rem}
+.verifyWrap .ct .imgwrap .yzm{width:4.18667rem;height:4.18667rem}
+.verifyWrap .ct .imgwrap img{width:100%;height:100%}
+.verifyWrap .ct .refresh{background-image:url(../seckill_mobile/img/v_refresh.png);background-repeat:no-repeat;background-size:cover;width:0.8rem;height:0.8rem;display:block;position:relative;margin:0 auto;right:inherit;bottom:inherit;margin-top:0.26667rem;cursor:pointer}
+.verifyWrap .ct .refresh .refresh:hover{color:#3368F0}
+.verifyWrap .vfoot{border-top:1px solid #FF6600;height:1.2rem;line-height:1.2rem}
+.verifyWrap .vfoot .vbtn{display:block;float:left;width:50%;cursor:pointer;text-align:center;position:relative}
+.verifyWrap .vfoot .vbtn.sub{color:#FF6600}
+.verifyWrap .vfoot .vbtn:first-child:after{content:"";position:absolute;width:1px;height:0.33333rem;right:0;top:0.42667rem;background:#DDDDDD}
+.verifyWrap .vfoot .vbtn:hover{color:#FF6600}
+.verifyWrap .imgwrap .pointer{background-color:rgba(26, 189, 108, 0.70);color:#fff;z-index:1003;text-align:center;border-radius:50%;position:absolute;}
+.tabBody .content * {
+	position: initial!important;
+	word-break: break-all!important;
+/* 	width: auto!important;
+	height: auto!important; */
+	top: auto!important;
+	left: auto!important;
+	white-space: normal!important;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+#productPage .main_box .product-detail .tabContent .tabBody .content {
+	padding: .53333rem .4rem 1.57333rem;
+}
+</style>
+	<body ontouchstart="">
+		<div class="" id="productPage" style="overflow-x: hidden; -webkit-overflow-scrolling: touch;">
+			<div class="main_box" style=" background-color: #ECECEC;">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" style=""></div>
+						<div class="swiper-slide" style=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+
+					<div class="timeTxt font24" id="timeTxt"><span>00:00:00</span></div>
+				</div>
+
+				<div class="detail-Info">
+					<div class="title font30"> -- </div>
+
+					<div class="seckill-Info clearfix">
+						<div class="left">
+							<span class="font24 color-red curPrice"><span class="font36">0</span>&nbsp;积分</span>
+							<span class="del-line font24 oldPrice">0积分</span>
+						</div>
+						<div class="text-right right seckill-progress">
+							<p class="font24 stockNum">仅剩0件</p>
+							<div class="progress progress-striped active myProcessbar" data-value="80">
+								<div class="progressBg">
+									<div class="progress-bar progress-bar-info probar"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pay-info font24">支付方式：<span>积分</span><span>现金</span><span>积分 + 现金</span></div>
+				</div>
+
+				<div class="product-detail">
+					<div class="tabNav">
+						<ul class="font30 clearfix">
+							<li class="left active">产品介绍</li>
+							<li class="left">规格参数</li>
+						</ul>
+					</div>
+					<div class="tabContent">
+						<div class="tabBody active font24">
+							<div class="productPic" style="padding-top: 20px;">
+								
+							</div>
+						</div>
+						<div class="tabBody">
+							<div class="content font24" id="gAttr">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+ <!--加类disabled表示禁用-->
+		<!--<div class="btn seckillBtn font36 disabled">已结束</div>
+		<div class="btn seckillBtn font36 disabled">已抢光</div>-->
+		<div class="btn seckillBtn font36" id="secBtn"></div>
+		
+		<script src="../seckill_mobile/js/flexible.js"></script> 
+		<script src="../ajs/jquery-2.1.4.min.js"></script>
+		<script src="https://res.mall.10010.cn/jf-mall/res/mobile/js/ajaxhook.min.js"></script>
+		<script src="https://res.mall.10010.cn/jf-mall/res/mobile/js/filter.js"></script>
+		<script src="../seckill_mobile/js/swiper.jquery.min.js"></script>
+		<script type="text/javascript" src="../ajs/moment.min.js"></script>
+		<script type="text/javascript" src="../seckill_mobile/js/detail.js?v=2.3"></script>
+		<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
+		<script type="text/javascript">
+			var vConsole = new VConsole();
+			console.log('Hello world');			
+		</script>
+	</body>
+</html>

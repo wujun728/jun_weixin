@@ -1,0 +1,91 @@
+
+<view class='container'>
+    <view class='tab'>
+      <view wx:for='{{tab}}' style='width:{{(100/(tab.length))}}%;' wx:key='{{index}}'  class='{{showTabIndex == index ? "activeTab":"noneUse"}}'  
+        data-id='{{index}}' bindtap='bindTab'>{{item.name}}</view>        
+    </view>
+
+    <swiper class='Tab_page' current='{{showTabIndex}}' style='height: {{sysHeight-50}}px;' bindchange='changeIndex'> 
+      <swiper-item wx:for='{{tab}}' wx:key='{{index}}' wx:for-item='tab'>
+          <scroll-view  style='height: {{sysHeight-40}}px;' class='tab_page_list' scroll-y upper-threshold='-30' lower-threshold='10' 
+            data-index='{{index}}' bindscrolltoupper='scrollTopToReflesh' bindscrolltolower='scrollBottomToLoadMore'>
+            <view class='tab_page_list_container' style='background: #eee;'>
+                <block wx:if='{{!tab.List}}'>  
+                    <view class='noneList'>没有相关订单</view>
+                </block>
+                <block wx:else> 
+                    <view class='cartContainer' wx:for='{{tab.List}}' wx:for-item='list' wx:for-index='i' wx:key='{{i}}'>
+                      <view class='cartShopName'> 
+                        <view class='user'>
+                          <image src='{{list.platformUserIcon}}'></image>
+                          <text class='font_09'>{{list.platformUserName }}</text>
+                        </view>
+                        <text class='font_09' style='color:{{setting.platformSetting.defaultColor}}'>{{list.backTime  }}</text>
+                      </view>
+
+                      <view class='cartItems'data-id='{{list.orderItemId}}' bindtap='lookMore'>
+                        <view class='itemCheckbox'>
+                          <image mode='aspectFill' src='{{list.orderItem.itemIcon}}?x-oss-process=style/preview'></image>
+                        </view>
+                        <view class='item_infomation'>
+                          <view class='item_infomation_name font1'>{{list.orderItem.itemName}}</view>
+
+                          <view class='item_infomation_name2' wx:if='{{list.orderItem.measureCartesianId}}'>{{list.orderItem.measures}}</view>
+                          <view class='item_infomation_nums'> 
+                            <text class='flexCenter'>x {{list.orderItem.itemCount}}</text>
+                          </view>
+                          <view class='item_infomation_money'>
+                            <view >单价:￥<text class='fontPrice'>{{list.orderItem.itemPrice}}</text></view>
+                            <text>订单号:{{list.orderNo}}</text>
+                          </view>
+                        </view>
+                      </view>
+                      <view class='cartItems_count'>—— 共{{list.backCount}}件商品 ——</view>
+                      <view  class='butn_container3 font_08'>
+                          <text>退款原因：</text>
+                          <text class='tip_tags'>{{list.tags}}</text>
+                          <text style='color:{{setting.platformSetting.defaultColor}}'>{{list.userRemark }}</text>
+                      </view>
+                      <view  class='butn_container'>
+                          <text style='color:{{setting.platformSetting.defaultColor}}'>退款金额：￥{{list.backAmount }}</text>
+                      </view>
+                      
+                      <!-- 订单类型不同，按钮不一样 -->
+                      <view wx:if='{{list.backStatus  == 1}}' class='butn_container2'>
+                          <text data-index='{{index}}' data-id='{{list.id}}' data-accept='1' bindtap='dellBackButnAgree'>同意</text>
+                          <text class='refu' data-index='{{index}}' data-id='{{list.id}}' data-accept='2'  bindtap='dellBackButn'>拒绝</text>
+                      </view>
+                      <view wx:if='{{list.backStatus  == 2}}' class='butn_container2'>
+                          <view>已同意</view>
+                      </view>
+                      <view wx:if='{{list.backStatus  == 5}}' class='butn_container2'>
+                          <view>已拒绝</view>
+                      </view>
+                      <view wx:if='{{list.backStatus  == 3}}' class='butn_container2'>
+                          <view>已退款</view>
+                      </view>
+                    </view>
+                     <view wx:if='{{tab.listEnd}}' class='dixian'> 我是有底线的 ~</view> 
+                </block>
+            </view>
+          </scroll-view>
+      </swiper-item>
+    </swiper>
+</view>
+
+<view class='kefu_wx' catchtouchmove='true' wx:if='{{showKefu}}'>
+    <view class='kefu_bg_zhezhao' bindtap='closeKefu'></view>
+    <view class='kefu_wx_card'>
+      <view class='inputContainer'>
+        <view class='font_red'>{{butnText}}理由</view>
+        <view class='textAreaContainer'>
+          <textarea bindblur='getTextAreaValue' maxlength='150' placeholder='写下你的理由'></textarea>
+        </view> 
+        <view class='ButnContainer'>
+           <button bindtap='closeKefu'>取消</button>
+           <button bindtap='surePost'>确定</button>
+        </view>
+      </view>
+      
+    </view>
+  </view>

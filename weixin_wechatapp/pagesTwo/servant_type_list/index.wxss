@@ -1,0 +1,94 @@
+
+.container{
+  background: #f1f1f1;
+  width: 100%;
+  height: 100%;
+}
+.servant_type_list{
+  display: flex;
+  flex-direction: column;
+}
+.servant_type_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin:20rpx 20rpx 0 20rpx;
+  background:#fff;
+  padding:20rpx;
+  border-radius:20rpx;
+}
+.servant_type_item:last-child{
+  margin-bottom: 20rpx;
+}
+.servant_type_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999
+}
+.servant_type_icon{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  margin-right: 20rpx;
+}
+.modify_price{
+  font-size:26rpx;
+  margin-right:10rpx;
+  color:#0089ff;
+}
+.servant_type_right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}
+/* 设置价格弹窗 */
+
+.set_price_popup{
+  position: fixed;
+  top: 50%;
+  margin-top: -260rpx;
+  left: 50%;
+  margin-left: -300rpx;
+  width: 600rpx;
+  height: 300rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  z-index: 11;
+  box-sizing:border-box;
+  padding:20rpx;
+  font-size: 30rpx;
+}
+.set_price_popup_title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 10rpx 0;
+  font-weight:bold;
+  margin-bottom:40rpx;
+}
+.set_price_popup_list{
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+.set_price_popup_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.set_price_popup_item_input{
+  width:76%;
+  border:1rpx solid #f1f1f1;
+  padding:10rpx;
+}

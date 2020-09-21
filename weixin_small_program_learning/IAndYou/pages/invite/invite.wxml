@@ -1,0 +1,5 @@
+<view>
+  <view>小明正在邀请你加入到恋爱养成游戏，是否同意</view>
+  <button>同意</button>
+  <button>不同意</button>
+</view>

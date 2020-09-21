@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.TeacherMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		tech_id AS techId, tech_nick AS techNick, tech_head AS techHead, tech_title AS techTitle, tech_label AS techLabel, tech_intro AS techIntro, tech_mechanism AS techMechanism, tch_certificate AS tchCertificate, tech_workage AS techWorkage, tech_specialty AS techSpecialty
+	</sql>
+
+</mapper>

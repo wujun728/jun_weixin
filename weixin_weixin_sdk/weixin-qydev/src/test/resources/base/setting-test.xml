@@ -1,0 +1,13 @@
+<DefaultSettings>
+    <corpSetting>
+        <corpId>corp-id-test</corpId>
+        <corpSecret>corp-id-test</corpSecret>
+    </corpSetting>
+    <agentSetting>
+        <agentId>29</agentId>
+        <name>default</name>
+        <callbackUrl>http://oa.gzriver.com</callbackUrl>
+        <token>token</token>
+        <aesKey>aesKey</aesKey>
+    </agentSetting>
+</DefaultSettings>

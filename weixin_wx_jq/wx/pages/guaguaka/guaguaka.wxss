@@ -1,0 +1,23 @@
+/* pages/kuakuaka/kuakuaka.wxss */
+/*刮刮卡抽奖  */
+#guagua{
+  margin: 100rpx auto;
+  background: red;
+  position: relative;
+}
+#guagua canvas{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9;
+}
+#guagua .guagua-re{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  color: #fff;
+  text-align: center;
+  font-size: 60px;
+}
+/*刮刮卡抽奖  */

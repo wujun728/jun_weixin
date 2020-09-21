@@ -1,0 +1,34 @@
+<!--第一种banner -->
+<template name="firstJifenList">
+ 
+  <view class='right_box'>
+    
+      <block  wx:if="{{relateBean.length!=0}}">
+    
+        <view class='detail_list_mode1' style='background:  #eeeeee;'>
+          <view class="mode1_items" data-info="{{jiFenGoods}}" bindtap='tolinkUrl' wx:for="{{relateBean}}" wx:for-item="jiFenGoods" wx:key="{{index}}" 
+            style='border-right: 10px solid #eeeeee;'> 
+            
+            <image  mode='aspectFill'  src="{{jiFenGoods.icon}}"></image>
+            <view class='center' style='width:{{(1/jsonData.column)*sysWidth-40}}px;'>{{jiFenGoods.name}}</view>
+          <view class='NewBox'>
+            <text class='ml20'>{{jiFenGoods.needJifen}}积分</text>
+            <text class='mr20'>库存:{{jiFenGoods.count}}</text>
+          </view>
+          
+        <view class='exchange' style='background-color: {{platformSetting.defaultColor}};' catchtap='buyGoods' data-id='{{index}}'><text style='color:#fff;'>兑换</text></view>
+          
+    
+          </view>
+        </view>
+      </block>
+
+      <block wx:if="{{jiFenGoods.length==0}}">
+        <view class="noproduct">
+          <image mode="widthFix" src='/images/icons/no-product.png'></image>
+          <text>没有相关商品</text>
+        </view>
+      </block>
+    </view>
+
+</template>

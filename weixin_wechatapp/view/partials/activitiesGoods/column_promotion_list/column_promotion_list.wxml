@@ -1,0 +1,37 @@
+
+<!--正常的标题 -->
+<template name="column_promotion_list">
+
+<block >
+<view class='promotion_product_list'>
+  <view class='promotion_product_item' wx:for="{{relateBean.products}}" bindtap='clickLink' wx:for-item="item" wx:key="index" data-id='{{item.id}}'>
+    <view class='promotion_product_head'>
+      <image class='promotion_product_img' mode='aspectFill' src='{{item.imagePath}}'></image>
+      <view class='promotion_time' wx:if="{{relateBean.id}}">
+        <!-- <view></view> -->
+        <!-- <view class='promotion_start_time'>
+          <text class='promotion_start_time_text'>开始</text>
+          <text class='promotion_start_time_value'>{{relateBean.startDate}}</text>
+        </view> -->
+        <view class='promotion_end_time' style='border:1rpx solid {{setting.defaultColor}};'>
+          <text class='promotion_end_time_text' style='background:{{setting.defaultColor}};'>结束</text>
+          <text class='promotion_end_time_value' style='color:{{setting.defaultColor}};'>{{relateBean.endDate}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='promotion_product_info'>
+      <text class='promotion_product_name'>{{item.name}}</text>
+      <view class='promotion_product_bottom'>
+        <view class='promotion_product_allprice'>
+          <text class='promotion_product_price'>￥{{item.price}}</text>
+          <text class='promotion_product_tagprice'>￥{{item.tagPrice}}</text>
+        </view>
+        <view class='promotion_product_buy' style='background:{{setting.defaultColor}}'>
+          <text>去抢购</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</block>
+</template>

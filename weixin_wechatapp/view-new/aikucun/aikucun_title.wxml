@@ -1,0 +1,14 @@
+<!-- aikucun_title -->
+
+<!-- title -->
+<template name="aikucun_title">
+    <view class='aikucun_title' >
+      <!-- <view class='border_style_sanjiao' style='border-color:  transparent #000 #000 transparent;'></view> -->
+      <view class='leftLine'></view>
+       <view class='aikucun_title_container'>
+          <view class='aikucun_title_text' style='color:{{titleColor}}; ' >{{title}}</view>
+       </view>
+       <view class='leftLine'></view>
+      <!-- <view class='border_style_sanjiao' style='border-color:transparent transparent #000 #000;'></view>     -->
+    </view>
+</template>

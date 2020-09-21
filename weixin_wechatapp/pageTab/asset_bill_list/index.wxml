@@ -1,0 +1,88 @@
+
+<view class="container"> 
+  <view class='asset_bill_head'>
+    <view bindtap='clickTypeTab' data-type="1" class='{{currentTab==1?"bill_tab left have":"bill_tab left"}}'>
+      <text class='asset_bill_tab_text'>组织</text>
+    </view>
+    <view  bindtap='clickTypeTab' data-type="0" class='{{currentTab==0?"bill_tab right have":"bill_tab right"}}'>
+      <text class='asset_bill_tab_text'>个人</text>
+    </view>
+  </view>
+  <!-- 资产列表 -->
+  <view class='asset_bill_list' wx:if="{{assetBillList.length!=0}}">
+    <view class='asset_bill_item' wx:for="{{assetBillList}}" wx:for-item="result">
+      <view class='bill_item_left'>
+        <view class='bill_item_classify'>
+          <text wx:if="{{result.paymentPeriodType==1}}">年</text>
+          <text wx:if="{{result.paymentPeriodType==2}}">月</text>
+          <text wx:if="{{result.paymentPeriodType==4}}">日</text>
+          <text wx:if="{{result.paymentPeriodType==5}}">时</text>
+          <text wx:if="{{result.paymentPeriodType==7}}">一</text>
+        </view>
+        <view class='bill_item_info'>
+          <text class='bill_item_name'>{{result.assetName}}</text>
+          <text class='bill_item_type' wx:if="{{result.paymentPlatformUserId}}">个人</text>
+          <text class='bill_item_type' wx:if="{{result.paymentOrganizeId}}">组织</text>
+          <text class='bill_item_time'>账单起止时间：{{result.unitStartTime}}-{{result.unitEndTime}}</text>
+        </view>
+      </view>
+      <view class='bill_item_pay'>
+        <text class='bill_item_pay_state' style='color:#ff8989' wx:if="{{result.payStatus==0}}">待支付</text>
+        <text class='bill_item_pay_state' style='color:#999' wx:if="{{result.payStatus==1}}">已完成</text>
+        <text class='bill_item_pay_money' wx:if="{{result.payStatus==0}}">￥{{result.needPayAmount}}</text>
+        <text class='bill_item_pay_money' wx:if="{{result.payStatus==1}}">-{{result.payAmount}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='no_bill_item_pay' wx:else>
+    <text>主人~您还没有账单哦！</text>
+  </view>
+</view>
+
+<!-- 悬浮支付 -->
+<view class='bill_all_pay'>
+  <image class='up_or_down' src='http://image1.sansancloud.com/xianhua/2018_9/14/14/27/23_169.jpg' wx:if="{{!showNoneBill}}" bindtap='clickShowNoPay'></image>
+  <image class='up_or_down' src='http://image1.sansancloud.com/xianhua/2018_9/14/14/27/23_159.jpg' wx:else bindtap='clickShowNoPay'></image>
+  <view class='bill_all_pay_right'>
+    <view class='total_price'>
+      <text>总计:</text>
+      <text class='total_price_value' wx:if="{{currentTab==0}}">￥{{noAssetBillList.userUnpayedTotalAmount}}</text>
+      <text class='total_price_value' wx:if="{{currentTab==1}}">￥{{noAssetBillList.organizeUnpayedTotalAmount}}</text>
+    </view>
+    <button  loading='{{butn_show_loading}}' class='to_pay_btn' bindtap='subMitButn'>
+      <text>结算</text>
+      <text class='num' wx:if="{{currentTab==0}}">({{noAssetBillList.userUnpayedTotalCount}})</text>
+      <text class='num' wx:if="{{currentTab==1}}">({{noAssetBillList.organizeUnpayedTotalCount}})</text>
+    </button>
+  </view>
+</view>
+
+<!-- 未支付列表 -->
+<view class='non_payment_list' wx:if="{{showNoneBill}}">
+  <view class='non_payment_title'>
+    <text>待支付订单</text>
+  </view>
+  <scroll-view wx:if="{{noAssetBillList.userUnpayedBills.length!=0||noAssetBillList.organizeUnpayedBills.length!=0}}"
+    scroll-y
+    style="height: 200px;"
+    bindscrolltoupper="upper"
+    bindscrolltolower="lower"
+    bindscroll="scroll"
+  >
+  <view class='non_payment_item' wx:for="{{currentTab==0?noAssetBillList.userUnpayedBills:noAssetBillList.organizeUnpayedBills}}" wx:for-item="item">
+    <view class='non_payment_item_left'>
+      <text class='non_payment_item_name'>{{item.assetName}}</text>
+      <text class='non_payment_item_time'>账单起止时间：{{item.unitStartTime}}-{{item.unitEndTime}}</text>
+    </view>
+    <view class='non_payment_item_price'>
+      <text>￥{{item.needPayAmount}}</text>
+    </view>
+  </view>
+  </scroll-view>
+  <view class='no_bill' wx:if="{{noAssetBillList.userUnpayedBills.length==0&&currentTab==0}}">
+    <text>暂无个人账单</text>
+  </view>
+  <view class='no_bill' wx:if="{{noAssetBillList.organizeUnpayedBills.length==0&&currentTab==1}}">
+    <text>暂无组织账单</text>
+  </view>
+</view>

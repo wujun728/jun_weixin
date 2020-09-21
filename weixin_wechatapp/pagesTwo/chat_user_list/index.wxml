@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='chat_user_list'>
+    <view class='chat_user_item' wx:for="{{chatUserList}}" wx:for-item="chatUserItem" wx:key="{{index}}" data-link="chat_room.html?puid={{chatUserItem.id}}&puname={{chatUserItem.nickname}}" data-id="{{chatUserItem.id}}" catchtap='tolinkUrl'>
+      <view class='chat_user_item_left'>
+        <image class='user_icon' src='{{chatUserItem.headimgurl}}'></image>
+        <text class='unread_ount' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{chatUserItem.unreadCount!=0}}">{{chatUserItem.unreadCount}}</text>
+      </view>
+      <view class='chat_user_item_right'>
+        <view class='chat_user_item_user'>
+          <text class='user_name'>{{chatUserItem.nickname}}</text>
+          <text class='user_news_msg'>{{chatUserItem.lastChatContent}}</text>
+        </view>
+        <view class='chat_user_item_state'>
+          <text class='user_news_time'>{{chatUserItem.lastChatTime}}</text>
+          <!-- <text class=''></text> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,223 @@
+
+<view class="container" style='height:{{servantshowWay==1? "100%":""}}'> 
+<!-- 头部 -->
+ <view class="typeSearchContainer" > 
+    <view class='search_input_bg'>
+      <view class='search_input'>
+        <view class='search_input_left'>
+          <image class='input_img' src='http://image1.sansancloud.com/xianhua/2018_9/14/16/25/0_222.jpg?x-oss-process=style/preview_120'></image>
+          <input class='input' bindconfirm='getSearchservantName' value='{{searchServantName}}'   placeholder='搜索人员名称'></input>
+        </view>
+      </view>
+    </view>
+    <!-- 筛选start -->
+    <view class='zhezhao' wx:if="{{showCount||showMoreSelectState}}" bindtap='closeZhezhao'></view>
+    <view class='select_top' style='position:{{componentState?"relative":"fixed"}}'>
+      <view class='select_tab' wx:if="{{selectTab.length!=0}}">
+        <view class='select_tab_item' wx:for="{{selectTab}}" wx:if="{{index<=1}}" wx:for-item="selectTabItem" wx:key='{{index}}' catchtap='selectTabFun' data-index="{{index}}">
+          <text class='select_tab_item_text' style="color:{{selectTabIndex==index||(selectResultsValue[selectTabItem.name]&&selectResultsValue[selectTabItem.name].length!=0&&(selectTabItem.type=='multi-select'||selectTabItem.type=='multistage-style'))?setting.platformSetting.defaultColor:''}}">{{selectResultsValue[selectTabItem.name]&&selectTabItem.type=='pull-down'?selectResultsValue[selectTabItem.name]:selectTabItem.title}}</text>
+          <image class='select_tab_item_icon' wx:if="{{!selectTabItem.state}}" src='http://image1.sansancloud.com/jianzhan/2019_3/20/12/1/52_354.jpg?x-oss-process=style/preview_120'></image>
+          <image class='select_tab_item_icon' wx:else src='http://image1.sansancloud.com/jianzhan/2019_3/20/12/1/52_336.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+        <!-- 下拉的选择样式 -->
+        <scroll-view scroll-y class='select_tab_item_value' wx:if="{{showCount&&selectTab[selectTabIndex].type=='pull-down'}}">
+          <text class='select_tab_item_value_name' data-index="-1" catchtap='selectResult'>不限</text>
+          <text class='select_tab_item_value_name' data-index="{{index}}" catchtap='selectResult' wx:for="{{selectTab[selectTabIndex].listValues}}" wx:for-item="selectTabItemValues">{{selectTabItemValues.value}}</text>
+        </scroll-view>
+        <!-- 多选的选择样式 -->
+        <view class='select_tab_item_value_two' wx:if="{{showCount&&selectTab[selectTabIndex].type=='multi-select'}}">
+          <scroll-view scroll-y class='select_tab_list_two_block'>
+            <text class='select_tab_item_value_name_two' data-index="-1" catchtap='selectResult' style='{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==0?"background:"+setting.platformSetting.defaultColor+";color:"+"#fff":""}}'>不限</text>
+            <text class='select_tab_item_value_name_two' data-index="{{index}}" style='background:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}};color:{{selectTabItemValues.state?"#fff":""}}' catchtap='selectResult'  wx:key="{{index}}" wx:for="{{selectTab[selectTabIndex].listValues}}" wx:for-item="selectTabItemValues">{{selectTabItemValues.value}}</text>
+          </scroll-view>
+          <view class='multi_select_bg'>
+            <text class='multi_select_btn_clear' catchtap='clearSelect' style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>重置</text>
+            <text class='multi_select_btn' catchtap='sureSelect' style='background:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>确定</text>
+          </view>
+        </view>
+        <!-- 级联的选择样式 -->
+        <view class='select_tab_item_value_four' wx:if="{{showCount&&selectTab[selectTabIndex].type=='multistage-style'}}">
+          <view class='select_tab_list_four_list'>
+            <!-- 一级 -->
+            <scroll-view scroll-y class='select_tab_list_four_block'>
+              <text class='select_tab_item_value_name_four' data-level="two" data-index="-1" catchtap='selectResult' style='border-bottom:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==0?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==0?"#fff":""}};color:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==0?setting.platformSetting.defaultColor:""}}'>不限</text>
+              <text class='select_tab_item_value_name_four' data-index="{{index}}" style='border-bottom:{{selectTabItemValues.state?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{selectTabItemValues.state?"#fff":""}};color:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}}' catchtap='selectResult'  wx:key="{{index}}" data-item="{{selectTabItemValues}}" data-level="two" wx:for="{{selectTab[selectTabIndex].listValues}}" wx:for-item="selectTabItemValues">{{selectTabItemValues.name}}</text>
+            </scroll-view>
+            <!-- 二级 -->
+            <scroll-view scroll-y class='select_tab_list_four_block'>
+              <text class='select_tab_item_value_name_four' data-index="-1" data-level="three" catchtap='selectResult' style='border-bottom:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1?"#fff":""}};color:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1?setting.platformSetting.defaultColor:""}}'>不限</text>
+              <text class='select_tab_item_value_name_four' data-index="{{index}}" style='border-bottom:{{selectTabItemValues.state?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{selectTabItemValues.state?"#fff":""}};color:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}}' catchtap='selectResult' wx:key="{{index}}" data-level="three" data-item="{{selectTabItemValues}}" wx:for="{{twoMultistageData[selectTab[selectTabIndex].name]}}" wx:for-item="selectTabItemValues" wx:if="{{twoMultistageData[selectTab[selectTabIndex].name]}}">{{selectTabItemValues.name}}</text>
+            </scroll-view>
+            <!-- 三级 -->
+            <scroll-view scroll-y class='select_tab_list_four_block'>
+              <text class='select_tab_item_value_name_four' data-index="-1" catchtap='selectResult' style='border-bottom:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1||selectResultsValue[selectTab[selectTabIndex].name].length==2?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1||selectResultsValue[selectTab[selectTabIndex].name].length==2?"#fff":""}};color:{{!selectResultsValue[selectTab[selectTabIndex].name]||selectResultsValue[selectTab[selectTabIndex].name].length==1||selectResultsValue[selectTab[selectTabIndex].name].length==2?setting.platformSetting.defaultColor:""}}'>不限</text>
+              <text class='select_tab_item_value_name_four' data-index="{{index}}" style='border-bottom:{{selectTabItemValues.state?"1rpx solid "+setting.platformSetting.defaultColor:""}};background:{{selectTabItemValues.state?"#fff":""}};color:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}}' catchtap='selectResult'  wx:key="{{index}}" data-item="{{selectTabItemValues}}" wx:for="{{threeMultistageData[selectTab[selectTabIndex].name]}}" wx:for-item="selectTabItemValues" wx:if="{{threeMultistageData[selectTab[selectTabIndex].name]}}">{{selectTabItemValues.name}}</text>
+            </scroll-view>
+          </view>
+          <!-- 按钮 -->
+          <view class='multi_select_bg'>
+            <text class='multi_select_btn_clear' catchtap='clearSelect' style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>重置</text>
+            <text class='multi_select_btn' catchtap='sureSelect' style='background:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>确定</text>
+          </view>
+        </view>
+        <!--更多筛选的样式  -->
+        <view class='select_tab_list_three' wx:if="{{showMoreSelectState}}">
+          <scroll-view scroll-y class='select_tab_list_three_block'>
+            <view class='select_tab_item_three' wx:for="{{selectTab}}" wx:if="{{indexOne>1&&selectTabItem.type!='multistage-style'}}" wx:for-item="selectTabItem" wx:for-index="indexOne" wx:key='{{indexOne}}' >
+              <view class='select_tab_item_three_title'>
+                <text>{{selectTabItem.title}}</text>
+                <text style='color:#ccc;margin-left:6rpx' wx:if="{{selectTabItem.type=='pull-down'}}">(单选)</text>
+                <text style='color:#ccc;margin-left:6rpx' wx:if="{{selectTabItem.type=='multi-select'}}">(可多选)</text>
+              </view>
+              <view class='select_tab_item_three_value_list'>
+                <view class='select_tab_item_value_name_three' data-father="{{indexOne}}" data-index="-1" style='{{!selectResultsValue[selectTabItem.name]||selectResultsValue[selectTabItem.name].length==0?"background:"+setting.platformSetting.defaultColor+";color:"+"#fff":""}}' catchtap='selectResult'>
+                  <text>不限</text>
+                </view>
+                <view class='select_tab_item_value_name_three' data-father="{{indexOne}}" data-type="more_select" data-index="{{index}}" style='background:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}};color:{{selectTabItemValues.state?"#fff":""}}' catchtap='selectResult' wx:for="{{selectTabItem.listValues}}" wx:for-item="selectTabItemValues">
+                  <!-- <text wx:if="{{selectTabItem.type=='pull-down'}}">{{selectTabItemValues}}</text> -->
+                  <text>{{selectTabItemValues.value}}</text>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+          <view class='multi_select_bg'>
+            <text class='multi_select_btn_clear' catchtap='clearSelect' style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>重置</text>
+            <text class='multi_select_btn' catchtap='sureSelect' style='background:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>确定</text>
+          </view>
+        </view>
+        <!-- 更多筛选按钮 -->
+        <view class='more_select' wx:if="{{selectTab.length>2}}" catchtap="moreSelectFun">
+          <image class='more_select_icon' src='http://image1.sansancloud.com/sansancloud/2019_7/10/10/48/52_267.jpg?x-oss-process=style/preview_120'></image>
+          <text class='more_select_text'>筛选</text>
+        </view>
+      </view>
+      <!-- 更多筛选按钮 -->
+      <view class='more_select' catchtap="moreSelectFun">
+        <image class='more_select_icon' src='http://image1.sansancloud.com/sansancloud/2019_7/10/10/48/52_267.jpg?x-oss-process=style/preview_120'></image>
+        <text class='more_select_text'>筛选</text>
+      </view>
+    </view>
+    <!-- 筛选end -->
+    <!-- <view class="typeSearch">
+      <view class='flexCenter' data-index="0" style='width:85%'>
+        <scroll-view scroll-x class="tab-h" scroll-into-view="{{'tab_'+positionTab}}" scroll-with-animation='true'>
+          <view  wx:for="{{servantType}}"
+            wx:for-item="type" wx:key="{{index}}" data-type="{{type}}"
+            bindtap='bindTypeItem' id="{{'tab_'+type.id}}" class='tab-item {{type.active?"active":""}}' style='color:{{type.colorAtive}}'>{{type.name}}</view>
+        </scroll-view>
+      </view>
+      
+      <view class='flexCenter' bindtap='bindservantshowWay' style='width:100rpx'>
+          <view class='border_left'></view>
+          <block wx:if="{{servantshowWay ==1}}">
+            <image src='http://image1.sansancloud.com/xianhua/2018_9/13/12/1/42_584.jpg'></image>
+          </block>
+          <block wx:if="{{servantshowWay == 2}}">
+            <image src='http://image1.sansancloud.com/xianhua/2018_9/14/14/10/32_257.jpg'></image>
+          </block>
+      </view>
+    </view> -->
+  </view>
+    <block wx:if='{{servantshowWay == 2}}' >
+     <view class='servant_page_container2' style='height:{{servantshowWay==1? "100%":""}}'>
+        <block wx:if = "{{!! servantData}}">
+          <view class='servant_items2' bindtap='tolinkUrl' data-link='servant_detail.html?servantId={{result.id}}' wx:for="{{markers}}" wx:for-item="result" wx:key="{{result.id}}">
+            <view class='servant_items2_top'>
+              <view class="servant_head">
+                <image class='servant_head_img' mode="aspectFill" src='{{result.icon}}?x-oss-process=style/preview'></image>
+                <view  class="servant_state">
+                  <image class='servant_type_icon' wx:if="{{result.status==1}}" src='http://image1.sansancloud.com/xianhua/2019_1/13/15/46/31_486.jpg'></image>
+                  <image class='servant_type_icon' wx:if="{{result.status==2}}" src='http://image1.sansancloud.com/xianhua/2019_1/13/15/46/31_503.jpg'></image>
+                  <image class='servant_type_icon' wx:if="{{result.status==3}}" src='http://image1.sansancloud.com/xianhua/2019_1/13/15/46/31_506.jpg'></image>
+                </view>
+              </view>
+              <view class='servant_items2_view1'>
+                <view class='servant_fun' wx:if="{{result.servantTypeBean}}">
+                  <text wx:if="{{result.servantTypeBean.servantServiceType==1}}" class='servant_fun_text' style='background:{{setting.platformSetting.defaultColor}}' catchtap='calling' data-telno='{{result.telno}}'>拨打电话</text>
+                  <text wx:if="{{result.servantTypeBean.servantServiceType==2}}" class='servant_fun_text' style='background:{{setting.platformSetting.defaultColor}}'>预约</text>
+                </view>
+                <view class='servant_items2_name_top'>
+                  <text class='servant_name'>{{result.name}}</text>
+                  <text class='servant_price' style='color:{{setting.platformSetting.defaultColor}}' wx:if="{{result.servantTypeRelateBean}}">￥{{result.servantTypeRelateBean.price}}</text>
+                </view>
+                <view class='servant_score'>
+                  <view class='servant_score_item' wx:for="{{result.pingfen}}" wx:for-item="pingfenItem" wx:key="{{pingfenItem.id}}">
+                    <image src='http://image1.sansancloud.com/xianhua/2019_4/30/15/33/9_681.jpg?x-oss-process=style/preview_120' class='servant_score_item_icon'></image>
+                  </view>
+                  <text>{{result.pingfen}}</text>
+                </view>
+                <scroll-view scroll-x class="tab_scroll_list" scroll-with-animation='true'>
+                  <view class='tab_item' wx:for="{{result.tagArray}}" wx:for-item="tagItem" style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>{{tagItem}}</view>
+                </scroll-view>
+              </view>
+               <!-- <view class='order_servant' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{result.servantTypeBean}}">
+                <text>预约</text>
+              </view> -->
+              <!-- <view class='order_servant' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{result.servantTypeBean}}">
+                <text>￥{{result.servantTypeBean.price}}</text>
+              </view> -->
+            </view>
+            <view class='servant_items2_info'>
+              <image src='http://image1.sansancloud.com/xianhua/2019_7/4/16/5/5_640.jpg?x-oss-process=style/preview_120' class='servant_items2_rich_icon'></image>
+              <view class='servant_items2_rich'>
+                <text class='description'>{{result.description}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <view class="noservant">
+            <image mode="widthFix" src='/images/icons/no-servant.png'></image>
+            <text>没有相关商品</text>
+          </view>
+        </block>
+      </view>
+    </block>
+
+
+    <block wx:if='{{servantshowWay == 1}}'>
+     <scroll-view class='servant_page_container2' style='height:{{servantshowWay==1? "100%":""}}'>
+          <map class='mapItem' id="map" longitude="{{localPoint.longitude}}" latitude="{{localPoint.latitude}}" scale="14" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"  bindregionchange="regionchange" show-location='true' style="width: 100%; height: 100%;" bindtap='hiddenProInfo'>
+            <cover-view class="play" >
+               <cover-image class="img" src="../../images/icon/center.png" style='width:80rpx;height:80rpx;' />
+            </cover-view>
+          </map>
+          <cover-view class='bottom_tap'>
+            <cover-view class='return_index'>
+              <cover-image src='http://image1.sansancloud.com/xianhua/2018_9/13/16/50/14_226.jpg' class='return_index_img' bindtap='toIndex'></cover-image>
+            </cover-view>
+            <cover-view class='applyForm' style='background:{{setting.platformSetting.defaultColor}}' data-link='form_detail.html?customFormId={{currentType.refCustomFormId}}' bindtap='tolinkUrl'>
+              <cover-image src='http://image1.sansancloud.com/yunjishi/2018_12/4/11/46/22_437.jpg' class='location_img'></cover-image>
+              <cover-view class='applyFormText'>申请</cover-view>
+            </cover-view>
+            <cover-view class='location'>
+              <cover-image src='http://image1.sansancloud.com/xianhua/2018_9/13/16/50/14_232.jpg' class='location_img' bindtap='clickcontrol'></cover-image>
+            </cover-view>
+          </cover-view>
+          <cover-view class='servant_data' wx:if="{{servantDetail!=null}}">
+            <cover-view class='servant_info' bindtap='tolinkUrl' data-link='servant_detail.html?servantId={{servantDetail.id}}'>
+              <cover-image class='servant_info_left' src="{{servantDetail.icon+'?x-oss-process=style/preview_120'}}"></cover-image>
+              <cover-view class='servant_info_center'>
+                <cover-view class='servant_info_name'>{{servantDetail.name}}</cover-view>
+                <cover-view class='servant_info_service_time'>
+                  <cover-image class='servant_info_service_time_img' src='http://image1.sansancloud.com/santigongxiang/2018_10/10/18/22/0_933.jpg'></cover-image>
+                  <cover-view class='servant_info_service_time_value'>{{servantDetail.categoryName}}</cover-view>
+                </cover-view>
+                <cover-view class='servant_info_service_addr'>
+                  <cover-image class='servant_info_service_addr_img' src='http://image1.sansancloud.com/xianhua/2018_9/13/17/57/21_219.jpg'></cover-image>
+                  <cover-view class='servant_info_service_addr_value' wx:if="{{servantDetail.address}}">{{servantDetail.address}}</cover-view>
+                  <cover-view class='servant_info_service_addr_value' wx:else>{{servantDetail.province}}-{{servantDetail.city}}-{{servantDetail.area}}</cover-view>
+                </cover-view>
+              </cover-view>
+              <cover-view class='servant_info_right' catchtap='tolinkUrl' data-link="form_detail.html?customFormId={{currentType.refCustomFormId}}&servantId={{servantDetail.id}}" >
+                <cover-view class='line'></cover-view>
+                <cover-image src='http://image1.sansancloud.com/xianhua/2018_9/13/20/11/36_801.jpg?x-oss-process=style/preview_120' class='navigation'></cover-image>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+      </scroll-view>
+    </block>
+  
+
+</view>

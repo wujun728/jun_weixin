@@ -1,0 +1,20 @@
+
+  <view class="setting">
+    <scroll-view scroll-y="true" class="swiper-item-box">
+      <view class="list_block">
+        <view class="item_bock">
+          <view class="title">昵称</view>
+          <view class="item_content">{{userInfo.name}}</view>
+        </view>
+        <view class="item_bock">
+          <view class="title">我的手机</view>
+          <view class="item_content">{{userInfo.mobile}}</view>
+        </view>
+        <view class="item_bock">
+          <view class="title">收货地址</view>
+          <navigator class="item_content" url="/pages/address">更改地址 ></navigator>
+        </view>
+      </view>
+  
+  </scroll-view>
+  </view>

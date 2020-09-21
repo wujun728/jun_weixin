@@ -1,0 +1,98 @@
+.container{
+  background: #f2f2f2;
+  width: 100%;
+  overflow: hidden;
+}
+.account_balance_info{
+  margin: 20rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200rpx;
+  justify-content: space-between;
+  padding: 40rpx 0 60rpx 0;
+  box-shadow: 0rpx 4rpx 10rpx #eee
+}
+.balance_text{
+  font-size: 28rpx;
+  color: #3f3f3f;
+}
+.account_num{
+  font-size:48rpx;
+  font-weight: bold;
+}
+.tixian_btn{
+  width: 260rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+.account_balance_record{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.account_balance_list_title{
+  background: #fff;
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+.record_icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx
+}
+.account_balance_list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+.account_balance_item{
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing:border-box;
+  color:#464646;
+  margin: 10rpx 0;
+  border-radius: 10rpx;
+}
+.account_balance_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.tixian_account{
+  width: 30%
+}
+.tixian_state{
+  width: 20%
+}
+.tixian_time{
+  width: 42%
+}
+.no_tixian_list{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #6f6f6f;
+  padding: 30rpx 0;
+  font-size: 24rpx;
+}

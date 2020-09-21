@@ -1,0 +1,169 @@
+/* components/picker.wxss */
+/*清除浮动*/
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.picker{
+  font-size: 20rpx;
+  color: #222222;
+}
+.picker-title{
+  font-size: 30rpx;
+  color:red;
+}
+.picker-detail{
+  height: 100rpx;
+  position: relative;
+  padding: 10rpx 0;
+  border-bottom: 2rpx solid #222222;
+  border-top: 2rpx solid #222222;
+}
+.picker-detail view.hide{
+  display: none;
+}
+.picker-detail-date{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+.picker-detail-day{
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  height: 60rpx;
+  width: 120rpx;
+  font-size: 60rpx;
+  color: red;
+}
+.picker-detail-nl{
+  float: left;
+  width: 50%;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.picker-detail-sx{
+  float: left;
+  width: 50%;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.picker-detail-nymdr{
+  float: left;
+  width: 50%;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.picker-detail-jq{
+  float: left;
+  width: 50%;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.picker-detail-xz{
+  float: left;
+  width: 50%;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.picker-tools{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx 0;
+  border-bottom: 2rpx solid #222222;
+}
+.picker-tools view{
+  float: left;
+  text-align: center;
+}
+.picker-tools-prev-year,.picker-tools-prev-month,.picker-tools-next-month,.picker-tools-next-year{
+  width: 15%;
+  color: blue;
+}
+.picker-tools-see-month,.picker-tools-see-year{
+  width: 20%;
+}
+.picker-list-w{
+  margin:10rpx auto 0rpx;
+  position: relative;
+  width: 700rpx;
+}
+.picker-list-w view{
+  float: left;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 35rpx;
+}
+.picker-list-w-r{
+  color: red;
+}
+.picker-list{
+  position: relative;
+  width: 700rpx;
+  margin:0rpx auto 10rpx;
+}
+.picker-list-item{
+  float: left;
+  width: 100rpx;
+  height: 80rpx;
+  position: relative;
+  text-align: center;
+}
+.picker-list-prev{
+  opacity: 0.4;
+}
+.picker-list-prev.hide{
+  opacity: 0;
+}
+.picker-list-next{
+  opacity: 0.4;
+}
+.picker-list-next.hide{
+  opacity: 0;
+}
+.picker-list-item-y{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+.picker-list-item-n{
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.picker-list-item-n.hide{
+  display: none;
+}
+.picker-list-item.now{
+  background: red;
+}
+.picker-list-item.focus.now{
+  background: red;
+}
+.picker-list-item.focus{
+  background: yellow;
+}
+.picker-tools2{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx 0;
+  border-bottom: 2rpx solid #222222;
+  border-top: 2rpx solid #222222;
+}
+.picker-tools2 view{
+  float: left;
+  text-align: center;
+  width: 25%;
+  color: blue;
+}
+.picker-sel{
+  margin-top: 10rpx;
+}

@@ -1,0 +1,50 @@
+<!-- 魔方 -->
+
+<template name="14">
+    <view style='padding:0 0 0 0;'>
+    <view class='mofang_templete'
+     style='height:{{750/width*height}}rpx' >
+      <view class='mofang_item' wx:for='{{items}}' wx:key='{{index}}'
+      style='left:{{item.startPointX*750/width}}rpx;                                  top:{{item.startPointY*750/width}}rpx;                                                width:{{(item.endPointX-item.startPointX+1)*750/width}}rpx;                           height:{{(item.endPointY-item.startPointY+1)*750/width}}rpx; padding:{{imagePadding}}px'>
+      
+             <image mode='scaleToFill' src='{{item.imageUrl}}'
+          data-link='{{item.linkUrl}}' bindtap='tolinkUrl'
+          style='border-radius: {{item.borderRadius}}px'
+        ></image>     
+
+    
+     </view> 
+
+    
+    </view>
+    </view>
+</template>
+
+
+
+
+
+
+
+
+
+<!-- 魔方 -->
+
+<!-- <template name="14">
+    <view style='padding:{{navPadding}}px;background-color: {{navBackground}};'>
+    <view class='mofang_templete'
+     style='border-left: {{leftBorderWidth}}px solid {{leftBorderColor}};  border-right: {{rightBorderWidth}}px solid {{rightBorderColor}};   border-top: {{topBorderWidth}}px solid {{topBorderColor}};  border-bottom: {{bottomBorderWidth}}px solid {{bottomBorderColor}};   height:{{bili*sysWidth}}px' >
+      <view class='mofang_item' wx:for='{{items}}' wx:key='{{index}}'
+      style='padding:{{imagePadding}}px; background-color:{{imagePaddingBackground}};                 left:{{item.startPointX*100/12}}%; top:{{item.startPointY *100/ item.navHeight}}%;              width:{{(item.endPointX-item.startPointX)*100/12}}%;height:{{(item.endPointY-item.startPointY)*100/item.navHeight}}%; {{item.rightSideItemExist?"border-right:"+innerBorderWidth +"px solid " +innerBorderColor:""}};   {{item.bottomSideItemExist?"border-bottom:"+innerBorderWidth +"px solid " +innerBorderColor:""}};'>
+         <!-- <image mode='scaleToFill' src='{{item.imageUrl}}'
+          data-link='{{item.linkUrl}}' bindtap='tolinkUrl'
+          style='border-radius: {{item.borderRadius}}px'
+        ></image>  -->
+     <!-- </view> 
+
+    
+    </view>
+    </view>
+</template> --> -->
+
+

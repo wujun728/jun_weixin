@@ -1,0 +1,239 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5
+}
+.formBanner{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing:border-box;
+  background:#fff;
+}
+.bannerUrl{
+  width: 100%;
+  height: 100%
+}
+.formHead{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.formName{
+  padding:0 0 20rpx 0;
+  font-size: 34rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  color:#444444;
+}
+.formDescription{
+  letter-spacing: 2rpx;
+  line-height:32rpx;
+  font-size:22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: #888;
+  width: 100%
+}
+.tip{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.tipIcon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 6rpx
+}
+.tipText{
+  width: 100%;
+}
+.formContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.common{
+  background: #fff;
+  border-radius: 6rpx;
+  min-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 18rpx;
+  margin: 16rpx 0;
+  justify-content: space-between;
+  font-size:34rpx;
+
+}
+.inputName{
+  font-size: 34rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.inputString input{
+  text-align: right;
+  width: 60%
+}
+.inputString textarea {
+  text-align:left;
+  padding: 10rpx;
+  width:96%;
+  border:1rpx solid #eee;
+  margin-top:10rpx;
+  height: 200rpx;
+}
+
+/* .picker{
+  width:60%;
+  height:100%;
+  line-height:76rpx;
+} */
+.pickerRight{
+  height:80rpx;
+  display:flex;
+  align-items:center;
+  width:40rpx;
+  float:right;
+}
+.pickerValue{
+  width:90%;
+  height:80rpx;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end
+  
+}
+.pickerImg{
+  width: 50rpx;
+  float: right;
+  height:50rpx;
+}
+.imgType{
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff; 
+  height:100%;
+  font-size:34rpx;
+}
+.imgName{
+  margin-top: 15rpx
+}
+.upload{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow: wrap;
+  margin-top:15rpx;
+}
+.uploadImg{
+  width: 150rpx;
+  height: 150rpx;
+  border:2rpx dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 15rpx
+}
+.uploadImgIcon{
+  width: 50rpx;
+  height: 50rpx
+}
+.uploadedImgUrl{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 18rpx;
+  border-radius: 10rpx
+}
+.uploadedImg{
+  margin-bottom: 15rpx;
+  position: relative;
+}
+.removeImgBg{
+  width:150rpx;
+  height: 40rpx;
+  background: #888;
+  opacity: 0.5;
+  position: absolute;
+}
+.removeImgIcon{
+  position: absolute;
+  right: 26rpx;
+  top:6rpx;
+  border-radius: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #888;
+  font-size: 20rpx;
+  text-align:center;
+  color: #fff
+}
+.saveData{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between
+}
+.picker{
+  width: 400rpx;
+  height: 80rpx;
+  line-height:76rpx;
+  text-align:right;
+  float:left;
+
+}
+.saveBtn{
+  width: 60%
+}
+.checkFormList{
+  width: 35%
+}
+.checkFormList:after {
+  border: none;
+}
+.saveBtn:after {
+  border: none;
+}
+.shareFormPoster{
+  position: fixed;
+  top: 66%;
+  right: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  z-index:10;
+}
+.shareFormPosterImg{
+  width: 70rpx;
+  height: 70rpx;
+}
+.location{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 50rpx;
+  width: 70%;
+  justify-content: space-between
+}
+.select_address{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

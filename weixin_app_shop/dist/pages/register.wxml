@@ -1,0 +1,18 @@
+
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <view class="section_title">手机号</view>
+      <input name="phone" type="number" bindinput="phoneInput" placeholder="请输入手机号码" maxlength="11" focus="true"/>
+    </view>
+    <view class="section">
+      <view class="section_title">验证码</view>
+      <input class="code" name="code" type="number" placeholder="请输入验证码"/>
+      <view class="btn send_code">
+        <text  wx:if="{{sendMsgDisabled}}">{{time+'秒后获取'}}</text>
+        <text bindtap="sendCode"  wx:else="{{sendMsgDisabled}}">发送验证码</text>
+      </view>
+    </view>
+    <view class="btn_comfire">
+      <button class="button type_yellow" formType="submit">完成</button>
+    </view>
+  </form>

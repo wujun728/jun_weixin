@@ -1,0 +1,322 @@
+<!--index.wxml-->
+<view class="container page1" wx:if="{{pageType==1}}">
+  <view class="head">
+    <view class="one">
+      <view class="saoma" bindtap="saoma" wx:if="{{!restaurant}}">
+        厅餐扫码
+        <text class="iconfont icon-saoma"></text>
+      </view>
+      <view class="address" wx:if="{{!restaurant}}">
+        <text class="iconfont icon-map icon-sanjiao" bindtap="getAddress">{{map_address}}</text> 
+      </view>
+    </view>
+    <view class="two" wx:if="{{restaurant}}">
+      <view class="iconfont icon-map2">5号桌</view>
+      <view bindtap="takeOut">返回外卖</view>
+    </view>
+    <view class="P_input">
+      <input placeholder="搜索您喜欢的商品名称" placeholder-style="color:#999;padding-top: 5rpx;"/>
+      <image src="../../img/search.png" class="searchPic" catchtap="searchBtn"></image> 
+    </view>
+    <swiper autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" vertical="{{vertical}}">
+      <block wx:for="{{newsarr}}" wx:key="">
+        <swiper-item>
+          <view class="swiperList">
+            <text class="iconfont icon-news"></text>
+            <text> {{item.message}}</text>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="P_title">
+    <view class="{{orderOrBusiness=='order'?'P_order P_active':'P_order'}}" bindtap="tabChange" data-id="order">
+      点菜
+    </view>
+    <view class="{{orderOrBusiness=='business'?'P_business P_active':'P_business'}}"  bindtap="tabChange" data-id="business">
+      商家
+    </view>
+  </view>
+  <view class="P_order_P" wx:if="{{orderOrBusiness=='order'}}">
+    <scroll-view class="orderPage-sideBar" bindscrolltolower="lower" scroll-y="true" style="height:{{height}};overflow-y:scroll">
+      <block wx:for="{{menu}}" wx:key="">
+        <view class="menuList">
+          <view class="{{index==orderType?'selected':''}}" data-index="{{index}}" bindtap="turnMenu">{{item.name}}</view>
+        </view>
+      </block>
+    </scroll-view>  
+
+   <scroll-view class="orderPage-sideBar2" bindscrolltolower="lower" scroll-y="true" style="height:{{height}};overflow-y:scroll">
+      <block wx:for="{{arr3}}" wx:key="">
+        <view class="menuList menuList2" bindtap="toFoodDetail">
+          <image src="{{item.img}}"></image>
+          <view class="P_message">
+            <view>{{item.name}}</view>
+            <view class="P_small">{{item.message}}</view>
+            <view class="P_small" catchtap="donothing">{{item.message2}}</view>
+            <view class="P_bottom" catchtap="donothing">
+              <view>
+                <text class="price">¥{{item.price}} </text>
+                <text class="line_t">¥{{item.price}}</text> 
+              </view>
+              <view catchtap="noTo">
+                <text class="iconfont icon-reduce" data-id="{{index}}" bindtap="reduce2" wx:if="{{item.message3===''}}"></text>
+                <text class="iconfont icon-reduce" data-id="{{index}}" bindtap="reduce" wx:if="{{item.message3!==''}}"></text>
+                <text> {{item.num}} </text>
+                <text class="iconfont icon-add" data-id="{{index}}" bindtap="add2"  wx:if="{{item.message3===''}}"></text>
+                <text class="iconfont icon-add" data-id="{{index}}" bindtap="add"  wx:if="{{item.message3!==''}}"></text>
+              </view>
+            </view> 
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+
+  </view>
+  <view class="P_business_P" wx:if="{{orderOrBusiness=='business'}}">
+    <view class="S_top">
+      <view class="S_title">
+        商家信息
+      </view>
+      <view class="iconfont icon-map">广州市番禺区大石街大山郭家坊大街5号101</view>
+      <view class="iconfont icon-time2">配送时间：10:30-20:00</view>
+      <view class="iconfont icon-car">商家提供配送服务</view>
+      <view class="iconfont icon-money">¥10元起送｜配送费¥3</view>
+    </view>
+    <view class="S_top">
+      <view class="S_title">
+        店内活动
+      </view>
+      <view class="iconfont icon-zhekou">满22减17；满50减33（在线支付专享）</view>
+      <view class="iconfont icon-zhekou">折扣商品2.6折起（在线支付专享)</view>
+      <view class="iconfont icon-zhekou">部分商品第二份半价</view>
+    </view>
+  </view>
+
+  
+  <!--新用户专享红包  -->
+  <view class="newUserPag" bindtap="getPag" wx:if="{{page&&orderOrBusiness=='order'}}">
+    <image src="../../img/newuserpag.png"></image>
+  </view>
+  <!--打开红包  -->
+  <view class="openPageBg" wx:if="{{open}}">
+    <view class="openPage">
+      <image src="../../img/pagbg.png" class="Picbg"></image>
+      <image src="../../img/btn.png" class="btn" bindtap="hasGet"></image>
+      <view class="pageLeft">
+        <view>
+          ¥<text class="price">5</text>
+        </view>
+        <view class="smalltext">满30可用</view>
+      </view>
+      <view class="pageRight">
+        <view>新用户专享券</view>
+        <view class="smalltext">有效期至2017/08/02</view>
+      </view>
+    </view>
+  </view>  
+</view>
+
+<!--buycar.wxml--> 
+<view class="container page2" wx:if="{{pageType==2}}">  
+  <view class="settlement">
+    <view class="tlement">
+      <view class="orderLeft">
+        <view class="buycar_icon">
+          <view class="iconfont icon-buycar"></view>
+          <view class="buycar_num">{{buycar_num}}</view>
+        </view>
+        <view class="totalMoney">
+          <view class="price">合计：{{totalMoney}}元</view>
+          <view class="otherMoney">另需5元配送费</view>  
+        </view>
+      </view>      
+      <view class="toPay" bindtap="toSubmit">
+        <text>去结算</text>
+      </view>
+    </view>
+  </view>
+  <view class="pro" wx:for="{{arr}}" wx:key="" data-id="{{index}}" bindtap="choose">
+    <i class="{{item.selected==true?'iconfont .icon-true active':'iconfont .icon-true'}}"></i>
+    <image src="{{item.img}}"></image>
+    <view class="message">
+      <view>
+        <text>{{item.name}}</text>
+        <text class="orderNum price">¥{{item.price}}</text>        
+      </view>      
+      <view>
+        <view class="classname" catchtap="donothing">
+          <text class="numBorder" data-id="{{index}}" catchtap="numReduce">-</text>
+          <text class="numMiddle">{{item.num}}</text>
+          <text class="numBorder" data-id="{{index}}" catchtap="numAdd">+</text>
+        </view>
+        <text class="iconfont .icon-del" catchtap="del" data-id="{{index}}"></text>
+      </view> 
+    </view>   
+  </view>  
+  <view class="padding"></view>
+</view>
+<!--order.wxml  -->
+<view class="container page3" wx:if="{{pageType==3}}">
+  <view class="allOrder">
+    <view>
+      <view class="allTitle">
+        <text>外卖订单</text>
+        <text class="iconfont icon-more" bindtap="toDetail">订单已完成</text>
+      </view>
+      <view class="allMessage" >
+        <view class="allType">
+          <text class="order_name">肥牛饭</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">塔塔酱鲜虾米汉堡</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">mini鲷鱼烧</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allLast">
+          <view>
+            实付：<text class="price">100元</text>
+          </view>
+          <view>
+            <navigator url="url" hover-class="navigator-hover">再来一单</navigator>
+            <navigator url="../evaluate/evaluate" hover-class="navigator-hover" class="bg_y">评价</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="allTitle">
+        <text>外卖订单</text>
+        <text class="iconfont icon-more"  bindtap="toDetail">商家已接单</text>
+      </view>
+      <view class="allMessage">
+        <view class="allType">
+          <text class="order_name">肥牛饭</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">塔塔酱鲜虾米汉堡</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">mini鲷鱼烧</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allLast">
+          <view>
+            实付：<text class="price">100元</text>
+          </view>
+          <view>
+            <navigator url="url" hover-class="navigator-hover">再来一单</navigator>
+            <navigator url="url" hover-class="navigator-hover" bindtap="orderOk" class="bg_y">确认收货</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="allTitle">
+        <text>店内订单</text>
+        <text class="iconfont icon-more"  bindtap="toDetail">订单已完成</text>
+      </view>
+      <view class="allMessage">
+        <view class="allType">
+          <text class="order_name">肥牛饭</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">塔塔酱鲜虾米汉堡</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allType">
+          <text class="order_name">mini鲷鱼烧</text><text>X1</text><text class="price">¥12</text>
+        </view>
+        <view class="allLast">
+          <view>
+            实付：<text class="price">100元</text>
+          </view>
+          <view>
+            <navigator url="url" hover-class="navigator-hover">再来一单</navigator>
+            <navigator url="../evaluate/evaluate" hover-class="navigator-hover" class="bg_y">评价</navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+  <!--确认收货  -->
+  <view class="orderOk" wx:if="{{orderOk==true}}">
+    <view class="okMessage">
+      <view class="tip">提示</view>
+      <view class="shouhuo">是否确认收货？</view>
+      <view class="yesorno">
+        <view class="okCancel" bindtap="okCancel">否</view>
+        <view class="okOk" bindtap="okOk">是</view>
+      </view>
+    </view>
+  </view>  
+  <view class="padding"></view>
+</view>
+
+<!--me.wxml  用户中心 -->
+<view class="container page4" wx:if="{{pageType==4}}">
+  <view class="mePic">
+    <image src="/img/qishou.png"></image>
+  </view>
+  <view class="mePag" bindtap="toMyPackage">
+    <view>
+      <text class="iconfont icon-pag2">  我的红包</text>
+      <text class="iconfont icon-more"></text>
+    </view>
+  </view>
+  <view class="mePag" bindtap="toMyAddress">
+    <view class="meMap">
+      <text class="iconfont icon-map">  我的地址</text>
+      <text class="iconfont icon-more"></text>
+    </view>
+  </view>
+  <view class="calling" bindtap="calling">
+    订餐电话：<text class="phoneColor">1234567</text>
+  </view>
+</view>
+
+<!-- 底部菜单栏 -->
+<view class="bottomfixed">
+  <view bindtap="chooseType" data-id="1">
+    <image src="../../img/icon1.png" wx:if="{{pageType!=1&&!restaurant}}"></image>
+    <image src="../../img/icon1-active.png" wx:if="{{pageType==1&&!restaurant}}"></image>
+    <image src="../../img/shop-active.png" wx:if="{{pageType==1&&restaurant}}"></image>
+    <image src="../../img/shop.png" wx:if="{{pageType!=1&&restaurant}}"></image>
+    <view class="{{pageType==1?'fixedtext activecolor':'fixedtext'}}" wx:if="{{restaurant}}">点餐</view>
+    <view class="{{pageType==1?'fixedtext activecolor':'fixedtext'}}" wx:if="{{!restaurant}}">外卖</view>
+  </view> 
+  <view bindtap="chooseType" data-id="2">
+    <image src="../../img/icon2.png" wx:if="{{pageType!=2}}"></image>
+    <image src="../../img/icon2-active.png" wx:if="{{pageType==2}}"></image>
+    <view class="{{pageType==2?'fixedtext activecolor':'fixedtext'}}">购物车</view>
+  </view>
+  <view bindtap="chooseType" data-id="3">
+    <image src="../../img/icon3.png" wx:if="{{pageType!=3}}"></image>
+    <image src="../../img/icon3-active.png" wx:if="{{pageType==3}}"></image>
+    <view class="{{pageType==3?'fixedtext activecolor':'fixedtext'}}">订单</view>
+  </view>
+  <view bindtap="chooseType" data-id="4">
+    <image src="../../img/icon4.png" wx:if="{{pageType!=4}}"></image>
+    <image src="../../img/icon4-active.png" wx:if="{{pageType==4}}"></image>
+    <view class="{{pageType==4?'fixedtext activecolor':'fixedtext'}}">我的</view>
+  </view>
+</view>
+
+<!--规格选择  -->
+<view class="Block" wx:if="{{block}}">
+  <view class="total">
+    <view class="title">
+      <text>招牌手撕鸡饭套餐</text>
+      <text class="iconfont icon-close" bindtap="close"></text>
+    </view>
+    <view class="type">
+      口味
+    </view>
+    <view class="chooseType">
+      <view wx:for="{{arr2}}" wx:key="" class="{{index==foodtype?'active2':''}}" data-id="{{index}}" bindtap="resetNum">{{item.value}}</view>
+    </view>
+    <view class="ok" bindtap="submit">
+      确定
+    </view>
+  </view>
+</view>

@@ -1,0 +1,106 @@
+ <import src="../../view-new/partials/product_search.wxml"/>
+
+<import src="../../view/partials/productList/pupuProductListOne/pupuProductListOne.wxml"/>
+<import src="../../view/partials/productList/ticketOneColumn/index.wxml"/>
+
+<import src="../../view-new/aikucun/measure_card2.wxml"/>
+<view class="container"> 
+  
+<!-- <view class="typeSearchContainer1" > 
+  <view class='search_input_bg'>
+    <view class='search_input'>
+      <view class='search_input_left'>
+        <image class='input_img' src='http://image1.sansancloud.com/xianhua/2018_9/14/16/25/0_222.jpg?x-oss-process=style/preview_120'></image>
+        <input class='input'   data-link="search_page.html"  bindtap='linkUrl' placeholder='搜索产品名' value='{{searchProductName}}'></input>
+      </view>
+      <view class='empty_button' bindtap='getSearchProductName'><text>x</text></view>
+    </view>
+  </view>
+</view> -->
+<view class='product_list_top'>
+  <view class='product_list_search' style='background:{{defaultColor}}'>
+    <view class='product_list_search_left'>
+      <image class='product_list_search_jiantou' src='http://image1.sansancloud.com/xianhua/2019_4/3/11/47/37_614.jpg?x-oss-process=style/preview_120'></image>
+      <text class='product_list_search_value'>{{productTypeName}}</text>
+    </view>
+    <view class='product_list_search_right'>
+      <view class='product_list_search_item' data-orderType="{{item.orderType}}" data-index="{{index}}" data-id="{{item.id}}" catchtap='selectSearchType' wx:for="{{productTypeItem}}" wx:for-item='item' wx:for-index='index'  wx:key='index'>
+        <text class='product_type'>{{item.title}}</text>
+        <view class='product_type_state' wx:if="{{item.id!=3}}">
+          <image class='product_type_state_icon activeUp' wx:if="{{item.upState}}" src='http://image1.sansancloud.com/xianhua/2019_4/3/11/55/16_11.jpg?x-oss-process=style/preview_120'></image>
+          <image class='product_type_state_icon up' wx:else src='http://image1.sansancloud.com/xianhua/2019_4/3/11/47/26_97.jpg?x-oss-process=style/preview_120'></image>
+          <image class='product_type_state_icon activeDown' wx:if="{{item.downState}}" src='http://image1.sansancloud.com/xianhua/2019_4/3/11/47/37_615.jpg?x-oss-process=style/preview_120'></image>
+          <image class='product_type_state_icon down' wx:else src='http://image1.sansancloud.com/xianhua/2019_4/3/11/55/15_979.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+        <view class='product_type_state' wx:else>
+          <image class='product_promotion_icon' wx:if="{{!item.state}}" src='http://image1.sansancloud.com/xianhua/2019_4/3/11/55/16_5.jpg?x-oss-process=style/preview_120'></image>
+          <image class='product_promotion_icon' wx:else src='http://image1.sansancloud.com/xianhua/2019_4/3/11/47/37_600.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+      </view>
+      <!-- <view class='product_list_search_item'>
+        <text class='product_type'>活动</text>
+        <view class='product_type_state'>
+          <image class='product_promotion_icon' src='http://image1.sansancloud.com/xianhua/2019_4/3/11/55/16_5.jpg?x-oss-process=style/preview_120'></image>
+          <image class='product_promotion_icon' src='http://image1.sansancloud.com/xianhua/2019_4/3/11/47/37_600.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+      </view> -->
+      <view class='product_search' data-link="search_page.html"  bindtap='tolinkUrl'>
+        <image class='product_search_icon' src='http://image1.sansancloud.com/xianhua/2019_4/3/14/13/8_191.jpg?x-oss-process=style/preview_120'></image>
+      </view>
+    </view>
+  </view>
+  <view class='product_promotion_list' wx:if="{{productTypeItem[3].state}}">
+    <view class='product_promotion_item' data-itemSpecialSaleType="0" catchtap='selectPromotionType'>
+      <text>不限</text>
+    </view>
+    <view class='product_promotion_item' data-itemSpecialSaleType="2" catchtap='selectPromotionType'>
+      <text>买一送一</text>
+    </view>
+    <view class='product_promotion_item' data-itemSpecialSaleType="1" catchtap='selectPromotionType'>
+      <text>买满就送</text>
+    </view>
+    <view class='product_promotion_item' data-itemSpecialSaleType="3" catchtap='selectPromotionType'>
+      <text>限时抢购</text>
+    </view>
+  </view>
+</view>
+<!-- 列表 -->
+<view class='{{!productTypeItem[3].state?"product_page_container2":"product_page_container2 mt_156"}}'>
+  <block wx:if = "{{!! productListData}}">
+    <template is="{{showListType=='common'?'pupuProductListOne':'ticketOneColumn'}}"  data="{{...sendData,defaultColor,secondColor}}" wx:if="{{showListType}}"></template> 
+    <!-- <view class='product_items2' data-info='{{result}}' data-link="product_detail.html?id={{result.id}}"  bindtap='linkUrl' wx:for="{{productListData}}" wx:for-item="result" wx:key="{{result.id}}">
+      <image mode="aspectFill" src='{{result.imagePath}}?x-oss-process=style/preview'></image>
+      <view class='product_items2_view1'>
+        <text class='product_name'>{{result.name}}</text>
+        <text class='location_name' wx:if="{{result.longitude>0}}">{{result.location}}</text>
+        <text class='location_name' wx:else>{{result.description}}</text>
+        <scroll-view class='tags_content' scroll-x>
+          <text class='tags_item' wx:if="{{result.tagArray}}" wx:for='{{result.tagArray}}' wx:for-item="tags" wx:key='{{index}}'>{{tags}}</text>
+        </scroll-view>
+        <view class='product_price'>
+          <text class='price' wx:if="{{result.promotion>0}}">￥{{result.promotionPrice}}</text>
+          <text class='price' wx:else>￥{{result.price}}</text>
+          <text class='price' wx:if='{{result.maxPrice>result.price}}'>-{{result.maxPrice}}</text>
+          <text wx:if='{{result.unitShow}}' class="unitShow">/{{result.unitShow}}</text>
+          <text wx:if='{{result.maxPrice<=result.price}}' class="tag_price">￥{{result.tagPrice}}</text>
+        </view>
+      </view>
+      <view class='to_car' catchtap='readyAddCar' data-product="{{result}}">
+        <text>加入购物车</text>
+      </view>
+    </view> -->
+  </block>
+
+  <block wx:else>
+    <view class="noproduct">
+      <image mode="widthFix" src='/images/icons/no-product.png'></image>
+      <text>没有相关商品</text>
+    </view>
+  </block>
+</view>
+
+  <!-- 首页组件-公共产品分类装饰-->
+  <component-customPage data="{{sendIndexData}}" wx:if='{{sendIndexData}}'></component-customPage>
+  
+<template is="measure_card2" data="{{setting:setting,showCount,minCount,focusData:productData.productInfo,measures:productData.measures,byNowParams:byNowParams,measurementJson:measurementJson,type:bindway}}"></template> 
+</view>

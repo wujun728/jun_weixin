@@ -1,0 +1,277 @@
+/* 购物车列表 */
+.container {
+  font-size:0.9em;
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  
+}
+.orderType{
+  width:50rpx;
+  height: 50rpx;
+  margin-right:20rpx;
+}
+.orderTypeIcon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.tab{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  /* height: 3em; */
+}
+.tab view{
+  width: 20%;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: #454545;
+}
+
+.Tab_page{
+
+}
+.swiperPageContainer{
+  position: relative;
+}
+.tab_page_list{
+}
+.tab_page_list_container{
+  width: 100%;
+  z-index: 1;
+  position:absolute;
+  height: 100%;
+  background: #f1f1f1;
+}
+
+.dixian{
+  background:#eeeeee;
+  margin-bottom:1em;
+}
+
+
+
+
+.storageName{
+  padding:5rpx 10rpx 5rpx 10rpx;
+  border:3rpx solid #7fdb8a;
+  border-bottom-right-radius:15rpx;
+  border-top-right-radius:15rpx;
+  color:#7fdb8a;
+  font-size:20rpx;
+  border-left:none;
+
+}
+.promotionNameItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.promotionName{
+  font-size:20rpx;
+  text-align:center;
+  /* background:#FE3737; */
+  color:#fff;
+  padding:6rpx 15rpx 6rpx 15rpx;
+  opacity:0.8;
+  border-radius:10rpx;
+
+}
+.promotionNameLine{
+  height: 10rpx;
+  width: 50rpx;
+  border-left:4rpx solid #eee;
+  border-right:4rpx solid #eee 
+}
+
+
+.cartContainer{
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  color: #888;
+  background: #fff;
+  border-bottom: 1em solid #f2f2f2; 
+}
+.cartShopName{
+  padding: 1em 1em 1em 0;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  font-size: 28rpx;
+}
+.cartItems{
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  overflow: hidden;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+  background-color: rgb(250,250,250);
+}
+.itemCheckbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemCheckbox image{
+  width: 5em;
+  height: 5em;
+  border-radius: 10rpx
+}
+
+.item_infomation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1em;
+  width:64%;
+
+}
+.item_infomation_name{
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.item_infomation_name2{
+  width: 100%;
+}
+.item_infomation_money{
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+}
+/* 加和减 */
+.item_infomation_nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 2em;
+  top: 2.2em;
+}
+
+.item_infomation_nums text{
+  padding: 5px;
+  color: #aaa;
+}
+.butn_container{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  font-size: 26rpx;
+}
+.butn_container2{
+   padding: 20rpx 20rpx 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  font-size: 0.8em;
+
+  /* background-color: red; */
+}
+.mr80{
+  margin-right: 80rpx;
+}
+.butn_group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.butn_item{
+  margin-left: 5px;
+  border: 1px solid #c0c0c0;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+.noneList{
+  font-size: 1em;
+  color: #777;
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.order_type_icon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center
+}
+.orderNoStyle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+}
+.zitiOrder{
+  width: 50rpx;
+  height: 50rpx;
+}
+.mendianZiti{
+  display: flex;
+  flex-direction: column;
+  font-size: 16rpx;
+  align-items: center;
+}
+.ewmImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 2rpx
+}
+
+.venues_cell_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom:1rpx solid #ddd;
+}
+.venues_cell_item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  border-top-right-radius: 24rpx;
+  border-bottom-right-radius: 24rpx;
+  margin: 16rpx 16rpx 16rpx 0;
+  font-size:24rpx;
+  width:21%;
+  color: #fff;
+  padding: 8rpx;
+}
+.venues_cell_item:nth-child(4n){
+  margin-right: 0
+}
+.circular{
+  position: absolute;
+  right: -20rpx;
+  top: 50%;
+  margin-top: -15rpx;
+  border-radius: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+}

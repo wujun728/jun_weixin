@@ -1,0 +1,39 @@
+<view class='flx_cenetr_content_container'>
+    <view class='flx_cenetr_content_title'>主人~您已推广了 {{allNum}}人</view>
+
+     
+    <block wx:if='{{!List}}'>
+      <view class="none">
+        <image mode="widthFix" src='/images/icons/no-product.png'></image>
+        <text>什么都没有</text>
+      </view>
+    </block>
+
+    <view wx:else class='flx_user_container'>
+      <view class='flx_user_item' wx:for='{{List}}' wx:key='{{index}}'>
+        <view class='info_left'>
+          <view class='user_head'>
+            <image class='user_img' src='{{item.headimgurl ? item.headimgurl : "/images/icons/me1.png"}}'></image>
+            <text class='user_level'>{{item.userLevelName}}</text>
+          </view>
+          <view class='flx_user_item_info'>
+            <view class='flx_user_item_head'>
+              <text>{{item.nickname}}</text>
+              <!-- <view class='tg_num_info'>
+                <image class='tg_num_icon' src='http://image1.sansancloud.com/xianhua/2019_1/17/17/44/13_843.jpg'></image>
+                <text class='tg_num'>{{item.levelOneFxUserCount}}</text>
+              </view> -->
+            </view>
+            <view class='font_small'>推荐人：{{item.parentName}}</view>
+          </view>
+        </view>
+        <view class='lastest_time'>
+          <text class='lastest_time_title'>最近登入</text>
+          <text class='lastest_time_value'>{{item.lastestLoginTime}}</text>
+        </view>
+      </view>
+    </view>
+    
+
+
+</view>

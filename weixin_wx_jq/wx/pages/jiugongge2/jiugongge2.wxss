@@ -1,0 +1,34 @@
+/* pages/jiugongge2/jiugongge2.wxss */
+/*九宫格大转盘  */
+#lottery{width:700rpx;height:700rpx;margin:20rpx auto 0; position:relative;}
+#lottery view{
+  width:175rpx;
+  height:175rpx;
+  float:left;
+}
+#lottery .lottery-unit image{
+  width: 80%;
+  height: 80%;
+  margin: 10% 0 0 10%;
+  display: block;
+}
+#lottery .lottery-unit{
+  background: #ccc;
+}
+#lottery .cent{ background:#C33;}
+
+#lottery view.select{background:#F0F;}
+
+#lottery .start{ 
+  position:absolute; 
+  left:175rpx; 
+  top:175rpx; 
+  height:350rpx; 
+  width:350rpx;
+}
+#lottery .start image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/*九宫格大转盘  */

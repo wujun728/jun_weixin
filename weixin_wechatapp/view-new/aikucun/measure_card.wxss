@@ -1,0 +1,245 @@
+/* 多规格页面 */
+
+ .measure_card{
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+
+   z-index: 12;
+ }
+/* 数量 */
+.countContainer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 12.6em;
+  background: #fff;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  padding: 1em; 
+  max-height: 90%; 
+  overflow-y: scroll;
+
+}
+.closeButn{
+  position: absolute;
+  right: 1em;
+  top: 5em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.countContainer_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    font-size:0.8em;
+}
+.countContainer_top_image{
+  width: 6em;
+  height: 6em;
+  border: 1rpx solid #ddd;
+  border-radius: 0.2em;
+  overflow: hidden;
+}
+.countContainer_top_image > image{
+  width: 100%;
+  height: 100%;
+}
+
+.countContainer_top_product_info_container{
+  margin-left: 0.4em;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  width:70%;
+
+}
+
+
+
+
+
+
+/* 规格 */
+
+.measureItemContainer{
+  display: flex;
+  flex-direction: column;
+}
+.cardMid{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.cardMidName{
+  color: #aaa;
+  padding: 0.4em 0;
+  font-size: 0.9em;
+}
+.cardMidGuigeContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding:0 ;
+
+
+}
+.cardMidGuigeContainer view{
+  margin-right: 0.4em;
+  /* padding: 0.4em 0.8em; */
+  min-width: 4em;
+  padding-left:0.5em;
+  padding-right: 0.5em; 
+  /* height: 2em; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2em;
+  color: #e24148;
+  border: 1px solid #ddd;
+  margin-bottom: 0.1em;
+
+  padding-top: 0.11em;
+  padding-bottom: 0.11em;
+  
+}
+.activeMeasure{
+   /* border: 1px solid red !important; */
+   /* background: #e24148 !important; */
+   color: #fff !important;
+}
+
+.sureButn{
+  width: 100%;
+  height: 2.6em;
+  color: #fff;
+  background: deeppink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4em;
+}
+.sureButnType{
+  width: 45%;
+  height: 2.6em;
+  color: #fff;
+  background: deeppink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4em;
+}
+.ItemCountDell{
+  padding: 0.4em 0;
+  height: 3em;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.error_view{
+  padding: 0.4em 0;
+  color: #fff;
+  border-radius:0.4em;
+  text-indent:0.4em;
+
+}
+/* 加和减 */
+.item_infomation_nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.8em;
+  border-radius: 0.2em;
+  overflow: hidden;
+  margin-left: 1em;
+  
+
+  
+}
+
+.item_infomation_nums image{
+  height: 1.4em;
+  width: 1.4em;
+  padding: 0.4em;
+  border: 1rpx solid #aaa;
+}
+.item_infomation_nums text{
+  height: 1.4em;
+  width:2.2em;
+  padding: 0.4em;
+  border-top: 1rpx solid #aaa;
+  border-bottom: 1rpx solid #aaa;
+}
+
+
+.price{
+  color: red;
+}
+
+
+.tagPrice_font{
+  font-size: 24rpx;
+  line-height:24rpx;
+  color:#aaa;
+  text-decoration:line-through;
+  margin-left: 8rpx
+}
+.price_group{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height:40rpx;
+  margin-top: 10rpx
+}
+.noPintuan{
+  height:40rpx;
+  line-height:40rpx;
+}
+.pintuan{
+  line-height:40rpx;
+}
+.zhezhao {
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#000;
+opacity:0.6;
+z-index:10;
+
+}
+.font_aaa {
+  color:#aaa;
+}
+.font_1 {
+  font-size:1em;
+}
+.flexCenter {
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.font_14 {
+  font-size:1.4em;
+}
+.noadd {
+  background:#eee;
+}

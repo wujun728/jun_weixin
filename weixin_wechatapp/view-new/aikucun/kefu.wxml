@@ -1,0 +1,20 @@
+
+
+<template name="kefu" >
+  <view class='kefu_wx' wx:if='{{showKefu}}' catchtouchmove='doNothing'>
+    <view class='kefu_bg_zhezhao' bindtap='closeKefu'></view>
+    <view class='kefu_wx_card'>
+      <view class='kefu_info'>
+        <view class='kefu_info_icon'><image src='http://image.aikucun.xyz/aikucun/2018_4/2/12/4/20_993.jpg?imageMogr2/thumbnail/120x/interlace/0 '></image></view>
+        <view class='kefu_info_content'>
+          <view>客服：{{loginUser.platformUser.mendian.name}}</view>
+          <text>扫描二维码，客服{{loginUser.platformUser.mendian.name}}为您服务</text>
+        </view>
+      </view>
+      <view class='kefu_qrcode'>
+        <image mode='widthFix' data-url='{{loginUser.platformUser.mendian.kefuQrcode}}'
+        bindtap='lookBigWxCode' src='{{loginUser.platformUser.mendian.kefuQrcode}}'></image>
+      </view>
+    </view>
+  </view>
+</template>

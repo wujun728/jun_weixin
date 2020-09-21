@@ -1,0 +1,37 @@
+ <!-- 外卖模式的点单 --> 
+
+<view class='waimaiContainer'>
+  <!-- <view>
+    <component-tag-title wx:if='{{title}}' data="{{title}}"></component-tag-title>  
+  </view> -->
+  <!-- 左边的导航 -->  
+  <scroll-view scroll-y class='leftScrollType'>
+     <view wx:for="{{productType}}" wx:for-item="type" wx:key="{{index}}" data-id="{{type.id}}" data-type="two" bindtap='getProductType' class='{{type.active?"activeTypeItem":"TypeItem"}}' style='border-bottom:{{type.active?"2rpx solid "+setting.platformSetting.defaultColor:""}};color:{{type.active?setting.platformSetting.defaultColor:""}}'>
+        <view class='typeName'>{{type.name}}</view>
+        </view>
+       
+      <view class='bottomHeight'></view>
+  </scroll-view>
+
+  <!-- 右边的商品列表 -->
+  <scroll-view scroll-y bindscrolltolower='onReachBottom2' class='RightProductContainer' >
+    <scroll-view scroll-x class='two_pro_type' wx:if="{{productTypeTwo&&productTypeTwo.length>1}}">
+      <text class='two_pro_type_item' wx:for="{{productTypeTwo}}" wx:key='{{index}}' wx:for-item="result" style='background:{{result.active?setting.platformSetting.secondColor:""}};color:{{result.active?setting.platformSetting.defaultColor:""}}'>{{result.name}}</text>
+    </scroll-view>
+    <image mode='widthFix' catchtap='linkUrl' data-link='{{currentItem.adverLink}}' src='{{currentItem.adverImg}}' style='height:200rpx;width:100%' wx:if="{{currentItem.adverImg&&currentItem.adverImg!=', '}}"></image>
+    <view wx:if='{{productTypeTwo.length==0}}' class='none'>
+      <image mode="widthFix" src='/images/icons/no-product.png'></image>
+      <text>没有相关分类</text>
+    </view>
+    <view class='productTypeTwoList'>
+        <view class='productTypeTwoItem' wx:for="{{productTypeTwo}}" wx:key='{{index}}' wx:for-item="result" data-link="my_product_list.html?categoryId={{result.id}}" bindtap='linkUrl'>
+          <image class='productTypeTwoItemImg' src='{{result.iconImage}}'></image>
+          <text>{{result.name}}</text>
+        </view>
+    </view>
+    <view class='bottomHeight'></view>
+  </scroll-view>
+  <!-- 首页组件-公共产品分类装饰-->
+  <component-customPage data="{{sendIndexData}}" wx:if='{{sendIndexData}}'></component-customPage>
+
+</view>

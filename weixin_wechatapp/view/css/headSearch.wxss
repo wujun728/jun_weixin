@@ -1,0 +1,38 @@
+
+.headSearch{
+  position: fixed;
+  z-index:111;
+  top: 0;
+  width: 100%;
+  height: 2.5em;
+  background: #f1f1f1;
+}
+.headSearch_input{
+  background: #fff;
+  width:65%;
+  height: 80%;
+  border-radius: 0.4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.headSearch_input image{
+  height: 1.2em;
+  width: 1.2em;
+}
+.headSearch_input input{
+  font-size: 0.7em;
+  height: 100%;
+  width: 80%;
+}
+.headSearch_view_height{
+  width: 100%;
+  height: 2.5em;
+}
+.headTitle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

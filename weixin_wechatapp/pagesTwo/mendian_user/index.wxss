@@ -1,0 +1,56 @@
+.flx_cenetr_content_container{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  font-size: 0.8em;
+}
+.flx_cenetr_content_title{
+  padding: 10px;
+  background: #f2f2f2;
+  color: #aaa;
+  border-bottom: 1px solid #ddd;
+}
+
+.flx_user_container{
+  display: flex;
+  flex-direction: column;
+}
+.countUser{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  background: #ccc;
+  color: #fff;
+}
+.flx_user_item{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+   border-bottom: 1px solid #ddd;
+}
+.flx_user_item image{
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+.flx_user_item > .flx_user_item_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  height: 3.6em;
+}
+.flx_user_item_info > text{
+
+}
+.flx_user_item_info > view{
+  color: #aaa;
+} 
+.flx_user_item_info > .time{
+  font-size: 0.8em;
+}

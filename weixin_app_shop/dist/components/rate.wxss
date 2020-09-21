@@ -1,0 +1,1 @@
+.star-image{position:relative;width:50rpx;height:50rpx;src:"../images/normal.png"}.star-image .item{position:absolute;width:25rpx;top:0;height:50rpx}.star-image-read{position:relative;width:30rpx;height:30rpx;src:"../images/normal.png"}

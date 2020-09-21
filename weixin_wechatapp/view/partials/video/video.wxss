@@ -1,0 +1,11 @@
+.section {
+  width: 750rpx;
+  z-index: 0;
+  position: relative;
+}
+.section video{
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  position: relative;
+}

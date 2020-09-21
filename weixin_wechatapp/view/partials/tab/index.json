@@ -1,0 +1,7 @@
+{
+  "component": true,
+    "usingComponents": {
+      "component-tag-nameImageLink": "../custom_page/index",
+      "component-tag-customPage": "../custom_page/index"
+    }
+}

@@ -1,0 +1,15 @@
+@import"../../wxParse/wxParse.wxss";/* 富文本 */
+
+.xieyiContainer{
+  margin-bottom: 3em;
+}
+
+.footer_botton{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #ffffff;
+  border: 1px solid rgb(220,220,220);
+  color: #8B572A;
+  font-size: small;
+}

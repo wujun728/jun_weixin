@@ -1,0 +1,36 @@
+
+<view class='container'>
+<!-- 技师基本信息 -->
+  <view class='commentServantInfo'>
+    <view class='commentServantInfoleft'>
+      <image class='commentServantIcon' src='{{baseData.servantIcon}}'></image>
+      <text class='commentServantName'>{{baseData.servantName}}</text>
+    </view>
+  </view>
+  <!-- 评价内容 -->
+  <view class='commentData'>
+    <!-- 分数评价 -->
+    <view class='commentPingFen'>
+      <view class='commentPingFenRich' wx:if="{{currentIndex!=0}}">
+        <text wx:if="{{currentIndex==1}}" class='commentPingFenText'>"很差"</text>
+        <text wx:if="{{currentIndex==2}}" class='commentPingFenText'>"一般"</text>
+        <text wx:if="{{currentIndex==3}}" class='commentPingFenText'>"满意"</text>
+        <text wx:if="{{currentIndex==4}}" class='commentPingFenText'>"非常满意"</text>
+        <text wx:if="{{currentIndex==5}}" class='commentPingFenText'>"无可挑剔"</text>
+      </view>
+      <view class='commentPingFenList'>
+        <view class='commentPingFenItem' wx:for="{{pingfenDataList}}" wx:for-item="pingfenItem" wx:key="{{index}}" data-index="{{pingfenItem.id}}" catchtap='{{commentContent?"":"selectPingFen"}}'>
+          <image class='commentPingFenItemIcon' wx:if="{{pingfenItem.state==1}}" src='http://image1.sansancloud.com/xianhua/2019_4/30/16/3/48_461.jpg?x-oss-process=style/preview_120'></image>
+          <image class='commentPingFenItemIcon' wx:if="{{pingfenItem.state==0}}" src='http://image1.sansancloud.com/xianhua/2019_4/30/16/1/5_453.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+      </view>
+    </view>
+    <!--内容评价  -->
+    <view class='commentContent'>
+      <textarea disabled="{{commentContent?'disabled':''}}" class='commentContentInput' value="{{commentContent}}" placeholder='亲~请写下您对该技师的评价吧~！' bindinput='getCommitContent' ></textarea>
+    </view>
+  </view>
+</view>
+<view wx:if="{{!type}}" class='commitComment' catchtap='commitUpComment' style='background:{{setting.platformSetting.defaultColor}};color:#fff'>
+  <text>提交</text>
+</view>

@@ -1,0 +1,42 @@
+<table style="border-collapse:collapse;" width="95%" cellPadding=1 align=center border=1>
+<thead>
+<tr><td colspan='2'>WebService服务地址：http://oa.atwasoft.net:7001/portal/services/IMService?wsdl</td></tr>
+<tr>
+	<th><b>方法</b></th>
+	<th><b>说明</b></th>
+</tr>
+</thead>
+<tbody>
+	<tr><td>getVer()</td><td>返回IM服务的版本号</td></tr>
+	<tr><td>getDura()</td><td>获取IM服务器运行时长</td></tr>
+	<tr><td>sendIM(long to, String msg)</td><td>发送系统信息，接受人收到来自小秘书的信息</td></tr>
+	<tr><td>sendUserIM(String to, String msg)</td><td>通过用户名发送信息</td></tr>
+	<tr><td>sendIMtoAll(String msg)</td><td>给所有在线用户发送消息</td></tr>
+	<tr><td>isOnline(long userid)</td><td>检查用户是否在线</td></tr>
+	<tr><td>isUserOnline(String username)</td><td>检查用户是否在线</td></tr>
+	<tr><td>getAllOnlineUsers()</td><td>获取所有在线用户</td></tr>
+	<tr><td>getAllGroups(long userid)</td><td>获取用户的所在工作组</td></tr>
+	<tr><td>pushCall(long userid, String methodName, String param)</td><td>向用户前端推送脚本执行，param是对象形式的字符串，如{name:'xxx'}</td></tr>
+	<tr><td>pushCall1(String username, String methodName, String param)</td><td>向用户前端推送脚本执行</td></tr>
+	<tr><td>sendSms(long userid, String msg)</td><td>发送短信</td></tr>
+	<tr><td>sendMail(long userid, String subject, String body)</td><td>发送电子邮件</td></tr>
+	<tr><td>...</td><td>...</td></tr>	
+</tbody>
+</table>
+<hr>
+<table style="border-collapse:collapse;" width="95%" cellPadding=1 align=center border=1>
+<thead>
+<tr><td colspan='2'>前端JavaScript调用API</td></tr>
+<tr>
+	<th><b>方法</b></th>
+	<th><b>说明</b></th>
+</tr>
+</thead>
+<tbody>
+	<tr><td>IM.openMainWin()</td><td>打开chat主窗口,开关方法</td></tr>
+	<tr><td>IM.openUser(userid)</td><td>打开指定用户的对话框</td></tr>
+	<tr><td>IM.regMethod(funName, fun)</td><td>注册方法，用于服务器推送信息</td></tr>
+	<tr><td>IM.checkMethod()</td><td>检查所有注册方法</td></tr>
+	<tr><td>IM.notify(title, body)</td><td>发送消息提醒，如果支持浏览器的notify，就直接使用，否则右下角弹出消息框</td></tr>
+</tbody>
+</table>

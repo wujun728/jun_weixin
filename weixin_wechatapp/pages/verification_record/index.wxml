@@ -1,0 +1,21 @@
+<view class='container'>
+  <view class='verification_list'>
+    <view class='verification_item' wx:for="{{verificationList}}" wx:for-item="verificationItem" wx:key='{{index}}'>
+      <view class='verification_item_left'>
+        <view class='verification_card'>
+          <image class='verification_card_icon' src='http://image1.sansancloud.com/xianhua/2019_1/11/21/3/29_256.jpg'></image>
+          <text class='verification_item_title'>核销名称：</text>
+          <text class='verification_item_name'>{{verificationItem.belongCardName}}</text>
+        </view>
+        <view class='verification_time'>
+          <image class='verification_time_icon' src='http://image1.sansancloud.com/xianhua/2019_1/11/21/3/29_253.jpg'></image>
+          <text class='verification_item_title'>核销时间：</text>
+          <text class='verification_item_name'>{{verificationItem.exhauseDatetime}}</text>
+        </view>
+      </view>
+      <view class='verification_item_right'>
+        <text style='color:{{setting.platformSetting.defaultColor}}'>已核销</text>
+      </view>
+    </view>
+  </view>
+</view>

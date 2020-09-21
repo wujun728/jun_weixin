@@ -1,0 +1,150 @@
+.pupu_promotion_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding:30rpx;
+  border-bottom:1rpx solid #f6f6f6;
+  box-sizing:border-box;
+  overflow: hidden;
+}
+.pupu_promotion_name{
+  font-size: 30rpx;
+  width: 22%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-weight:bold;
+}
+.pupu_promotion_right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 76%;
+  box-sizing: border-box;
+}
+.pupu_promotion_time{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.pupu_promotion_time_title{
+  font-size: 26rpx;
+  color: #999;
+  margin-right: 10rpx;
+}
+.pupu_promotion_time_value{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #fff;
+  font-size: 26rpx;
+  background: #666666;
+  border-radius: 30rpx;
+  padding:0 16rpx;
+}
+.pupu_promotion_more{
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.pupu_promotion_more_text{
+  margin-right: 10rpx;
+  color: #999999;
+}
+.colon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin:0 2rpx;
+}
+.pupu_promotion_more_icon{
+  width: 12rpx;
+  height: 24rpx
+}
+.pupu_promotion_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden
+}
+.pupu_promotion_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 10rpx;
+  width:50%;
+  border: 1rpx solid #f6f6f6;
+  box-sizing:border-box;
+}
+.pupu_promotion_item_img{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 10rpx;
+}
+.pupu_promotion_item_url{
+  width: 150rpx;
+  height: 150rpx;
+}
+.pupu_promotion_item_info{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 160rpx;
+   width: 58%;
+}
+.pupu_promotion_item_name{
+  font-size: 26rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.pupu_promotion_item_price{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  color: #ff826e;
+  font-size: 20rpx;
+  margin-bottom:10rpx;
+}
+.pupu_promotion_item_true_price{
+  font-size: 28rpx;
+  line-height:28rpx;
+}
+.font_color{
+  color: #a3a3a3;
+  font-size:20rpx;
+  margin-left:6rpx;
+  display: flex;
+  align-items: center;
+}
+.pupu_promotion_item_tagprice{
+  text-decoration:line-through;
+}
+.pupu_promotion_item_unit{
+  font-size: 24rpx;
+  color: #a3a3a3;
+}
+.pupu_promotion_item_cart{
+  margin: 10rpx 0;
+  border-radius: 30rpx;
+  font-size: 22rpx;
+  color: #fff;
+  background:  #999999;
+  width: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+}

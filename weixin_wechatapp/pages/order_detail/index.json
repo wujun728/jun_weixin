@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "check-form-detail": "/view/partials/check_form_detail/index",
+    "process-instance-item": "/view/partials/processInstanceItemTwo/index"
+  }
+}

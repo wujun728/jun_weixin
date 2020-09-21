@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "表单列表",
+  "backgroundColor": "#f1f1f1",
+  "component": true,
+  "usingComponents": {
+  "component-tag-banner": "../banner/banner"
+  }
+}

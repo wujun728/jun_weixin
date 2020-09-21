@@ -1,0 +1,88 @@
+/* pages/my_pages/user_recharge/index.wxss */
+.chongzhijine{
+  margin-top:10rpx;
+  padding:10px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #aaa;
+  font-size: 30rpx;
+}
+.chongzhijine text{
+  
+  padding:0px 10px;
+  
+}
+.chongzhijine input{
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding:10px 10px;
+}
+
+.way{
+  display: flex;
+  flex-direction: column;
+}
+
+/* 支付方式 */
+.payName{
+  padding: 10px;
+  display: flex;
+  background: #f2f2f2;
+  color: #aaa;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+.payWay{
+  padding: 15px 10px;
+  display: flex;
+  background: #fff;
+  color: #333;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  font-size: 30rpx;
+  
+}
+.payWay text{
+  margin-left: 3em;
+}
+
+.subMitButn{
+  background: #8B572A;
+  color: #fff;
+  margin:30rpx 20rpx;
+}
+.chongzhiList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 30rpx 20rpx;
+}
+.chongzhiItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  background: #fff;
+  border-radius: 6rpx;
+  padding: 16rpx 15rpx;
+  margin: 10rpx;
+  width: 26%;
+}
+.chongzhiItem:last-child{
+  margin-right: 0
+}
+.price{
+  font-size: 30rpx
+}
+.rewardPrice{
+  font-size: 22rpx;
+}

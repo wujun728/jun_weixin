@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.GoldRecordMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		grid_id AS gridId, grd_userid AS grdUserid, grd_username AS grdUsername, grd_profittype AS grdProfittype, grd_time AS grdTime, grd_income AS grdIncome, grd_pay AS grdPay, grd_spare AS grdSpare, grd_remark AS grdRemark
+	</sql>
+
+</mapper>

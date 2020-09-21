@@ -1,0 +1,132 @@
+.name{
+  width: 750rpx;
+  height: 100rpx;
+display: flex;
+flex-direction: row;
+}
+.nameText{
+  height: 100rpx;
+  width: 570rpx;
+    /* background-color: yellow;  */
+    text-align: center; 
+
+}
+.nameText text{
+  font-size: 40rpx;
+line-height: 100rpx;
+   
+}
+.nameImg{
+  width: 60rpx;
+  height: 60rpx;
+   margin-top: 20rpx;
+}
+.nameImg image{
+  width: 100%;
+  height: 100%;
+}
+
+.ListDataItemImage{
+  width: 60rpx;
+  height: 60rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  border-radius: 50%;
+}
+.ListDataItemImage image{
+  width: 100%;
+  height: 100%;
+}
+.store_list{
+  margin: 20rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+.store_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:11px 0;
+  border-bottom:1rpx solid #eee;
+}
+.store_info{
+  display: flex;
+  flex-direction: column;
+}
+.store_title{
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.store_name{
+  color: #555;
+  font-weight:bold;
+}
+.store_logo{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+  border-radius: 36rpx;
+}
+.store_time_addr{
+  display: flex;
+  flex-direction: column;
+  letter-spacing:2rpx;
+}
+.store_time{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+.store_time_icon{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 8rpx;
+}
+.store_time_value{
+  font-size: 24rpx;
+  color: #999;
+}
+.store_addr{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.store_addr_icon{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 8rpx;
+}
+.store_addr_value{
+  font-size: 24rpx;
+  color: #999;
+}
+.distance{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 20%;
+}
+.distance_text{
+  font-size: 22rpx;
+  margin-bottom: 10rpx
+}
+.check_info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.check_info_text{
+  color: #a5c1dd;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.check_info_icon{
+  width: 26rpx;
+  height: 26rpx;
+}

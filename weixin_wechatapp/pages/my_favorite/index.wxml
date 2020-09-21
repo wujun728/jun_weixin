@@ -1,0 +1,54 @@
+
+<!-- <component-tag-product-list wx:if='{{productList}}' data="{{productList}}"></component-tag-product-list>  -->
+<import src="../../view-new/aikucun/measure_card2.wxml"/>
+<block wx:if='{{productList.length != 0}}'>
+  <view class='product_items3' wx:for="{{productList}}" wx:for-item="result" wx:key="{{index}}" data-id="{{result.productId||result.id}}" bindtap='tolinkUrl'>
+    <view class='product_items3_promotion_name' wx:if="{{result.tagArray[0]}}">{{result.tagArray[0]}}</view>
+    <image class='product_items3_img' mode="aspectFill" src='{{result.imagePath||result.itemIcon}}?x-oss-process=style/preview_200'></image>
+    <view class='product_items3_view1'>
+      <text class='product_name'>{{result.name||result.itemName}}</text>
+      <text class='location_name' wx:if="{{result.addTime&&!result.name}}">添加时间：{{result.addTime||result.addTime}}</text>
+      <text class='location_name' wx:if="{{result.longitude>0}}">{{result.location}}</text>
+      <text class='location_name' wx:else>{{result.description}}</text>
+      <view class='sale_item3' wx:if="{{result.itemSpecialSaleType&&result.itemSpecialSaleType!=0}}">
+        <view class='sale_item3_title' style='background:{{defaultColor}}'>
+          <text wx:if="{{result.itemSpecialSaleType==1}}">满减</text>
+          <text wx:if="{{result.itemSpecialSaleType==2}}">买赠</text>
+          <text wx:if="{{result.itemSpecialSaleType==3}}">限购</text>
+        </view>
+        <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==1}}" style='color:{{defaultColor}}'>
+          满<text>{{result.itemSpecialSaleValue1}}元</text>减<text>{{result.itemSpecialSaleValue2}}元</text>
+        </view>
+        <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==2}}" style='color:{{defaultColor}}'>
+          买<text>{{result.itemSpecialSaleValue1}}</text>赠<text>{{result.itemSpecialSaleValue2}}</text>
+        </view>
+        <view class='sale_item3_value' wx:if="{{result.itemSpecialSaleType==3}}" style='color:{{defaultColor}}'>
+          限购<text>{{result.itemSpecialSaleValue1}}件</text>
+        </view>
+      </view>
+      <text class='location_name'>{{result.unitShow}}</text>
+      <view class='product_price'>
+        <text class='price' wx:if="{{result.promotion>0}}">￥{{result.promotionPrice}}</text>
+        <text class='price' wx:else>￥{{result.price||result.itemPrice}}</text>
+        <text class='price' wx:if='{{result.maxPrice>result.price}}'>-{{result.maxPrice}}</text>
+        <text wx:if='{{result.maxPrice<=result.price&&result.tagPrice>result.price}}' class="tag_price">￥{{result.tagPrice}}</text>
+        <!-- <component-price-group data="{{result}}"></component-price-group> -->
+      </view>
+    </view>
+    <view class='to_car3' catchtap='readyAddCar' data-product="{{result.productId||result.id}}">
+      <text class='button' style='font-size:24rpx;background:#ff826e;margin-right:20rpx' catchtap="removeFavourite"  data-itemId="{{result.productId}}">取消收藏</text>
+      <text class='button' style='font-size:24rpx;background:{{defaultColor}}' wx:if="{{result.promotion!=0}}">立即抢购</text>
+      <view class='to_car3_text' style='background:{{defaultColor}};font-size:24rpx;' wx:else> 
+        <image class='to_car3_icon' src='http://image1.sansancloud.com/xianhua/2019_3/20/10/45/42_450.jpg?x-oss-process=style/preview_120'></image>
+        <text>选购</text>
+      </view>
+    </view>
+  </view>
+</block>
+  <block wx:else>
+    <view class="noproduct">
+      <image mode="widthFix" src='/images/icons/no-product.png'></image>
+      <text>没有相关产品</text>
+    </view>
+  </block>
+<template is="measure_card2" data="{{setting:setting,showCount,minCount,focusData:productData.productInfo,measures:productData.measures,byNowParams:byNowParams,measurementJson:measurementJson,type:bindway}}"></template>

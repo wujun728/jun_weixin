@@ -1,0 +1,18 @@
+<view class='container'>
+    <form class='backTextContainer' bindsubmit='getValues'>
+      <view class='textAreaContainer'>
+        <view >物流公司</view>
+        <input class='textAreaContainer_textArea' maxlength='10' bindinput='getwuliuCom' value=''  name='wuliuCom'></input>
+      </view>
+      <view class='textAreaContainer'>
+        <view >物流单号</view>
+        <input class='textAreaContainer_textArea' maxlength='20' bindinput='getwuliuNo' value='' name='wuliuNo'></input>
+      </view>
+      <view class='textAreaContainer'>
+        <view >运费</view>
+        <input type='number' maxlength='6' class='textAreaContainer_textArea2' bindinput='getwuliuAmount' value='' name='wuliuAmount'></input>
+      </view>
+
+      <button  style='background:{{setting.platformSetting.defaultColor}}' formType="submit">确认退货单</button>
+    </form>  
+</view>

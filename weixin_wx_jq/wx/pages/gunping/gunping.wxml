@@ -1,0 +1,27 @@
+<!--pages/gunping/gunping.wxml-->
+<view class="container">
+  <view>瀑布流布局+滚屏</view>
+  <!--滚动区域-->
+	<view class="keyWord-box">
+		<view class="keyWord-list" style="width:{{contmaxwidth*2}}px;left:{{contleft}}px;">
+			<view class="keyWord-list-cont" style="width:{{contmaxwidth}}px;">
+				<view class="keyWord-list-cont-item"
+              wx:for="{{realkeyWords}}"
+              wx:key="unique"
+              style="left:{{item.left}}px;top:{{item.top}}px;width:{{item.width}}px;"
+              bindtap="selectKeyword"
+              data-key="{{item.val}}"
+        >{{item.val}}</view>
+			</view>
+			<view class="keyWord-list-cont" style="width:{{contmaxwidth}}px;">
+				<view class="keyWord-list-cont-item"
+              wx:for="{{realkeyWords}}"
+              wx:key="unique"
+              style="left:{{item.left}}px;top:{{item.top}}px;width:{{item.width}}px;"
+              data-key="{{item.val}}"
+              bindtap="selectKeyword"
+        >{{item.val}}</view>
+			</view>
+		</view>
+	</view>
+</view>  

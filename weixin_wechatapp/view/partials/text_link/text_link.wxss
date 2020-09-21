@@ -1,0 +1,20 @@
+.text_link{
+  padding:16px 0 15px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.text_link_imageContainer{
+  height: 20px;
+  width: 40px;
+}
+.text_link_imageContainer image{
+  height: 100%;
+  width: 100%;
+}
+.text_link_text{
+   margin-left: 10px; 
+}
+.text_link_text2{
+  width: 100%;
+}

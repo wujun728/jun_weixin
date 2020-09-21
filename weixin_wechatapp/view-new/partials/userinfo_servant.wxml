@@ -1,0 +1,21 @@
+
+
+
+<template name="userinfo_servant">
+<!--  wx:if='{{loginUser.platformUser.managerServantId&&loginUser.platformUser.managerMendianId==0}}' -->
+  <view class='userinfo_mendian' wx:if="{{curPersonnelType!=-1}}">
+    <view class='userinfo_mendian_left' data-link='{{havaMoreSelectType[curPersonnelType].linkUrl}}' catchtap='tolinkUrl'>
+      <image mode='aspectFit' src="{{havaMoreSelectType[curPersonnelType].iconPath}}"></image>
+      <view  class="userinfo_mendian_text" >{{havaMoreSelectType[curPersonnelType].text}} </view>
+    </view>
+    <!-- <image class='more_select' src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image> -->
+    <view>
+      <picker style='padding:20rpx' bindchange="bindPickerChange" range="{{havaMoreSelectTypeArr}}">
+        <view class='pickerRight'>
+          <image class='pickerImg' src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+      </picker >
+      <!-- <image class='more_select' src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image> -->
+    </view>
+  </view>
+</template>  

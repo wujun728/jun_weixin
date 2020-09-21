@@ -1,0 +1,69 @@
+<!--正常的标题 -->
+<template name="floating_mendian">
+
+<!--  mendianType==1 附近门店    -->
+<!--  mendianType==0 默认门店  -->
+<!--  mendianType==2 用户归属门店  -->
+
+<!--默认门店 -->
+<block  wx:if="{{jsonData.mendianType==0}}">
+<view class="wrap" bindtap='click'>
+  <image class='store_logo' src='{{arr.logo}}'></image>
+  <text class='store_name'>{{arr.name}}</text>
+</view>
+<!-- <view class="wrap">
+
+  <view  class='name' bindtap='click'>
+  <view class='ListDataItemImage' wx:if="{{arr.logo!=''&& arr.logo!='0'}}"><image mode='aspectFill'  src='{{arr.logo}}'></image></view>
+
+    <view class='ListDataItemImage'  wx:else> <image mode='aspectFill' src='../../../images/333.jpg'></image></view>
+  <view class='nameText'> <text>{{arr.name}}</text></view>
+    <view class='nameImg'  > <image src='../../../images/icons/mendian.png'></image></view>
+  </view>
+</view> -->
+</block>
+
+<!--用户归属门店  -->
+<block  wx:if="{{jsonData.mendianType==2}}">
+<view class="wrap" bindtap='click' >
+  <image class='store_logo' src='{{arr.logo}}'></image>
+  <text class='store_name'>{{arr.name}}</text>
+</view>
+</block>
+
+<!-- <block  wx:if="{{jsonData.mendianType==2}}">
+<view class="wrap">
+
+  <view  class='name' bindtap='click' data-id="1">
+     <view class='ListDataItemImage' wx:if="{{arr.logo!=''&& arr.logo!='0'}}"><image mode='aspectFill'  src='{{arr.logo}}'></image></view>
+
+    <view class='ListDataItemImage'  wx:else> <image mode='aspectFill' src='../../../images/333.jpg'></image></view>
+  <view class='nameText'> <text>{{arr.name}}</text></view>
+    <view class='nameImg' wx:if="{{arr.logo!=null}}"> <image src='../../../images/icons/mendian.png' ></image></view>
+  </view>
+</view>
+</block> -->
+
+<!--附近门店  -->
+<block  wx:if="{{jsonData.mendianType==1}}">
+<view class="wrap" bindtap='click1'>
+  <image class='store_logo' src='{{arr.logo}}'></image>
+  <text class='store_name'>{{arr.name}}</text>
+</view>
+<!-- <view class="wrap" bindtap='click1'  wx:key="index">
+  <view  class='name'>
+    <view class='ListDataItemImage' wx:if="{{arr.logo!=''&& arr.logo!='0'}}"><image mode='aspectFill'  src='{{arr.logo}}'></image></view>
+
+    <view class='ListDataItemImage'  wx:else> <image mode='aspectFill' src='../../../images/333.jpg'></image></view>
+
+   
+  <view class='nameText'> <text>{{arr.name}}</text></view>
+    <view class='nameImg' catchtap='clickCatch' > <image src='../../../images/icons/mendian.png'></image></view>
+  </view>
+</view> -->
+
+</block>
+
+
+
+</template>

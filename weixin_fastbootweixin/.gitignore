@@ -1,0 +1,16 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+target
+.settings
+.classpath
+.project
+.idea
+*.iml
+
+/weixin
+/logs

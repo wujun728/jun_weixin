@@ -1,0 +1,19 @@
+<!--pages/jiaodiantu/jiaodiantu.wxml-->
+<view class="container">
+    <view>焦点图效果</view>
+    <view>
+        <swiper class='jdt' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" current="{{current}}" bindchange="eventchange">
+          <block wx:for="{{imgUrls}}" wx:key="unique">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <button bindtap="changeIndicatorDots"> 是否显示面板指示点</button>
+        <button bindtap="changeAutoplay"> 是否自动切换 </button>
+        <button bindtap="changeCircular"> 是否采用衔接滑动 </button>
+        <button bindtap="changeVertical"> 滑动方向是否为纵向 </button>
+        <slider bindchange="intervalChange" show-value min="500" max="2000"/> 自动切换时间间隔
+        <slider bindchange="durationChange" show-value min="1000" max="10000"/> 滑动动画时长
+    </view>
+</view>    

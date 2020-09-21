@@ -1,0 +1,29 @@
+<view class='container'>
+  <!-- 平台信息 -->
+  <view class='resource_info_top' style='background:{{setting.platformSetting.defaultColor}}'>
+    <view class='platform_logo'>
+      <image class='platform_logo_img' wx:if="{{resourceGainInfo.platform.logo}}" src='{{resourceGainInfo.platform.logo}}'></image>
+    </view>
+    <text class='platform_name'>{{resourceGainInfo.platform.platformName}}</text>
+  </view>
+  <!-- 资源详情 -->
+  <view class='resource_detail_info' style='box-shadow: 0 0 20px 2px {{setting.platformSetting.defaultColor}}22'>
+    <view class='resource_name_title'>
+      <text class='resource_name'>{{resourceGainInfo.resourceTypeStr}}</text>领取
+    </view>
+    <view class='resource_validation'>
+      <input class='resource_validation_input' bindinput="saveSearchValue" ></input>
+      <text class='resource_validation_tip' wx:if="{{resourceGainInfo.resourceVisibleTip}}">{{resourceGainInfo.resourceVisibleTip}}</text>
+    </view>
+    <view class='resource_entry_tip'>
+      <!-- <image src=''></image> -->
+      <icon class='tip_icon' type="warn" size="26rpx" color='{{setting.platformSetting.defaultColor}}99'></icon>
+      <text>请输入{{resourceGainInfo.resourceHideTip}}领取</text>
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <view class='gain_resource_btn'>
+    <view class='cancel' catchtap='toIndex'>取消</view>
+    <view class='sure' catchtap='gainResourceFun' style='background:{{setting.platformSetting.defaultColor}};border: 1rpx solid {{setting.platformSetting.defaultColor}};'>领取</view>
+  </view>
+</view>

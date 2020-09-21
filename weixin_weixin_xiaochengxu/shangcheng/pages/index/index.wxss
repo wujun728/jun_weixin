@@ -1,0 +1,24 @@
+swiper-item{
+  display: flex;
+  justify-content: center;
+}
+
+#types {
+	margin: 0rpx 25rpx;
+	padding: 0rpx 00px;
+	background: white;
+	font-size: 16px;
+	text-align: center;
+	color: #555;
+	clear: both;
+}
+
+.list-item {
+	padding: 10rpx 13rpx;
+	float: left;
+}
+
+.item-head image {
+	width: 150rpx;
+	height: 150rpx;
+}

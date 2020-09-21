@@ -1,0 +1,1 @@
+native2ascii -encoding utf8 String_utf8 LocalStrings_zh_CN.properties

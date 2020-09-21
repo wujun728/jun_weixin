@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "特卖",
+      "usingComponents": {
+        "productList": "../components/productList/productList",
+        "posters": "../../../view/partials/canvas/index",
+        "posterActive": "../../../view/partials/canvas_active/index",
+        "time": "../../../view/partials/tunzai_time/time",
+        "component-price-group": "../../../view/partials/price_group/index"
+      }
+}

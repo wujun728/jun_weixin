@@ -1,0 +1,106 @@
+
+<!--正常的标题 -->
+<template name="form_item_two">
+<block >
+<view class='form_commit_item_info' data-belongformtype='{{formCommitItem.belongFormType}}' catchtap='checkFormDetail' data-id="{{formCommitItem.id}}">
+  <view class='top_part'>
+    <view class='top_part_left' data-link="chat_room.html?puid={{formCommitItem.commitPlatformUserId}}&puname={{formCommitItem.commitPlatformUserName}}" catchtap='tolinkUrl'>
+      <image class='top_part_left_img' src='{{formCommitItem.commitPlatformUserIcon}}?x-oss-process=style/preview_120'></image>
+      <view class='user_base_info'>
+        <text class='user_base_info_name'>{{formCommitItem.commitPlatformUserName}}</text>
+        <view class='user_base_info_type'>
+          <text class='user_base_info_type_name' style='background:{{setting.platformSetting.defaultColor}}'>{{formCommitItem.belongFormName}}</text>
+          <view class='form_reward_status' wx:if="{{controlLimitState}}">
+            <text class='form_reward_status_item' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{formCommitItem.recordStatus==1}}">有效表单</text>
+            <text class='form_reward_status_item' style='background:#999' wx:if="{{formCommitItem.recordStatus==2}}">无效表单</text>
+            <text class='form_reward_status_item' style='background:#999' wx:if="{{formCommitItem.recordStatus==0}}">待审核表单</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='top_part_right'  wx:if="{{controlLimitState}}">
+      <!-- <text>更多</text> -->
+      <image class='more_icon' wx:if="{{!formCommitItem.showFunState}}" catchtap='showMoreFun' data-type="show" src='http://image1.sansancloud.com/xianhua/2019_5/30/19/48/32_954.jpg?x-oss-process=style/preview_120'></image>
+      <image class='more_icon' wx:else catchtap='showMoreFun' data-type="hidden" src='http://image1.sansancloud.com/xianhua/2019_5/30/20/22/55_904.jpg?x-oss-process=style/preview_120'></image>
+      <view class='fun_list' wx:if="{{formCommitItem.showFunState}}">
+        <view class='fun_item' catchtap='replyTextStateFun' data-type="show">
+          <image class='fun_item_icon' src='http://image1.sansancloud.com/xianhua/2019_5/30/19/57/40_527.jpg?x-oss-process=style/preview_120'></image>
+          <text style='letter-spacing:22rpx;'>回复</text>
+        </view>
+        <view class='fun_item' catchtap='setStateFun' data-commitStatus="1" wx:if="{{formCommitItem.recordStatus==0}}">
+          <image class='fun_item_icon' src='http://image1.sansancloud.com/xianhua/2019_5/30/19/57/40_519.jpg?x-oss-process=style/preview_120'></image>
+          <text>置有效</text>
+        </view>
+        <view class='fun_item' catchtap='setStateFun' data-commitStatus="2" wx:if="{{formCommitItem.recordStatus==0}}">
+          <image class='fun_item_icon' src='http://image1.sansancloud.com/xianhua/2019_5/30/19/57/40_557.jpg?x-oss-process=style/preview_120'></image>
+          <text>置无效</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='center_part'>
+    <view class='center_part_item' wx:for="{{formCommitItem.commitArr}}" wx:key="{{index}}" wx:for-index="idx" wx:for-item="itemData"  wx:if="{{itemData.type!=11&&itemData.type!=7&&idx<=formCommitItem.showNum&&itemData.showInList==1}}">
+      <text class='center_part_item_title' wx:if="{{itemData.type!=9}}">{{itemData.title}}</text>
+      <text class='interval' wx:if="{{itemData.type!=9}}">:</text>
+      <text class='center_part_item_value' wx:if="{{itemData.type!=12}}">{{itemData.value}}</text>
+      <text class='center_part_item_value' wx:if="{{itemData.type==12}}">{{itemData.value.value}}</text>
+      <view class='more' wx:if="{{formCommitItem.lengthStr>3&&idx==formCommitItem.showNum-2&&formCommitItem.showMoreState}}">
+        <image class='showMore' data-index="{{idx}}" data-type="hidden"  catchtap='showMore' src='http://image1.sansancloud.com/xianhua/2019_3/20/11/1/46_412.jpg?x-oss-process=style/preview_120'></image>
+      </view>
+      <view class='more' wx:if="{{formCommitItem.lengthStr>=3&&idx==formCommitItem.showNum&&!formCommitItem.showMoreState}}">
+        <image class='showMore' data-index="{{idx}}" data-length="{{formCommitItem.lengthStr}}" data-type="show" catchtap='showMore' src='http://image1.sansancloud.com/xianhua/2019_3/20/11/1/46_428.jpg?x-oss-process=style/preview_120' ></image>
+      </view>
+    </view>
+    <view class='show_img' wx:for="{{formCommitItem.commitArr}}" wx:key="*this" wx:for-item="itemData" wx:if="{{itemData.type==7&&itemData.value}}">
+      <image class='show_img_item' mode='aspectFill' src='{{img}}' wx:for="{{itemData.value}}" wx:key="{{index}}" wx:for-item="img" wx:if="{{publicFun.typeOf(itemData.value)!='string'}}"></image>
+      <image class='show_img_item' mode='aspectFill' src='{{itemData.value}}' wx:if="{{publicFun.typeOf(itemData.value)=='string'}}"></image>
+    </view>
+    <view class='show_img' wx:for="{{formCommitItem.commitArr}}" wx:key="*this" wx:for-item="itemData" wx:if="{{itemData.type==11&&itemData.value}}">
+      <image class='show_img_item' mode='aspectFill' src='{{img}}' wx:for="{{itemData.value}}" wx:for-item="img"></image>
+    </view>
+    <view class='addr_time'>
+      <view class='addr_con'>
+        <!-- <image class='addr_con_icon' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_480.jpg'></image>
+        <text class='addr_con_text'>厦门湖里区</text> -->
+      </view>
+      <text class='time_con'>{{formCommitItem.commitDate}}</text>
+    </view>
+  </view>
+  <view class='reply_block' wx:if="{{controlLimitState&&formCommitItem.reply}}">
+    <text style='width:18%;white-space:nowrap;'>回复内容：</text>
+    <text>「"{{formCommitItem.reply}}"」</text>
+  </view>
+  <!-- <view class='bottom_part' wx:if="{{controlLimitState}}">
+    <view class='bottom_part_item'>
+      <image class='bottom_part_item_icon to_view' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_487.jpg?x-oss-process=style/preview_120'></image>
+      <text class=''>1314</text>
+    </view>
+    <view class='bottom_part_item'>
+      <image class='bottom_part_item_icon to_share' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_486.jpg?x-oss-process=style/preview_120'></image>
+      <text class=''>1314</text>
+    </view>
+    <view class='bottom_part_item'>
+      <image class='bottom_part_item_icon to_comments' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_496.jpg?x-oss-process=style/preview_120'></image>
+      <text class=''>520</text>
+    </view>
+    <view class='bottom_part_item'>
+      <image class='bottom_part_item_icon to_heart' src='http://image1.sansancloud.com/jianzhan/2019_3/12/14/47/49_500.jpg?x-oss-process=style/preview_120'></image>
+      <text class=''>520</text>
+    </view>
+  </view> -->
+</view>
+<view class='zhezhao' wx:if='{{formCommitItem.showFunBan}}'></view>
+<view class='reply_popup' wx:if='{{formCommitItem.showFunBan}}'>
+  <text class='reply_popup_title'>回复表单</text>
+   <textarea class='reply_text' name='content' maxlength='200' placeholder='请写下您的意见...' value='' bindinput="bindTextAreaBlur"></textarea>
+   <view class='reply_popup_fun'>
+     <view class='reply_popup_fun_btn' catchtap='replyTextStateFun' data-type="hidden">
+       <text>取消</text>
+     </view>
+     <view class='reply_popup_fun_btn' catchtap='replyTextData'>
+       <text>回复</text>
+     </view>
+   </view>
+</view>
+</block>
+</template>

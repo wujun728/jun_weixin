@@ -1,0 +1,19 @@
+<!-- aikucun_title -->
+
+<!-- title -->
+<template name="aikucun_title0">
+    <view class='aikucun_title'  style="padding-bottom:24rpx" >
+      <view class='aikucun_title_tags'>
+        <!-- <view class='border_style_sanjiao' style='border-color:  transparent #000 #000 transparent;'></view> -->
+        <!-- <view class='leftLine'></view> -->
+        <view class='leftImage'><image src='../../images/icons/aikucun_title0_left.png'></image></view>
+        <view class='aikucun_title_container'>
+            <view class='aikucun_title_text' style='color:#e10000;'>{{title}}</view>
+        </view>
+        <!-- <view class='leftLine'></view> -->
+        <view class='leftImage'><image src='../../images/icons/aikucun_title0_right.png'></image></view>
+        <!-- <view class='border_style_sanjiao' style='border-color:transparent transparent #000 #000;'></view>     -->
+      </view>
+      <view class='aikucun_title_num'>今日活动：{{activityPromotionNum}}场</view>
+    </view>    
+</template>

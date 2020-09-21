@@ -1,0 +1,10 @@
+h5{font-weight: bolder;border-bottom: 1px solid #ebebeb;padding: 5px 20px ;}
+.send-content{padding: 20px 0 20px 30%;}
+.send-left{margin-bottom: 10px;}
+.send-left div{float:left;width: 90px;font-size: 15px;font-family: "黑体";}
+.send-left div p{display: inline;color: #FF0000;}
+.send-left input{padding: 3px 5px;outline: none;font-family: "微软雅黑";width: 180px;border: none;border: 1px solid #E0E0E0;box-shadow:0 0 5px #E0E0E0;}
+.authority{margin-bottom: 10px;}
+.authority div{float:left;width: 90px;font-size: 15px;font-family: "黑体";}
+.btn-add{width: 180px;margin-left: 50px;}
+.con-table{margin-top: 20px;}

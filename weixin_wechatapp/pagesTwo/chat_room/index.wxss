@@ -1,0 +1,138 @@
+.container{
+  position: relative;
+  height:100%;
+  overflow: hidden
+}
+.chat_content{
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  width:100%;
+  box-sizing:border-box;
+  border-top: 1rpx solid #eee;
+  background:#f1f1f1;
+}
+#bottom_send_block{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #f8f8f8;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0
+}
+.bottom_send_block_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding: 20rpx; */
+}
+.bottom_send_block_center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.bottom_send_block_right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding: 20rpx; */
+}
+.icon_block{
+  width: 50rpx;
+  height: 50rpx;
+  padding: 20rpx;
+}
+.icon_block:last-child{
+  padding-left: 0
+}
+.input_box{
+  background: #fff;
+  padding: 16rpx 10rpx;
+  color: #000000;
+  border-radius: 10rpx;
+  width: 500rpx;
+  max-height: 200rpx;
+  height:70rpx;
+  box-sizing: border-box
+}
+/* item */
+.chat_item{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 20rpx 6rpx;
+}
+.user_content{
+  display: flex;
+  flex-direction: row;
+  max-width:74%;
+  background:#fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  position: relative;
+  min-height:76rpx;
+  min-width:70rpx;
+}
+.user_text{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.user_icon{
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 10rpx;
+}
+.jiantou{
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 28rpx;
+  transform: rotateY(180deg)
+}
+.other_methods_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #f1f1f1;
+  border-top: 1rpx solid #eee;
+  position: fixed;
+  bottom: -450rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx;
+  height: 450rpx;
+}
+.other_methods_item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+  font-size: 26rpx;
+  margin: 18rpx
+}
+.other_methods_item_img{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 34rpx;
+  margin-bottom: 10rpx;
+}
+.other_methods_item_icon{
+  width: 50rpx;
+  height: 50rpx;
+}

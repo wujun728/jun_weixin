@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  context-path: /wx
+spring:
+  application:
+    name: backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/wxapp_new?useUnicode=true&amp;characterEncoding=utf8mb4
+    username: mysql_test
+    password: mysql_test
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.lmy.booksserver.pojo
+  config-location: classpath:mybatis-config.xml
+logging:
+  level:
+    com.lmy.booksserver.mapper: debug
+
+access_token: 22_N8odXH9F7hSbQWl41MeeQvJT9itvRDSb_8DTQO1PRqjGYqfX6fdzLIuwQKZtYbhul8Mujv_nq-2XJMnhK2dQ7HGQOVWFaOtutjnG_R9mYvxs2cPZspuQoq8N1QoL_zQdl8Qwj8ABU4AC4LxIGQHfAHANXO
+url:
+  access_token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential
+  menu_create: https://api.weixin.qq.com/cgi-bin/menu/create?access_token=
+  self_menu_get: https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=
+  userinfo: https://api.weixin.qq.com/cgi-bin/user/info

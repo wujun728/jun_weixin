@@ -1,0 +1,55 @@
+<view class='container'>
+  <view class='my_card_voucher_detail'>
+  <!-- {{myCardVoucherDetail.cardBanner&&myCardVoucherDetail.cardBanner!="undefined"?"background-image":"background"}}:{{myCardVoucherDetail.cardBanner&&myCardVoucherDetail.cardBanner!="undefined"?"url("+myCardVoucherDetail.cardBanner+")":myCardVoucherDetail.cardColor}} -->
+    <view class='my_card_voucher_card' wx:if="{{myCardVoucherDetail.cardBanner&&myCardVoucherDetail.cardBanner!='undefined'}}" style='background-image:url({{myCardVoucherDetail.cardBanner}})'>
+      <view class='ewmCode' wx:if="{{myCardVoucherDetail.exhause==0&&myCardVoucherDetail.status==1}}" catchtap='tolinkUrl' data-link="show_verification_code.html?code={{myCardVoucherDetail.instanceCode}}&verifyScanType=1">
+        <image class='ewmImg'src='http://image1.sansancloud.com/xianhua/2019_1/4/15/2/28_123.jpg'></image>
+      </view>
+    </view>
+    <view class='my_card_voucher_card' wx:else style='background:{{myCardVoucherDetail.cardColor}}'>
+      <view class='my_card_voucher_baseinfo'>
+        <image class='my_card_voucher_logo' src="{{myCardVoucherDetail.cardImage?myCardVoucherDetail.cardImage:'http://image1.sansancloud.com/xianhua/2018_12/21/17/44/1_472.jpg'}}"></image>
+        <view class='my_card_voucher_name'>
+          <text class='my_card_voucher_platformname'>{{loginUser.platformUser.belongMendianName}}</text>
+          <text class='my_card_voucher_value'>{{myCardVoucherDetail.cardName}}</text>
+        </view>
+      </view>
+      <view class='my_card_voucher_limit_time'>
+        <text>有效期：</text>
+        <text wx:if="{{myCardVoucherDetail.validateType==1}}">永久有效</text>
+        <text wx:if="{{myCardVoucherDetail.validateType==3}}">{{myCardVoucherDetail.validateDatetimeEnd}}后失效</text>
+        <text wx:if="{{myCardVoucherDetail.validateType==2}}">{{myCardVoucherDetail.validateDatetimeEnd}}后失效</text>
+      </view>
+      <view class='ewmCode' wx:if="{{myCardVoucherDetail.exhause==0&&myCardVoucherDetail.status==1}}" catchtap='tolinkUrl' data-link="show_verification_code.html?code={{myCardVoucherDetail.instanceCode}}&verifyScanType=1">
+        <image class='ewmImg'src='http://image1.sansancloud.com/xianhua/2019_1/4/15/2/28_123.jpg'></image>
+      </view>
+    </view>
+    <view class='extra_info'>
+      <view class='extra_info_item'>
+        <text class='extra_info_title'>剩余次数</text>
+        <text class='extra_info_value' style='color:{{platformSetting.defaultColor}}' wx:if="{{myCardVoucherDetail.countPerInstance==-1}}">无限次</text>
+        <text class='extra_info_value' style='color:{{platformSetting.defaultColor}}' wx:else>{{myCardVoucherDetail.countPerInstance}}</text>
+      </view>
+      <view class='extra_info_item'>
+        <text class='extra_info_title'>已用次数</text>
+        <text class='extra_info_value' style='color:{{platformSetting.defaultColor}}'>{{myCardVoucherDetail.usedCount}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='card_voucher_description'>
+    <view class='card_voucher_description_item'>
+      <text class='card_voucher_description_name'>卡券说明</text>
+      <text class='card_voucher_description_description'>{{myCardVoucherDetail.cardVoucher.description}}</text>
+    </view>
+    <view class='card_voucher_description_item'>
+      <text class='card_voucher_description_name'>有效期限</text>
+      <text class='card_voucher_description_description' wx:if="{{myCardVoucherDetail.validateType==1}}">永久有效</text>
+      <text class='card_voucher_description_description' wx:if="{{myCardVoucherDetail.validateType==3}}">{{myCardVoucherDetail.validateDatetimeEnd}}后失效</text>
+      <text class='card_voucher_description_description' wx:if="{{myCardVoucherDetail.validateType==2}}">{{myCardVoucherDetail.validateDatetimeEnd}}后失效</text>
+    </view>
+    <view class='card_voucher_description_item'>
+      <text class='card_voucher_description_name'>核销编码</text>
+      <text class='card_voucher_description_description'>{{myCardVoucherDetail.instanceCode}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,97 @@
+<view class='app'>
+  <view class='top'>
+
+    <span class="item">
+      <span class="sp1">
+        <image src='{{my.avatar}}'></image>
+      </span>      
+      <span class="sp2">{{my.nickname}}</span>
+    </span>
+    
+    <span class="item electric">
+      <image src='../../assets/images/electric.png'></image>
+    </span>
+    
+    <span class="item">
+      <span class="sp1">
+        <image src='{{lover.avatar}}'></image>
+      </span>
+      <span class="sp2">{{lover.nickname}}</span>
+    </span>
+        
+  </view>
+  
+  <view class='system'>
+
+    <!--目录1-->
+    <button class='item share' open-type="share" bindtap='invite'>
+      <span class="sp3">
+        <image src='../../assets/images/my_1.png'></image>
+      </span>
+      <span class="sp4">
+        邀请另一半
+      </span>
+      <span class="sp5">
+        >
+      </span>
+    </button>
+
+    <!--目录2-->
+    <view class='item item2'>
+      <span class="sp3">
+        <image src='../../assets/images/my_2_1.png'></image>
+      </span>
+      <span class="sp4">
+        我是温柔体贴的男生
+      </span>
+      <span class="sp5">
+        >
+      </span>
+    </view>
+
+    <!--目录3-->
+    <view class='item item3' bindtap='remove'>
+      <span class="sp3">
+        <image src='../../assets/images/my_3.png'></image>
+      </span>
+      <span class="sp4">
+        解除关系
+      </span>
+      <span class="sp5">
+        >
+      </span>
+    </view>
+
+    <!--目录4-->
+    <view class='item item4' bindtap='feedback'>
+      <span class="sp3">
+        <image src='../../assets/images/my_4.png'></image>
+      </span>
+      <span class="sp4">
+        意见反馈
+      </span>
+      <span class="sp5">
+        >
+      </span>
+    </view>
+
+    <!--目录2-->
+    <view class='item item5'>
+      <span class="sp3">
+        <image src='../../assets/images/my_5.png'></image>
+      </span>
+      <span class="sp4">
+        推荐朋友一起来秀恩爱~
+      </span>
+      <span class="sp5">
+        >
+      </span>
+    </view>
+
+  </view>
+
+  <modal hidden="{{hidden}}" title="意见反馈" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+    <textarea placeholder="请输入内容..." bindinput='textInput'></textarea>
+  </modal>
+
+</view>

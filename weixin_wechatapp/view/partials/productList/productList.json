@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-price-group": "../price_group/index"
+  }
+}

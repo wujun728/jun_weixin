@@ -1,0 +1,198 @@
+/* 右边的商品 */
+.right_box{
+  
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.productItem{
+  padding: 10px 6rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:center;
+  border-bottom: 1rpx solid #ddd;
+}
+.productItem > .productItemImage{
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+  position: relative;
+}
+.productImg{
+  width: 140rpx;
+  height: 140rpx;
+}
+.productItem >.productInfo{
+  width: 75%;
+}
+.productInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20rpx;
+}
+.productInfo_name{
+  font-size: 24rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.productInfo_decribe{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.small_decribe{
+  font-size: 20rpx;
+  color: #989898;
+  margin-bottom: 5rpx;
+}
+.productInfo_promotionName{
+  background: #f7515f;
+  border-radius: 5rpx;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+}
+.productInfo_Price{
+  color: red;
+  font-size: 24rpx;
+  width: 100%;
+  margin-top: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+}
+.price{
+  font-size: 26rpx !important;
+  /* margin-right: 10rpx */
+}
+.tag_price{
+  text-decoration:line-through;
+  color: #999;
+  font-size: 22rpx
+}
+.price_group{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.productInfo_Nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.productInfo_Nums > image{
+  width:16rpx;
+  height: 16rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 50%;
+  padding: 12rpx;
+}
+/* .font1{
+  margin:0 5px;
+  font-size: 18rpx;
+} */
+
+.bottomHeight{
+  height: 10em;
+}
+/*  */
+.detail_list_mode1{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; 
+  flex-wrap: wrap;
+  padding: 10px 0px 10px 10px;
+  background: #f9f9f9; 
+} 
+.detail_list_mode1 .mode1_items:last-child, 
+.detail_list_mode1 .mode1_items:nth-last-child(2){
+  margin-bottom: 0;
+}
+
+
+
+.mode1_items{
+  margin-bottom: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  border-right: 10px solid #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  padding-bottom: 10px;
+}
+.mode1_items image{
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 300rpx;
+  height: 300rpx;
+}
+.mode1_items .center{
+  margin: 0 auto;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding: 5px 10px 8px 10px;
+  font-size: 13px;
+  color: #333;
+  line-height: 21px;
+  height:15px;
+}
+ .mode1_items text{
+  text-align: left;
+  overflow: hidden;
+  font-size: 20px;
+  color: #FF3D3D;
+  line-height: 28px;
+} 
+
+.exchange{
+  width: 150rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin: 0 auto;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+}
+.exchange text{
+  font-size: 30rpx;
+  display: block;
+  line-height: 60rpx;
+}
+/*新样式  */
+.NewBox{
+  width: 350rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.NewBox text{
+  font-size: 30rpx;
+}
+.ml20{
+  margin-left: 20rpx;
+}
+.mr20{
+  margin-right: 25rpx;
+}
+.NewBox image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: -18rpx;
+  margin-right: 25rpx;
+}

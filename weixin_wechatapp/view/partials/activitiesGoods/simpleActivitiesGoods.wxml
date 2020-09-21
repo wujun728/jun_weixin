@@ -1,0 +1,33 @@
+<template name="simpleActivitiesGoods">
+ <view class='mt20'>
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+ <block wx:for="{{relateBean.products}}" wx:key="index">
+      <view class="recommend_hot_box" style='background-color:{{color}};'  bindtap='clickLink' data-id='{{item.id}}' data-index='{{item.id}}'>
+        <view class='CouponsImg'>   <image mode='aspectFill' src="{{item.imagePath}}"></image> </view>
+        <view class='choose' style='background-color:{{setting.defaultColor}};'> <text>去抢购</text> </view>
+      </view>
+          <view class="recommend_hot_box_copy" wx:if="{{index==relateBean.products.length-1}}" style='background-color:{{color}};'  bindtap='clickLink1' data-id='{{relateBean.id}}'>
+       <text style='color:{{setting.defaultColor}}'>更多商品</text>
+     
+      </view> 
+     </block> 
+      
+    </scroll-view>
+    <!--时间  -->
+ <view class='footer' style='background: linear-gradient(to right, {{setting.defaultColor}} , {{setting.secondColor}});'>
+   <view class='activeName'><text>{{relateBean.name}}</text></view>
+    <view class='time'>
+         <view class='timeText'> <text>{{relateBean.promotionStatus==0?"即将开始:":"距结束:"}}</text></view>
+         <view class='timeBox' style='color:{{setting.defaultColor}}'> <text>{{countDownDay}}天</text></view>
+         <view class='timeText'> <text>:</text></view>
+         <view class='timeBox' style='color:{{setting.defaultColor}}'> <text>{{countDownHour}}</text></view>
+          <view class='timeText'> <text>:</text></view>
+         <view class='timeBox' style='color:{{setting.defaultColor}}'> <text>{{countDownMinute}}</text></view>
+          <view class='timeText'> <text>:</text></view>
+         <view class='timeBox' style='color:{{setting.defaultColor}}'> <text>{{countDownSecond}}</text></view>
+    </view>
+ 
+ 
+ </view>
+</view>
+</template>

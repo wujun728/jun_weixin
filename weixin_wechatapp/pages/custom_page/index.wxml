@@ -1,0 +1,9 @@
+
+<view class="container">
+  <block >
+    <component-tag-customPage id='indexPage' data="{{partialsName}}"></component-tag-customPage> <!-- 首页组件-->
+  </block>
+</view>
+
+
+

@@ -1,0 +1,50 @@
+
+<view class='container'>
+  <view class='coupon_list' wx:if="{{showCoupon&&showCoupon.length!=0}}">
+    <view class='coupon_item' wx:for='{{showCoupon}}' wx:for-item='cou' wx:key='{{cou.id}}'  data-id='{{cou.id}}'>
+      <view class='parting_line'>
+        <text class='circle'></text>
+        <text class='circle'></text>
+      </view>
+      <view class='coupon_random_type' style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{cou.randomAmountType!=0}}">
+        <text>最高可得</text>
+      </view>
+      <view class='coupon_item_top'>
+        <view class='coupon_item_top_left'>
+          <view class='coupon_money' style='color:{{setting.platformSetting.defaultColor}}'>
+            <text style='letter-spacing:-8rpx;font-size:24rpx'>￥</text>{{cou.youhuiAmount}}
+          </view>
+          <view class='coupon_type' style='color:{{setting.platformSetting.defaultColor}}'>
+            <text wx:if="{{cou.orderAmount!=0}}">满{{cou.orderAmount}}元可用</text>
+            <text wx:else>无金额门槛</text>
+          </view>
+        </view>
+        <view class='coupon_item_top_center'>
+          <text class='coupon_item_name'>{{cou.name}}</text>
+          <text class='coupon_item_time' wx:if="{{cou.endDateType==1}}">领取后{{cou.endDateCount}}天内有效</text>
+          <text class='coupon_item_time' wx:else>有效期至 {{cou.endDate}}</text>
+        </view>
+        <view class='coupon_item_top_right'>
+          <block wx:if='{{cou.gotCount>=cou.count&&!cou.userGotCoupon.length}}'>
+            <view class='cou_btn'>已领完</view>
+          </block>
+          <block wx:elif='{{!cou.userCanGot}}'>
+            <view class='cou_btn'>已领取</view>
+          </block>
+          <block wx:else>
+            <view class='cou_btn' style='background:{{setting.platformSetting.defaultColor}}' data-id='{{cou.id}}' catchtap='GotCoupon'>立即领取</view>
+          </block>
+        </view>
+      </view>
+      <view class='coupon_item_bottom'>
+        <view class='coupon_item_bottom_remark'>
+          <text wx:if="{{cou.belongShopId&&cou.belongShopId!=0}}">【仅限于{{cou.belongShopName}}内使用】</text>
+          {{cou.remark}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='noList' wx:else>
+    <text>主人~暂时还没有任何可领取的优惠券哦！</text>
+  </view>
+</view>

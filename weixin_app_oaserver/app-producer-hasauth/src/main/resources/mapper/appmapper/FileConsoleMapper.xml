@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.app.dao.FileConsoleDao">
+	
+	<select id="queryFolderParentByFolderId" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+			a.parent_id parentId
+		FROM
+			file_catalog a
+		WHERE a.id = #{parentId}
+	</select>
+	
+	<select id="queryFilesListByFolderId" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+			*
+		FROM (
+				SELECT
+					a.id,
+					a.catalog_name `name`,
+					#{folderId} pId,
+					'../../assets/images/folder-show.png' icon,
+					1 isParent,
+					'folder' fileType,
+					if((SELECT COUNT(*) FROM file_catalog_share l WHERE l.file_id = a.id AND l.file_type = '1') > 0, 'block', 'none') isShow,
+					1 orderBy,
+					0 fileSize,
+					CONVERT(a.create_time, char) createTime
+				FROM
+					file_catalog a
+				WHERE
+					a.parent_id = CONCAT(IFNULL((SELECT t.parent_id FROM file_catalog t WHERE t.id = #{folderId}), ''), #{folderId}, ',')
+				<if test="folderType != '1'.toString()">
+					AND a.create_id = #{userId}
+				</if>
+				AND a.id NOT IN (SELECT m.file_id FROM file_catelog_recycle_bin m WHERE m.file_type = '1' AND m.create_id = #{userId})
+				AND a.state = '1'
+				UNION ALL
+					SELECT
+						a.id,
+						a.file_name `name`,
+						#{folderId} pId,
+						a.file_thumbnail icon,
+						0 isParent,
+						a.file_type fileType,
+						if((SELECT COUNT(*) FROM file_catalog_share l WHERE l.file_id = a.id AND l.file_type = '2') > 0, 'block', 'none') isShow,
+						2 orderBy,
+						a.file_size fileSize,
+						CONVERT(a.create_time, char) createTime
+					FROM
+						file_catelog_papers a
+					WHERE
+						a.parent_id = CONCAT(IFNULL((SELECT t.parent_id FROM file_catalog t WHERE t.id = #{folderId}), ''), #{folderId}, ',')
+					<if test="folderType != '1'.toString()">
+						AND a.create_id = #{userId}
+					</if>
+					AND a.id NOT IN (SELECT m.file_id FROM file_catelog_recycle_bin m WHERE m.file_type = '2' AND m.create_id = #{userId})
+					AND a.state = '1'
+			) k
+		<if test="orderBy == null or orderBy == ''">
+			ORDER BY k.orderBy ASC, k.`name` ASC
+		</if>
+		<if test="orderBy != null and orderBy != ''">
+			<if test="orderBy == '1'.toString()">
+				ORDER BY k.`name` ASC
+			</if>
+			<if test="orderBy == '2'.toString()">
+				ORDER BY k.createTime DESC
+			</if>
+			<if test="orderBy == '3'.toString()">
+				ORDER BY k.orderBy ASC, k.`name` ASC
+			</if>
+			<if test="orderBy == '4'.toString()">
+				ORDER BY k.fileSize DESC
+			</if>
+		</if>
+	</select>
+	
+</mapper>

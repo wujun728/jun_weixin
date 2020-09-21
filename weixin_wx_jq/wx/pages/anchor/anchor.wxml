@@ -1,0 +1,27 @@
+<!--pages/anchor/anchor.wxml-->
+<view class="container">
+    <view class='ti'>
+      <view>锚点定位及跳转</view>  
+      <view>全聚德烤鸭店</view>  
+      <view style="font-size:12px;">满100减20，满50减10</view>  
+    </view>
+    <view class='rn'>
+        <view class='nav'>
+            <scroll-view scroll-y style="height: 100%;" scroll-top="{{scrollTop}}">
+                  <view class='item {{item.id==navlistIdx?"on":""}}' wx:for="{{navlist}}" id="{{item.id}}" data-id="{{item.id}}" wx:key="unique" bindtap='skip'>{{item.name}}</view>
+            </scroll-view>
+        </view>
+        <view class='box'>
+            <scroll-view scroll-y style="height: 100%;"  scroll-into-view="{{toView}}" scroll-with-animation="true" bindscroll="scroll">
+                  <view class='item {{index==0?"on":""}}' wx:for="{{datalist}}" wx:key="unique" id="{{item.id}}">
+                    <view class='item-ti'>{{item.name}}</view>
+                    <view class='item-sub' wx:for="{{item.list}}" wx:key="unique" id="{{item.id}}">
+                        <view>名称：{{item.name}}</view>  
+                        <view>详情：{{item.val}}</view> 
+                        <view class='add'>+</view> 
+                    </view>
+                  </view>
+            </scroll-view>
+    </view>
+    </view>
+</view>

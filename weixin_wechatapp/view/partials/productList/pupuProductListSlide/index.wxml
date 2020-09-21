@@ -1,0 +1,34 @@
+<!--正常的标题 -->
+<template name="pupuProductListSlide">
+<block  wx:if="{{relateBean.length!=0}}">
+  <scroll-view class='pupu_product_list_three' scroll-x="true">
+    <view class='pupu_product_list_three_item' wx:for="{{relateBean}}" wx:for-item="result" wx:key="{{index}}"  bindtap='tolinkUrl' data-info='{{result}}'>
+       <view class='pupu_product_list_three_item_img'>
+         <image mode='aspectFill' class='pupu_product_list_three_item_url' src='{{result.imagePath}}?x-oss-process=style/preview'></image>
+         <view class='pupu_product_list_three_item_tag' wx:if="{{result.tagArray[0]}}">{{result.tagArray[0]}}</view>
+       </view>
+       <text class='pupu_product_list_three_item_name'>{{result.name}}</text>
+        <view class='pupu_product_list_three_item_bottom'>
+          <view class='pupu_product_list_three_item_price' wx:if="{{result.promotion&&result.promotion!=0}}">
+            ￥<text class='pupu_product_list_three_item_true_price'>{{result.promotionPrice}}</text>
+            <view class='font_color' wx:if="{{result.promotionPrice<result.tagPrice}}">/<text class='pupu_product_list_three_item_tagprice'>￥{{result.tagPrice}}</text></view>
+          </view>
+          <view class='pupu_product_list_three_item_price' wx:else>
+            ￥<text class='pupu_product_list_three_item_true_price'>{{result.price}}</text>
+            <view class='font_color' wx:if="{{result.price<result.tagPrice}}">/<text class='pupu_product_list_three_item_tagprice'>￥{{result.tagPrice}}</text></view>
+          </view>
+          <view class='pupu_product_list_three_item_cart' style='background:{{defaultColor}}' catchtap='readyAddCar' data-product="{{result}}">
+            <image class='pupu_product_list_three_item_cart_icon' src='http://image1.sansancloud.com/xianhua/2019_3/20/10/45/42_450.jpg?x-oss-process=style/preview_120'></image>
+             <text class='pupu_product_list_three_item_cart_text'>选购</text>
+          </view>
+        </view>
+    </view>
+  </scroll-view>
+</block>
+<block wx:if="{{relateBean.length==0}}">
+  <view class="noproduct">
+    <image mode="widthFix" src='/images/icons/no-product.png'></image>
+    <text>没有相关商品</text>
+  </view>
+</block>
+</template>

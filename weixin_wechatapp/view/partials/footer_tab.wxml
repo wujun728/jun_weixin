@@ -1,0 +1,16 @@
+<!-- 底部导航 -->
+
+<template name="pt_11">
+ <!--  <view class='footer_tab' style="background: {{bgColor}};">
+    <view class="footer_tab_tabItem" style='width:{{100/tabCount}}%'
+     wx:for="{{tabs}}" wx:for-item="tab" wx:key="{{index}}" data-page="my" bindtap='toPage'>
+      <block wx:if="{{true}}">
+        <image src='{{tab.imageUrl}}' style='width:{{tab.imageSize}}px;height:{{tab.imageSize}}px'></image>
+      </block>
+      <block wx:if="{{false}}">
+        <image src='{{tab.hoverImageUrl}}' style='width:{{tab.imageSize}}px;height:{{tab.imageSize}}px'></image>
+      </block>
+      <text>{{tab.title}}</text>
+    </view>
+  </view> -->
+</template>

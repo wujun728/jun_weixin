@@ -1,0 +1,73 @@
+{
+  "pages":[
+    "pages/index/index",  
+    "pages/blog/blog",
+    "pages/about/about",
+    "pages/jiaodiantu/jiaodiantu",
+    "pages/tabchange/tabchange",
+    "pages/tabchange2/tabchange2",
+    "pages/tabchange3/tabchange3",
+    "pages/numchange/numchange",
+    "pages/cityselect/cityselect",
+    "pages/anchor/anchor",
+    "pages/pullReachForPage/pullReachForPage",
+    "pages/pullReachForEle/pullReachForEle",
+    "pages/star/star",
+    "pages/allcheckbox/allcheckbox",
+    "pages/formcheck/formcheck",
+    "pages/seamlessscrolling/seamlessscrolling",
+    "pages/seamlessscrolling2/seamlessscrolling2",
+    "pages/jiugongge/jiugongge",
+    "pages/jiugongge2/jiugongge2",
+    "pages/jiugongge3/jiugongge3",
+    "pages/jiugongge4/jiugongge4",
+    "pages/dazhuanpan/dazhuanpan",
+    "pages/dazhuanpan2/dazhuanpan2",
+    "pages/guaguaka/guaguaka",
+    "pages/guaguaka2/guaguaka2",
+    "pages/yaoyiyao/yaoyiyao",
+    "pages/shouxieban/shouxieban",
+    "pages/clockeffect/clockeffect",
+    "pages/clockeffect2/clockeffect2",
+    "pages/makeseal/makeseal",
+    "pages/demo-picker/demo-picker",
+    "pages/timedjs/timedjs",
+    "pages/gunping/gunping"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "wx-jq",
+    "navigationBarTextStyle":"#000000",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "color":"#333333",
+    "backgroundColor":"#ffffff",
+    "selectedColor": "#e85123",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath":"images/icon01.png",
+        "selectedIconPath": "images/icon01.png",
+        "text": "演示"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "iconPath": "images/icon02.png",
+        "selectedIconPath": "images/icon02.png",
+        "text": "博客"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "images/icon03.png",
+        "selectedIconPath": "images/icon03.png",
+        "text": "关于"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

@@ -1,0 +1,72 @@
+/* pages/anchor/anchor.wxss */
+/*锚点定位及跳转  */
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;
+}
+.ti{
+  line-height: 25px;
+  font-size: 14px;
+  border-bottom: 1rpx solid #aaa;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  height: 80px;
+  z-index: 999;
+}
+.rn{
+  padding-top: 80px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.nav{
+  height: 100%;
+  box-sizing: border-box;
+  width: 35%;
+  float: left;
+}
+.nav .item{
+  height: 60px;
+  line-height: 60px;
+  font-size: 12px;
+  color: #000000;
+  padding-left: 5px;
+}
+.nav .item.on{
+  color: #1AAD16;
+}
+.box{
+  height: 100%;
+  box-sizing: border-box;
+  width: 65%;
+  float: left;
+}
+.box  .item .item-ti{
+  height:30px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #000000;
+  font-weight: bold;
+}
+.box  .item .item-sub{
+  box-sizing: border-box;
+  height:90px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #444444;
+  padding-bottom: 10px;
+}
+.box  .item .item-sub .add{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  float: right;
+  background: #f5871f;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+/*锚点定位及跳转  */

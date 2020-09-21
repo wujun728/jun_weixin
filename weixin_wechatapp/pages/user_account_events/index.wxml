@@ -1,0 +1,48 @@
+<view class='container'>
+
+  <view class='moneyContainer'  style='color:{{setting.platformSetting.defaultColor}}'>￥{{moneyAmount}}</view>
+  <view class='product_page_container2'>
+        <block wx:if = "{{!!Data}}">
+          <view class='moneyitem' wx:for='{{Data}}'
+           wx:for-item='pay' wx:key='{{pay.id}}' >
+            
+            <view class='eventTypeName'>
+              <block wx:if='{{pay.eventType == 1}}'>
+                <text>账户收入</text>
+              </block>
+              <block wx:else>
+                <text>账户支出</text>
+              </block>
+              <text>当前账户:￥{{pay.afterAmount}}</text>
+            </view>
+            <view class='eventDerection'>
+              <view class='left'>
+                <text class='derection'>{{pay.eventDescription}}</text>
+                <text class='time'>{{pay.eventTime}}</text>
+              </view>
+              <view class='right' style='color:{{setting.platformSetting.defaultColor}}'>
+                <block wx:if='{{pay.eventType == 1}}'>
+                  <text>+</text>
+                </block>
+                <block wx:else>
+                  <text>-</text>
+                </block>
+                ￥{{pay.eventAmount}}
+              
+              </view>
+            </view>
+            
+            
+          </view>
+        </block>
+ 
+        <block wx:else>
+          <view class="none">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关记录</text>
+          </view>
+        </block>
+      </view>
+</view>
+<view class='bottomButnHeight'></view>
+<view class='bottomButn' bindtap='userRecharge' style='background:{{setting.platformSetting.defaultColor}}'>用户充值</view>

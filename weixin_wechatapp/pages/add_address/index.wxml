@@ -1,0 +1,63 @@
+  
+<form class='container' >
+  <label class='inputContainer'>
+    <view class='InputName'>姓名</view>
+    <input class='InputContent' bindinput='getName' maxlength='20' value='{{needParam.contactName}}' placeholder='请输入姓名'></input>
+  </label>
+  <label class='inputContainer'>
+    <view class='InputName'>手机</view>
+    <input class='InputContent' bindinput='getPhone'  value='{{needParam.telno}}' placeholder='请输入手机号'></input>
+  </label>
+  <picker mode="region" bindchange="bindRegionChange"  value="{{region}}" custom-item="{{customItem}}">
+    <view>
+     <label class='inputContainer'>
+        <view class='InputName'>省份</view>
+        <view class='InputContent2'>{{region[0]}}</view>
+      </label>
+      <label class='inputContainer'>
+        <view class='InputName'>城市</view>
+        <view class='InputContent2'>{{region[1]}}</view>
+      </label>
+      <label class='inputContainer'>
+        <view class='InputName'>县（区）</view>
+        <view class='InputContent2'>{{region[2]}}</view>
+      </label>
+    </view>
+  </picker>
+
+  <label class='inputContainer' wx:if="{{addressType==1}}">
+    <view class='InputName'>身份证号</view>
+    <input class='InputContent' bindinput='getCardNo'  value='{{needParam.idCardNo}}' placeholder='请输入身份证号'></input>
+  </label>
+  <label class='inputContainer' style='justify-content: space-between'>
+    <view class='inputContainerLeft' catchtap="tolinkUrl" data-link="select_location.html">
+      <text class='InputName'>详细地址</text>
+      <input style='width:70%' disabled='false' maxlength='50' value='{{needParam.community}}' placeholder='请选择小区/写字楼等'></input>
+    </view>
+    <image catchtap="tolinkUrl" data-link="select_location.html" class='inputRightIcon' src='http://image1.sansancloud.com/xianhua/2019_4/3/18/3/24_160.jpg?x-oss-process=style/preview_120'></image>
+  </label>
+  <label class='inputContainer' style='justify-content: space-between'>
+    <view class='inputContainerLeft'>
+      <text class='InputName'></text>
+      <input style='width:78%'  maxlength='50' value='{{needParam.detail}}' bindblur='getAddr' placeholder='请输入楼号/单元/门牌号'></input>
+    </view>
+  </label>
+
+  <checkbox-group bindchange="defaultAddressChange">
+  <label class='inputContainer'>
+    <view class='InputName'>设为默认地址</view>
+    <checkbox color='{{setting.platformSetting.defaultColor}}' class='InputContent' value='1' checked='{{!!needParam.defaultAddress}}'></checkbox>
+  </label>
+  </checkbox-group >
+  <!-- <view class='zidonghuoqu' bindtap='getLocates'>
+    <image mode="aspectFit" src='/images/icons/addr.png'></image> 
+    <text>点击自动获取地址信息</text>
+  </view> -->
+  <block wx:if='{{!ifEid}}'>
+    <button class='signIn' bindtap='subMitArrFrom' style='background:{{setting.platformSetting.defaultColor}}'>新增地址</button>
+  </block>
+  <block wx:else>
+  <button class='signIn' bindtap='subMitArrFrom' style='background:{{setting.platformSetting.defaultColor}}'>确认修改</button>
+  </block>
+ 
+</form>

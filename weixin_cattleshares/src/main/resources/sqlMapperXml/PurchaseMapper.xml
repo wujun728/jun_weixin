@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.PurchaseMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 pur_type AS purType,pur_id AS purId, pur_stockcode AS purStockcode, pur_stockname AS purStockname, pur_purchasetime AS purPurchasetime, pur_stockprice AS purStockprice, pur_technick AS purTechnick, create_time AS createTime
+	</sql>
+
+</mapper>

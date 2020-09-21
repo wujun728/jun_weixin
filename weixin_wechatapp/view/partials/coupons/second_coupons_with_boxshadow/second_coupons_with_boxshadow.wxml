@@ -1,0 +1,57 @@
+
+
+
+    <!--第一种优惠卷 -->
+<template name="second_coupons_with_boxshadow">
+
+
+<block wx:if="{{relateBean.length!=0}}">
+ <scroll-view class="coupons_wrapp" scroll-x="true">
+
+ <block wx:for="{{relateBean}}" wx:key="index" >
+
+
+    <view class="coupons_box"  bindtap='click' data-id='{{item.id}}' data-index="{{index}}" style="border: 1px solid {{defaultColor}}; border-left:none;">
+        <!--分为3块  -->
+        <!--1.左边的圆形  -->
+         <view class='circle' style='border: 2px solid {{defaultColor}};'></view>
+         <view class='xian' style='background-color: {{defaultColor}};'></view>
+          <view class='xian1'style='background-color: {{defaultColor}};'></view> 
+
+        <!--第二个部分里面的文字  -->
+          <!-- <view class='coupons_box_text'>
+            <view class='youhuiMoney'><text class='fir'>{{item.youhuiAmount}}</text><text class='sec'>元</text></view>
+            <view class='youhuiname'><text>{{item.name}}</text></view>
+            <view class='youhuiremark'><text>{{item.remark}}</text></view> 
+         </view>   -->
+
+        <!--第三个部分立即领取  -->
+             <view class='select' style="  background-color: {{defaultColor}};">
+                <view class='selectText'>立即领取</view>
+             </view> 
+      </view>
+   
+     
+     
+   
+     </block> 
+<!--  wx:if="{{index==relateBean.length-1}}" -->
+            <!--更多好卷  -->
+              <view class="coupons_box1"  bindtap='clickLink' style=' border: 1px solid {{defaultColor}}; ' >
+                  <view class='coupons_box1_text'>
+                    <text>更多好卷</text>
+                  </view>
+              </view>
+
+    </scroll-view>
+</block>
+
+<block wx:if="{{relateBean.length==0}}">
+            <view class="noproduct">
+              <image mode="widthFix" src='/images/icons/no-product.png'></image>
+              <text>没有相关的优惠卷</text>
+            </view>
+          </block>
+
+
+</template>

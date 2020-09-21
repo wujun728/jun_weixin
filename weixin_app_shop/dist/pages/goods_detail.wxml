@@ -1,0 +1,179 @@
+
+  <view style="height:{{winHeight}}rpx;overflow:hidden">
+    <import src="../plugins/wxParse/wxParse.wxml"/>
+    <!--index.wxml-->
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#ffc452" indicator-color="#efefef" class="swiper">
+      <block  wx:for="{{detail.photoList}}" key="item" item="item" wx:key="key">
+        <swiper-item>
+          <image src="{{img_domain}}/{{item.url}}" data-src="{{img_domain}}/{{item.url}}" class="slide-image" bindtap="previewImage"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="details-msg">
+      <view class="details-title">{{detail.name}}-{{detail.mealName}}</view>
+      <view class="details_pinfo">
+        <text class="price">￥{{detail.price}}</text>
+        <!--         <view class="order_time {{purchasetype==2||special==1?'hidden':''}}">
+          <timer v-bind:startTime.sync="startTime" v-bind:endTime.sync="endTime"></timer>
+        </view> -->
+        <view class="other-price">市场价:￥{{detail.marketPrice}}</view>
+        <button class="share-box" plain="true" open-type="share">
+          <i class="iconfont icon-share"/>
+          <text>分享</text>
+        </button>
+      </view>
+      <!--<view class="baoyou">满{{detail.freeShipNum}}件包邮</view>-->
+    </view>
+    <!--<view class="order_num">
+      <view class="doc" wx:if="{{special == 1}}">库存:
+        <text class="num">{{detail.stockNum}}件</text>
+      </view>
+      <view class="doc" wx:else>规定单数:
+        <text class="num">{{detail.minBuyNum}}件成团</text>
+      </view>
+      <view class="doc">订单中:
+        <text class="num">已拼{{detail.saleCount}}件</text>
+      </view>
+    </view>-->
+    <view class="block">
+      <!--       <view class="block_title">拼货流程</view>
+      <view class="block_content">
+        <view class="process">
+          新款展示
+          <i class="iconfont icon-next"></i> 拼单结束
+          <i class="iconfont icon-next"></i> 生产商品
+          <i class="iconfont icon-next"></i> 商品检验
+          <i class="iconfont icon-next"></i> 商品发货
+        </view>
+        <view class="doc">
+          如若出现特殊情况外，发货时间则会延迟5-10天左右。
+        </view>
+      </view> -->
+      <view class="block_title">商品评价({{commentCount}})</view>
+      <view class="block_content">
+        
+  <view  wx:if="{{$commentList$list.length>0}}">
+    <block wx:for="{{$commentList$list}}" wx:for-index="$commentList$index" wx:for-item="$commentList$item" wx:key="$commentList$key">
+      <view class="comment-list">
+        <view class="header">
+          <image src="{{$commentList$item.url}}" class="header-img"/>
+          <view class="name">{{$commentList$item.name}}</view>
+          
+  <block  wx:for="{{$commentList$rate$stars}}" wx:key="item.id">
+    <image wx:if="{{$commentList$readonly}}" class="star-image-read" style="left: {{item}}rpx" src="{{$commentList$item.start > item ?($commentList$item.start-item == 0.5?$commentList$rate$halfSrc:$commentList$rate$selectedSrc) : $commentList$rate$normalSrc}}">
+    </image>
+    <image wx:else class="star-image" style="left: {{item*10}}rpx" src="{{$commentList$item.start > item ?($commentList$item.start-item == 0.5?$commentList$rate$halfSrc:$commentList$rate$selectedSrc) : $commentList$rate$normalSrc}}">
+      <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="$commentList$rate$selectLeft" data-com-index="{{$commentList$index}}"/>
+      <view class="item" style="left:25rpx" data-key="{{item+1}}" bindtap="$commentList$rate$selectRight" data-com-index="{{$commentList$index}}"/>
+    </image>
+  </block>
+
+          <view class="time">{{$commentList$item.time}}</view>
+        </view>
+        <view class="content">{{$commentList$item.content}}</view>
+        <view class="content-child" wx:for="{{$commentList$item.children}}" wx:for-item="child" wx:key="child">掌柜回复：{{child.content}}</view>
+      </view>
+    </block>
+  </view>
+  <view  wx:else>
+    <view class="empty-box">
+      <i class="iconfont icon-message"/>
+      <text class="empty-text">暂无评论</text>
+    </view>
+  </view>
+
+        <view class="button-more-cmment"  wx:if="{{commentList.length!==0}}" bindtap="moreComment">查看更多评论</view>
+      </view>
+    </view>
+    <!--<view class="spacing"></view>
+    <view class="block">
+      <view class="block_title">拼单说明</view>
+      <view class="block_content">
+        <view class="doc">
+          此商品在拼单期间可接收订单，如若超过拼单时间则不能下单；拼单结束后未付款订单系统将会自动取消，所以，亲下单以后请尽快付款。我们会以实际订单为准为您发货，如超过订单时间而又没有拼购到规定数量的，我们将会第一时间为您退款，请您放心购买!
+        </view>
+      </view>
+    </view>-->
+    <view class="spacing"/>
+    <view class="block">
+      <view class="block_title">商品信息</view>
+      <view class="block_content">
+           <view class="doc">
+            {{detail.description}}
+          </view>
+         <!--<view class="table">
+          <view class="th" wx:for="{{detail.attrList}}" key="item" item="item" wx:key="key">
+            <view class="tr1" wx:for="{{item}}" key="item" item="item" wx:key="key">{{item.attrName}}:{{item.attrVal}}</view>
+          </view>
+        </view>-->
+      </view>
+    </view>
+    <view class="spacing"/>
+    <view class="block">
+      <view class="block_title">商品详情</view>
+    </view>
+    <view class="big_images">
+      <view class="doc">
+        <view class="wxParse-p">
+          <template is="wxParse" data="{{wxParseData:detailInfo.nodes}}">
+          </template>
+        </view>
+      </view>
+    </view>
+    <view class="detail-bottom">
+      <view class="bottom-box">
+        <view class="item" bindtap="homePage">
+          <i class="iconfont icon-home"/>
+          <view class="doc">首页</view>
+        </view>
+        <!-- <contact-button class="contact"> -->
+        <contact-button class="contact">
+        </contact-button>
+        <view class="item">
+          <i class="iconfont icon-message"/>
+          <view class="doc">客服</view>
+        </view>
+        <contact-button class="contact">
+        </contact-button>
+        <view class="item {{isFavorite?'selec_active':''}}" bindtap="takeFavorite">
+          <i class="iconfont icon-collection"/>
+          <view class="doc">收藏</view>
+        </view>
+        <view class="sy-bottom {{canOrder?'btn_cart':'cart_color'}}" bindtap="takeCart">加入购物车</view>
+        <view class="sy-bottom {{canOrder?'btn_order':'order_color'}}" bindtap="takeOrder">{{purchaseText}}</view>
+      </view>
+    </view>
+    <view class="over_model {{hidden?'hidden':''}}"/>
+    <view class="panle_model {{hidden?'hidden':''}}" animation="{{animationData}}">
+      <view class="model_content">
+        <view class="head_box">
+          <view class="img_wrap">
+            <image class="goods_img" src="{{img_domain}}/{{detail.logo}}"/>
+          </view>
+          <view class="product_wrap">
+            <view class="product_name">{{detail.name}}</view>
+            <view class="price">￥ {{detail.price}}</view>
+          </view>
+        </view>
+        <scroll-view scroll-y="true" style="height:400rpx">
+          <view class="rule_box" wx:for="{{detail.goodsSkuNameList}}" item="item" wx:key="key" wx:for-index="ex">
+            <view class="title">{{item.skuName}}</view>
+            <view class="items">
+              <view class="item {{item.current?'active':''}}" wx:for="{{item.skuValList}}" item="item" wx:key="key" catchtap="selAttr" data-id="{{item.skuValId}}" data-nameid="{{item.skuNameId}}" data-index="{{ex}}">{{item.skuVal}}</view>
+            </view>
+          </view>
+          <view class="num_box">
+            <view class="title">数量</view>
+            <view class="stock">库存:{{detail.stockNum}}件</view>
+            <view class="buy-num">
+              <view class="jian-btn {{item.number==1? 'disabled' : ''}}" catchtap="jianBtnTap" data-index="{{index}}">-</view>
+              <input type="number" bindinput="bindOrderNumInput" value="{{orderNum}}"/>
+              <view class="jia-btn {{item.number==10? 'disabled' : ''}}" catchtap="jiaBtnTap" data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="colse_model" bindtap="closeModel"><i class="iconfont icon-close"/></view>
+      </view>
+      <view class="comfire_btn" catchtap="confirmTake">确定</view>
+    </view>
+  </view>

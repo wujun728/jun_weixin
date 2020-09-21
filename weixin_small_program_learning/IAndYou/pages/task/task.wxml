@@ -1,0 +1,136 @@
+<!--pages/task/task.wxml-->
+<view>
+
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view bindtap='close' class='close'>
+      <image src='../../assets/images/close.png'></image>
+    </view>
+    <view class="modal-title">      
+      <view class='day bt'>{{diaryDetail.dayOfMonth}}</view>
+      <view class='week bt'>{{diaryDetail.dayOfWeek}}</view>
+      <view class='date bt'>{{diaryDetail.yearMonthDay}}</view>
+    </view>
+
+    <view class="modal-content">
+      <view class='title bt'>{{diaryDetail.title}}</view>
+      <view class='content bt'>{{diaryDetail.msg}}</view>
+      <view class='photoList'>
+        <image src='{{diaryDetail.photoUrl}}'></image>
+      </view>
+    </view>
+
+    <view wx-if="{{showComment}}" class='comment'>
+      <view class='addComment'>
+        <input placeholder="发布你的评论" bindinput='commentInput'></input>
+        <span bindtap="addComment" data-id="{{diaryDetail.id}}">发送</span>
+      </view>
+      <view class='commentList'>
+        <view class="title">最新评论</view>
+        
+        <scroll-view scroll-y class='scroll-view2'>
+        <view class='item' wx:for="{{commentList}}" wx:for-index="index" wx:for-item="item" >
+          <span class="photo">
+            <image src='{{item.avatar}}'></image>
+          </span>
+          <span class="sp2">
+            {{item.msg}}
+          </span>
+          <span class="sp3">
+            {{item.time}}
+          </span>
+        </view>
+
+        </scroll-view>
+        
+
+      </view>
+    </view>
+    <view class="modal-footer">
+      <span class="left">
+        <image bindtap='addPaise' src='../../assets/images/mood1_1_1.png'></image>
+        <image bindtap='addMessage' src='../../assets/images/message.png'></image>
+      </span>
+
+      <span class="right">
+        <image bindtap='editMood' src='../../assets/images/userMoodEditor.png'></image>
+        <image bindtap='delete' data-id="{{diaryDetail.id}}" src='../../assets/images/delete.png'></image>
+      </span>
+
+    </view>
+  </view>
+
+  <!--选项卡-->
+  <view class="top">
+    <span class="{{topIndex == 0 ? 'topBackground_active' : 'topBackground'}} span1" bindtap="changeTop" data-index="0">时光</span>
+    <span class="{{topIndex == 1 ? 'topBackground_active' : 'topBackground'}} span2" bindtap="changeTop" data-index="1">撒娇</span>
+  </view>
+
+  <!--编辑-->
+  <view class='edit'>
+    <image bindtap="edit" src='../../assets/images/userMoodEditor.png'></image>
+  </view>
+
+  <scroll-view scroll-y>
+    <!--时光-->
+  <view wx:if="{{topIndex == 0}}" class='time'>
+
+    <!--任务1-->
+    <view class='item' wx:for="{{diary}}"  wx:for-index="index" wx:for-item="item" bindtap='watchMood' data-item="{{item}}">
+      <span class="date">
+        <view class="dv1 bt">{{item.dayOfMonth}}</view>
+        <view class="dv2 bt">{{item.dayOfWeek}}</view>
+      </span>
+      <span class="message">
+        <view class="dv1 bt">{{item.yearMonthDay}}</view>
+        <view class="dv2 bt">{{item.title}}</view>
+        <view class="dv3 bt">{{item.msg}}</view>
+      </span>
+      <span class="weather">
+        <view class='dv1'>
+          <image wx:if="{{item.weather == '晴天'}}" src='../../assets/images/weather_sunny.png'></image>
+          <image wx:if="{{item.weather == '多云'}}" src='../../assets/images/weather_loudy.png'></image>
+          <image wx:if="{{item.weather == '雨天'}}" src='../../assets/images/weather_rainy.png'></image>
+        </view>
+        <view class='dv2'>
+          <image src='../../assets/images/mood1_1_1.png'></image>
+          <image src='../../assets/images/message.png'></image>
+        </view>
+      </span>
+    </view>
+
+  </view>
+
+  <!--撒娇-->
+  <view wx:if="{{topIndex == 1}}" class='time'>
+
+    <!--任务1-->
+    <view class='item' wx:for="{{coquetry}}"  wx:for-index="index" wx:for-item="item" bindtap='watchMood' data-item="{{item}}">
+      <span class="date">
+        <view class="dv1 bt">{{item.dayOfMonth}}</view>
+        <view class="dv2 bt">{{item.dayOfWeek}}</view>
+      </span>
+      <span class="message">
+        <view class="dv1 bt">{{item.yearMonthDay}}</view>
+        <view class="dv2 bt">{{item.title}}</view>
+        <view class="dv3 bt">{{item.msg}}</view>
+      </span>
+      <span class="weather">
+        <view class='dv1'>
+          <image src='../../assets/images/weather_sunny.png'></image>
+        </view>
+        <view class='dv2'>
+          <image src='../../assets/images/mood1_1_1.png'></image>
+          <image src='../../assets/images/message.png'></image>
+        </view>
+      </span>
+    </view>
+
+
+  </view>
+  
+  </scroll-view>
+
+
+</view>

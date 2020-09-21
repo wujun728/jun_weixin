@@ -1,0 +1,64 @@
+<?php
+
+return [
+
+    'prefix'    => 'admin',
+
+    'directory' => app_path('Admin'),
+
+    'title'  => 'Admin',
+
+    'auth' => [
+        'driver'   => 'session',
+        'provider' => '',
+        'model'    => Encore\Admin\Auth\Database\Administrator::class,
+    ],
+
+    'upload'  => [
+        'image'  => base_path('public/upload/image'),
+        'file'   => base_path('public/upload/file'),
+    ],
+
+    'database' => [
+        'users_table' => 'admin_users',
+        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
+
+        'roles_table' => 'admin_roles',
+        'roles_model' => Encore\Admin\Auth\Database\Role::class,
+
+        'permissions_table' => 'admin_permissions',
+        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
+
+        'menu_table'  => 'admin_menu',
+        'menu_model'  => Encore\Admin\Auth\Database\Menu::class,
+
+        'role_users_table'       => 'admin_role_users',
+        'role_permissions_table' => 'admin_role_permissions',
+        'role_menu_table'        => 'admin_role_menu',
+    ],
+
+    /*
+    |---------------------------------------------------------|
+    | SKINS         | skin-blue                               |
+    |               | skin-black                              |
+    |               | skin-purple                             |
+    |               | skin-yellow                             |
+    |               | skin-red                                |
+    |               | skin-green                              |
+    |---------------------------------------------------------|
+     */
+    'skin'    => 'skin-green',
+
+    /*
+    |---------------------------------------------------------|
+    |LAYOUT OPTIONS | fixed                                   |
+    |               | layout-boxed                            |
+    |               | layout-top-nav                          |
+    |               | sidebar-collapse                        |
+    |               | sidebar-mini                            |
+    |---------------------------------------------------------|
+     */
+    'layout'  => [],
+
+    'version'   => '1.0',
+];

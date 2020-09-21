@@ -1,0 +1,10 @@
+.nav-top{list-style: none;}   .nav-top li{float: left;height: 40px;padding: 13px 15px;margin-right: 30px;margin-top: 10px;}
+a:hover{text-decoration: none;}
+.content-left{width: 70%;}
+.usermessage{width: 100px;margin-right: 10px;}
+.Wdate{width: 100px;}
+.select{margin-right: 10px;}
+#search{margin-left: 10px;}
+.seperate{text-align: right;}
+.pagination{margin: 0;}
+.click-style{background-color: #ffffff;}

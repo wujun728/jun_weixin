@@ -1,0 +1,39 @@
+<!--正常的标题 -->
+<template name="oneColumns">
+
+
+
+
+<block  wx:if="{{relateBean.length!=0}}">
+  
+      <view class='oneColumnsBox' wx:for="{{relateBean}}" wx:for-item="relateBean" wx:key="{{index}}"  bindtap='tolinkUrl'  data-info='{{relateBean}}'>      
+        <view class='oneColumnsBoxImg' >
+           <image  mode='aspectFill'  src="{{relateBean.imagePath}}?x-oss-process=style/preview"></image>
+        </view>
+
+   <view class='oneColumnsBoxName' style='width:{{(1/jsonData.column)*sysWidth-40}}px;'>{{relateBean.name}}</view>
+     
+          <!--价格和购物车图片  -->
+       <view class='oneColumnsBoxMoney'>
+         <text>￥{{relateBean.price}}</text>
+       </view>
+
+
+      </view>
+   
+   
+   
+   
+
+
+
+</block>
+
+<block wx:if="{{relateBean.length==0}}">
+            <view class="noproduct">
+              <image mode="widthFix" src='/images/icons/no-product.png'></image>
+              <text>没有相关商品</text>
+            </view>
+          </block>
+
+</template>

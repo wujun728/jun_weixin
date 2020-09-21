@@ -1,0 +1,10 @@
+<template name="moreBanner">
+<block  wx:if="{{relateBean.length!=0}}">
+  <scroll-view class='more_banner_block' scroll-x="true" style='height:{{jsonData.height<10?jsonData.height * sysWidth+"px":jsonData.height+"rpx"}};'>
+    <!-- <view class='more_banner_block_item'>
+       
+    </view> -->
+    <image bindload="imageLoad" data-index="{{index}}" wx:for="{{jsonData.images}}" style='width:{{imgs[index].width}}px;height:{{imgs[index].height}}px;' wx:key="{{index}}" class='more_banner_block_item_img' src="{{item.imageUrl||item}}" data-link='{{item.linkUrl||item}}' bindtap='tolinkUrl' />
+  </scroll-view>
+</block>
+</template>

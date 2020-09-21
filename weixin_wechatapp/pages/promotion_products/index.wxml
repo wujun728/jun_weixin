@@ -1,0 +1,164 @@
+   <import src="../../view-new/aikucun/measure_card.wxml"/>
+
+<block  >
+
+ <view class="typeSearchContainer"> 
+    <view class="typeSearch">
+     <view class='flexCenter1' data-type='price' bindtap='searchProduct'>价格</view>
+     <view class='flexCenter1Img'>
+     <block wx:if='{{ordertypeState}}'>
+        <image src='../../images/icons/topSel.png'></image>
+      </block >
+      <block wx:else>
+        <image src='../../images/icons/bottomSel.png'></image>
+      </block >
+     </view>
+     <view class='flexCenter2' data-type='hot' bindtap='searchProduct'>
+        <!-- <block wx:if="{{!!typeSearch}}">{{typeSearch}}</block> -->
+        <block >热度</block>
+        <view class='flexCenter1Img1'><image src='../../images/icons/file.png'></image>     </view>
+ 
+     </view>
+    
+     <view class='flexCenter3 ' data-index="0" >
+        <block wx:if="{{!!s_price.startPrice || !!s_price.endPrice}}">
+          <text class='smoprice'>￥ {{s_price.startPrice}} - {{s_price.endPrice}}</text>
+        </block>
+        <block wx:else>筛选</block>
+      <image class='flexCenter1Img2' src='../../images/icons/select.png'></image>
+     </view>
+          
+     <view class='flexCenter' bindtap='bindProductshowWay'>
+        <block wx:if="{{ProductshowWay ==1}}">
+          <image src='/images/icons/liebiao2.png'></image>
+        </block>
+        <block wx:else>
+          <image src='/images/icons/liebiao.png'></image>
+        </block>
+     </view>
+    </view>
+
+    <view class="typeSearch_view_height"></view>
+  </view>
+
+<!-- 分类 -->
+  <view class='typeSearch_item_container' wx:if="{{showType && show0}}" >
+
+     <view class='typeSearch_item_left_container'>
+        <view wx:for="{{setting.platformSetting.categories}}"
+          wx:for-item="type" wx:key="{{index}}" data-type="{{type}}"
+          bindtap='bindTypeItem' class='{{type.active?"active":""}}'>{{type.name}}</view>
+     </view>
+     <view class='typeSearch_item_right_container'>
+        <view data-categoryId="{{focusTypeItem.id}}" bindtap='searchProduct'>全部</view>
+        <view wx:for="{{focusTypeItem.children}}" wx:for-item="child" wx:key="{{index}}"
+          data-categoryId="{{child.id}}" bindtap='searchProduct'>{{child.name}}</view>
+     </view>
+  </view>
+
+  <!-- 排序 -->
+  <view class='typeSearch_item_container' wx:if="{{showType && show1}}" >
+    <view class='typeSearch_Sort_container'>
+      <view data-orderType="0" bindtap='searchProduct'>默认排序</view>
+      <view data-orderType="102" bindtap='searchProduct'>价格升序</view>
+      <view data-orderType="2" bindtap='searchProduct'>价格降序</view>
+      <view data-orderType="104" bindtap='searchProduct'>上架日期升</view>
+      <view data-orderType="4" bindtap='searchProduct'>上架日期降</view>
+      <view data-orderType="101" bindtap='searchProduct'>销量升</view>
+      <view data-orderType="1" bindtap='searchProduct'>销量降</view>
+    </view>
+  </view>
+
+    <!-- 价格排序 -->
+  <view class='typeSearch_item_container' wx:if="{{showType && show2}}" >
+    <view class='typeSearch_price_container'>
+      <view>
+        <text>起始价</text>
+        <input type='number' style='color:{{setting.platformSetting.defaultColor}}' bindinput="getStartValue" value='{{s_price.startPrice}}' placeholder='不限制'></input>
+      </view>
+       <view>
+        <text>最高价</text>
+        <input type='number' style='color:{{setting.platformSetting.defaultColor}}' bindinput="getEndValue" value='{{s_price.endPrice}}' placeholder='不限制'></input>
+      </view>
+      <button  bindtap='searchProductbyPrice' style='background:{{setting.platformSetting.defaultColor}}'
+      hover-class="none" type="primary" size="default" loading="{{loading}}"> 查询 </button>
+    </view>
+  </view>
+  <view class='zhezhao' wx:if="{{showType}}" bindtap='closeZhezhao'></view>
+<!--公告  -->
+  <view class='guangGao'>
+    <view class='guangGaoImg'><image mode='aspectFill' src='../../images/icon/ring@2x.png'></image></view>
+
+    <view class='bigBox' wx:if="{{activityPromotion.description!=''}}"><text class='big'>公告</text><text class='small'>{{activityPromotion.description}}</text></view>
+
+      <view  wx:else><text class='big'>公告</text><text class='small'>暂无活动公告</text></view> 
+  </view>
+
+   <!--活动列表  -->
+ <view class='activeList' wx:for="{{countDownList}}" wx:key="index">
+      <view class='activeListtImg' > 
+         <image  class='activeListBanner' mode='aspectFill' src='{{activityPromotion.promotionBanner}}?x-oss-process=style/normal' ></image>
+         <view class='shareActive' data-id='{{id}}' data-type='active' catchtap='showPosters'>
+           <image src='http://image.tunzai.vip/tunzai/2018_8/28/14/20/31_970.jpg'></image> 
+         </view> 
+       <!-- <view class='priceKode'>价格低至2折起</view> -->
+      <view class='timeBg' style='background-color:{{platformSetting.defaultColor}}'></view>
+      <view class='time'>
+         <view class='jiesu'>距结束</view>
+         <view class='timeBoxDay' style='background-color:{{platformSetting.defaultColor}}'> <text>{{item.day}}/D</text></view>
+         <view class='timeBox' style='background-color:{{platformSetting.defaultColor}}'> <text>{{item.hou}}</text></view>
+         <view class='timeDot'>:</view>
+         <view class='timeBox' style='background-color:{{platformSetting.defaultColor}}'> <text>{{item.min}}</text></view>
+         <view class='timeDot'>:</view>
+         <view class='timeBox' style='background-color:{{platformSetting.defaultColor}}'> <text>{{item.sec}}</text></view>
+        <!-- <view class='timeBox1'> <text class='timeBox1Text1'>仅剩</text><text class='timeBox1Text2'>53%</text></view> -->
+      </view> 
+      </view> 
+      </view> 
+
+<!--公告结束 productData -->
+     <block wx:if="{{ProductshowWay == 2}}">
+        <productList  data="{{productData}}" id="productLists"  bind:action='selectFun' bind:resProData='resProData'></productList>
+    </block>
+
+    <block wx:else>
+     <view class='product_page_container2'>
+        <block wx:if = "{{!! productData}}">
+          <view class='product_items2' data-info='{{result}}' bindtap='toProductDetail' wx:for="{{productData}}" wx:for-item="result" wx:key="{{result.id}}">
+            <image mode="aspectFit" src='{{result.imagePath}}?x-oss-process=style/preview'></image>
+            <view class='product_items2_view1'>
+              
+              <view>
+                <text class='priceTextName'>{{result.name}}</text>
+                <text class='price'>￥{{result.price}}</text>
+                  
+              </view>
+        
+              <!-- <text class='font2'>销量： {{result.saleCount}}</text> -->
+            </view>
+            
+          </view>
+        </block>
+
+        <block wx:else>
+          <view class="noproduct">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关商品</text>
+          </view>
+        </block>
+      </view>
+    </block>
+
+  
+</block>
+
+<!--  海报-->
+   <posters proId="{{proId}}" shopId="{{shopId}}" ewmImgUrl='{{qrCodeUrl}}'  wx:if='{{posterState}}' bind:closePoaster="getChilrenPoster"></posters> 
+   <posterActive activeId="{{id}}" shopId="{{shopId}}" ewmImgUrl='{{qrCodeUrl}}'  wx:if='{{posterActiveState}}' bind:closePoaster="getChilrenPoster"></posterActive> 
+<!--加入购物车的遮罩层  -->
+  <template is="measure_card" data="{{setting:setting,minCount,showCount,focusData:focusData,byNowParams:byNowParams,measurementJson:measurementJson}}"></template>  
+
+
+   
+      <view  class='dixian'> 我是有底线的 ~</view> 
+ 

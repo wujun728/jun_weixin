@@ -1,0 +1,59 @@
+<view class='picker'>
+  <view class='picker-title'>1900-2100区间内的公历、农历</view>
+  <view class='picker-detail'>
+    <view class='picker-detail-date'>{{detail.cYear}}-{{detail.cMonth}}-{{detail.cDay}} {{detail.ncWeek}}</view>
+    <view class='picker-detail-day'>{{detail.cDay}}</view>
+    <view class="picker-detail-nl {{isShowN?'':'hide'}}">{{detail.IMonthCn}}{{detail.IDayCn}}</view>
+    <view class="picker-detail-sx {{isShowN?'':'hide'}}">{{detail.Animal}}年</view>
+    <view class="picker-detail-nymdr {{isShowN?'':'hide'}}">{{detail.gzYear}}年 {{detail.gzMonth}}月 {{detail.gzDay}}日</view>
+    <view class="picker-detail-jq {{isShowN?'':'hide'}}">{{detail.Term?detail.Term:''}}</view>
+    <view class='picker-detail-xz'>{{detail.astro}}</view>
+  </view>
+  <view class='picker-tools'>
+    <view class='picker-tools-prev-year' bindtap="prevYear">上一年</view>
+    <view class='picker-tools-prev-month' bindtap="prevMonth">上一月</view>
+    <view class='picker-tools-see-month'>{{detail.cMonth}}月</view>
+    <view class='picker-tools-see-year'>{{detail.cYear}}年</view>
+    <view class='picker-tools-next-month' bindtap="nextMonth">下一月</view>
+    <view class='picker-tools-next-year' bindtap="nextYear">下一年</view>
+  </view>
+  <view class='picker-list-w clearfix'>
+    <view class='picker-list-w-r'>日</view>
+    <view>一</view>
+    <view>二</view>
+    <view>三</view>
+    <view>四</view>
+    <view>五</view>
+    <view class='picker-list-w-r'>六</view>    
+  </view>
+  <view class='picker-list clearfix'>
+    <view wx:for="{{prevkongList}}" wx:key="unique" class="picker-list-item picker-list-prev {{isPNList?'':'hide'}}" bindtap="prevFocusDetail" data-year="{{item.cYear}}" data-month="{{item.cMonth}}" data-day="{{item.cDay}}" data-index="{{index}}">
+      <view class='picker-list-item-y'>{{item.cDay}}</view>
+      <view class="picker-list-item-n {{item.isShowN?'':'hide'}}">{{item.Term?item.Term:item.IDayCn}}</view>
+    </view>
+    <view wx:for="{{dateList}}" wx:key="unique" class="picker-list-item {{item.isNow?'now':''}} {{item.isFocus?'focus':''}}" bindtap="getFocusDetail" data-year="{{item.cYear}}" data-month="{{item.cMonth}}" data-day="{{item.cDay}}" data-index="{{index}}">
+      <view class='picker-list-item-y'>{{item.cDay}}</view>
+      <view class="picker-list-item-n {{item.isShowN?'':'hide'}}">{{item.Term?item.Term:item.IDayCn}}</view>
+    </view>   
+    <view wx:for="{{nextkongList}}" wx:key="unique" class="picker-list-item picker-list-next {{isPNList?'':'hide'}}" bindtap="nextFocusDetail" data-year="{{item.cYear}}" data-month="{{item.cMonth}}" data-day="{{item.cDay}}" data-index="{{index}}">
+      <view class='picker-list-item-y'>{{item.cDay}}</view>
+      <view class="picker-list-item-n {{item.isShowN?'':'hide'}}">{{item.Term?item.Term:item.IDayCn}}</view>
+    </view>
+  </view>
+  <view class='picker-tools2'>
+    <view class='picker-tools2-to-change' bindtap="ShowN">显示农历</view>
+    <view class='picker-tools2-to-change' bindtap="hideN">隐藏农历</view>
+    <view class='picker-tools2-to-now' bindtap="toNow">返回今天</view>
+  </view>
+  <view class='picker-tools2'>
+    <view class='picker-tools2-to-change' bindtap="ShowPNList">补全前后空留日期</view>
+    <view class='picker-tools2-to-change' bindtap="hidePNList">移除前后空留日期</view>
+  </view>
+  <view class="picker-sel">
+    <picker mode="date" value="{{date}}" start="1901-01-01" end="2099-12-31" bindchange="bindDateChange">
+      <view class="picker">
+        点击快速选择: {{date}}
+      </view>
+    </picker>
+  </view>
+</view>

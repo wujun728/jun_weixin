@@ -1,0 +1,25 @@
+<!--pages/tabchange/tabchange.wxml-->
+<view class="container">
+  <view>tab切换效果</view>
+  <view class='tab'>
+      <view class='tab-nav'>
+          <view class='{{current==0?"on":""}}' data-current="0" bindtap='tab'>选项卡1</view>
+          <view class='{{current==1?"on":""}}' data-current="1" bindtap='tab'>选项卡2</view>
+          <view class='{{current==2?"on":""}}' data-current="2" bindtap='tab'>选项卡3</view>
+      </view>
+      <swiper class='tab-box' current="{{current}}" bindchange="eventchange">
+        <swiper-item>
+          内容1
+          <view>滑动我也可以切换噢</view>
+        </swiper-item>
+        <swiper-item>
+          内容2
+          <view>滑动我也可以切换噢</view>
+        </swiper-item>
+        <swiper-item>
+          内容3
+          <view>滑动我也可以切换噢</view>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>  

@@ -1,0 +1,126 @@
+
+
+.pore{
+    width: 100%;
+  height: 360rpx;
+  position: relative;
+}
+.wrapTop{
+  width: 100%;
+  height: 300rpx;
+  z-index: -2;
+   border-radius: 0 0 100rpx 100rpx;  
+ overflow: hidden;
+}
+
+
+
+.wrapTop image{
+  width: 100%;
+  height: 300rpx;
+}
+.logo{
+  width: 100rpx;
+  height: 100rpx;
+  padding: 10rpx;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 50%;
+  position: absolute;
+  left: 320rpx;
+  top: 240rpx;
+  z-index: 10;
+
+}
+.logo image{
+  width: 100rpx;
+  height: 100rpx;
+    border-radius: 50%;
+}
+.shopName{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+
+}
+.shopName text{
+  font-size: 36rpx;
+  
+}
+
+.wrapBottom{
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+
+}
+.wrapBottomLeft{
+   width: 550rpx;
+   height: 100rpx;
+   margin-left: 20rpx;
+   display: flex;
+   flex-direction: column;
+}
+.openTime{
+    width: 400rpx;
+   height: 50rpx;
+   display: flex;
+   flex-direction: row;
+}
+.openTimeImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 5rpx;
+}
+.openTimeImg image{
+  width: 100%;
+  height: 100%;
+}
+.openTimeImg .small{
+    width: 30rpx;
+  height: 30rpx;
+  margin-left: 2rpx;
+}
+.openTimeText{
+  height: 50rpx;
+  margin-left: 10rpx;
+}
+.openTimeText text{
+  display: block;
+  height: 20rpx;
+  font-size: 25rpx;
+  line-height: 50rpx;
+}
+
+.phone{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #777;
+
+}
+.phoneImg{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 40rpx;
+  margin-top: 10rpx;
+}
+.phoneImg image{
+  width: 100%;
+  height: 100%;
+
+}
+.phoneText{
+  height: 40rpx;
+  width: 50rpx;
+  text-align: center;
+  margin-left: 40rpx;
+}
+.phoneText text{
+  display: block;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 20rpx;
+}

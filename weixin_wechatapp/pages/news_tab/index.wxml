@@ -1,0 +1,56 @@
+
+<view class="container" style='height:{{ProductshowWay==1? "100%":""}}'> 
+<!-- 头部 -->
+ <view class="typeSearchContainer" > 
+    <!-- <view class='search_input_bg'>
+      <view class='search_input'>
+        <view class='search_input_left'>
+          <image class='input_img' src='http://image1.sansancloud.com/xianhua/2018_9/14/16/25/0_222.jpg?x-oss-process=style/preview_120'></image>
+          <input class='input' bindconfirm='getSearchProductName'   bindinput="searchProductValue" placeholder='搜索新闻名'></input>
+        </view>
+        <view class='empty_button' bindtap='getSearchProductName'><text>x</text></view>
+      </view>
+    </view> -->
+    <view class="typeSearch">
+     <view class='flexCenter' style='width:98%'>
+       <scroll-view scroll-x class="tab-h" scroll-into-view="{{'tab_'+positionTab}}" scroll-with-animation='true'>
+         <view  wx:for="{{newType}}" wx:for-item="type" wx:key="{{index}}" data-type="{{type}}" bindtap='bindTypeItem' id="{{'tab_'+type.id}}" class='tab-item' style='color:{{type.colorAtive}};border-bottom:{{type.active?"2rpx solid "+type.colorAtive:""}};'>{{type.typeName}}</view>
+       </scroll-view>
+     </view>
+    </view>
+  </view>
+
+
+    <block>
+     <view class='news_page_container2' style='margin-top:70rpx;'>
+        <block wx:if = "{{!!newList}}">
+
+
+
+          <view class='ListDataItem' data-link="news_detail.html?id={{result.id}}" bindtap='tolinkUrl' wx:for="{{newList}}" wx:for-item="result" wx:key="{{result.id}}">
+    <!--左边的图片  -->
+            <view wx:if='{{result.imagePath}}' class='ListDataItemImage'><image mode='aspectFill' src='{{result.imagePath}}?x-oss-process=style/preview'></image></view> 
+        <!--右边的字  -->
+            <view class='ListDataItemWord'> 
+              <text class='lineheight_title font_1'>{{result.title}}</text>
+              <text class='word2 font_08'>{{result.description}} </text> 
+              <view class='publishTime'>
+                 <image class='publishTime_icon' src='http://image1.sansancloud.com/xianhua/2018_11/14/19/58/37_380.jpg'></image>
+                <text class='time font_08'>{{result.publishTime}} </text> 
+              </view>
+            </view>
+          </view>
+          
+
+
+        </block>
+
+        <block wx:else>
+          <view class="nonews">
+            <image mode="widthFix" src='/images/icons/no-news.png'></image>
+            <text>没有相关新闻</text>
+          </view>
+        </block>
+      </view>
+    </block>
+</view>

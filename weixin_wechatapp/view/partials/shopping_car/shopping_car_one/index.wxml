@@ -1,0 +1,13 @@
+
+
+
+<!--搜索  -->
+<template name="shopping_car_one">
+  <block>
+    <view class='shopping_car' style='background:{{jsonData.bgColor}};color:{{jsonData.fontColor}}' catchtap='tolinkUrl' data-link="milk_shopping_car_pages.html">
+      <image class='shopping_car_icon' src='{{jsonData.icon}}'></image>
+      <text class='shopping_car_num'>{{countGood}}</text>
+      <view class='shopping_car_price'><text style='font-size:22rpx;'>￥</text><text style='font-size:28rpx;'>{{countPrice}}</text></view>
+    </view>
+  </block>
+</template>

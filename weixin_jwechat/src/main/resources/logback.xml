@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!-- 尽量别用绝对路径，如果带参数不同容器路径解释可能不同 -->  
+    <property name="LOG_HOME" value="logs/"/>     
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{YYY-MM-dd HH:mm:ss.SSS} %-5level [%logger{16}] %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 按照每天生成日志文件 -->  
+    <appender name="FILE" 
+        class="ch.qos.logback.core.rolling.RollingFileAppender">  
+<!--         <Encoding>UTF-8</Encoding>   -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LOG_HOME}/mhuang-wechat-base.%d{yyyy-MM-dd}.log</FileNamePattern>  
+            <MaxHistory>30</MaxHistory>  
+        </rollingPolicy>  
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <pattern>%d{YYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n  
+            </pattern>  
+       </layout>  
+    </appender>   
+
+    <!-- 用来设置某一个包或者具体的某一个类的日志打印级别，包名要与实际项目一致 -->
+    <root level="DEBUG"> 
+        <appender-ref ref="Console" /> <!-- 标识这个appender将会添加到这个logger -->
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

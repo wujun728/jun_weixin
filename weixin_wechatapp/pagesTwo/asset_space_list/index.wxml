@@ -1,0 +1,38 @@
+<wxs src="../../public/publicFun.wxs" module="publicFun"></wxs>
+<view class="container" style='height:{{SpaceshowWay==1? "100%":""}}'> 
+<!-- 头部 -->
+ <view class="typeSearchContainer" > 
+    <view class='search_input_bg'>
+      <view class='search_input'>
+        <view class='search_input_left'>
+          <image class='input_img' src='http://image1.sansancloud.com/xianhua/2018_9/14/16/25/0_222.jpg?x-oss-process=style/preview_120'></image>
+          <input class='input' bindconfirm='getSearchSpaceName' value='{{searchSpaceName}}' placeholder='搜索空间名'></input>
+        </view>
+        <view class='empty_button' bindtap='getSearchSpaceName'><text>x</text></view>
+      </view>
+    </view>
+    <!-- <view class="typeSearch">
+     <view class='flexCenter' data-index="0" style='width:85%'>
+       <scroll-view scroll-x class="tab-h" scroll-into-view="{{'tab_'+positionTab}}" scroll-with-animation='true'>
+         <view  wx:for="{{setting.platformSetting.categories}}"
+          wx:for-item="type" wx:key="{{index}}" data-type="{{type}}"
+          bindtap='bindTypeItem' id="{{'tab_'+type.id}}" class='tab-item' style='color:{{type.colorAtive}};border-bottom:{{type.active?"2rpx solid "+type.colorAtive:""}}'>{{type.name}}</view>
+       </scroll-view>
+     </view>
+    
+     <view class='flexCenter' bindtap='bindSpaceshowWay' style='width:100rpx'>
+        <view class='border_left'></view>
+        <block wx:if="{{SpaceshowWay ==1}}">
+          <image src='http://image1.sansancloud.com/xianhua/2018_9/13/12/1/42_584.jpg'></image>
+        </block>
+        <block wx:if="{{SpaceshowWay == 2}}">
+          <image src='http://image1.sansancloud.com/xianhua/2018_9/14/14/10/32_257.jpg'></image>
+        </block>
+     </view>
+    </view> -->
+  </view>
+
+  <space-list id="spaceList"  wx:if='{{options}}' data="{{options}}" params="{{params}}"></space-list>
+    
+
+</view>

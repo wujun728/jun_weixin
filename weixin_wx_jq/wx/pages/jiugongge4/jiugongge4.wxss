@@ -1,0 +1,74 @@
+/* pages/jiugongge4/jiugongge4.wxss */
+/*九宫格大转盘  */
+#lottery{width:600rpx;height:600rpx;margin:20rpx auto 0; position:relative;}
+#lottery view{
+  width:200rpx;
+  height:200rpx;
+  line-height: 200rpx;
+  text-align:center;
+  font-size:24rpx;
+  color:#333; 
+  position: absolute;
+}
+#lottery .lottery-unit{
+   border: 5rpx solid #fff;
+   box-sizing: border-box;
+}
+#lottery .lottery-unit image{
+   width: 100%;
+   height: 100%;
+   display: block;
+}
+#lottery .lottery-unit-0{ 
+  left: 0rpx;
+  top: 0rpx;
+  }
+#lottery .lottery-unit-1{
+   left: 200rpx;
+  top: 0rpx;
+   }
+#lottery .lottery-unit-2{ 
+   left: 400rpx;
+  top: 0rpx;
+  }
+#lottery .lottery-unit-3{ 
+   left: 400rpx;
+  top: 200rpx;
+  }
+#lottery .lottery-unit-4{ 
+   left: 400rpx;
+  top: 400rpx;
+  }
+#lottery .lottery-unit-5{ 
+   left: 200rpx;
+  top: 400rpx;
+  }
+#lottery .lottery-unit-6{ 
+   left: 0rpx;
+  top: 400rpx;
+  }
+#lottery .lottery-unit-7{ 
+   left: 0rpx;
+  top:200rpx;
+  }
+
+#lottery view.select{
+  border: 5rpx solid #C33;
+}
+
+#lottery .start{ 
+  position:absolute; 
+  left:200rpx; 
+  top:200rpx; 
+  background:#C33; 
+  font-size:30rpx; 
+  text-align:center; 
+  line-height:200rpx; 
+  color:#fff;
+}
+#lottery .start image{
+   width: 100%;
+   height: 100%;
+   display: block;
+}
+/*九宫格大转盘  */

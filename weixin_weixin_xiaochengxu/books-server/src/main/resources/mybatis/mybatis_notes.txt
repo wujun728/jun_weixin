@@ -1,0 +1,1 @@
+Property 'configuration' and 'configLocation' can not specified with together

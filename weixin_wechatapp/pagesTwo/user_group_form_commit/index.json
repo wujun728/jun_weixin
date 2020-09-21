@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "表单记录",
+  "backgroundColor": "#f1f1f1",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "form-commit-list": "/view/partials/form_commit_list/index"
+  }
+}

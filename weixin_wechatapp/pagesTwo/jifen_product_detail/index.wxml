@@ -1,0 +1,158 @@
+    <!--pages/productDetail/index.wxml-->
+<import src="../../view-new/aikucun/measure_card2.wxml"/>
+<wxs src="../../public/publicFun.wxs" module="publicFun"></wxs>
+<view class='container'>
+
+<view class='SwiperContainer'>
+    <swiper class='SwiperIndex' autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
+      <block wx:for="{{productData.images}}"  wx:key="{{swiper}}" style="border-radius: 20rpx">
+        <swiper-item data-imageUrl='{{productData.images}}' data-index='{{index}}' bindtap='lookBigImage' style="border-radius: 20rpx">
+          <image mode='aspectFit' src="{{item.imagePath}}?x-oss-process=style/normal"  style="border-radius: 20rpx" />
+        </swiper-item> 
+      </block>
+    </swiper>
+    <view class='swiperItemIndex'>{{swiperIndex}}/{{totalImg}}</view>
+  </view>  
+ 
+  <view class='ProductDetailInfoContainer' style='position: relative;'>
+    <view class='pintuan_tip'>
+      <view class='pintuan_tip_price' style='background:{{setting.platformSetting.defaultColor}}'>积分兑换</view>
+      <view class='triangle_border_left' style='border-color: transparent transparent transparent {{setting.platformSetting.defaultColor}};'></view>
+    </view>
+    <view class='InfoPrice_content'>
+       <view class='InfoPrice'>
+          <view class='p1 price_font'>
+          <!-- ￥{{publicFun.toFix(productData.productInfo.price*productData.productInfo.promotionBean.pintuanStrategy.priceZhekou)}}计算数据 -->
+            <text class='jifen'>
+              {{jifenNum}}
+            </text>
+            <text>积分</text>
+            <text wx:if='{{productData.productInfo.unitShow}}' style='color:#bbb;font-size:24rpx;margin-left:4rpx;letter-spacing:4rpx;line-height:30rpx;'>
+              /{{productData.productInfo.unitShow}}
+            </text>
+          </view>
+          <view class='product_stock'><text>仅剩{{jifenCount}}件</text></view>
+       </view>
+       <view class='share_product' bindtap='showPoster'>
+       </view>
+    </view>
+    <view class='InfoName' >{{productData.productInfo.name}}</view>
+    <block wx:if='{{!!productData.productInfo.description}}'>
+      <view class='InfoSubName '>·{{productData.productInfo.description}}</view>
+    </block>
+  </view>
+   <block wx:if="{{clientNo=='tunzai'}}">
+    <view class='tap_title'>
+        <view class='tap_title_left'>
+          <view class='tap_title_item'><view class='dot'></view><text class='tap_title_font'>正品保证</text></view>
+          <view class='tap_title_item'><view class='dot'></view><text class='tap_title_font'>永久包邮</text></view>
+          <view class='tap_title_item'><view class='dot'></view><text class='tap_title_font'>一对一专属售后</text></view>
+        </view>
+        <view class='tap_title_right'>
+          <view class='dot_no'></view>
+          <view class='dot_no'></view>
+          <view class='dot_no'></view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <block wx:if='{{targs.length!=0}}'>
+        <view class='tap_title'>
+        <view class='tap_title_left'>
+          <scroll-view style='width:100%;overflow:hidden;white-space:nowrap' scroll-x>
+            <view style='display:inline-block'  wx:for="{{targs}}" wx:for-item='item' wx:key='{{index}}'>
+              <view class='tap_title_item'>
+                <view class='dot' style='background:{{setting.platformSetting.defaultColor+55}};border:2rpx solid {{setting.platformSetting.defaultColor+22}};box-shadow:0px 4rpx 14rpx 0px {{setting.platformSetting.defaultColor+22}},0px 4rpx 6rpx 0rpx {{setting.platformSetting.defaultColor+11}};'></view>
+              <text class='tap_title_font'>{{item}}</text>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+        <!-- <view class='tap_title_right'>
+          <view class='dot_no'></view>
+          <view class='dot_no'></view>
+          <view class='dot_no'></view>
+        </view> -->
+      </view>
+      </block>
+    </block>
+    <!-- 导航 -->
+    <view class='navigation_to_map' wx:if='{{positionState}}'>
+      <view class='navigation_addr'>
+        <image class='navigation_addr_img' src='http://image1.sansancloud.com/xianhua/2018_9/13/17/57/21_219.jpg?x-oss-process=style/preview_120'></image>
+        <text class='navigation_addr_value'>{{productData.productInfo.location}}</text>
+      </view>
+      <view class='navigation_button' style='background:{{setting.platformSetting.defaultColor}}' bindtap='clickCatch'>
+        <image class='navigation_button_img' src='http://image1.sansancloud.com/xianhua/2018_9/13/21/22/3_772.jpg?x-oss-process=style/preview_120'></image>
+        <text class='navigation_button_value'>位置</text>
+      </view>
+    </view>
+
+    <view wx:if='{{measuresState}}'>
+      <block wx:if='{{haveMeasuresState}}'>
+        <view class='specifications' data-way='select' bindtap='readyPay2' >
+          <text class='have_select'>已选择</text>
+          <view class='value'>
+            <text class='value_item' wx:for='{{selectTypeData}}' wx:for-item='item' wx:key='{{index}}'>{{item.value}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else >
+        <view class='specifications' data-way='select' bindtap='readyPay2' >
+          <text class='no_select' style='color:{{setting.platformSetting.defaultColor}}'>请选择规格</text>
+        </view>
+      </block>
+    </view>
+
+    <view class='product_introduce'>
+      <view class='product_introduce_short' wx:if='{{attrsState}}'>
+        <text class='product_introduce_title'>商品介绍</text>
+        <view class='product_introduce_item' wx:for='{{productData.attrs}}' wx:for-item='item' wx:key='{{index}}'>
+            <text class='product_introduce_item_name'>{{item.attributeName}}</text>
+            <text class='product_introduce_item_vaule'>{{item.attributeValue}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 首页组件-私有产品详情装饰-->
+    <!-- <view style='margin-top:20rpx;'>
+     <component-customPage data="{{sendProductData}}" wx:if="{{sendProductData}}"></component-customPage> 
+    </view> -->
+    <import src="../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+    <view class='product_main_info' wx:if="{{productData.description.description!=''&&productData.description.description!='<p><br></p>'}}">
+      <text>图文详情</text>
+    </view>
+    <view class="tab_detail_container" wx:if="{{productData.description.description!=''&&productData.description.description!='<p><br></p>'}}">
+       <view class='wxParseHtmlContainer'> <template is="1" data="{{wxParseData:article.nodes}}"></template> </view>
+    </view>
+
+    <!-- <view class='price_explain'>
+      <text class='price_explain_title'>价格说明</text>
+      <view class='price_explain_content'>店铺中展示的中间未划横线价格为该店铺的销售价，该价格是交易成交价，是您最终决定是否购买商品的依据。店铺展示的中间划横线价格(显示如¥1000)为参考价，采集自品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价可能会与您购物时展示的不一致。该价格仅供您参考。</view>
+    </view> -->
+
+ <!-- 首页组件-公共产品详情装饰-->
+ <!-- <component-customPage data="{{sendIndexData}}"></component-customPage>  -->
+</view>
+
+
+<!-- 底部按钮们 -->
+<view class='bottomHeight'></view>
+<view class='product_detail_bottom_container'>
+ <view class='' data-itemId='{{productData.productInfo.productId}}' bindtap='toIndex' class='{{productData.productInfo.preOrderCustomFormId?"left_bottom w_150":"left_bottom"}}'>
+   <image mode='aspectFit' src='/images/icons/home2.png'></image>
+   <text style='font-size:22rpx;color:#aaa'>首页</text>
+  </view> 
+  <view class='left_bottom' bindtap='toCart' wx:if="{{!productData.productInfo.preOrderCustomFormId}}">
+    <view class='cartNumber' style='background:{{color}}'>{{countGood}}</view>
+    <image mode='widthFix' src='/images/icons/cartddd.png'></image>
+    <text style='font-size:22rpx;color:#aaa'>购物车</text>
+  </view>
+  <view class='w_540 right_bottom bynow font_08' catchtap='buyGoods' style='background-image:linear-gradient(to right,{{secondColor}},{{color}});box-shadow:0px 0px 6px 0px {{color}};'>
+    <text >立即兑换</text>
+  </view>
+</view>
+
+<posters proId="{{proId}}" shopId="{{shopId}}" ewmImgUrl='{{qrCodeUrl}}'  wx:if='{{posterState}}' bind:closePoaster="getChilrenPoster"></posters> 
+<pintuan pintuanParam="{{pintuanParam}}" wx:if='{{pintuanPopupState}}' bind:closePintuan="getChilrenPintuan" bind:goPintuan='readyPay2'></pintuan> 
+
+ <template is="measure_card2" data="{{setting:setting,showCount,minCount,focusData:productData.productInfo,measures:productData.measures,byNowParams:byNowParams,measurementJson:measurementJson,type:bindway}}"></template> 

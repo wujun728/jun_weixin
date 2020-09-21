@@ -1,0 +1,37 @@
+/* 头部的线 */
+.container{
+  font-size: 0.8em;
+}
+.addrtop{
+  padding: 0.4em;
+  background: #8B572A;
+  opacity: 0.5;
+}
+.main{
+  color: #8B572A;
+}
+.addrtop view{
+  height: 1px;
+  border-bottom: 1rpx dashed #fff;
+} 
+/* success */
+.successIcon{
+  padding: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.Items{
+  padding: 1em;
+  border-bottom: 1rpx solid #ddd;
+  text-align: left;
+}
+
+.butn{
+  width: 90%;
+  margin-top: 1em;
+  color: #fff;
+
+}

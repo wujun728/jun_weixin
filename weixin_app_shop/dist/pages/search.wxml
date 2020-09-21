@@ -1,0 +1,120 @@
+
+  <view class="container">
+    
+  <view  wx:if="{{$search$show==1}}" class="content">
+    <view class="search">
+      <view class="serch_content">
+        <i class="iconfont icon-search"/>
+        <input type="text" name="search_input" bindinput="$search$searchInput" class="search_input" focus="true" value="{{$search$search_input_value}}" confirm-type="search" placeholder="搜索商品"/>
+        <i wx:if="{{$search$search_input_value!=''}}" bindtap="$search$delText" class="iconfont icon-del"/>
+      </view>
+      <button class="btn btn_cancel" bindtap="$search$goBack" wx:if="{{$search$search_input_value==''}}" data-wpygoback-a="">取消</button>
+      <button class="btn btn_search" bindtap="$search$search" wx:else data-wpysearch-a="">搜索</button>
+    </view>
+  </view>
+
+    
+  <view class="bar" wx:if="{{list.length>0||skuval !==''}}">
+    <view class="filter">
+      <view class="nav {{$filterBar$currentType=='zonghe' ? 'nav_active' : ''}}" data-current="zonghe" bindtap="$filterBar$orderBy">综合</view>
+      <view class="nav  {{$filterBar$currentType=='sale' ? 'nav_active' : ''}}" data-current="sale" bindtap="$filterBar$orderBy">销量</view>
+      <view class="grid nav">
+        <view class="price {{$filterBar$currentType=='price' ? 'nav_active' : ''}}" data-current="price" catchtap="$filterBar$orderBy">价格</view>
+        <view data-current="price" catchtap="$filterBar$orderBy">
+          <view class="arrow_up {{$filterBar$arrowType=='desc' ? 'arrow_up_red' : 'arrow_up_gray'}}" data-current="price" catchtap="$filterBar$orderBy"/>
+          <!-- 向下的三角形 -->
+          <view class="arrow_down {{$filterBar$arrowType=='asc' ? 'arrow_down_red' : 'arrow_down_gray'}} " data-current="price" catchtap="$filterBar$orderBy"/>
+        </view>
+      </view>
+      <view class="nav" bindtap="$filterBar$filterSearch">筛选<i class="iconfont icon-filter"/></view>
+    </view>
+    <!--筛选测栏-->
+    
+  <view  wx:if="{{$filterBar$filterSlider$show}}">
+    <view class="filter-slider">
+      <!--<view class="block">
+                      <view class="title">品类</view>
+                      <view class="item_box">
+                        <view class="item active">女款休闲裤(12)<i class="iconfont icon-bottom-check"></i></view>
+                        <view class="item">女款休闲裤(12)</view>
+                        <view class="item">女款休闲裤(12)</view>
+                        <view class="item">女款休闲裤(12)</view>
+                        <view class="item">女款休闲裤(12)</view>
+                        <view class="item">女款休闲裤(12)</view>
+                        <view class="item">女款休闲裤(12)</view>
+                      </view>
+                    </view>-->
+      <view class="block">
+        <view class="title">尺码</view>
+        <view class="item_box">
+          <view class="item" data-sku="XS" catchtap="$filterBar$filterSlider$selSKU">XS</view>
+          <view class="item" data-sku="S" catchtap="$filterBar$filterSlider$selSKU">S</view>
+          <view class="item" data-sku="M" catchtap="$filterBar$filterSlider$selSKU">M</view>
+          <view class="item" data-sku="L" catchtap="$filterBar$filterSlider$selSKU">L</view>
+          <view class="item" data-sku="XL" catchtap="$filterBar$filterSlider$selSKU">XL</view>
+          <view class="item" data-sku="XXL" catchtap="$filterBar$filterSlider$selSKU">XXL</view>
+        </view>
+      </view>
+      <view class="btn_group">
+        <view class="btn_left_box">
+          <view class="button type_empity">重置</view>
+        </view>
+        <view class="btn_right_box">
+          <view class="button type_yellow" bindtap="$filterBar$filterSlider$SearchFilter">确认</view>
+        </view>
+      </view>
+    </view>
+    <view class="modal-overlay modal-overlay-visible" bindtap="$filterBar$filterSlider$close" data-wpyclose-a=""/>
+  </view>
+
+  </view>
+
+    <view  wx:if="{{list.length>0}}">
+      <!--矩阵商品列表模块-->
+      
+  <scroll-view scroll-y="true" class="swiper-item-box">
+    <view class="shop_item">
+      <navigator class="list"  wx:for="{{$shopGridList$list}}" wx:key="item" url="/pages/goods_detail?id={{item.id}}&priceId={{item.priceId}}&purchasetype={{$shopGridList$purchasetype}}&special={{$shopGridList$special}}">
+        <view class="image_box">
+          <image src="{{$shopGridList$img_domain}}/{{item.thumLogo}}"/>
+        </view>
+        <view class="goods">
+          <view class="product_name" wx:if="{{$shopGridList$showTitle}}">{{item.name}}({{item.mealName}})</view>
+          <view class="product_info">
+            <view class="price">￥{{item.price}}</view>
+            <view class="cost_price">￥{{item.marketPrice}}</view>
+            <view class="sale_num">销量{{item.saleCount}}件</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
+
+      <!--加载更多时动画-->
+      
+    <view class="loadMoreGif"  wx:if="{{$bottomLoadMore$show}}">
+        <image src="../images/loadding.gif"/>
+        <text>{{$bottomLoadMore$message}}</text>
+    </view>
+
+      <!--暂无数据显示-->
+      
+    <view class="empty-placeholder row-center"  wx:if="{{$placeholder$show}}">
+        <image class="icon-xl" src="../images/empty.png"/>
+        <view class="txt">{{$placeholder$message}}</view>
+    </view>
+
+
+    </view>
+    <view class="history {{show?'':'hidden'}}"  wx:else>
+      <view class="doc">历史记录</view>
+      <view class="lable">
+        <view wx:for="{{keywordhisList}}" wx:key="item" catchtap="selHisKeyWord" data-id="{{item.id}}">
+          <view class="child {{item.sel=='1' ?'active':''}}">{{item.keyword}}</view>
+        </view>
+      </view>
+      <view class="btn_box">
+        <view class="button type_empity" catchtap="clearHis">清除历史记录</view>
+      </view>
+    </view>
+  </view>

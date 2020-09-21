@@ -1,0 +1,33 @@
+<!--产品列表-->
+<template name="pt_15">
+
+
+
+  <block >
+
+<!-- 
+      <view class="mode0_items"   wx:for="{{relateBean}}"  wx:key="{{index}}" >{{item.id}}
+        <image   src="{{item.imagePath}}"></image>
+        </view> -->
+           
+      <!-- <view class="mode0_items"   wx:for="{{relateBean}}" wx:key="{{index}}" 
+        data-link='{{item.link}}' bindtap='tolinkUrl'> 
+        <image mode='aspectFill'  src="{{item.imagePath}}?x-oss-process=style/preview"></image>
+          <view class='mode0_items_view1'>
+            <view >
+              <view style='color:{{items.titleColor}}'>{{item.name}}</view>
+              <text style='color:{{items.subTitleColor}}'>{{item.price}}</text>
+            </view>
+            <text class='font2' style='color:{{items.subTitleColor2}}'>{{item.price}}</text>
+          </view>
+      </view> -->
+  
+     <view class='product_list_box'>
+     <view class="product_list_item"   wx:for="{{relateBean}}" wx:key="{{index}}" 
+        data-link='{{item.link}}' bindtap='tolinkUrl'> 
+        <image   src="{{item.imagePath}}?x-oss-process=style/preview"></image>
+     
+     </view>
+     </view>
+  </block>
+</template>

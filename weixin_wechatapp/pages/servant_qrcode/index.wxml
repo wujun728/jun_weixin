@@ -1,0 +1,16 @@
+<view class='flx_cenetr_content_container'>
+    <view class='flx_cenetr_content_title'>服务人员二维码</view>
+
+    <view class='flx_qrode_container'>
+      <text>长按保存图片</text>
+      <view class='flx_qrode_container_image_container'>
+        <image data-imageUrl='{{ewmCode}}' bindtap='lookBigImage' bindlongpress='saveImageToLocal' mode='widthFix' src='{{ewmCode}}'></image>
+      </view>
+      
+    </view>
+
+    <!-- <view class='flx_qrode_container'>
+      <view>推广链接</view>
+      <view>www.ssssssssssssssssss.com</view>
+    </view> -->
+</view>

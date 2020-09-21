@@ -1,0 +1,4 @@
+
+@import 'form_item_one/index.wxss';
+@import 'form_item_two/index.wxss';
+@import 'form_item_decorated/index.wxss';

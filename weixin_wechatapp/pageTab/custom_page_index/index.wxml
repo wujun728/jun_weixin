@@ -1,0 +1,24 @@
+
+<import src="../../wxParse/wxParse.wxml"/><!-- 1 富文本 -->
+<import src="../../view/partials/mofang.wxml"/>  <!-- 2 辅助线 -->
+
+<view wx:if='{{PaiXuPartials}}' class="container">
+  <block>
+    <component-tag-customPage id="container" class="aaa" authorizationState="{{showAuthorizationPopup}}" data="{{partialsName}}" wx:if="{{partialsName}}"></component-tag-customPage> <!-- 首页组件-->
+  </block>
+    <!--技术支持  -->
+    <!-- <view class='buttom' bindtap='buttom'><text>技术支持:福州三三网络科技有限公司</text></view> -->
+    <!-- <component-footer wx:if="{{setting.platformSetting.jishuzhichi}}"></component-footer> -->
+</view>   
+<view wx:else class="blankPage">
+   <view class='blankPage_image'></view>
+   <text>网络异常，请刷新本页</text>
+   <button></button>
+</view>
+
+<!-- 
+根据后台数据，动态渲染页面
+首先制作组件，
+然后根据后台传来的particul去找组件然后渲染到小程序页面上，
+
+ -->

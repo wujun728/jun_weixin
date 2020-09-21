@@ -1,0 +1,32 @@
+<view class="container">
+  <view class='search_top' style='background:{{setting.platformSetting.topBgColor}}'>
+    <view class='search_input'>
+      <input class='search_input_text' value="{{searchValue}}" confirm-type="search" bindinput="saveSearchValue" bindconfirm='getSearchProductName' placeholder-class="phcolor" placeholder='{{properties.tip_product_search?properties.tip_product_search:"保障源于专业，30分钟送达"}}'></input>
+      <image catchtap='getSearchProductName' class='search_input_icon' src='http://image1.sansancloud.com/xianhua/2019_4/2/14/30/34_688.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+  </view>
+  <view class='interval'></view>
+  <view class='search_list'>
+    <view class='search_item' wx:if="{{searchStorage.length!=0}}">
+      <view class='search_item_top'>
+        <text class='search_item_top_title'>历史</text>
+        <text class='delete_value' catchtap='clearSearchStorage'>清空</text>
+      </view>
+      <view class='search_item_value_list'>
+        <view class='search_item_value_item' data-value="{{item.name}}" catchtap='saveSearchValue' wx:for="{{searchStorage}}" wx:for-item="item" wx:key="{{index}}">{{item.name}}</view>
+      </view>
+    </view>
+    <view class='search_item' wx:if="{{hotSearchList.length!=0}}">
+      <view class='search_item_top'>
+        <text class='search_item_top_title'>热门</text>
+        <text></text>
+      </view>
+      <view class='search_item_value_list'>
+        <view class='search_item_value_item' data-value="{{item.tagName}}" catchtap='saveSearchValue' wx:for="{{hotSearchList}}" wx:for-item="item" wx:key="{{index}}">{{item.tagName}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='search_banner'>
+    <image class='search_banner_img' src=''></image>
+  </view> -->
+</view>

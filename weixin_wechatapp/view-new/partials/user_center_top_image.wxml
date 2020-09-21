@@ -1,0 +1,35 @@
+<template name="user_center_top_image">
+  <view class='user_center_top_container'>
+    <view class='user_center_top_container_bg'>
+      <image  src='{{imageUrl}}'></image> 
+    </view>
+    <block wx:if="{{loginUser}}">
+      <view class='user_center_top_content' bindtap='loginOut'>
+        <image src='{{loginUser.platformUser.headimgurl}}'></image>
+        <text>{{loginUser.platformUser.nickName}}</text>
+      </view>  
+      <view class='user_center_jifen_content'>
+          <view class='user_center_jifen_content_1' data-link='user_jifen_events.html' bindtap='tolinkUrl'>
+            <text>{{loginUser.platformUser.jifen}} 分</text>
+            <text>积分</text>
+          </view>
+          <view class='user_center_jifen_content_2' data-link='my_coupons.html' bindtap='tolinkUrl'>
+            <text>{{loginUser.platformUser.couponCount}} 张</text>
+            <text>优惠券</text>
+          </view>
+          <view class='user_center_jifen_content_1' data-link='my_favorite.html' bindtap='tolinkUrl'>
+            <text>{{loginUser.platformUser.favoriteProductCount}} 件</text>
+            <text>收藏</text>
+          </view>
+      </view>
+    </block>
+    <block wx:else>
+     <view class='user_center_top_content' bindtap='login'>
+       <image src='http://image1.sansancloud.com/jianzhan/2017_09/24/16/08/58_464.jpg'></image>
+      <text>未登录</text>
+      </view>
+    </block>
+
+    
+  </view>
+</template>

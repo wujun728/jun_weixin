@@ -1,0 +1,5 @@
+<!--pages/demo-picker/demo-picker.wxml-->
+<view>
+  <view>日历控件</view>
+  <picker></picker>
+</view>

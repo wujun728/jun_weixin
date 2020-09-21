@@ -1,0 +1,9 @@
+
+
+<view class='wrap' bindtap='scanQrCode'>
+<view class='scan'>扫一扫</view>
+<view class='scanImg'>
+  <image src='../../../images/icons/scanImg.png'></image>
+</view>
+
+</view>

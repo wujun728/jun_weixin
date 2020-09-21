@@ -1,0 +1,4 @@
+
+
+@import 'popimage/popimage.wxss';/* 引入弹窗图片 */
+@import 'footer_img/footer_img.wxss';/* 引入底部悬浮图片 */

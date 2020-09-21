@@ -1,0 +1,12 @@
+<template name="user_center_order"> 
+ 
+  <view  class="showTypeContainer_new" wx:if="{{showType == 0}}">
+      <view class="grid_cell_new" style="width:{{100/ column}}%;"  wx:for="{{cells}}" wx:for-item="cells" wx:key="{{index}}" data-link='{{cells.linkUrl}}' bindtap='tolinkUrl'>
+        <image  src="{{cells.iconPath}}?x-oss-process=style/preview"></image>
+        <view class='grid_cell_new_text'  site_url="{{cells.linkUrl}}"  targetType="{{cells.targetType}}">
+          {{cells.text}}
+        </view>
+      </view>
+
+  </view>
+</template>

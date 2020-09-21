@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "产品列表",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f1f1f1",
+  "usingComponents": {
+    "component-customPage": "/view/partials/custom_page/index"
+  }
+}

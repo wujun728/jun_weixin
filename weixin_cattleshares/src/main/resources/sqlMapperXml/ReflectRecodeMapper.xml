@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.ReflectRecodeMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		rrd_id AS rrdId, rrd_userid AS rrdUserid, rrd_username AS rrdUsername, rrd_serialnum AS rrdSerialnum, rrd_price AS rrdPrice, rrd_applytime AS rrdApplytime, rrd_state AS rrdState, rrd_managetime AS rrdManagetime
+	</sql>
+
+</mapper>

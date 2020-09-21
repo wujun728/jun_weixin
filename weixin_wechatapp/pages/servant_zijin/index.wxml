@@ -1,0 +1,47 @@
+<view class='container'>
+
+  <view class='moneyContainer'  >
+    <text>账户{{properties.alias_yue||'余额'}}：</text>
+    <text style='color:{{setting.platformSetting.defaultColor}};font-size:2em;'>￥{{moneyAmount}}</text>
+  </view>
+  <view class='product_page_container2'>
+        <block wx:if = "{{!!Data}}">
+          <view class='moneyitem' wx:for='{{Data}}'
+           wx:for-item='pay' wx:key='{{pay.id}}' >
+            
+            <view class='eventTypeName'>
+              <block wx:if='{{pay.eventType == 1}}'>
+                <text>账户收入</text>
+              </block>
+              <block wx:else>
+                <text>账户支出</text>
+              </block>
+              <text>当前账户:￥{{pay.afterAmount}}</text>
+            </view>
+            <view class='eventDerection'>
+              <view class='left'>
+                <text class='font_555'>{{pay.eventDescription}}</text>
+                <text class='time'>{{pay.eventTime}}</text>
+              </view>
+              <view class='right' style='color:{{setting.platformSetting.defaultColor}}'>
+                <block wx:if='{{pay.eventType == 1}}'>
+                  <text class='font_green'>￥{{pay.eventAmount}}</text>
+                  <text class='font_green font_06'>收入</text>
+                </block>
+                <block wx:else>
+                  <text class='font_green'>￥{{pay.eventAmount}}</text>
+                  <text class='font_red font_06'>支出</text>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+ 
+        <block wx:else>
+          <view class="none">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关记录</text>
+          </view>
+        </block>
+      </view>
+</view>

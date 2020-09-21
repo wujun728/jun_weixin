@@ -1,0 +1,35 @@
+<view>Helloworld</view>
+<text data-name="{{message}}"></text>
+<view hidden="{{!flag}}">dfasfa fsadf </view>
+<view>
+<block wx:for="{{items}}" wx:for-item="item" wx:key="index">
+  <view>{{index}}:{{item.name}}</view>
+</block>
+</view>
+{{message}}
+<view>今天吃什么 </view>
+<view wx:if="{{condition==1}}">
+饺子</view>
+<view wx:if="{{condition==2}}">
+包子</view>
+<view wx:if="{{condition==0}}">
+米饭</view>
+<template is="tempItem" data="{{...item}}"></template>
+<template name="tempItem">
+  <view>
+    <view>收件人：{{name}}</view>
+    <view>l联系方式：{{phone}}</view>
+    <view>地址：{{address}}</view>
+  </view>
+</template>
+<view bindtap='clickMe'>
+  dianjiwo
+</view> fsd
+<view bindtap='clickA' capture-bind:tap="captureClickA">
+  container-a
+  <view bindtap='clickB' capture-bind:tap="captureClickB">
+    container-b
+      <button bindtap='clickC' 
+capture-catch:tap="captureCatchClickC">ClickC</button>
+  </view>
+</view>

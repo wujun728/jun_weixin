@@ -1,0 +1,37 @@
+<!-- 外卖模式的点单 --> 
+
+<view class='waimaiContainer'>
+  <!-- 左边的导航 -->   
+  <scroll-view scroll-y class='leftScrollType'> 
+     <view 
+        wx:for="{{setting.platformSetting.categories}}"
+        wx:for-item="type" wx:key="{{index}}" data-type="{{type}}"
+        bindtap='bindTypeItem' class='{{type.active?"activeTypeItem":"TypeItem"}}'>
+        <text class='flexCenter'>{{type.name}}</text>
+        </view>
+  </scroll-view>
+
+  <!-- 右边的商品列表 -->
+  <scroll-view scroll-y  class='RightProductContainer' >
+    <view class='rightTypeContainer' >
+      <!-- 广告图 -->
+      <view class='guangGaoTu_container'>
+        <block wx:if='{{focusTypeItem.adverImg.length>5}}'>
+        <image data-url='{{focusTypeItem.adverLink}}' bindtap='toAdverLink' mode='widthFix' src='{{focusTypeItem.adverImg}}'></image>
+        </block>
+      </view>
+      <view class='erji_Type_name'>{{focusTypeItem.name}}</view>
+      <view class='erji_Type_container'>
+        <view class='erji_Type_item' wx:for='{{focusTypeItem.children}}'
+          wx:for-item='type' wx:key='{{index}}' data-type='{{type}}' bindtap='bind_erji_type'>
+          <image src='{{type.iconImage}}' mode='widthFix'></image>
+          <view>{{type.name}}</view>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+ 
+

@@ -1,0 +1,42 @@
+<view class='container'>
+
+  <view class='moneyContainer'  >
+    <text>账户{{properties.alias_yue||'余额'}}：</text>
+    <text style='color:{{setting.platformSetting.defaultColor}};font-size:xx-large;'>￥{{mendian.account.account}}</text>
+  </view>
+  <view class='product_page_container2'>
+        <block wx:if = "{{!!Data}}">
+          <view class='moneyitem' wx:for='{{Data}}'
+           wx:for-item='pay' wx:key='{{pay.id}}' >
+            
+            <view class='eventTypeName'>
+              
+                <text wx:if='{{pay.requestStatus == 0}}'>申请提现 </text>
+                <text wx:if='{{pay.requestStatus == 1}}'>申请-通过 </text>
+                <text wx:if='{{pay.requestStatus == 2}}'>申请-拒绝 </text>
+                <text>：￥{{pay.requestAmount}}</text>
+              
+            </view>
+            <view class='eventDerection'>
+              <view class='left'>
+                <text class='derection' wx:if='{{pay.fangkuanStatus == 0}}'>未放款</text>
+                <text class='derection' wx:if='{{pay.fangkuanStatus == 1}}'>已放款</text>
+                 
+              </view>
+              <view class='right' >
+                {{pay.addTime}}
+              </view>
+            </view>
+            
+            
+          </view>
+        </block>
+ 
+        <block wx:else>
+          <view class="none">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关记录</text>
+          </view>
+        </block>
+      </view>
+</view>

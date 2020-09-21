@@ -1,0 +1,160 @@
+.tab{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+.tab view{
+  width: 33.33%;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  color: #fff;
+}
+.tab_page_list_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:10px;
+}
+.Tab_page{
+  font-size: small;
+}
+.tab_page_list{
+  width: 100%;
+ 
+}
+
+/* 头部 */
+.active{
+  border-bottom: 2px solid #fff;
+}
+.tocardVouchers_get{
+  text-align: right;
+  font-size: small;
+  padding: 10px;
+  color: #8B572A;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* item */
+.cardVoucherListContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.cardVoucherListItem{
+  position: relative;
+  border-radius:12rpx;
+  width: 90%;
+  height: 240rpx;
+  background: #fff;
+  padding:30rpx 50rpx; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  margin-bottom:30rpx;
+  box-shadow:0rpx 10rpx 15rpx #555;
+}
+.item_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240rpx;
+  background-position:520rpx -100rpx;
+  background-size:230rpx;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index:1;
+}
+.my_cardVoucher_title{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.my_cardVoucher_name{
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+.my_cardVoucher_value{
+  font-size: 22rpx;
+  color: #ddd;
+}
+.my_cardVoucher_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.my_cardVoucher_icon_img{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
+}
+.my_cardVoucher_time{
+  font-size: 22rpx;
+  color: #ddd
+}
+.my_cardVoucher_icon{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.my_cardVoucher_count{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 80rpx;
+}
+.my_cardVoucher_count_text{
+  font-size: 30rpx;
+  color: #999;
+  margin-right: 30rpx;
+}
+.my_cardVoucher_count_value{
+  font-size: 46rpx;
+}
+.voucherStyle{
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width:104%;
+  left:-14rpx;
+  top:105rpx;
+  z-index:2;
+}
+.round{
+  width:30rpx;
+  height:30rpx;
+  border-radius:30rpx;
+  background:#fff;
+}
+
+.noList{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  height:100%;
+}
+
+.ewmCode{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.ewmImg{
+  width: 80rpx;
+  height: 50rpx;
+}

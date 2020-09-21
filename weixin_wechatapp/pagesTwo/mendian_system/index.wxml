@@ -1,0 +1,42 @@
+ <view class='container'> 
+  <form class='info_Form'>
+    <view class='info_image_container' style='width:{{sysWidth}}px;height:{{sysWidth*0.45}}px'>
+      <image src='{{loginUser.platformUser.headimgurl}}' mode='aspectFill' ></image><!--  bindtap='changeImage' -->
+    </view>
+    
+
+    <view class='inputGroup' catchsubmit="changeUserInfo">
+      
+
+      <view class='input_item_container'>
+        <view class='input_item_container_title'>门店名称</view>
+        <input placeholder="门店名称" maxlength='10' name='nickname' value='{{loginUser.platformUser.belongMendianName}}'></input>
+      </view>
+      
+      <view class='input_item_container'>
+        <view class='input_item_container_title'>手机号</view>
+        <input placeholder="绑定手机号" maxlength='15' name='telno' value='{{loginUser.telno}}'></input>
+      </view>
+      <view class='input_item_container'>
+        <view class='input_item_container_title'>密码</view>
+        <input placeholder="登录密码" maxlength='20' name='userTip' value='{{loginUser.platformUser.userTip}}'></input>
+      </view>
+      
+
+    </view> 
+    <view class='CheckBox'>
+      <view class='checkBox_container'>
+        <view class='checkBoxName'>性别</view>
+        <radio-group name='sex' bindchange='sexChange'>
+          <radio name="sex1" value='1' color='{{setting.platformSetting.defaultColor}}' checked='{{loginUser.sex}}'>男</radio>
+          <radio name="sex1" value='0' color='{{setting.platformSetting.defaultColor}}' checked='{{loginUser.sex}}'>女</radio>
+        </radio-group>
+      </view>
+    </view>
+    <button loading='{{butn_show_loading}}' class='signIn' formType="submit" style='color:#fff;background:{{setting.platformSetting.defaultColor}}'>保存门店信息</button>
+   <!--  <button class='signIn' open-type='getUserInfo' bindtap='bindgetuserinfo' 
+    style='color:{{setting.platformSetting.defaultColor}};background:#fff;border:1px solid {{setting.platformSetting.defaultColor}}'>获取授权信息</button> -->
+  <!--   <button class='login_out' bindtap='loginOut'
+     style='color:{{setting.platformSetting.defaultColor}};border:1px solid {{setting.platformSetting.defaultColor}}'>退出登录</button> -->
+  </form>
+</view> 

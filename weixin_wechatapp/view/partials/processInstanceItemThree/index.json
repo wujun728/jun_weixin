@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-tag-nameImageLink": "../imgPopup/imgPopup"
+  }
+}

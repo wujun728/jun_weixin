@@ -1,0 +1,45 @@
+<!--正常的标题 -->
+<template name="pt_4_0">
+     <block wx:if='{{jsonData.headIconType == 0}}'  >
+      <block wx:if='{{jsonData.rightIconType == 0}}'  >
+        <view class='titleType0' style='align:{{jsonData.align}};background:{{jsonData.bgColor}};' data-link='{{jsonData.linkUrl}}' bindtap='tolinkUrl'>
+          <view class='T_head' style='text-align:{{jsonData.align}};color:{{jsonData.titleColor}}; font-size:{{jsonData.titleSize}}px;' >{{jsonData.title}}</view>
+          <view class='T_right' style='text-align:{{jsonData.align}};color:{{jsonData.subTitleColor}}; font-size:{{jsonData.subTitleSize}}px;'>{{jsonData.subTitle}}</view>
+        </view>
+      </block>
+
+      <block wx:if='{{jsonData.rightIconType == 2}}'>
+        <view class='titleType2' style='align:{{jsonData.align}};background:{{jsonData.bgColor}};'  data-link='{{jsonData.linkUrl}}' bindtap='tolinkUrl'>
+          <view class='T_head' style='text-align:{{jsonData.align}};color:{{jsonData.titleColor}}; font-size:{{jsonData.titleSize}}px;' >{{jsonData.title}}</view>
+          <view class='T_right' style='' >
+            <image src='{{jsonData.rightContent}}'></image>
+          </view>
+        </view>
+      </block>
+
+      <block wx:if='{{rightIconType == 3}}'>
+        <view class='titleType1' style='align:{{jsonData.align}};background:{{jsonData.bgColor}};'>
+          <view class='T_head' style='text-align:{{jsonData.align}};color:{{jsonData.titleColor}}; font-size:{{jsonData.titleSize}}px;' >{{jsonData.title}}</view>
+          <view class='T_right' style='text-align:{{jsonData.align}};' >
+            <text>{{jsonData.rightContent}}</text>
+          </view>
+        </view>
+      </block>
+
+    </block>
+
+    <block wx:if='{{headIconType == 1}}'></block>
+
+    <block wx:if='{{headIconType == 2}}'>
+      <view class='titleType5' style='align:{{jsonData.align}};background:{{jsonData.bgColor}};'>
+        <view class='T_head' style='text-align:{{jsonData.align}};color:{{jsonData.titleColor}}; font-size:{{jsonData.titleSize}}px;' >
+          <image src='{{headIcon}}'></image>
+          <text>{{jsonData.title}}</text>
+        </view>
+        <view class='T_right' style='' >
+          <text>{{jsonData.rightContent}}</text>
+        </view>
+      </view>
+    </block>
+ 
+</template>

@@ -1,0 +1,17 @@
+<!-- 文字导航  超链接-->
+
+ 
+<!-- swiper轮播图 -->
+<import src="simpleTextLink.wxml"/>  <!-- 正常的标题 -->
+
+   <block wx:if='{{data.androidTemplate == ""}}'>
+  <template is="simpleTextLink" 
+       data="{{...data}}"></template> 
+
+  </block> 
+
+
+<slot></slot>
+
+
+

@@ -1,0 +1,68 @@
+/* pages/apply_for_facilitator_return_state/apply_for_facilitator_return_state.wxss */
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;   
+}
+/* 头部 */
+.tongji_container{
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 9rem;
+  padding:1em 0;
+  color: #fff;
+  background-size: 100% 100%;
+  background-image: url(http://image1.sansancloud.com/aikucun/2018_03/15/10/17/16_175.jpg?x-oss-process=style/preview_120);
+}
+.facilitator_return_state_wrap{
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;  
+  box-shadow: 0 0 5px #ccc;
+  padding: 80rpx 30rpx 20rpx 30rpx;
+  border: 2rpx solid rgb(234, 234, 234);
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+  margin-top:-6.5em;
+  z-index:2;
+}
+.scan_img{      
+    display: flex;
+    justify-content: center;
+}
+.scan_img > image{
+    width:280rpx;
+    height: 280rpx;
+}
+.facilitator_return_state_success text,facilitator_return_state_fail text{
+    display: block;
+    font-size: 32rpx; 
+}
+.facilitator_return_state_success text.sucess_text,.facilitator_return_state_fail text.fail_text{
+    color: red;
+    text-align: center;
+    margin: 36rpx 30rpx 36rpx 36rpx;
+    font-size: 36rpx
+}
+/* 
+.sure{
+    width: 100%;      
+    background-color: #fff;
+    color: rgb(72, 168, 239);
+    font-size: 40rpx;
+    border: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+      padding-right: 0;
+    border-radius:0;
+    border-top:2rpx solid #ccc;   
+      
+}
+.sure::after{
+  border:none;
+} */

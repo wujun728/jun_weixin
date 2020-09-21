@@ -1,0 +1,62 @@
+
+<template name="near_shop_slide">
+  <block wx:if='{{shops.length >= "1"}}'>
+  <!-- 头部的优质商家 -->
+     <view class='top'>
+       <view class='topTitle'>优质商家</view>
+       <view class='topImg'><image mode='aspectFit' src='/images/icons/right.png'    bindtap='tolinkUrl' data-link='near_shops.html'></image></view>
+     </view>
+
+     <!-- 滑动的部分 -->
+      <scroll-view class="near_shop_wrapp" scroll-x="true">
+
+ <block wx:for="{{shops}}"  wx:key="index" >
+
+
+    <view class="near_shop_box"  data-id='{{item.id}}' data-index="{{index}}"data-link='near_shop_page.html?addShopId={{item.id}}' bindtap='tolinkUrl'>
+          <!-- 分为3个部分 -->
+          <!-- 首先banner+logo -->
+          <view class='near_shop_banner'>
+          <!-- banner存在 -->
+             <view class='near_shop_banner_img' wx:if="{{item.shopBanner&&item.shopBanner!=''}}"><image  mode='scaleToFill'src="{{item.shopBanner}}"></image></view>
+             <!-- banner不存在 -->
+              <view class='near_shop_banner_img' wx:else><image  mode='scaleToFill'src="../../../images/333.jpg"></image></view>
+
+             <!-- 100%好评 -->
+             <view class='haoPing'>100%好评</view>
+             <!-- 定位的logo -->
+             <view class='near_shop_logo' wx:if="{{item.shopLogo&&item.shopLogo!=''}}"><image mode='scaleToFill' src='{{item.shopLogo}}'></image></view>
+              <view class='near_shop_logo' wx:else><image mode='scaleToFill' src='../../../images/333.jpg'></image></view>
+          </view>
+
+         <!-- 店铺名 -->
+        <view class='near_shop_name'>{{item.shopName}}</view>
+
+        <!-- 店铺标签 -->
+        <view class='near_shop_shopTag' wx:if="{{item.shopTag&&item.shopTag!=''}}">
+          <block wx:for="{{item.shopTag}}" wx:key="index">
+          <view class='near_shop_shopTag_item' wx:if="{{index<=2&&item!=''}}" style="border:2px solid {{defaultColor}};">{{item}}</view>
+          </block>
+        
+        </view>
+        <view class='near_shop_shopTag'wx:else>
+          <view class='near_shop_shopTag_item'style="border:2px solid {{defaultColor}};">暂无标签</view>
+        </view>
+    </view>
+     
+         </block> 
+    </scroll-view>
+
+  </block>
+<block wx:if="{{shops.length==0}}">
+            <view class="noproduct">
+              <image mode="widthFix" src='/images/icons/no-product.png'></image>
+              <text>没有相关店铺</text>
+            </view>
+          </block>
+
+
+
+
+
+</template> 

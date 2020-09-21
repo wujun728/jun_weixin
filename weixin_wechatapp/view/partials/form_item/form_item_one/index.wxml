@@ -1,0 +1,38 @@
+
+<!--正常的标题 -->
+<template name="form_item_one">
+<block >
+<view class='form_commit_item' catchtap='checkFormDetail' data-id="{{formCommitItem.id}}">
+  <view class='form_title'>
+    <view class='form_title_left'>
+      <image class='user_icon' src='{{formCommitItem.commitPlatformUserIcon}}?x-oss-process=style/preview_120'></image>
+      <text class='user_name'>{{formCommitItem.commitPlatformUserName}}</text>
+    </view>
+    <view class='form_title_right'>
+      <text class='form_type'>[表单]</text>
+      <text class='form_name'>{{formCommitItem.belongFormName}}</text>
+    </view>
+  </view>
+  <view class='form_description'>
+    <image class='form_state_icon' wx:if="{{formCommitItem.recordStatus==1}}" src='http://image1.sansancloud.com/xianhua/2018_11/14/21/20/50_605.jpg?x-oss-process=style/preview_120'></image>
+    <image class='form_state_icon' wx:if="{{formCommitItem.recordStatus==0}}" src='http://image1.sansancloud.com/xianhua/2018_11/14/21/24/17_402.jpg?x-oss-process=style/preview_120'></image>
+    <text style='color:#4bb3ff' wx:if="{{formCommitItem.recordStatus==1}}">表单有效</text>
+    <text style='color:#888' wx:if="{{formCommitItem.recordStatus==0}}">表单未审核...</text>
+  </view>
+  <view class='reply' wx:if="{{formCommitItem.reply}}">
+    <text class='replyTitle'>平台回复：</text>
+    <text class='form_description_text'>{{formCommitItem.reply}}</text>
+  </view>
+  <view class='form_commit_bottom'>
+    <view class='form_commit_bottom_left'>
+      <view class='check_record' bindtap="toFormRewardList" data-id="{{formCommitItem.id}}" wx:if="{{formCommitItem.rewardType!=0}}"><text>奖励记录</text></view>
+    </view>
+    <view class='form_commit_bottom_right'>
+      <image class='form_commit_icon' src='http://image1.sansancloud.com/xianhua/2018_11/14/19/58/37_380.jpg?x-oss-process=style/preview_120'></image>
+      <text class='form_commit_time'>{{formCommitItem.commitDate}}</text>
+      <image bindtap='checkFormDetail' data-id="{{formCommitItem.id}}" class='form_commit_dot'src='http://image1.sansancloud.com/xianhua/2018_11/14/21/7/48_739.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+  </view>
+</view>
+</block>
+</template>

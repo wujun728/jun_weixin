@@ -1,0 +1,14 @@
+<!--pages/pullReachForPage/pullReachForPage.wxml-->
+<view class="container">
+  <view class='list'>
+    <!--item  -->
+    <view class='item'  wx:for="{{list}}" wx:key="unique">
+      <view class='item-name'>名称:{{item.name}}</view>
+      <view class='item-box'>
+          <view class='item-status'>状态:{{item.status}}</view>
+          <view class='item-time'>时间:{{item.time}}</view>
+      </view>
+    </view>
+    <!--item  -->
+  </view>
+</view>  

@@ -1,0 +1,64 @@
+.un-mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.75);
+    z-index: 999;
+    display: none;
+}
+.un-modal{
+    width: 670px;
+    overflow: hidden;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -245px;
+    margin-left: -335px;
+}
+.un-modal-header{
+    height: 50px;
+    width:670px;
+	background-image: linear-gradient(180deg, 
+		#ff812d 4%, 
+        #ff6600 100%);
+        position: relative;
+
+}
+.un-modal-header-title{
+    font-size: 16px;
+	line-height: 50px;
+    color: #ffffff;
+    position: relative;
+    padding-left: 20px;
+}
+.un-modal-close{
+    background-image: url($imgPath + 'modal-close-btn.png');
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+}
+.un-modal-content{
+    width: 670px;
+    background-color: #ffffff;
+    overflow: hidden;
+    padding:51px 0;
+    
+}
+.un-modal-person{
+    background-image: url($imgPath + 'modal-person.png');
+    width: 318px;
+    height: 304px;
+    margin: 0 auto 45px;
+}
+.un-modal-content-text{
+	font-size: 30px;
+	letter-spacing: 0px;
+    color: #666666;
+    text-align: center;
+}

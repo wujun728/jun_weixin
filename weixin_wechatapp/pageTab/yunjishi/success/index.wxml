@@ -1,0 +1,12 @@
+
+<view class="wrap">
+     <!-- <view class='btn'>成功</view> -->
+   <!--返回首页  -->
+    <!-- <view class="loginBtnView">
+    <button class="loginBtn"  bindtap="login">返回首页</button> 
+  </view> -->
+
+<view class='btn'  bindtap='toIndex'></view>
+
+ <image class='bg' src='http://image1.sansancloud.com/xianhua/2019_2/20/11/56/0_164.jpg'></image>
+</view>

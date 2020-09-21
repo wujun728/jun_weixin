@@ -1,0 +1,25 @@
+/* pages/homepage/homepage.wxss */
+.load-failure-image{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.address-add {
+
+position:fixed;
+
+bottom:20;
+
+display:flex;
+
+width:50%;
+
+justify-content:center;
+
+
+}

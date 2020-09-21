@@ -1,0 +1,55 @@
+.container{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: #eee;
+  height: 100%
+}
+.my_cardVoucher_info{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 40rpx;
+  width:100%;
+  box-sizing:border-box;
+  font-size: 34rpx;
+  border-bottom: 4rpx dashed #888
+}
+.my_cardVoucher_item{
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.text{
+  color: #777;
+  width: 75%
+}
+.verification_btn{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90rpx;
+  padding: 20rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+.verification_btn1{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 32rpx;
+}

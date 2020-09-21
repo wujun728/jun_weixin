@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "聊天用户",
+  "backgroundColor": "#f9f9f9",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    
+  }
+}

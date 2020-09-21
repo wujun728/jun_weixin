@@ -1,0 +1,15 @@
+<!--pages/timedjs/timedjs.wxml-->
+<view class="container">
+  <view>扇形进度倒计时</view>
+  <canvasCD
+          bind:CDNot="bindCDNot"
+          CDstart="{{CDstart}}"
+          CDend="{{CDend}}"
+          CDinit="{{CDinit}}"
+  ></canvasCD>
+  <view class="btn">
+    <view bindtap='bindCDstart'>开始</view>
+    <view bindtap='bindCDend'>停止</view>
+    <view bindtap='bindCDinit'>重置</view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  align-items: center;
+}
+.cardVoucher_logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin:100rpx 0 100rpx 0;
+}
+.cardVoucher_logo_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  border: 2rpx solid #ddd;
+}
+.cardVoucher_ewm{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+.cardVoucher_ewm_img{
+  width: 500rpx;
+  height: 500rpx;
+}
+.cardVoucher_code{
+  margin-bottom: 10rpx;
+}
+.cardVoucher_code_text{
+  color: #999;
+}
+.cardVoucher_describe{
+  color: #999;
+  font-size: 28rpx;
+}

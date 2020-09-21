@@ -1,0 +1,43 @@
+<view class='container'>
+    <view class='tab' style='background:{{platformSetting.defaultColor}}'>
+      <view wx:for='{{List.tab}}' class='{{showTabIndex == index ? "active":"noneUse"}}' wx:key='tab_{{index}}' data-id='{{index}}' bindtap='bindTab'>{{item.title}}</view>
+    </view>
+    <view class='Tab_page' style='background:{{platformSetting.defaultColor}}'>
+        <block  wx:for='{{List.listData}}' wx:for-item='list' wx:for-index='m'  wx:key='list_{{m}}'>
+          <scroll-view  hidden='{{!(showTabIndex == m)}}' style='height: {{sysHeight-40}}px;' class='tab_page_list' scroll-y upper-threshold='-30' lower-threshold='10' bindscrolltoupper='scrollTopToReflesh' bindscrolltolower='scrollBottomToLoadMore'>
+            <view class='tab_page_list_container' wx:if="{{list&&list.length!=0}}">
+              <view class='cardVoucherListItem' wx:for='{{list}}' wx:for-item='cardVoucherItem' wx:for-index='n' wx:key='{{item.id}}' bindtap='tolinkUrl' data-link="my_card_voucher_detail.html?id={{cardVoucherItem.id}}" >
+                <view class='my_cardVoucher_title'>
+                  <text class='my_cardVoucher_name'style="color:{{platformSetting.defaultColor}}">{{cardVoucherItem.cardName}}</text>
+                  <view class='my_cardVoucher_value'><text wx:if="{{cardVoucherItem.cardVoucherType==1}}">卡包</text><text wx:else>票券</text></view>
+                </view>
+                <view class='my_cardVoucher_info'>
+                  <view class='my_cardVoucher_icon'>
+                    <image class='my_cardVoucher_icon_img' src='{{cardVoucherItem.cardImage}}'></image>
+                    <text class='my_cardVoucher_time'>{{cardVoucherItem.validateDatetimeEnd}}后到期</text>
+                  </view>
+                  <view class='my_cardVoucher_count'>
+                    <text class="my_cardVoucher_count_text">剩余次数</text>
+                    <text class='my_cardVoucher_count_value' style='color:{{platformSetting.defaultColor}}' wx:if="{{cardVoucherItem.countPerInstance==-1}}">无限次</text>
+                    <text class='my_cardVoucher_count_value' style='color:{{platformSetting.defaultColor}}' wx:else>{{cardVoucherItem.countPerInstance-cardVoucherItem.usedCount}}</text>
+                  </view>
+                  <view class='voucherStyle'>
+                    <view class='round' style='background:{{platformSetting.defaultColor}}'></view>
+                    <view class='round' style='background:{{platformSetting.defaultColor}}'></view>
+                  </view>
+                  <view class='item_bg' style='background-image:{{cardVoucherItem.cardImage?"url("+cardVoucherItem.cardImage+")":""}}'></view>
+                  <!-- <view class='ewmCode'>
+                    <image class='ewmImg'src='http://image1.sansancloud.com/xianhua/2019_1/4/20/42/14_861.jpg'></image>
+                  </view> -->
+                </view>
+              </view>
+            </view>
+            <view class='noList' wx:else>
+              <text wx:if="{{showTabIndex==0}}">主人~现在暂时还没有可使用的卡券哦~!</text>
+              <text wx:if="{{showTabIndex==1}}">主人~现在暂时还没有已使用的卡券哦~!</text>
+              <text wx:if="{{showTabIndex==2}}">主人~现在暂时还没有已过期的卡券哦~!</text>
+            </view>
+          </scroll-view>
+        </block>
+    </view>
+</view>

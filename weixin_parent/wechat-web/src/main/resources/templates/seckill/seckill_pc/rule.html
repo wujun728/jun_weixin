@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="renderer" content="webkit">
+		<title>中国联通积分商城</title>
+		<script src="../ajs/jquery-2.1.4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../seckill_pc/assets/widgets/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../seckill_pc/assets/widgets/select/bootstrap-select.css" />
+		<link rel="stylesheet" href="../seckill_pc/assets/css/style.css">
+
+		<script src="../ajs/common.js"></script>
+
+		<script src="../seckill_pc/assets/widgets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../seckill_pc/assets/widgets/select/bootstrap-select.js"></script>
+	</head>
+
+	
+	<body>
+
+		<div class="un-body">
+
+			<div class="un-banner"></div>
+			<div class="un-warp">
+				<div class="ruleContent">
+					<div class="title">活动规则</div>
+					<div class="content">
+						<p>1、用户在活动规定时间内，使用积分支付即可参与“积分秒杀”，数量有限，秒完即止；</p>
+						<p>2、每日秒杀2场（场次分别为10:00、14:00），每款秒杀商品同一用户只可参与一次秒杀，重复参与同一商品秒杀视作无效。（同一用户是指：联通账户、收货人姓名、详细地址、联系方式等与用户身份相关的信息，其中任意一项或数项存在相同、相似、或非真实有效等情形的，均可能被认定为同一用户，按活动规则中的同一用户处理）；</p>
+						<p>3、请确保提交收件地址的完整性与准确性，以免造成礼品配送不成功；</p>
+						<p>4、秒杀商品全场包邮；</p>
+						<p>5、出现任何违规行为（如利用漏洞，机器作弊，恶意退款，虚拟交易等）将取消活动资格，必要时追究法律责任；</p>
+						<p>6、中国联通在法律允许范围内保留对本活动的解释权。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--悬浮按钮组-->
+		<div class="fixBtnGroup">
+			<ul>
+				<li>
+					<a href="index.html">
+						<i class="icon_clock"></i>
+						<p>秒杀活动</p>
+					</a>
+				</li>
+				<li class="active">
+					<a href="javascript:;">
+						<i class="icon_rule"></i>
+						<p>秒杀规则</p>
+					</a>
+				</li>
+					<li>
+					<a href="list.html">
+						<i class="icon_history"></i>
+						<p>秒杀记录</p>
+					</a>
+				</li>
+			</ul>
+			<div class="gotoTop">
+				<i class="icon_arrow_up"></i>
+				<p>回顶部</p>
+			</div>
+		</div>
+		<div class="un-footer">
+			<div class="box">
+				<p>Copyright© 1999-2018 中国联通 版权所有</p>
+				<p>中华人民共和国增值电信业务经营许可证 经营许可证编号：A2.B1.B2-20090003 </p>
+			</div>
+		</div>
+
+		<script>
+			/*取文档内容实际高度*/
+			function getScrollHeight() {
+				return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+			}
+			//每次更新list时，调用此方法
+			function updateFooter() {
+				var $footer = $(".un-footer");
+				if(getScrollHeight() > $(window).height()) {
+					$footer.removeClass("fixed");
+				} else {
+					$footer.addClass("fixed");
+				}
+			}
+			updateFooter();
+
+			$('.gotoTop').on('click', function() {
+				$(window).scrollTop(0);
+			})
+		</script>
+	</body>
+
+</html>

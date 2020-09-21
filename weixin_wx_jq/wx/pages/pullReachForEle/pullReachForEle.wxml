@@ -1,0 +1,15 @@
+<!--pages/pullReachForEle/pullReachForEle.wxml-->
+<view class="container">
+      <view class='title'>灰白相间背景区域为下拉上拉功能演示元素</view>
+      <scroll-view class='box' scroll-y bindscrolltoupper="evupper" bindscrolltolower="evlower">
+        <!--item  -->
+        <view class='item'  wx:for="{{list}}" wx:key="unique">
+          <view class='item-name'>名称:{{item.name}}</view>
+          <view class='item-box'>
+              <view class='item-status'>状态:{{item.status}}</view>
+              <view class='item-time'>时间:{{item.time}}</view>
+          </view>
+        </view>
+        <!--item  -->
+    </scroll-view>
+</view>  

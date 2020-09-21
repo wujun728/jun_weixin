@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmy.booksserver.mapper.AccessMapper">
+	 <select id="getAccessByToken" resultType="Access">
+		select * from access where token=#{token}
+	</select>
+	<insert id="addAccess">
+		insert into access (token,expires) values(#{token},#{expires})
+		<selectKey keyColumn="id" resultType="int" keyProperty="id"
+        order="AFTER">
+            select  last_insert_id()
+        </selectKey>
+	</insert>
+</mapper>

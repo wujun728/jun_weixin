@@ -1,0 +1,15 @@
+<!--pages/allcheckbox/allcheckbox.wxml-->
+<view class="container">
+    <view>复选框全选效果</view>
+    <view class='checkbox'>
+        <view class='checkbox-handle'>
+            <checkbox-group bindchange="checkboxChange"><label><checkbox value="{{all.id}}" checked="{{all.checked}}"/>{{all.val}}</label></checkbox-group>
+        </view>
+        <view class='checkbox-list'>
+          <view class='checkbox-item'  wx:for="{{items}}" wx:key="{{index}}">
+            <label><checkbox  value="{{item.id}}" checked="{{item.checked}}"/>{{item.val}}</label>
+            </view>
+        </view>
+      
+    </view>
+</view>

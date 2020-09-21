@@ -1,0 +1,16 @@
+<!--pages/star/star.wxml-->
+<view class="container">
+  <view>星星评分功能</view>
+  <view class='star'>
+    <view class='star-item' wx:for="{{stars}}" wx:key="unique">
+      <image class='{{index<=posi?"on":""}}' src="../../images/star/star.gif" bindtap="evclick" data-posi="{{index}}"></image>
+    </view>
+  </view>
+  <view>评分结果：{{stars[posi].des}}</view>
+  <view class='star'>
+    <view class='star-item' wx:for="{{starst}}" wx:key="unique">
+      <image class='{{index<=posit?"on":""}}' src="../../images/star/star.gif" bindtap="evclickt" data-posit="{{index}}"></image>
+    </view>
+  </view>
+  <view>评分结果：{{starst[posit].des}}</view>
+</view>

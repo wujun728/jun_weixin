@@ -1,0 +1,8 @@
+<view class='welcome' wx:if='{{showLoadFail}}'>
+  <image mode='widthFix' src='/images/icons/404.png'></image>
+  <button disabled='{{showLoading}}' bindtap='reloadJs' loading='{{showLoading}}' >重新加载</button>
+</view>
+
+<view wx:else> 
+  
+</view>

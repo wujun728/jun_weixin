@@ -1,0 +1,25 @@
+
+<import src="simpleNewsList.wxml"/>  <!-- 普通的新闻列表 -->
+<import src="newsListSlide/newsListSlide.wxml"/>  <!-- 普通的新闻列表 -->
+<import src="commonNewslist/commonNewslist.wxml"/>  <!-- 普通的新闻列表 -->
+
+
+     <block wx:if='{{data.androidTemplate == ""}}'>
+  <template is="simpleNewsList" 
+       data="{{...data}}"></template> 
+  </block>
+
+<!--可以滑动的新闻列表  -->
+     <block wx:if='{{data.androidTemplate == "news_list_slide"}}'>
+  <template is="newsListSlide" 
+       data="{{...data}}"></template> 
+  </block>
+  <!--通用新闻列表  -->
+     <block wx:if='{{data.androidTemplate == "common_news_list"}}'>
+  <template is="commonNewslist" 
+       data="{{...data}}"></template> 
+  </block>
+
+
+<slot></slot>
+

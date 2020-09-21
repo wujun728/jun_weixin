@@ -1,0 +1,81 @@
+<view class='container'>
+  <view class='top_meun_tab'>
+    <view class='top_meun_tab_item' wx:for="{{tabItem}}" catchtap='changeStateProcess' data-index="{{tabItem.state}}" wx:key='{{index}}' wx:for-item="tabItem" style='border-color:{{tabItem.state==currentIndex?setting.platformSetting.defaultColor:"#fff"}};color:{{tabItem.state==currentIndex?setting.platformSetting.defaultColor:""}}'>
+      <text>{{tabItem.text}}</text>
+    </view>
+  </view>
+  <view class='process_list'>
+  <block wx:if="{{processList.length!=0}}">
+    <process-instance-item data="{{processItem}}" wx:for="{{processList}}" wx:for-item="processItem" wx:key='{{index}}'></process-instance-item>
+  </block>
+  <block wx:else>
+    <view class='none_list'>主人~暂无流程哦！</view>
+  </block>
+    <!-- <view class='process_item' wx:for="{{processList}}" wx:for-item="processItem" wx:key='{{index}}'>
+      <view class='process_title'>
+        <view class='process_title_left'>
+          <image class='order_icon' src='../../images/icons/page.png'></image>
+          <text class='order_no'>{{processItem.belongOrderNo}}</text>
+        </view>
+        <view class='process_title_right'>
+          <text class='process_type' style='color:{{setting.platformSetting.defaultColor}}99'>[流程]</text>
+          <text class='process_name'>{{processItem.belongProcessName}}</text>
+        </view>
+      </view>
+      <view class='process_description'>
+        <view class='user_group'>
+          <view class='service'>
+            <text class='service_name' wx:if="{{processItem.belongServantId==0}}">暂无</text>
+            <text class='service_name' wx:else>{{processItem.belongServantName}}</text>
+          </view>
+          <view class='concat_line'></view>
+          <view class='service_point' style='background:{{setting.platformSetting.defaultColor}}99'>
+            <text wx:if="{{processItem.servantConfirmServantId!=0}}">开始</text>
+            <text wx:else>等待</text>
+            服务
+          </view>
+          <view class='concat_line'></view>
+          <view class='service'>
+            <text class='service_name' wx:if="{{processItem.belongPlatformUserName}}">{{processItem.belongPlatformUserName}}</text>
+            <text class='service_name' wx:else>暂无</text>
+          </view>
+        </view>
+        <view class='process_stage_list'>
+          <view class='process_stage'>
+            <view class='process_line'></view>
+            <text class='process_stage_name' style='color:#fff;background:{{setting.platformSetting.defaultColor}}99;border-color:{{setting.platformSetting.defaultColor}}99'>开始</text>
+            <view class='process_line'></view>
+          </view>
+          <view class='process_stage' wx:for="{{processItem.process.stages}}" wx:for-item="stage" wx:key='{{index}}'>
+            <view class='process_line'></view>
+            <text class='process_stage_name active' wx:if="{{index+1>processItem.currentStageSequence}}">{{stage.name}}</text>
+            <text class='process_stage_name' wx:else style='color:#fff;background:{{setting.platformSetting.defaultColor}}99;border-color:{{setting.platformSetting.defaultColor}}99'>{{stage.name}}</text>
+            <view class='process_line'></view>
+          </view>
+          <view class='process_stage'>
+            <view class='process_line'></view>
+            <text class='process_stage_name' style='color:#fff;background:{{setting.platformSetting.defaultColor}}99;border-color:{{setting.platformSetting.defaultColor}}99;' wx:if="{{processItem.currentStageSequence==9999}}">结束</text>
+            <text class='process_stage_name' style='color:#fff;background:red;border-color:red;' wx:if="{{processItem.currentStageSequence==10000}}">异常</text>
+            <text class='process_stage_name' style='color:#fff;background:#888;border-color:#888;' wx:if="{{processItem.currentStageSequence==10001}}">作废</text>
+            <text class='process_stage_name' style='border-color:#888;' wx:if="{{processItem.currentStageSequence<9999}}">结束</text>
+            <view class='process_line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='process_bottom'>
+        <view class='process_bottom_left'>
+          <view class='check_record' bindtap="confirmProcessOrder" data-id="{{processItem.id}}" wx:if="{{processItem.currentStageSequence<=0&&loginUser.platformUser.managerServantId==processItem.belongServantId}}" style='border:2rpx solid {{setting.platformSetting.defaultColor}}99;'>
+            <text style='color:{{setting.platformSetting.defaultColor}}99'>确认接单</text>
+          </view>
+          <view class='check_record' style='border:2rpx solid {{setting.platformSetting.defaultColor}}99;' wx:for="{{processItem.platformUserActions}}" wx:for-item="action" wx:key='{{index}}' wx:if="{{processItem.platformUserActions}}" bindtap='doProcessAction' data-formId="{{action.customFormId}}" data-actionId="{{action.id}}" data-processInstanceId="{{processItem.id}}">
+            <text style='color:{{setting.platformSetting.defaultColor}}99'>{{action.name}}</text>
+          </view>
+        </view>
+        <view class='process_bottom_right'>
+          <image class='process_icon' src='http://image1.sansancloud.com/xianhua/2018_11/14/19/58/37_380.jpg?x-oss-process=style/preview_120'></image>
+          <text class='process_time'>{{processItem.addTime}}</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+</view>

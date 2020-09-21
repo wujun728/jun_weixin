@@ -1,0 +1,10 @@
+/* pages/cityselect/cityselect.wxss */
+/*城市选择器  */
+.section__title{
+  margin-bottom: 20rpx;
+}
+.section{
+  margin: 50rpx 0;
+  font-size: 30rpx;
+}
+/*城市选择器  */

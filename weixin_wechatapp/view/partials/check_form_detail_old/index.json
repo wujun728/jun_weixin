@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f1f1f1",
+  "component": true,
+  "usingComponents": {
+    "component-tag-banner": "../banner/banner"
+  }
+}

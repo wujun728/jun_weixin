@@ -1,0 +1,8 @@
+/* pages/productDetail_derection/index.wxss */
+.productDetail_imageItem{
+  width: 100%;
+  margin-bottom: 1em;
+}
+.imageItem{
+  width: 100%;
+}

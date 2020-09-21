@@ -1,0 +1,62 @@
+td{text-align: center;}
+button{float: right;outline: none;}
+.shares-code{ border: 1px solid #eee;padding: 1px 3px;max-width: 60px;margin: 0 auto;border-radius: 4px;text-align: center;}
+.all{text-align: left;padding-top: 14px;position: absolute;margin-left: -15px;border-top: none;}
+.topdown{margin-left: 5px;}
+
+
+
+
+/*.checkboxFive {
+	width: 25px;
+	margin: 20px 100px;
+	position: relative;
+}
+.checkboxFive label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	border:1px solid #ddd;
+}
+.checkboxFive label:after {
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+ 
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.checkboxFive label:hover::after {
+	opacity: 0.5;
+}
+ 
+/**
+ * Create the checkbox state for the tick
+ */
+/*
+.checkboxFive input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}*/
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+{
+  "name": "node-js-wechat",
+  "version": "1.0.0",
+  "description": "微信公众平台开发模式 Node.js SDK",
+  "author": {
+    "name": "____′↘夏悸",
+    "url": "http://git.oschina.net/gson/wechat-for-node-js"
+  },
+  "bugs": {
+    "url": "http://git.oschina.net/gson/wechat-for-node-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.oschina.net/gson/wechat-for-node-js.git"
+  },
+  "main": "./wechat",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {
+	"xmlreader":"0.2.3"
+  },
+  "readmeFilename": "README.md",
+  "contributors": [
+    {
+      "name": "notejs",
+      "url": "https://github.com/notejs"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+     1、显示模态框
+	 wx.showActionSheet({
+       itemList: ['相册选取', '相机拍照'],
+       success: function(res) {
+         console.log(res.tapIndex)
+         switch (res.tapIndex) {
+           case 0:
+             {
+               console.log("相册选取");
+             };
+             break;
+           case 1:
+             {
+               console.log("相机拍照");
+
+        
+             };
+             break;
+         }
+       },
+       fail: function(res) {
+         console.log("点击了取消")
+       }
+     })

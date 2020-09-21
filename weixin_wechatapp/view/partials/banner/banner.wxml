@@ -1,0 +1,22 @@
+<!-- swiper轮播图 -->
+<import src="firstBanner.wxml"/>  <!-- 正常的标题 -->
+<import src="more_banner/index.wxml"/>  <!-- 正常的标题 -->
+
+   <block wx:if='{{data.androidTemplate == ""}}'>
+  <template is="firstBanner" 
+       data="{{...data,sysWidth,...setting,imgs}}"></template> 
+
+  </block> 
+  <block wx:if='{{data.androidTemplate == "more_banner"}}'>
+  <template is="moreBanner" 
+       data="{{...data,sysWidth,...setting,imgs}}"></template> 
+
+  </block> 
+  <block wx:if='{{!data.androidTemplate&&data.androidTemplate != ""}}'>
+  <template is="firstBanner" 
+       data="{{...data,sysWidth,...setting,imgs}}"></template> 
+
+  </block>
+<slot></slot>
+
+

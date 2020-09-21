@@ -1,0 +1,13 @@
+<!--第一种banner -->
+<template name="simpleAudio">
+   <block >
+   <!--自带的audio  controls-->
+      <audio src="{{jsonData.source}}" id="myAudio" controls poster="../../../images/333.jpg" name="音频名字" author="音频作者"></audio>   
+
+   
+
+
+  </block> 
+  
+
+</template>

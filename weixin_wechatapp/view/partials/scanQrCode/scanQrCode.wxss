@@ -1,0 +1,23 @@
+
+
+.wrap{
+   padding: 20rpx;
+   display: flex;
+   flex-direction: row;
+}
+
+.scan{
+  width: 150rpx;
+  height: 50rpx;
+   font-size: 36rpx;
+   line-height: 50rpx;
+   
+}
+.scanImg{
+  width: 50rpx;
+  height: 50rpx;
+}
+.scanImg image{
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -1,0 +1,95 @@
+body, html {
+	height: 100%;
+	-webkit-tap-highlight-color: transparent
+}
+
+.page, body {
+	background-color: #fbf9fe
+}
+
+.container {
+	overflow: hidden
+}
+
+.container, .page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0
+}
+
+.page {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch
+}
+
+.hd {
+	padding: 2em 0
+}
+
+.page_desc {
+	text-align: center;
+	color: #888;
+	font-size: 14px
+}
+.bd.spacing {
+	padding: 0 15px
+}
+
+.page_title {
+	text-align: center;
+	font-size: 34px;
+	color: #3cc51f;
+	font-weight: 400;
+	margin: 0 15%
+}
+.index-title{
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0 20px 0;
+}
+.tc{
+    text-align: center;
+    padding-bottom: 20px
+}
+.error-pad{
+    padding: 10px 15px 0 15px;
+}
+.tab-change{
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+.reg-part{
+    display: inline-block;
+    padding: 4px 22px;
+    border: 1px solid #04BE02;
+    text-align: center;
+    background-color: #ffffff;
+}
+.email-reg{
+    margin-left: -5px;
+}
+.active{
+    background-color: #04BE02;
+    color: #fff;
+}
+.index-login-state{
+    position: relative;
+    margin: 1.17647059em 15px 0.3em;
+}
+.forgot-password{
+    position: absolute;
+    right: 0;
+    -webkit-tap-highlight-color:transparent;
+}
+.error{
+    color: #ff0000;
+}
+.mobile-msg{
+    padding: 10px 15px;
+    border:none;
+}
+.blue{
+    color: #66f9cf;
+}

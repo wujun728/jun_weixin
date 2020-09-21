@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiton.mapper.MarkRecodeMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		mrd_id AS mrdId, mrd_userid AS mrdUserid, mrd_username AS mrdUsername, mrd_profittype AS mrdProfittype, mrd_time AS mrdTime, mrd_income AS mrdIncome, mrd_pay AS mrdPay, mrd_share AS mrdShare, mrd_remark AS mrdRemark
+	</sql>
+
+</mapper>

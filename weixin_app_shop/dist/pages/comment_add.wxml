@@ -1,0 +1,27 @@
+
+  <view class="block">
+    <form bindsubmit="formSubmit">
+    <view class="item-block">
+      <view class="title">评分:</view>
+      <view class="content">
+        
+  <block  wx:for="{{$rate$stars}}" wx:key="item.id">
+    <image wx:if="{{$rate$readonly}}" class="star-image-read" style="left: {{item}}rpx" src="{{$rate$key > item ?($rate$key-item == 0.5?$rate$halfSrc:$rate$selectedSrc) : $rate$normalSrc}}">
+    </image>
+    <image wx:else class="star-image" style="left: {{item*10}}rpx" src="{{$rate$key > item ?($rate$key-item == 0.5?$rate$halfSrc:$rate$selectedSrc) : $rate$normalSrc}}">
+      <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="$rate$selectLeft"/>
+      <view class="item" style="left:25rpx" data-key="{{item+1}}" bindtap="$rate$selectRight"/>
+    </image>
+  </block>
+
+      </view>
+    </view>
+    <view class="item-block">
+      <view class="title">内容:</view>
+      <view class="content">
+        <textarea bindinput="bindText" name="content" class="textarea" placeholder="请输入评论内容"/>
+      </view>
+    </view>
+     <button class="button type_green" formType="submit">发表评论</button>
+    </form>
+  </view>

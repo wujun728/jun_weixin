@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "backgroundColor": "#f9f9f9",
+  "usingComponents": {
+    "chat-item": "../../view/partials/chat_item/index"
+  }
+}

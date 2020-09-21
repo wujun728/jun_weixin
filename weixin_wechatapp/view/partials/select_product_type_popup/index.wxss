@@ -1,0 +1,246 @@
+.bg{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  background: #000;
+  filter:alpha(opacity:60); 
+  opacity:0.6;  
+  -moz-opacity:0.6;
+  -khtml-opacity: 0.6;
+  z-index:1000;
+}
+scroll-view{
+  width: 92%
+}
+.content{
+  width:700rpx;
+  height:1100rpx;
+  position:fixed;
+  top:60rpx;
+  left:50%;
+  background:#fff;
+  margin-left:-350rpx;
+  z-index:1001;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius: 20rpx;
+}
+.close{
+  position:fixed;
+  top:40rpx;
+  right:8px;
+  width:50rpx;
+  height:50rpx;
+  border-radius:50rpx;
+  background:#999;
+  color:#fff;
+  line-height:45rpx;
+  text-align:center;
+  z-index:1002;
+}
+.head_title{
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.head_title_text{
+  font-size: 28rpx;
+}
+.box_share_pintuan{
+  width: 700rpx;
+  height: 1100rpx;
+  box-shadow: 2px 2px 10px #999;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+.pintuan_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:33%;
+  box-sizing:border-box;
+  font-size:28rpx;
+  height:890rpx;
+  background:#f8f8f8;
+}
+.pintuan_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom:1rpx solid #eee;  */
+  padding:30rpx;
+  color:#666;
+  position: relative;
+  width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.pintuan_item_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.pintuan_item_left .user_head{
+  height: 80rpx;
+  width: 80rpx;
+  padding:10rpx;
+}
+.pintuan_item_data{
+  margin-left: 6rpx;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.user_data{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.user_data .user_num{
+  font-size: 20rpx;
+  margin-left: 10rpx;
+  color: #999;
+}
+.pintuan_item_data .pintuan_time{
+  color: #aaa;
+  font-size: 20rpx;
+  letter-spacing: 2rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left:20rpx;
+}
+.pintuan_item_right{
+  height: 50rpx;
+  border-radius: 10rpx;
+  padding: 6rpx 20rpx 6rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:20rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.bottom_title{
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+}
+.bottom_title_text{
+  color: #aaa
+}
+.product_type_two_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:30%;
+  box-sizing:border-box;
+  font-size:28rpx;
+  height:890rpx;
+  background:#f4f4f4; 
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 2
+}
+.product_type_two_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom:1rpx solid #eee;  */
+  padding:30rpx;
+  color:#666;
+  position: relative;
+}
+.product_type_three_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:30%;
+  box-sizing:border-box;
+  font-size:28rpx;
+  height:890rpx;
+  background:#f1f1f1; 
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 2
+}
+.product_type_three_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border-bottom:1rpx solid #eee;  */
+  padding:30rpx;
+  color:#666;
+  position: relative;
+}
+.none_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 0;
+  top: 0;
+  padding:30rpx;
+  z-index: 2;
+  width:30%;
+  font-size: 28rpx;
+  color: #999;
+  box-sizing:border-box;
+}
+.multi_select_bg{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height:100rpx;
+  font-size:26rpx;
+  z-index: 10;
+
+}
+.multi_select_btn{
+  padding: 10rpx 50rpx;
+  color: #fff;
+  border-radius: 16rpx;
+  margin-left: 10rpx;
+  width:60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.multi_select_btn_clear{
+  padding: 10rpx 50rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  width:60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,155 @@
+    <!--pages/productDetail/index.wxml-->
+<import src="../../view-new/aikucun/measure_card2.wxml"/>
+<wxs src="../../public/publicFun.wxs" module="publicFun"></wxs>
+<view class='top_tab'>
+  <view class='top_tab_item' bindtap='switchState' data-type="1">
+    <text class='{{showInfo?"active":""}}'>主要</text>
+  </view>
+  <view class='top_tab_item' bindtap='switchState' data-type="0">
+    <text class='{{!showInfo?"active":""}}'>详情</text>
+  </view>
+</view>
+<view class='container' wx:if="{{showInfo}}">
+  <view class='SwiperContainer'>
+    <swiper class='SwiperIndex' indicator-dots="true" autoplay="true" indicator-color="#dcdcdc" indicator-active-color="#bebebe" interval="5000" duration="500" bindchange="swiperChange">
+      <block wx:for="{{productData.images}}"  wx:key="{{swiper}}">
+        <swiper-item data-imageUrl='{{productData.images}}' data-index='{{index}}' bindtap='lookBigImage'>
+          <image mode='aspectFit' src="{{item.imagePath}}?x-oss-process=style/normal" />
+        </swiper-item> 
+      </block>
+    </swiper>
+    <!-- <view class='swiperItemIndex'>{{swiperIndex}}/{{totalImg}}</view> -->
+    <block wx:if="{{productData.productInfo.promotionBean}}">
+      <view class='timeCountDownBg' style='background:linear-gradient(116deg,{{setting.platformSetting.secondColor}} 0%,{{color}} 100%);' wx:if="{{productData.productInfo.promotionBean.promotionStatus!=2}}"></view>
+      <view class='timeCountDownBg' style='background:linear-gradient(116deg,#eee 0%,#999 100%);' wx:else></view>
+      <view class='timeCountDown' wx:if="{{productData.productInfo.promotionBean}}">
+        <view class='promotionTitle' wx:if="{{productData.productInfo.promotionBean.promotionStatus==1}}">
+          <image class='timeLeftImg' src='http://image1.sansancloud.com/xianhua/2019_1/28/15/11/13_55.jpg'></image>
+          <text class='promotionName'>{{productData.productInfo.promotionBean.name}}</text>
+        </view>
+        <view class='promotionTitle' wx:if="{{productData.productInfo.promotionBean.promotionStatus==2}}">
+          <image class='timeLeftImg' src='http://image1.sansancloud.com/xianhua/2019_1/28/15/11/13_60.jpg'></image>
+          <text class='promotionName'>{{productData.productInfo.promotionBean.name}}</text>
+        </view>
+        <view class='promotionTitle' wx:if="{{productData.productInfo.promotionBean.promotionStatus==0}}">
+          <image class='timeLeftImg' src='http://image1.sansancloud.com/xianhua/2019_1/28/15/11/13_55.jpg'></image>
+          <text class='promotionName'>{{productData.productInfo.promotionBean.name}}</text>
+        </view>
+        <view class='timeItem'>
+          <text class='timeText' wx:if="{{productData.productInfo.promotionBean.promotionStatus==1}}">距结束</text>
+          <text class='timeText' wx:if="{{productData.productInfo.promotionBean.promotionStatus==2}}">已结束</text>
+          <text class='timeText' wx:if="{{productData.productInfo.promotionBean.promotionStatus==0}}">距开始</text>
+          <time wx:if="{{productData!=null&&productData.productInfo.promotionBean.promotionStatus==0}}" data="{{productData.productInfo.promotionBean.startDate}}"></time>
+          <time wx:if="{{productData!=null&&productData.productInfo.promotionBean.promotionStatus==1}}" data="{{productData.productInfo.promotionBean.endDate}}"></time>
+        </view>
+      </view>
+    </block>
+  </view>  
+  <!-- 产品详细内容 -->
+  <view class='product_info'>
+    <text class='product_name'>{{productData.productInfo.name}}</text>
+    <text class='product_description'>{{productData.productInfo.description||"广告语位置"}}</text>
+    <view class='sale_tag_list' wx:if="{{productData.productInfo.itemSpecialSaleType!=0}}">
+      <view class='sale_tag' wx:if="{{productData.productInfo.itemSpecialSaleType==1}}">
+        <text class='sale_tag_title'>满减</text>
+        <text class='sale_tag_value'>满{{productData.productInfo.itemSpecialSaleValue1}}元减{{productData.productInfo.itemSpecialSaleValue2}}元</text>
+      </view>
+      <view class='sale_tag' wx:if="{{productData.productInfo.itemSpecialSaleType==2}}">
+        <text class='sale_tag_title'>买赠</text>
+        <text class='sale_tag_value'>买{{productData.productInfo.itemSpecialSaleValue1}}件赠{{productData.productInfo.itemSpecialSaleValue2}}件</text>
+      </view>
+      <view class='sale_tag' wx:if="{{productData.productInfo.itemSpecialSaleType==3}}">
+        <text class='sale_tag_title'>限购</text>
+        <text class='sale_tag_value'>限购{{productData.productInfo.itemSpecialSaleValue1}}件</text>
+      </view>
+    </view>
+    <view class='product_base_info'>
+      <view class='product_unit'><text>{{productData.productInfo.unitShow}}</text></view>
+      <view class='product_price_info'>
+        <text>￥</text>
+        <text class='product_price' wx:if="{{productData.productInfo.promotionBean}}">{{productData.productInfo.promotionPrice}}</text>
+        <text class='product_price' wx:else>{{productData.productInfo.price}}</text>
+        <view class='product_tag_price' wx:if='{{productData.productInfo.tagPrice>productData.productInfo.price}}'>
+          <text>/</text><text class='value'>￥{{productData.productInfo.tagPrice}}</text>
+        </view>
+      </view>
+      <view class='product_brand'><text>{{productData.productInfo.brandName}}</text></view>
+    </view>
+  </view>
+  <view class='btn_tab'>
+    <view class='btn_tab_item' data-itemId="{{productData.productInfo.productId}}" catchtap='{{productData.productInfo.favorite==0?"addToFavourite":"removeFavourite"}}'>
+      <image wx:if="{{productData.productInfo.favorite==1}}" class='btn_tab_icon'  src='http://image1.sansancloud.com/xianhua/2019_4/1/13/47/58_785.jpg?x-oss-process=style/preview_120'></image>
+      <image wx:if="{{productData.productInfo.favorite==0}}" class='btn_tab_icon'  src='http://image1.sansancloud.com/xianhua/2019_4/1/13/52/1_278.jpg?x-oss-process=style/preview_120'></image>
+      <text wx:if="{{productData.productInfo.favorite==1}}">已收藏</text>
+      <text wx:if="{{productData.productInfo.favorite==0}}">收藏</text>
+    </view>
+    <view class='btn_tab_item' bindtap='showWay'>
+      <image class='btn_tab_icon' src='http://image1.sansancloud.com/xianhua/2019_4/1/13/47/58_484.jpg?x-oss-process=style/preview_120'></image>
+      <text>推荐</text>
+      <view class='showList' wx:if="{{showWayState}}">
+        <button class='showItem btn' catchtap='showPoster'>
+          <image class='sharaPosterIcon' src='http://image1.sansancloud.com/sansancloud/2018_9/10/10/4/26_910.jpg?x-oss-process=style/preview_120'></image>
+          <text>生成海报</text>
+        </button>
+        <button class='showItem btn' open-type='share'>
+          <image class='sharaPosterIcon' src='http://image1.sansancloud.com/sansancloud/2018_9/10/10/16/1_467.jpg?x-oss-process=style/preview_120'></image>
+          <text>分享页面</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class='interval'></view>
+  <!-- 首页组件-私有产品详情装饰-->
+  <view style='margin-top:20rpx;'>
+    <component-customPage data="{{sendProductData}}"></component-customPage> 
+  </view>
+
+  <!-- 首页组件-公共产品详情装饰-->
+  <component-customPage data="{{sendIndexData}}"></component-customPage> 
+</view>
+
+  
+<view class='loading' wx:if="{{!showInfo}}">
+  <text>下拉回到顶部</text>
+</view>
+<import src="../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+<view class="tab_detail_container" wx:if="{{!showInfo}}">
+  <view class='wxParseHtmlContainer'> <template is="1" data="{{wxParseData:article.nodes}}"></template> </view>
+</view>
+
+<view class='user_footer'>
+  <image class='user_footer_img' mode='aspectFit' src='http://image1.sansancloud.com/xianhua/2019_3/27/15/46/41_583.jpg'></image>
+</view>
+<view class='loading' wx:if="{{showInfo}}">
+    <text>{{loadingText}}</text>
+  </view>
+<!-- 底部按钮们 -->
+<view class='bottomHeight'></view>
+<view class='product_detail_bottom_container'>
+ <view class='' data-itemId='{{productData.productInfo.productId}}' bindtap='toIndex' class='{{productData.productInfo.preOrderCustomFormId?"left_bottom w_150":"left_bottom"}}'>
+   <image mode='aspectFit' src='/images/icons/home2.png'></image>
+   <text style='font-size:22rpx;color:#aaa'>首页</text>
+  </view> 
+  <view class='left_bottom' bindtap='toCart' data-link="milk_shopping_car_pages.html" wx:if="{{!productData.productInfo.preOrderCustomFormId}}">
+    <view class='cartNumber' style='background:{{color}}'>{{countGood}}</view>
+    <image mode='widthFix' src='/images/icons/cartddd.png'></image>
+    <text style='font-size:22rpx;color:#aaa'>购物车</text>
+  </view>
+  <block wx:if='{{!pintuanState}}'>
+    <view class='right_bottom addto font_08' data-way='cart' bindtap='readyPay2' style=' border: 2rpx solid {{scolor}};color:{{color}}' wx:if="{{!productData.productInfo.preOrderCustomFormId}}" >加入购物车</view>
+    <!-- <view wx:else class='right_bottom'></view> -->
+    <view class='{{productData.productInfo.preOrderCustomFormId?"w_540":""}} right_bottom bynow font_08' data-way='buy' bindtap='readyPay2' style='background-image:linear-gradient(to right,{{secondColor}},{{color}});box-shadow:0px 0px 6px 0px {{color}};'>
+      <text wx:if="{{productData.productInfo.preOrderCustomFormId}}">立即下单</text>
+      <text wx:else>立即购买</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='right_bottom addto font_08' data-way='pintuanOne' bindtap='readyPay2' style=' border: 2rpx solid {{color}};color: {{color}}'>单独购买</view>
+  <view class='right_bottom bynow font_08' data-way='pintuanMore' bindtap='readyPay2' style='background-image:linear-gradient(to right,{{secondColor}},{{color}});box-shadow:0px 0px 6px 0px {{color}};'>发起拼单</view>
+  </block>
+</view>
+
+<posters proId="{{proId}}" shopId="{{shopId}}" ewmImgUrl='{{qrCodeUrl}}'  wx:if='{{posterState}}' bind:closePoaster="getChilrenPoster"></posters> 
+<pintuan pintuanParam="{{pintuanParam}}" wx:if='{{pintuanPopupState}}' bind:closePintuan="getChilrenPintuan" bind:goPintuan='readyPay2'></pintuan> 
+
+ <template is="measure_card2" data="{{setting:setting,showCount,minCount,focusData:productData.productInfo,measures:productData.measures,byNowParams:byNowParams,measurementJson:measurementJson,type:bindway}}"></template> 

@@ -1,0 +1,15 @@
+<!--搜索  -->
+<template name="pt_4_search">
+  <block>
+      <view class="TitleHeadSearch2 flexCenter" >
+        <view class="TitleHeadSearch_input2" >
+          <image class='searchIcon' src='/images/icons/titleSearch.png'></image>
+          <input confirm-type='搜索' bindconfirm='searchProduct' placeholder="请输入搜索产品关键词"></input>
+        </view>
+      </view>
+     
+  </block>
+</template>
+
+
+ 

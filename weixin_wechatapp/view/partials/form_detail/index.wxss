@@ -1,0 +1,487 @@
+
+@import '../../../app.wxss';/* 引入带有阴影的 */
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5;
+  position: relative;
+}
+.formBanner{
+  width: 100%;
+  /* padding: 20rpx; */
+  box-sizing:border-box;
+  background:#fff;
+}
+.bannerUrl{
+  width: 100%;
+  height: 100%
+}
+.formHead{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.formName{
+  padding:0 0 20rpx 0;
+  font-size: 34rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  color:#444444;
+}
+.formDescription{
+  letter-spacing: 2rpx;
+  line-height:32rpx;
+  font-size:22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: #888;
+  width: 100%
+}
+.tip{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.tipIcon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 6rpx
+}
+.tipText{
+  width: 80%;
+}
+.formContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.common{
+  background: #fff;
+  border-radius: 6rpx;
+  min-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 18rpx;
+  margin: 2rpx 0;
+  justify-content: space-between;
+  font-size:28rpx;
+
+}
+.inputName{
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.inputString input{
+  text-align: right;
+  width: 60%
+}
+.inputString textarea {
+  text-align:left;
+  padding: 10rpx;
+  width:96%;
+  border:1rpx solid #eee;
+  margin-top:10rpx;
+  height: 200rpx;
+}
+
+/* .picker{
+  width:60%;
+  height:100%;
+  line-height:76rpx;
+} */
+.pickerRight{
+  height:76rpx;
+  display:flex;
+  align-items:center;
+  width:40rpx;
+  float:right;
+}
+.pickerValue{
+  width:90%;
+  height:80rpx;
+  float: left;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: flex-end; */
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  
+}
+.pickerImg{
+  width: 26rpx;
+  float: right;
+  height: 26rpx;
+}
+.imgType{
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff; 
+  height:100%;
+  font-size:34rpx;
+}
+.imgName{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+.selectName{
+  font-size: 28rpx;
+}
+.upload{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow: wrap;
+  margin-top:15rpx;
+}
+.uploadImg{
+  width: 150rpx;
+  height: 150rpx;
+  border:2rpx dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 15rpx
+}
+.uploadImgIcon{
+  width: 50rpx;
+  height: 50rpx
+}
+.uploadedImgUrl{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 18rpx;
+  border-radius: 10rpx
+}
+.uploadedImg{
+  margin-bottom: 15rpx;
+  position: relative;
+}
+.removeImgBg{
+  width:150rpx;
+  height: 40rpx;
+  background: #888;
+  opacity: 0.5;
+  position: absolute;
+}
+.removeImgIcon{
+  position: absolute;
+  right: 26rpx;
+  top:6rpx;
+  border-radius: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #888;
+  font-size: 20rpx;
+  text-align:center;
+  color: #fff
+}
+.saveData{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top:20rpx;
+  font-size:20rpx;
+}
+.saveData button{
+  font-size:30rpx;
+}
+.picker{
+  width: 460rpx;
+  height: 80rpx;
+  line-height:76rpx;
+  text-align:right;
+  float:left;
+
+}
+.saveBtn{
+  width: 60%
+}
+.checkFormList{
+  width: 35%
+}
+.checkFormList:after {
+  border: none;
+}
+.saveBtn:after {
+  border: none;
+}
+.shareFormPoster{
+  position: fixed;
+  top: 66%;
+  right: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  z-index:10;
+}
+.shareFormPosterImg{
+  width: 70rpx;
+  height: 70rpx;
+}
+.location{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 50rpx;
+  width: 70%;
+  justify-content: space-between
+}
+.select_address{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.interval{
+  display: flex;
+  align-items: center;
+  padding-left:5px;
+}
+.interval_banner{
+  width: 100%;
+  /* height: 10rpx; */
+  display: block;
+}
+.checkboxList{
+  display: flex;
+  margin: 10rpx 20rpx;
+  flex-direction: column;
+  width:96%;
+}
+.checkbox{
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.checkbox:last-child{
+  border-bottom: none;
+  padding-bottom: 0
+}
+.zhezhao{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#000;
+  opacity:0.6;
+  z-index:9;
+
+}
+.support_measure{
+  flex-direction:row;
+  background:#fff;
+  height:100%;
+  font-size:34rpx;
+
+}
+/* 进程 */
+.process_line{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:none;
+  padding: 20rpx 0
+}
+.process_list{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  margin-bottom:20rpx;
+}
+.process_item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background:#fff;
+  margin-bottom:10rpx;
+  padding:10rpx 20rpx;
+  border-radius:10rpx;
+}
+.process_item:last-child .process_item_content{
+  border: none !important 
+}
+.process_item_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.process_dot{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 14rpx;
+}
+.process_item_title{
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  width:80%;
+}
+.process_item_content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx;
+  margin-left: 6rpx;
+}
+.process_item_content_text{
+  color: #666;
+}
+.delete_process_item{
+  position:absolute;
+  top:0;
+  right:0;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  background:hsla(0,0%,60%,.6);
+  font-size:20rpx;
+  line-height:30rpx;
+  color:#fff;
+  padding:0 10rpx 0 16rpx;
+  letter-spacing:6rpx;
+}
+.add_process{
+  height:50rpx;
+  border:2rpx dashed #999;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  margin-left: 10rpx;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+}
+.add_process_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx
+}
+/* 多规格 */
+.add_measures{
+  width:50rpx;
+  height:50rpx;
+  border:2rpx dashed #ccc;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-left: 10rpx;
+}
+.add_measures_icon{
+  width: 30rpx;
+  height: 30rpx
+}
+.add_measures_popup{
+  position: fixed;
+  top: 50%;
+  margin-top: -260rpx;
+  left: 50%;
+  margin-left: -300rpx;
+  width: 600rpx;
+  height: 540rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  z-index: 11;
+  box-sizing:border-box;
+  padding:20rpx;
+  font-size: 30rpx;
+}
+.add_measures_popup_title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 10rpx 0;
+  font-weight:bold;
+  margin-bottom:40rpx;
+}
+.add_measures_popup_list{
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+.add_measures_popup_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.add_measures_popup_item_input{
+  width:76%;
+  border:1rpx solid #f1f1f1;
+  padding:10rpx;
+}
+.no_support_measure_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  font-size: 26rpx;
+  color: #999
+}
+.support_measure_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  padding:20rpx;
+}
+.support_measure_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 20rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  font-size: 26rpx;
+  margin:10rpx;
+}
+.delete_support_measure_item{
+  position: absolute;
+  top: -12rpx;
+  right: -10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30rpx;
+  height: 30rpx;
+  background:hsla(0,0%,60%,.6);
+  /* opacity:0.6; */
+  border-radius:30rpx;
+  font-size:24rpx;
+  line-height:30rpx;
+}

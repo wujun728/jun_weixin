@@ -1,0 +1,4 @@
+@import "./../components/common/bottomLoadMore.wxss";
+@import "./../components/collection_list.wxss";
+@import "./../components/tab.wxss";
+.tab_box{background:#fff;padding:0 120rpx}

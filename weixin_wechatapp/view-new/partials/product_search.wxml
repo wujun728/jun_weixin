@@ -1,0 +1,15 @@
+ <!-- 头部导航 -->
+<template name="product_search"> 
+  <view class="searchContainer" >
+    <view class="headSearch" style='background:{{platformSetting.defaultColor}}'>
+      <label class="headSearch_input" >
+        <input  confirm-type='搜索' bindconfirm='getSearchProductName'   placeholder="请输入搜索产品关键词"></input>
+      </label>
+      <view class='headSearch_icon' data-productName="{{SearchProductName}}" bindtap='searchProduct'> 
+      <icon type="search" size="24" color="#fff"/></view>
+    </view>
+
+
+    <view class="headSearch_view_height"></view>
+  </view>
+</template>

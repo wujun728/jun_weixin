@@ -1,0 +1,27 @@
+<template name="userinfo_header2">
+
+     <block wx:if="{{loginUser}}">
+        <view class='userinfo_header2_container' bindtap='loginOut'>
+          <view class='userinfo_header2_headImage_view'>
+              <image src='{{loginUser.platformUser.headimgurl}}'></image>
+          </view>
+          <view class='userinfo_header2_headText_view'>
+            <view> <text>{{loginUser.platformUser.nickname}}</text></view>
+            <text>查看并编辑个人资料</text>
+          </view>
+        </view>
+     </block>
+     <block wx:else>
+        <view class='userinfo_header2_container' bindtap='login'>
+          <view class='userinfo_header2_headImage_view'>
+              <image src='http://image1.sansancloud.com/jianzhan/2017_09/24/16/08/58_464.jpg'></image>
+          </view>
+          <view class='userinfo_header2_headText_view'>
+            <view>未登录</view>
+            <text>登录完成后，才能进行下单操作</text>
+          </view>
+      </view>
+     </block>
+     
+
+</template>

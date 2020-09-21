@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="dashi_items" wx:for="{{productData}}" wx:for-item="dashi" wx:key='{{index}}'
+   
+  > 
+    <view class='dashi_items_image_container'>
+      <image class='dashi_items_image' src='{{dashi.brandIcon}}?x-oss-process=style/preview' mode='widthFix'></image>
+    </view>
+    
+    <view class='dashi_items_text_container'>
+      <view class='dashi_items_name'>{{dashi.brandName}}</view>
+      <view class='dashi_items_text'  data-brandid='{{dashi.id}}' bindtap='showDaShi'>{{dashi.brandDescription}}</view>
+    </view>
+    <view class='dashi_items_butn_container'>
+
+      <view wx:if='{{!dashi.guanzhu}}' class='dashi_items_butn_guanzhu' data-brandid='{{dashi.id}}' bindtap='guanzhuDaShi' style='background:{{setting.platformSetting.defaultColor}}'>关注</view>
+      <view wx:else class='dashi_items_butn_guanzhu' data-brandid='{{dashi.id}}' bindtap='removeGuanzhuDaShi' style='background:{{setting.platformSetting.defaultColor}}'>取消关注</view>
+      <view class='dashi_items_butn_lookGook'data-brandid='{{dashi.id}}' bindtap='lookProdocuDaShi'
+      style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'
+      >查看商品</view>
+    </view>
+  </view>
+</view>

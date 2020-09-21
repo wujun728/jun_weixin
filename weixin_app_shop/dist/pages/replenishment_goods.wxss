@@ -1,0 +1,5 @@
+@import "./../components/common/placeholder.wxss";
+@import "./../components/common/bottomLoadMore.wxss";
+@import "./../components/shop_grid_list.wxss";
+@import "./../components/tab.wxss";
+.tab_box{padding:0 60rpx;background:#fff}

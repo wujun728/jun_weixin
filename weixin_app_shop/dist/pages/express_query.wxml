@@ -1,0 +1,2 @@
+
+  <web-view src="https://m.kuaidi100.com/index_all.html?type={{expressType}}&postid={{expressOrdNum}}#result"/>

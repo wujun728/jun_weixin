@@ -1,0 +1,57 @@
+
+<view class="container"> 
+<!-- 头部 -->
+ <view class="typeSearchContainer" > 
+    <view class='search_input_bg'>
+      <view class='search_input'>
+        <view class='search_input_left'>
+          <!-- bindinput="searchProductValue" -->
+          <image class='input_img' src='http://image1.sansancloud.com/xianhua/2018_9/14/16/25/0_222.jpg?x-oss-process=style/preview_120'></image>
+          <input class='input' bindconfirm='getSearchProductName' placeholder='搜索小区/写字楼等'></input>
+        </view>
+        <view class='empty_button' bindtap='getSearchProductName'><text>x</text></view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='product_page_container2'>
+    <map class='mapItem' markers='{{markers}}' id="map" longitude="{{localPoint.longitude}}" latitude="{{localPoint.latitude}}" scale="16" bindcontroltap="controltap" bindregionchange="regionchange" show-location='true' style="width: 100%; height: 768rpx;">
+      <cover-view class="play" >
+          <cover-image class="img" src="../../images/icon/center.png" style='width:80rpx;height:80rpx;' />
+      </cover-view>
+    </map>
+    <cover-view class='bottom_tap'>
+      <cover-view class='return_index'>
+        <cover-image src='http://image1.sansancloud.com/xianhua/2018_9/13/16/50/14_226.jpg' class='return_index_img' bindtap='toIndex'></cover-image>
+      </cover-view>
+      <cover-view class='location'>
+        <cover-image src='http://image1.sansancloud.com/xianhua/2018_9/13/16/50/14_232.jpg' class='location_img' bindtap='clickcontrol'></cover-image>
+      </cover-view>
+    </cover-view>
+  </view>
+  <view style='background:#fff'>
+    <!-- <cover-view class='product_data' wx:if="{{address}}">
+      <cover-view class='product_info' catchtap='selectAddressFun'>
+        <cover-view class='product_info_center'>
+          <cover-view class='product_info_service_addr'>
+            <cover-image class='product_info_service_addr_img' src='http://image1.sansancloud.com/xianhua/2018_9/13/17/57/21_219.jpg'></cover-image>
+            <cover-view class='product_info_name' style='width:96%; word-break: break-all;text-overflow: ellipsis;white-space: nowrap;'>{{address.detailedAddress}}</cover-view>
+          </cover-view>
+          <cover-view class='product_info_service_addr_value'>{{address.simpleAddress}}</cover-view>
+        </cover-view>
+      </cover-view>
+    </cover-view> -->
+    <view class='product_data1'>
+      <scroll-view scroll-y style="height: 320rpx;width：100%" bindscrolltoupper="upper" bindscrolltolower="lower" >
+        <view class='product_info_center' wx:for="{{addressList}}" catchtap='selectAddressFun' data-item="{{item}}">
+          <view class='product_info_service_addr'>
+            <image class='product_info_service_addr_img' src='http://image1.sansancloud.com/xianhua/2018_9/13/17/57/21_219.jpg'></image>
+            <view class='product_info_name' style='width:96%; word-break: break-all;text-overflow: ellipsis;white-space: nowrap;'>{{item.detailedAddress}}</view>
+          </view>
+          <view class='product_info_service_addr_value'>{{item.simpleAddress}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

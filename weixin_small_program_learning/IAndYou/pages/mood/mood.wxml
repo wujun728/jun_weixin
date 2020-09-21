@@ -1,0 +1,39 @@
+<view class='app'>
+  <!--返回任务页面-->
+  <!-- <view class='returnTask'>
+    <image src='../../assets/images/return.png'></image>
+  </view> -->
+  <view class='date'>    
+    <view class='month'>{{month}}</view>
+    <view class='day'>{{day}}</view>
+    <view class='week'>{{week}}</view>
+  </view>
+
+  <view class='title'>
+    <span>标题</span>
+    <input placeholder="点我输入标题~"  bindinput='titleInput' value='{{title}}'></input>
+  </view>
+
+  <!--正文-->
+  <view class='content'>
+    <textarea placeholder="请输入内容..."  bindinput='contentInput' value='{{content}}'></textarea>
+  </view>
+
+  <!--图片上传-->
+  <view class='addPhoto'>
+    <image class='photoItem' bindtap='delPhoto' wx:for="{{photoList}}"  src='{{item}}'></image>
+    <image wx:if="{{photoList.length < 1 }}" bindtap='addPhoto' src='../../assets/images/addPhoto.png'></image>
+  </view>
+
+  <view class='bottom'>
+    <span>
+      <image  class="{{ weather == '晴天' ? 'bk' : '' }}" bindtap='addWeather' data-weather="晴天" src='../../assets/images/weather_sunny_1.png'></image>
+    </span>
+
+    <span><image class="{{ weather == '多云' ? 'bk' : '' }}" bindtap='addWeather' data-weather="多云" src='../../assets/images/weather_loudy_1.png'></image></span>
+
+    <span><image class="{{ weather == '雨天' ? 'bk' : '' }}" bindtap='addWeather' data-weather="雨天" src='../../assets/images/weather_rainy_1.png'></image></span>
+    <span bindtap="submit" class="submit">完成</span>    
+  </view>
+
+</view>

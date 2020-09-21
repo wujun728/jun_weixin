@@ -1,0 +1,20 @@
+
+
+
+.boxShadow{
+    width: 690rpx;
+    margin: 0 auto;
+   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 6px;
+  padding-bottom: 17px;
+  border: 1px solid #F5F6F7;
+  border-radius: 10rpx;
+/* box-shadow:-5rpx 0 5rpx #F8F9FA,5rpx 0 5rpx #F8F9FA,0 -5rpx 5rpx #F8F9FA,0 5rpx 5rpx #F8F9FA;  */
+
+box-shadow:0px 0px 24rpx 0px rgba(232,234,237,1);
+
+}

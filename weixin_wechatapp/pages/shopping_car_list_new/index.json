@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "购物车",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#cccccc",
+    "usingComponents": {
+      "posters": "../../view/partials/canvas/index",
+      "component-tag-customPage": "../../view/partials/custom_page/index"
+    }
+}

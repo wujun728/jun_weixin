@@ -1,0 +1,46 @@
+
+/* .btn{
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 400rpx;
+  margin-top: 100rpx;
+  font-size: 80rpx;
+  color: white;
+} */
+.loginBtnView{
+  height: 7.5vw; 
+  margin-top: 35px; 
+}
+
+.loginBtn { 
+  width: 100%; 
+  border-radius:99px; 
+  background-color: #92b3ab; 
+  color: #ffffff; 
+} 
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.btn{
+  position: fixed;
+  left: 50%;
+  bottom: 270rpx;
+  margin-left: -130rpx;
+  height: 70rpx;
+  z-index: 100;  
+  width:260rpx;
+  border-radius: 100rpx;
+}
+.wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

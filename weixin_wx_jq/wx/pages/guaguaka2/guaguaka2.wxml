@@ -1,0 +1,11 @@
+<!--pages/guaguaka2/guaguaka2.wxml-->
+<view class="container">
+    <view>刮刮卡抽奖</view>
+	  <!--刮刮卡抽奖-->
+    <view id='guagua' style="width: {{canvas_width}}px; height: {{canvas_height}}px;">
+        <canvas style="width: {{canvas_width}}px; height: {{canvas_height}}px;" canvas-id="guaguaCanvas" disable-scroll="true"  bindtouchstart='startCanvas' bindtouchmove='moveCanvas' bindtouchend='endCanvas'></canvas>
+        <image  class='guagua-re' style="width: {{canvas_width}}px; height: {{canvas_height}}px;line-height: {{canvas_height}}px;" mode="scaleToFill" src="{{result_src}}"></image >
+    </view>
+    <!--刮刮卡抽奖-->
+    <button type="default" bindtap='reset'> 重置 </button>
+</view>

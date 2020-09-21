@@ -1,0 +1,252 @@
+/* 购物车列表 */
+.container {
+  font-size:0.9em;
+}
+
+.tab{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+.tab view{
+  width: 20%;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: #454545;
+}
+.Tab_page{
+
+}
+.tab_page_list_container{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cartContainer{
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  color: #888;
+  background: #fff;
+  border-bottom: 1em solid #f2f2f2; 
+}
+.cartShopName{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.cartShopName > .user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user >  image{
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.6em;
+}
+.cartItems_count{
+  padding: 0.4em;
+  background-color: rgba(250,250,250,0.8);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-size: 0.8em;
+  
+  border-bottom: 1px solid #eee;
+}
+.cartItems{
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  overflow: hidden;
+  position: relative;
+  
+  border-bottom: 1px dashed #f1f1f1;
+  background-color: rgb(250,250,250);
+}
+.itemCheckbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemCheckbox image{
+  width: 5em;
+  height: 5em;
+}
+
+.item_infomation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1em;
+}
+.item_infomation_name{
+  width: 12em;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.item_infomation_name2{
+  width: 9em;
+}
+.item_infomation_money{
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+}
+/* 加和减 */
+.item_infomation_nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 2em;
+  top: 2.2em;
+}
+
+.item_infomation_nums text{
+  padding: 5px;
+  color: #aaa;
+}
+.butn_container{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.butn_container3{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.butn_container3 > text{
+  word-break: break-all;
+}
+.butn_container2{
+   padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  font-size: 0.8em;
+}
+.butn_container2 > text{
+  margin-left: 0.4em;
+  border: 1px solid #fc6c39;
+  padding: 0.4em 1.4em;
+  border-radius: 3px;
+  color: #fc6c39;
+}
+.butn_container2 > view{
+  color: #fc6c39;
+}
+
+.butn_container2 .refu{
+  background: #fc6c39;
+  color: #fff;
+}
+
+.noneList{
+  font-size: 1em;
+  color: #777;
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* 客服卡片 */
+.kefu_bg_zhezhao{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.4;
+  z-index: 12;
+}
+.kefu_wx{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.kefu_wx_card{
+  background: #fff;
+  z-index: 13;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  padding: 1em;
+  width: 70%;
+  border-radius: 0.4em;
+}
+.inputContainer{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputContainer .textAreaContainer{
+  margin: 0.8em;
+}
+.textAreaContainer textarea{
+  border: 1px solid #ddd;
+  width: 15em;
+  padding: 0.8em;
+  height: 8em;
+  border-radius: 0.4em;
+}
+.ButnContainer{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}

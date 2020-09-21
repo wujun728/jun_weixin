@@ -1,0 +1,97 @@
+@import 'second_coupons_with_boxshadow/second_coupons_with_boxshadow.wxss';/* 引入第二种优惠卷样式 */
+
+
+.recommend_scroll_x_box {
+  height: 200rpx;
+  white-space: nowrap;
+  display: flex;
+}
+
+.CouponsText text{
+  color: white;
+}
+
+.recommend_hot_box {
+  width: 250rpx;
+  height: 195rpx;
+  margin-left: 24rpx;
+   display: inline-block; 
+   background-color: #FE3D53; 
+  text-align: center;
+   position: relative;
+}
+.name{
+  height: 50rpx;
+
+}
+.name text{
+  display: block;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+.youhuiAmount{
+    height: 85rpx;
+}
+.youhuiAmount text{
+  font-size: 60rpx;
+}
+.remark{
+  height: 45rpx;
+}
+.remark text{
+  display: block;
+  font-size: 30rpx;
+  line-height: 45rpx;
+}
+.CouponsImg {
+  width: 250rpx;
+  height: 20rpx;
+  background-image: url(http://asset.sansancloud.com/static/shangcheng/images/dot.png);
+}
+
+.choose{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+}
+.choose image{
+  width: 100%;
+  height: 100%;
+
+}
+/*没有相关商品  */
+.noproduct{
+  width: 100%;
+  height: 200rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+}
+.noproduct image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 auto;
+  
+}
+.noproduct text{
+font-size: 30rpx;
+  
+}
+
+/*更多好卷  */
+
+.moreCouponsText{
+  height: 176rpx;
+   background-color: #FE3D53; 
+}
+.moreCouponsText text{
+ line-height: 175rpx;
+ color: white;
+ font-size: 50rpx;
+
+}
+

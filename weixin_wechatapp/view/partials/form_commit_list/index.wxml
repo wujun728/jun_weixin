@@ -1,0 +1,96 @@
+<wxs src="../../../public/publicFun.wxs" module="publicFun"></wxs>
+<view class='container' wx:if="{{!loading}}">
+  <!-- 选择tab -->
+  <view class='zhezhao' wx:if="{{showCount||showMoreSelectState}}" bindtap='closeZhezhao'></view>
+  <view class='select_top' style='position:{{componentState?"relative":"fixed"}}'>
+  <!--  wx:if="{{showTop}}" -->
+    <view class='switch_tab' wx:if="{{formType.length>1&&showTop}}">
+      <scroll-view scroll-x class="tab-h" scroll-into-view="{{'tab_'+positionTab}}" scroll-with-animation='true'>
+        <view  wx:for="{{formType}}" wx:for-item="type" wx:key="{{index}}" data-type="{{type}}" bindtap='bindTypeItem' id="{{'tab_'+type.id}}" class='tab-item' style='color:{{type.colorAtive}};border-bottom:{{type.active?"2rpx solid "+type.colorAtive:""}};font-size:{{type.active?"32rpx":"28rpx"}};'>{{type.formName}}</view>
+       </scroll-view>
+    </view>
+    <view class='select_tab' wx:if="{{selectTab.length!=0}}">
+      <view class='select_tab_item' wx:for="{{selectTab}}" wx:if="{{index<=1}}" wx:for-item="selectTabItem" wx:key='{{index}}' catchtap='selectTab' data-index="{{index}}">
+        <text wx:if="{{selectTabItem.type!='multistage-style'}}" class='select_tab_item_text' style="color:{{selectTabIndex==index||(selectResultsObj[selectTabItem.name]&&selectResultsObj[selectTabItem.name].length!=0&&(selectTabItem.type=='multi-select'||selectTabItem.type=='multistage-style'))?setting.platformSetting.defaultColor:''}}">{{selectResultsObj[selectTabItem.name]&&selectTabItem.type=='pull-down'?(selectTabItem.name=='recordStatus'?specialSelectResultsObj[selectTabItem.name]:selectResultsObj[selectTabItem.name]):selectTabItem.title}}</text>
+        <picker wx:if="{{selectTabItem.type=='multistage-style'&&selectTabItem.specialType=='region'}}" class='picker' mode="region" data-name="{{selectTabItem.name}}" bindchange="bindMultiPickerChange" >
+            <view class="pickerValue" style="color:{{selectTabIndex==index||(selectResultsObj[selectTabItem.name]&&selectResultsObj[selectTabItem.name].length!=0&&(selectTabItem.type=='multi-select'||selectTabItem.type=='multistage-style'))?setting.platformSetting.defaultColor:''}}">{{selectTabItem.title}}</view>
+          </picker >
+          <picker wx:if="{{selectTabItem.type=='multistage-style'&&!selectTabItem.specialType}}" class='picker' mode="multiSelector" data-name="{{selectTabItem.name}}" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex[selectTabItem.name]}}" range="{{multistageData[selectTabItem.name]}}">
+            <view class="pickerValue" style="color:{{selectTabIndex==index||(selectResultsObj[selectTabItem.name]&&selectResultsObj[selectTabItem.name].length!=0&&(selectTabItem.type=='multi-select'||selectTabItem.type=='multistage-style'))?setting.platformSetting.defaultColor:''}}">{{selectTabItem.title}}</view>
+          </picker >
+        <image class='select_tab_item_icon' wx:if="{{!selectTabItem.state}}" src='https://image1.sansancloud.com/jianzhan/2019_3/20/12/1/52_354.jpg?x-oss-process=style/preview_120'></image>
+        <image class='select_tab_item_icon' wx:else src='https://image1.sansancloud.com/jianzhan/2019_3/20/12/1/52_336.jpg?x-oss-process=style/preview_120'></image>
+      </view>
+      <!-- 下拉的选择样式 -->
+      <scroll-view scroll-y class='select_tab_item_value' wx:if="{{showCount&&selectTab[selectTabIndex].type=='pull-down'}}">
+        <text class='select_tab_item_value_name' data-index="-1" catchtap='selectResult'>不限</text>
+        <text class='select_tab_item_value_name' data-index="{{index}}" catchtap='selectResult' wx:for="{{selectTab[selectTabIndex].listValues}}" wx:for-item="selectTabItemValues">{{selectTabItemValues.value}}</text>
+      </scroll-view>
+      <!-- 多选的选择样式 -->
+      <view class='select_tab_item_value_two' wx:if="{{showCount&&selectTab[selectTabIndex].type=='multi-select'}}">
+        <scroll-view scroll-y class='select_tab_list_two_block'>
+          <text class='select_tab_item_value_name_two' data-index="-1" catchtap='selectResult' style='{{!selectResultsObj[selectTab[selectTabIndex].name]||selectResultsObj[selectTab[selectTabIndex].name].length==0?"background:"+setting.platformSetting.defaultColor+";color:"+"#fff":""}}'>不限</text>
+          <text class='select_tab_item_value_name_two' data-index="{{index}}" style='background:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}};color:{{selectTabItemValues.state?"#fff":""}}' catchtap='selectResult'  wx:key="{{index}}" wx:for="{{selectTab[selectTabIndex].listValues}}" wx:for-item="selectTabItemValues">{{selectTabItemValues.value}}</text>
+        </scroll-view>
+        <view class='multi_select_bg'>
+          <text class='multi_select_btn_clear' catchtap='clearSelect' style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>重置</text>
+          <text class='multi_select_btn' catchtap='sureSelect' style='background:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>确定</text>
+        </view>
+      </view>
+      <!--更多筛选的样式  -->
+      <view class='select_tab_list_three' wx:if="{{showMoreSelectState}}">
+        <scroll-view scroll-y class='select_tab_list_three_block'>
+          <view class='select_tab_item_three' wx:for="{{selectTab}}" wx:if="{{indexOne>1}}" wx:for-item="selectTabItem" wx:for-index="indexOne" wx:key='{{indexOne}}' >
+            <view class='select_tab_item_three_title'>
+              <text>{{selectTabItem.title}}</text>
+              <text style='color:#ccc;margin-left:6rpx' wx:if="{{selectTabItem.type=='pull-down'}}">(单选)</text>
+              <text style='color:#ccc;margin-left:6rpx' wx:if="{{selectTabItem.type=='multi-select'}}">(可多选)</text>
+            </view>
+            <view class='select_tab_item_three_value_list'>
+              <view class='select_tab_item_value_name_three' data-father="{{indexOne}}" data-index="-1" style='{{!selectResultsObj[selectTabItem.name]||selectResultsObj[selectTabItem.name].length==0?"background:"+setting.platformSetting.defaultColor+";color:"+"#fff":""}};width:{{selectTabItem.type=="multistage-style"&&selectResultsObj[selectTabItem.name]?"":"18%"}}' catchtap='{{selectTabItem.type!="multistage-style"?"selectResult":"selectTab"}}'>
+                <text wx:if="{{selectTabItem.type!='multistage-style'}}">不限</text>
+                <picker wx:if="{{selectTabItem.specialType&&selectTabItem.specialType=='region'&&selectTabItem.type=='multistage-style'}}" mode="region" data-name="{{selectTabItem.name}}" bindchange="bindMultiPickerChange" >
+                  <view class="pickerValue" wx:if="{{selectResultsObj[selectTabItem.name]}}">{{selectResultsObj[selectTabItem.name]}}</view>
+                  <text wx:else>去选择</text>
+                </picker >
+                <picker wx:if="{{(!selectTabItem.specialType||selectTabItem.specialType!='region')&&selectTabItem.type=='multistage-style'}}"  mode="multiSelector" data-name="{{selectTabItem.name}}" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex[selectTabItem.name]}}" range="{{multistageData[selectTabItem.name]}}">
+                  <view class="pickerValue" wx:if="{{selectResultsObj[selectTabItem.name]}}">{{selectResultsObj[selectTabItem.name]}}</view>
+                  <text wx:else>去选择</text>
+                </picker >
+              </view>
+              <view wx:if="{{selectTabItem.type!='multistage-style'}}" class='select_tab_item_value_name_three' data-father="{{indexOne}}" data-type="more_select" data-index="{{index}}" style='background:{{selectTabItemValues.state?setting.platformSetting.defaultColor:""}};color:{{selectTabItemValues.state?"#fff":""}};width:{{selectTabItem.type=="multistage-style"?"":"18%"}}' catchtap='selectResult' wx:for="{{selectTabItem.listValues}}" wx:for-item="selectTabItemValues">
+                <!-- <text wx:if="{{selectTabItem.type=='pull-down'}}">{{selectTabItemValues}}</text> -->
+                <text>{{selectTabItemValues.value}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class='multi_select_bg'>
+          <text class='multi_select_btn_clear' catchtap='clearSelect' style='color:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>重置</text>
+          <text class='multi_select_btn' catchtap='sureSelect' style='background:{{setting.platformSetting.defaultColor}};border:1rpx solid {{setting.platformSetting.defaultColor}}'>确定</text>
+        </view>
+      </view>
+      <!-- 更多筛选按钮 -->
+      <view class='more_select' wx:if="{{selectTab.length>2}}" catchtap="moreSelectFun">
+        <image class='more_select_icon' src='https://image1.sansancloud.com/sansancloud/2019_7/10/10/48/52_267.jpg?x-oss-process=style/preview_120'></image>
+        <text class='more_select_text'>筛选</text>
+      </view>
+    </view>
+  </view>
+  <view style='{{!showTop||componentState?"margin-top:":""}}{{!showTop||componentState?(selectTab.length!=0&&!showTop?"80rpx":"0px"):""}}' class='{{selectTab.length!=0||formType.length<=1?"form_commit_list mt_150":"form_commit_list mt_80"}}'>
+    <block wx:if="{{formCommitList.length!=0}}">
+      <!-- 表单子项样式组件 -->
+      <block>
+        <form-item wx:if='{{formCommitList&&formListStyle}}' wx:for="{{formCommitList}}" wx:for-item="formCommitItem" wx:if="{{limitState!=0?index<data.jsonData.count:'ture'}}" wx:key='{{index}}' id="formItem" style="width:100%" controlLimitState="{{controlLimitState}}" formListStyle="{{formListStyle}}" data="{{formCommitItem}}" ></form-item>
+      </block> 
+    </block>
+    <block wx:else>
+       <view class='none_list'>主人~暂无提交表单哦！</view>
+    </block>
+    <view wx:if="{{publishState&&customFormId&&!componentState}}" style='height:100rpx;width:100%;background:#fff'></view>
+  </view>
+</view>
+<view class='publish_message_btn' catchtap='tolinkUrl' data-link="form_detail.html?customFormId={{customFormId}}" style='background:{{setting.platformSetting.defaultColor}}' wx:if="{{(publishState&&customFormId&&!componentState)&&customFormData.userCanCommit==1}}">
+  <image class='publish_message_icon' src='https://image1.sansancloud.com/xianhua/2019_3/20/10/45/42_450.jpg?x-oss-process=style/preview_120'></image>
+  <text class='publish_message_text'>发布信息</text>
+</view>

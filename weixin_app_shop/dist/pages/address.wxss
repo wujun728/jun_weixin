@@ -1,0 +1,4 @@
+@import "./../components/address_edit.wxss";
+@import "./../components/address_add.wxss";
+@import "./../components/address_list.wxss";
+.hidden{display:none}

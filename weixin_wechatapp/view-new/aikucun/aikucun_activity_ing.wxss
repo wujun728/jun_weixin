@@ -1,0 +1,167 @@
+
+/* 正在进行的活动 */
+.activity_ing_area{
+    display: flex;
+    flex-direction: column;
+
+}
+.activity_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 10em;
+    margin-bottom: 10px;
+}
+.activity_list_item{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 0.4em;
+    overflow: hidden;
+    width:100%;
+    box-shadow:2rpx 6rpx 8rpx rgba(0,0,0,0.2)
+}
+.activity_list_item_over{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0.4;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.activity_list_item:nth-child(1) .activity_list_item_card{
+    background: #ffeeee;
+}
+.activity_list_item:nth-child(1){
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.activity_list_item:nth-last-child(1){
+    margin-bottom: 0;
+
+}
+
+.activity_list_item image{
+    height: 10em;
+    width: 100%;
+}
+.activity_list_item_card_bg{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.6em;
+  z-index: 2;
+  opacity: 0.4;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.activity_list_item_card{
+    /* position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.6em;
+    z-index: 3; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border-top-right-radius: 10px;
+    padding: 0 10px; */
+    height: 64rpx;
+    line-height: 64rpx;
+    background: #fff;
+    color: #e10000;
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    font-size:30rpx;
+}
+
+.activity_list_item_card_date{
+  /* color: #fff; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* font-size: 0.8em; */
+}
+.activity_list_item_card_date > image{
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.date_title1{
+  /* margin-left: 0.4em; */
+  font-weight:bold;
+}
+.date_container{
+  /* margin-top: 0.4em; */
+}
+.date_hour_s{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#000;
+  font-weight: bold;
+}
+.date_hour_s > .over_text{
+  background: none;
+  color: #fff;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  width: 40rpx;
+  height: 40rpx;
+  /* font-size: 0.8em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4em;
+}
+.date_hour_s > text{
+  background: #000;
+  color: #fff;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  width: 40rpx;
+  height: 40rpx;
+  /* font-size: 0.8em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4em;
+  font-weight: 600;
+}
+/*去抢购的按钮*/
+.iamges_button_icon{
+  width: 121rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  background: #e10000;
+  color: #fff;
+  border-radius:20rpx; 
+  font-size: 26rpx;
+  position: absolute;
+  right: 31rpx;
+  bottom: 36rpx;
+}

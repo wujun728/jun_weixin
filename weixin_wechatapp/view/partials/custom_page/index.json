@@ -1,0 +1,35 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-tag-name": "../title/title",
+    "component-tag-nameBanner": "../banner/banner",
+    "component-tag-nameImageLink": "../image_link/image_link",
+    "component-tag-nameGridList": "../gridlist/gridlist",
+    "component-tag-nameHelpBlank": "../help_blank/help_blank",
+    "component-tag-nameTextLink": "../text_link/text_link",
+    "component-tag-namedetailList": "../detailList/detailList",
+    "component-tag-nameProductList": "../productList/productList",
+    "component-tag-nameVideo": "../video/video",
+    "component-tag-nameAudio": "../audio/audio",
+    "component-tag-nameNearShop": "../nearShop/nearShop",
+    "component-tag-nameNewsList": "../newsList/newsList",
+    "component-tag-nameCoupons": "../coupons/coupons",
+    "component-tag-nameActivitiesGoods": "../activitiesGoods/activitiesGoods",
+    "component-tag-nameActivitiesList": "../activitiesList/activitiesList",
+    "component-tag-nameRichText": "../richText/richText",
+    "component-tag-nameStores": "../stores/stores",
+    "component-tag-nametab": "../tab/index",
+    "component-tag-mofang": "../mofang/index",
+    "component-tag-kefu": "../kefu/kefu",
+    "component-tag-locateAddress": "../locateAddress/index",
+    "component-tag-spaceList": "../space_list/index",
+    "component-tag-organizesList": "../organizes_list/index",
+    "component-tag-formCommitList": "../form_commit_list/index",
+    "component-tag-shoppingCar": "../shopping_car/index",
+    "component-tag-jifenList": "../jifen_list/index",
+    "component-footer": "../footer/index",
+    "component-popup-page": "../popupPage/index",
+    "component-form-detail": "../form_detail/index"
+  }
+  
+}

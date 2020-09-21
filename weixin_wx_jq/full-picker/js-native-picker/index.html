@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>日历组件（带农历）</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<div id="app">
+  <div class='picker'>
+    <!-- 顶部 -->
+    <div class='picker-title'>1900-2100区间内的公历、农历</div>
+    <div class='picker-detail'>
+      <div class='picker-detail-date' id="p_date"></div>
+      <div class='picker-detail-day' id="p_day"></div>
+      <div class="picker-detail-nl" id="p_nl"></div>
+      <div class="picker-detail-sx" id="p_sx"></div>
+      <div class="picker-detail-nymdr" id="p_nymdr"></div>
+      <div class="picker-detail-jq" id="p_jq"></div>
+      <div class='picker-detail-xz' id="p_xz"></div>
+    </div>
+    <div class='picker-tools'>
+      <div class='picker-tools-prev-year' id="t_p_year">上一年</div>
+      <div class='picker-tools-prev-month' id="t_p_month">上一月</div>
+      <div class='picker-tools-see-month' id="t_s_month"></div>
+      <div class='picker-tools-see-year' id="t_s_year"></div>
+      <div class='picker-tools-next-month' id="t_n_month">下一月</div>
+      <div class='picker-tools-next-year' id="t_n_year">下一年</div>
+    </div>
+    <!-- 展示 -->
+    <div class='picker-list-w clearfix'>
+      <div class='picker-list-w-r'>日</div>
+      <div>一</div>
+      <div>二</div>
+      <div>三</div>
+      <div>四</div>
+      <div>五</div>
+      <div class='picker-list-w-r'>六</div>    
+    </div>
+    <div class='picker-list clearfix' id="l_box">
+    </div>
+    <!-- 菜单 -->
+    <div class='picker-tools2'>
+      <div class='picker-tools2-to-change' id="t2_s">显示农历</div>
+      <div class='picker-tools2-to-change' id="t2_h">隐藏农历</div>
+      <div class='picker-tools2-to-now' id="t2_d">返回今天</div>
+    </div>
+    <div class='picker-tools2'>
+      <div class='picker-tools2-to-change' id="p_s">补全前后空留日期</div>
+      <div class='picker-tools2-to-change' id="p_h">移除前后空留日期</div>
+    </div>
+    <!-- 快速选择 -->
+    <div class="picker-sel">
+      <label>快速选择</label>
+      <label>年：</label>
+      <select id="s_y">
+      </select>
+      <label>月：</label>
+      <select id="s_m">
+      </select>
+      <label>日：</label>
+      <select id="s_d">
+      </select>
+    </div>
+  </div>
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href="picker.css">
+<script src="calendar.js"></script>
+<script src="picker.js"></script>
+</html>

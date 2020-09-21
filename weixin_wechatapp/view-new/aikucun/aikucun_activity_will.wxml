@@ -1,0 +1,65 @@
+
+
+<template name="aikucun_activity_will">
+ <!-- 活动预告 -->
+  <!--   <view class='activity_will_area'>
+        <view class='activity_list'>
+            <view class='activity_list_item'  wx:for='{{activityWill}}' wx:key='{{index}}' wx:for-item="items">
+                <image src='{{items.iconPath}}'></image>
+                <view class='will_active'></view>
+                <view class='activity_list_item_card_will'>
+                    <view class='activity_list_item_card_date font_08' style='{{items.subTitleColor}}'>
+                      3天
+                    <text class='activity_list_item_card_stop font_08'>开始</text>
+                </view>
+            </view>
+        </view>
+    </view> -->
+
+  <view class='activity_will_area'>
+      <view class='activity_list' wx:if='{{unactivityPromotion.length == 0}}'>
+          <view class='activity_list_item'>
+            <image  mode='aspectFill'  style='height:{{sysWidth*0.55 - 10}}px;' 
+              src='http://image.aikucun.xyz/aikucun/2018_4/2/11/24/48_688.jpg'></image>
+          </view>
+      </view>
+      <view wx:else class='activity_list'> 
+          <view class='activity_list_item' wx:for='{{unactivityPromotion}}' wx:key='{{index}}' wx:for-item="items" >
+          <view class='activity_list_item_card'>
+              <view class='date_container font_08' >
+                  <view class='date_hour_s' wx:if='{{items.resultTime.lever == 1}}'>
+                    <view wx:if='{{items.resultTime.Time.second > 1}}'>即将开始：</view>
+                    <text style='background:{{platformSetting.defaultColor}}' wx:if='{{items.resultTime.Time.second > 1}}'> {{items.resultTime.Time.second}} </text>
+                    <text class='over_text' wx:else> 已开始 </text>
+                  </view>
+                  <view class='date_hour_s' wx:elif='{{items.resultTime.lever == 2}}'>
+                    <view>即将开始：</view>
+                    <text> {{items.resultTime.Time.minute}} </text>:
+                    <text> {{items.resultTime.Time.second}} </text>
+                  </view>
+                  <view class='date_hour_s' wx:elif='{{items.resultTime.lever == 3}}'>
+                    <view>即将开始：</view>
+                    <text> {{items.resultTime.Time.hour}} </text>:
+                    <text> {{items.resultTime.Time.minute}} </text>:
+                    <text> {{items.resultTime.Time.second}} </text>
+                  </view>
+
+                  <view class='date_hour_s' wx:elif='{{items.resultTime.lever == 4}}'>
+                    <view>即将开始：</view>
+                    <text> {{items.resultTime.Time.day}} </text> 天
+                  </view>
+              </view>
+              <view class='activity_list_item_card_date font_08' >
+                  <!-- <image src='http://image1.sansancloud.com/aikucun/2018_03/21/15/59/28_767.jpg'></image>  -->
+                  <view class='date_title1'> {{items.startTimeDate}} 开抢</view>
+              </view>
+          </view>
+          <image mode='aspectFill' style='height:{{sysWidth*0.55 - 10+31}}px;'  src='{{items.promotionBanner}}' data-name='{{items.name}}' data-content='{{items.content}}' data-id="{{items.id}}" bindtap='toActvityRichText'></image>
+          <view class='detail_button_icon'  data-name='{{items.name}}' data-content='{{items.content}}' data-id="{{items.id}}" bindtap='toActvityRichText'>详情</view>
+              <!-- <view class='will_active'></view> -->
+              <!-- <view class='activity_list_item_card_bg '></view> -->
+              
+      </view>
+      </view> 
+  </view>
+</template>

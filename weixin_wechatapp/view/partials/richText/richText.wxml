@@ -1,0 +1,11 @@
+
+
+<import src="../../../wxParse/wxParse.wxml"/><!-- 富文本 -->
+<view class='wxParseHtmlContainer' style="height: {{data.jsonData.height==0?'':data.jsonData.height}}px;padding:20rpx">
+
+
+<template is="1"   data="{{wxParseData:article.nodes}}"></template> 
+</view>
+
+
+<slot></slot>

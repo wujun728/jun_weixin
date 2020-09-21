@@ -1,0 +1,30 @@
+<view class='container'>
+  <scroll-view class='chat_content' style='height:{{scrollViewHeight}}px' scroll-y scroll-with-animation="true" scroll-into-view='{{toView}}' bindscrolltoupper="upper" bindscrolltolower="lower" catchtap='hiddenMethodsListFun' bindscroll="scroll">
+  <!-- bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" -->
+    <block  wx:for="{{chatMsgList}}" wx:for-item="chatMsgItem" wx:key="{{index}}" wx:for-index="index">
+      <chat-item id="msg_{{index}}" data="{{chatMsgItem}}" data-index="{{index}}" bind:resEvent="lookBigImage"></chat-item>
+    </block>
+  </scroll-view>
+  <view id='bottom_send_block' animation="{{inputAnimation}}">
+  <!-- margin-bottom:{{inputBottom}}px style='bottom:{{inputBottom}}px'-->
+    <view class='bottom_send_block_left'>
+      <image src='http://image1.sansancloud.com/xianhua/2019_9/4/10/56/55_708.jpg?x-oss-process=style/preview_120' style='margin-left:20rpx' class='icon_block'></image>
+    </view>
+    <view class='bottom_send_block_center'>
+      <input class='input_box' adjust-position='{{false}}' focus="{{focus}}"  auto-height='{{ture}}' value='{{sendValue}}' data-type="0" maxlength='-1' bindconfirm="sendOne" bindfocus='focus' bindblur='blur' confirm-type="send"></input>
+    </view>
+    <view class='bottom_send_block_right'>
+      <!-- <image class='icon_block' src='http://image1.sansancloud.com/xianhua/2019_9/4/11/2/9_761.jpg?x-oss-process=style/preview_120'></image>http://image1.sansancloud.com/xianhua/2019_9/6/10/21/5_125.jpg?x-oss-process=style/preview_120 -->
+      <image catchtap='sendImgFun' data-type="1" class='icon_block' src='http://image1.sansancloud.com/xianhua/2019_9/6/10/27/24_85.jpg?x-oss-process=style/preview_120'></image>
+      <image catchtap='showOtheMethodsListFun' class='icon_block' src='http://image1.sansancloud.com/xianhua/2019_9/4/11/2/9_762.jpg?x-oss-process=style/preview_120'></image>
+    </view>
+  </view>
+  <view class="other_methods_list" animation="{{otherMethodsAnimation}}">
+    <view class='other_methods_item' wx:for="{{otherMethodsList}}" wx:key="{{index}}" data-type='{{item.type}}' catchtap='{{item.handler}}'>
+      <view class='other_methods_item_img'>
+        <image src='{{item.icon}}' class='other_methods_item_icon'></image>
+      </view>
+      <text class='other_methods_item_text'>{{item.title}}</text>
+    </view>
+  </view>
+</view>

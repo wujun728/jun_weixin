@@ -1,0 +1,10 @@
+<view class='container'>
+<!--按钮  -->
+<view class='bgText'><text>{{applyText}}</text></view>
+<view class='btn' style='background:{{setting.platformSetting.defaultColor}};color:#fff' bindtap='tolinkUrl' wx:if="{{applyState=='-1'||applyState=='2'}}">注册</view>
+<view class='btn1'  style='background:{{setting.platformSetting.defaultColor}};color:#fff' bindtap='login' wx:if="{{applyState=='1'}}">注册</view>
+<view class='btnIndex'  bindtap='login'><scroll-view><text>首页</text></scroll-view></view>
+<!--背景  -->
+ <!-- <image class='bg' src='{{applyImgBg}}'></image> -->
+
+</view>

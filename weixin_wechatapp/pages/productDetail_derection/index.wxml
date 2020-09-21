@@ -1,0 +1,4 @@
+<!--pages/productDetail_derection/index.wxml-->
+<view class='productDetail_imageItem' wx:for="{{images}}" wx:key="{{index}}">
+  <image src='{{item}}' mode="widthFix" class='imageItem'></image>
+</view>

@@ -1,0 +1,9 @@
+<template name="detail-temp">
+    <view>
+        <view class="temp-singleItem" >
+            <towxml  nodes="{{content}}" />
+        </view>
+    </view>
+</template>
+
+

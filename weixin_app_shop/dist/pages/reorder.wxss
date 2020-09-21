@@ -1,0 +1,5 @@
+@import "./../components/common/placeholder.wxss";
+@import "./../components/common/bottomLoadMore.wxss";
+@import "./../components/order_item.wxss";
+@import "./../components/tab.wxss";
+.swiper-tab-pd{padding:0 30rpx;background:#fff}.swiper-tab-order.active{color:#ff4856;border-bottom:5rpx solid #ff4856}

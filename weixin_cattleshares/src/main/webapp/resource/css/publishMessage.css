@@ -1,0 +1,13 @@
+h5{font-weight: bolder;border-bottom: 1px solid #ebebeb;padding: 5px 20px ;}
+.send{width: 96%;}
+.send-content{padding: 20px 20%;}
+.send-text{width: 40%;border-radius: 4px;margin-left: 10px;padding:3px 5px;outline: none;}
+.send-message{margin-top: 10px;}
+.send-textarea{outline:none;resize: none;margin-left: 10px;vertical-align: auto;vertical-align:top;border-radius: 6px;padding:3px 5px}
+.btn{width: 42%;margin-top: 15px;margin-left: 29%;}
+.table{width: 96%;margin-top: 20px;}
+.float-l{text-align: left;}
+.text-content{width: 30%;}
+.company{font-size: 14px;}
+.number{text-align: center;}
+.publish:hover{color: #fff;} .publish:focus{outline:none;color: #fff;}

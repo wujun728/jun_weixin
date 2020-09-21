@@ -1,0 +1,473 @@
+.container{
+  background: #f2f2f2;
+  width: 100%;
+  overflow: hidden;
+}
+/* 订单生成时间 */
+.orderTime{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
+  padding: 1em;
+} 
+.orderTime text{
+  padding: 2px;
+}
+.server_container{
+  margin: 0.4em 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #888;
+  background: #fff;
+  border-radius: 0.2em;
+  padding:0.8em;
+
+}
+/* 订单生成时间 */
+.orderTime2{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.4em;
+} 
+.wuliuItem{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1rpx solid #eee;
+}
+.wuliuItem > .time{
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.orderTime2 text{
+  padding: 2px;
+}
+/* 订单状态 */
+.orderSateContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: flex-start;
+  background: #fff;
+  margin-bottom: 0.4em;
+}
+.oooo{
+  display: flex;
+  flex-direction: row;
+
+}
+.oooo_view > text{
+  padding: 2px;
+}
+.payStatus{
+  display: flex;
+  flex-direction: row;
+}
+.payStatus text{
+  display: inline;
+}
+.orderSateContainer image{
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 1em;
+  margin-top:0.2em;
+
+}
+.oooo view{
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
+}
+.font5{
+  color: #333;
+}
+
+.orderSateContainer > text{
+  color: #8B572A;
+}
+
+
+.orderKuaidi{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+  margin-bottom: 0.4em;
+  color: #aaa;
+}
+.orderKuaidi_no{
+  margin-top: 0.4em;
+}
+
+
+
+/* 地址 */
+.editAddr{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background:#fff;
+  border-bottom:1rpx dashed #ddd;
+}
+.editAddr > image{
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.addrItems2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+  margin-bottom: 0.4em;
+}
+.addrItems2 image{
+  width: 1.4em;
+  height: 1.4em;
+
+}
+.addrItems2 .addrInfo{
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+
+}
+.addrInfo > view{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width:100%;
+
+}
+.addrItems2 .font2{
+  margin-top: 5px;
+}
+
+/* 购物车列表 */
+.cartContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #888;
+  background: #fff;
+  margin-bottom: 0.4em;
+}
+.cartShopName{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+.cartItems{
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  overflow: hidden;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+}
+.itemCheckbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemCheckbox image{
+  width: 5em;
+  height: 5em;
+  background: #eee;
+}
+
+.item_infomation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1em;
+}
+.item_infomation_name{
+  width: 12em;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.item_infomation_name_measure{
+  word-break: break-all; 
+  width: 12em;
+}
+.item_infomation_money{
+  color: #8B572A;
+}
+/* 加和减 */
+.item_infomation_nums{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 2em;
+  top: 2.2em;
+}
+
+.item_infomation_nums text{
+  padding: 5px;
+  color: #aaa;
+}
+
+
+.butn_container2{
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+}
+.butn_container2 .Input{
+  margin-left: 5px;
+}
+
+
+
+
+
+/* 地址框框 */
+.OtherArrContainer{
+  position: fixed;
+  z-index: 12;
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  left: 20%;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+}
+.addnewarr{
+  padding: 1em;
+  text-align: center;
+  color: #8B572A;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.addrItems2_now{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px dashed rgb(240,240,240);
+  background: #fff;
+  padding: 1em;
+}
+
+.addrItems2_now image{
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.addrItems2_now view{
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.addrItems2_now .font2{
+  margin-top: 0.4em;
+}
+/* 订单生成时间 */
+.orderTime2{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.4em;
+} 
+.wuliuItem{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 1rpx solid #eee;
+}
+.wuliuItem > .time{
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.orderTime2 text{
+  padding: 2px;
+}
+
+
+
+/*拼团  */
+.shop_info{
+  display: flex;
+  align-items: center;
+}
+.pintuan_info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pintuan_bg{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rpx;
+  padding: 0 50rpx;
+  height: 190rpx;
+}
+.pintuan_bg_right{
+  margin-left: 60rpx;
+}
+.share_btn{
+  position: absolute;
+  right: -10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:10rpx 20rpx;
+  color: #888;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow:6rpx 6rpx 10rpx #555;
+  height:40rpx;
+  top:10%;
+}
+.share_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.share_text{
+  font-size: 22rpx;
+}
+.pintuan_bg_left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height:40rpx;
+}
+.pintuan_bg_right_img{
+  width:150rpx;
+  height:120rpx;
+}
+.pintuan_container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #888;
+  background: #fff;
+  border-radius: 0.2em;
+  padding:1em 1em 0 1em;
+  margin-bottom: 10rpx;
+}
+.pintuan_container .pintuan_tiltle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60rpx;
+  width:100%;
+  font-size: 28rpx;
+}
+.pintuan_user_img{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 20rpx;
+}
+.pintuan_container .pintuan_users{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 60rpx;
+  box-sizing: border-box;
+  /* height: 140rpx; */
+  width: 100%;
+  margin:20rpx 0;
+}
+.pintuan_user_list{
+  display: flex;
+  align-items: center;
+  width:82%;
+  flex-wrap: wrap;
+}
+.pintuan_user_item{
+  border: 2rpx solid #e5e600;
+  border-radius: 100rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 15rpx;
+  position: relative;
+  margin-bottom:10rpx;
+}
+.user_head_img{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 90rpx;
+}
+.pintuan_user_list_tip{
+  border: 4rpx solid #fff;
+  width: 50rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  position: absolute;
+  top:-4rpx;
+  left:-6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  color: #fff;
+  line-height:30rpx;
+
+}
+.pintuan_invitation_button{
+  border-radius:10rpx;
+  height:50rpx;
+  width:18%;
+  padding:10rpx 20rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  font-size:26rpx;
+  color:#fff;
+  margin:0;
+  line-height:50rpx;
+  box-sizing:content-box;
+}
+.unpintuan_user_item{
+  border: 2rpx dashed #999;
+  border-radius: 90rpx;
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 15rpx;
+  display: flex;align-items: center;
+  justify-content: center;
+  margin-bottom:10rpx;
+}
+.unuser_head_img{
+  width: 40rpx;
+  height: 40rpx;
+}

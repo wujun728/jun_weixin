@@ -1,0 +1,12 @@
+<!-- tab -->
+ 
+<template name="pt_13">
+ <view class='tab'>
+      <view class='{{showState == index ? "active":"noneUse"}}'
+       data-url='{{index}}!{{tab.linkUrl}}' bindtap='bindTab' 
+        wx:for='{{tabs}}' wx:key='{{index}}' wx:for-item='tab'
+        style='width:{{100/tabCount}}%;'>{{tab.title}}</view>
+     
+    </view>
+    
+</template>  

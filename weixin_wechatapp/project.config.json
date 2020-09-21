@@ -1,0 +1,230 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.2",
+	"appid": "wxa8759255f64e59af",
+	"projectname": "nongpin",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 26,
+			"list": [
+				{
+					"id": 0,
+					"name": "旧服务人员中心页",
+					"pathName": "pages/servant_center/index",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "骑手中心",
+					"pathName": "pages/servant_center/index",
+					"query": "",
+					"scene": "1020",
+					"referrerInfo": {}
+				},
+				{
+					"id": 2,
+					"name": "扫码进来携带MendianID",
+					"pathName": "pageTab/index/index",
+					"query": "sign=dfb57701a0596af2ee8228ce78310378&verifyScanType=2&VERIFICATION_CODE=20190107170319972801",
+					"scene": "1011"
+				},
+				{
+					"id": 3,
+					"name": "服务人员中心",
+					"pathName": "pagesTwo/servant_center/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 4,
+					"name": "服务员申请",
+					"pathName": "pageTab/yunjishi/applyMendian/index",
+					"query": "",
+					"scene": "1035",
+					"referrerInfo": {}
+				},
+				{
+					"id": 5,
+					"name": "仓库中心",
+					"pathName": "pagesTwo/mendian_center/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 6,
+					"name": "技师详情页",
+					"pathName": "pageTab/yunjishi/servantDetail/index",
+					"query": "servantId=9",
+					"scene": "1011"
+				},
+				{
+					"id": 7,
+					"name": "进入服务商页面",
+					"pathName": "pageTab/index/index",
+					"query": "ENTER_SHOP=540",
+					"scene": "1011"
+				},
+				{
+					"id": 8,
+					"name": "转发产品进入",
+					"pathName": "pageTab/index/index",
+					"query": "promotionId=49&productName=卓立旗金银滴&id=8219&scene=MINI_PLATFORM_USER_ID_66259&SHARE_PRODUCT_DETAIL_PAGE=8219",
+					"scene": "1011"
+				},
+				{
+					"id": 9,
+					"name": "转发产品详情",
+					"pathName": "pageTab/index/index",
+					"query": "id=8040&addShopId=236&scene=MINI_PLATFORM_USER_ID_9860&SHARE_PRODUCT_DETAIL_PAGE=8040",
+					"scene": "1011"
+				},
+				{
+					"id": 10,
+					"name": "聊天室",
+					"pathName": "pagesTwo/chat_room/index",
+					"query": "puid=121527&puname=赵同学",
+					"scene": "1011"
+				},
+				{
+					"id": 11,
+					"name": "领取资源",
+					"pathName": "pagesTwo/resource_info/index",
+					"query": "resourceType=2&resourceId=235",
+					"scene": "1011"
+				},
+				{
+					"id": 12,
+					"name": "服务对象中心",
+					"pathName": "pagesTwo/servant_target_center/index",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 13,
+					"name": "进入订餐",
+					"pathName": "pageTab/index/index",
+					"query": "ENTER_ORDER_MEAL_TABLEID=1&&ADDSHOPID=236",
+					"scene": "1011"
+				},
+				{
+					"id": 14,
+					"name": "门店付款",
+					"pathName": "pages/new_pay_offline/index",
+					"query": "id=244",
+					"scene": "1011"
+				},
+				{
+					"id": 15,
+					"name": "档案相关表单列表",
+					"pathName": "pagesTwo/servant_target_type_form_list/index",
+					"query": "typeId=22&servantTargetTypeName=口腔档案",
+					"scene": "1011"
+				},
+				{
+					"id": 16,
+					"name": "进入表单列表",
+					"pathName": "pages/form_commit_list/index",
+					"query": "customFormId=11",
+					"scene": "1011"
+				},
+				{
+					"id": 17,
+					"name": "我的志愿者列表",
+					"pathName": "pagesTwo/my_volunteers_list/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 18,
+					"name": "地图",
+					"pathName": "pages/select_location/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 19,
+					"name": "表单",
+					"pathName": "pages/form_detail/index",
+					"query": "customFormId=22",
+					"scene": "1001"
+				},
+				{
+					"id": 20,
+					"name": "进入门店中心",
+					"pathName": "pagesTwo/mendian_center/index",
+					"query": "",
+					"scene": 1011
+				},
+				{
+					"id": 21,
+					"name": "进入账户余额",
+					"pathName": "pages/tunzhu_account/index",
+					"query": "promotionId=411",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "进入余额提现",
+					"pathName": "pages/tunzhu_tixian/index",
+					"query": "promotionId=411",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "领取优惠券",
+					"pathName": "pages/available_coupons/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "我的优惠券",
+					"pathName": "pages/my_coupons/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "服务人员列表",
+					"pathName": "pagesTwo/location_servant_map/index",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "仓库产品页",
+					"pathName": "pagesTwo/my_product_list/index",
+					"query": "",
+					"scene": "1001"
+				}
+			]
+		}
+	}
+}

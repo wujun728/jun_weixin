@@ -1,0 +1,18 @@
+<template name="fx_list">
+<block wx:if="{{iconPath}}">
+  <view class='flx_cenetr_content_item' style="text-align:{{align}};background-color:{{bgColor}}" data-link='{{linkUrl}}' bindtap='tolinkUrl'>
+      <view  style=" font-size:{{fontSize}}px;color:{{color}}" 
+        class="text_link_text flexCenter " >
+        
+        <text>{{text}}</text>
+       <!--  <text class='flx_person_conut'>{{fxCenter.levelOneFxUserCount}}</text> -->
+      </view>
+      <image mode='aspectFit' src="{{iconPath}}"></image>
+  </view>
+  </block>
+   <block wx:else>
+      <view class='flx_cenetr_content_title' style="text-align:{{align}};background-color:{{bgColor}};font-size:{{fontSize}}px;color:{{color}}" data-link='{{linkUrl}}' bindtap='tolinkUrl'>
+        {{text}}
+      </view>
+   </block>
+</template> 

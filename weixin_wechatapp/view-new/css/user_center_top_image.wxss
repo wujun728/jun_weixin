@@ -1,0 +1,80 @@
+.user_center_top_container{
+  width: 100%;
+  height: 12em;
+  background: #ccc;
+  position: relative;
+}
+.user_center_top_container_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.user_center_top_container_bg image{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.user_center_top_content{
+   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 4em;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user_center_top_content image{
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  border: 1rpx solid #ccc;
+}
+.user_center_top_content text{
+  margin-top: 10px;
+  font-size: small;
+  color: #fff;
+}
+
+
+/*积分头像下面那一块*/
+.user_center_jifen_content{
+  position: absolute;
+  top: 9em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: small;
+  color:#fff;
+  overflow: hidden;
+}
+.user_center_jifen_content_1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 33%;
+}
+.user_center_jifen_content_2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  width: 34%;
+}
+.user_center_jifen_content text{
+  padding: 2px 0;
+}

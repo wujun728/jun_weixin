@@ -1,0 +1,88 @@
+.recommend_scroll_x_box {
+  height: 340rpx;
+  white-space: nowrap;
+  display: flex;
+  margin-top: 10rpx;
+
+}
+
+.recommend_hot_box {
+  width: 200rpx;
+  height: 340rpx;
+  margin-left: 24rpx;
+  display: inline-block;
+  text-align: center;
+
+
+}
+
+
+.CouponsImg {
+  width: 200rpx;
+  height: 200rpx;
+  overflow: hidden;
+   border-radius: 0.2em;
+}
+.CouponsImg image{
+  width: 100%;
+  height: 100%;
+}
+.chooseName1{
+  height: 65rpx;
+  text-align: left;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+  white-space:normal;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  margin-bottom: 10rpx
+}
+.productListSlidePrice{
+    width: 100%;
+    height: 50rpx;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+.productListSlidePrice{
+   font-size: 30rpx;
+   color: red;
+}
+.tag_price{
+  text-decoration:line-through;
+  font-size: 24rpx;
+  color:#bbb;
+  margin-left: 6rpx;
+}
+.price{
+  font-size: 38rpx;
+  height:38rpx;
+  line-height:38rpx;
+}
+.money{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.limit{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  width: 70%;
+}
+.cart{
+  height: 30rpx;
+  width: 30rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 30rpx;
+  border: 1rpx solid red;
+  border-radius: 30rpx;
+  padding: 5rpx;
+}

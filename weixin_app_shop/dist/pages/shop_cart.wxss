@@ -1,0 +1,2 @@
+@import "./../components/shop_cart.wxss";
+.shop_cart{background:#f7f7f7}

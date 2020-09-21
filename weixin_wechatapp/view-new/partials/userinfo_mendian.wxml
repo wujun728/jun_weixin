@@ -1,0 +1,29 @@
+
+
+
+<!-- <template name="userinfo_mendian">
+  <view wx:if='{{loginUser.platformUser.managerMendianId}}' class='userinfo_mendian' data-link='{{linkUrl}}' bindtap='tolinkUrl'>
+    <view class='userinfo_mendian_left'>
+      <image mode='aspectFit' src="{{iconPath}}"></image>
+      <view  class="userinfo_mendian_text  " >{{text}} </view>
+    </view>
+    <image src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image>
+  </view>
+</template> -->
+
+<template name="userinfo_mendian">
+  <view wx:if='{{loginUser.platformUser.managerMendianId}}' class='userinfo_mendian' data-link='{{linkUrl}}' bindtap='tolinkUrl'>
+    <view class='userinfo_mendian_left'>
+      <image mode='aspectFit' src="{{iconPath}}"></image>
+      <view  class="userinfo_mendian_text  " >{{text}} </view>
+    </view>
+    <view>
+      <picker class='picker' data-index="{{index}}" bindchange="bindPickerChange" range="{{items.listValues}}">
+        <view class='pickerRight'>
+          <image class='pickerImg' src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image>
+        </view>
+      </picker >
+      <!-- <image class='more_select' src='http://image1.sansancloud.com/aikucun/2018_03/22/11/28/36_332.jpg?x-oss-process=style/preview_120'></image> -->
+    </view>
+  </view>
+</template>

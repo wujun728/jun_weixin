@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/mysql"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://172.18.242.17:3306/wechat_lottery?useUnicode=true&amp;characterEncoding=utf-8"
+              username="root"
+              password="root"
+              maxTotal="100"
+              maxIdle="30"
+              maxWaitMillis="100000" />
+</Context>

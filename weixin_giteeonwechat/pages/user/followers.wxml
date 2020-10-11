@@ -1,0 +1,29 @@
+<wxs src="../../utils/timeHelper.wxs" module="timeHelper" />
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <block wx:if="{{list.length>0}}">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <block wx:for="{{list}}" wx:key="item">
+                <navigator url="../user/detail/?login={{item.login}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.avatar_url}}" style="border-radius:5px;border:1px solid #eee;" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{item.name}}</view>
+                        <view class="weui-media-box__desc">
+                            <view>@{{item.login}}</view>
+                            <view>{{item.html_url}}</view>
+                        </view>
+                    </view>
+                </navigator>
+                </block>
+            </view>
+        </view>
+    </block>
+    <view wx:if="{{list.length==0}}" style="text-align:center;padding-top:100px;">
+      <image src="../../res/image/alert.png" style="width:100px;height:100px;"></image>
+      <view style="font-size:16px;color:#999;margin-top:20px;">你还没有被人关注呢</view>
+    </view>
+  </view>
+</view>

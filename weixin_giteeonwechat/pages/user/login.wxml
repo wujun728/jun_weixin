@@ -1,0 +1,54 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <view class="app_title">{{product.name}}</view>
+    <view class="app_desc">{{product.desc}}</view>
+    <form bindsubmit="formSubmit" bindreset="formReset" wx:if="{{!tokenFormShow}}">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">帐号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="码云帐号邮箱/手机" type="email" value="{{user_name}}" name="username" auto-focus />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">密码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="你的登录密码" password="true" value="" name="password" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button form-type="submit" class="weui-btn" type="primary">登录码云</button>
+        <view style="text-align:center;padding:10px 0px;" bindtap="loginWithToken">使用码云私人令牌授权</view>
+      </view>
+    </form>
+    <view class="addTokenBox" wx:if="{{tokenFormShow}}">
+      <view class="addTokenForm">
+        <form bindsubmit="doTokenFormSubmit" bindreset="formReset">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <textarea style="height:80px" catchtap="nothing" name="personal_token" class="weui-textarea" placeholder="请粘贴你在码云后台的私人令牌，请选择所有的权限" rows="2" value="{{personal_token}}"></textarea>
+              </view>
+            </view>
+          </view>
+          <view class="weui-btn-area">
+            <button form-type="submit" class="weui-btn weui-btn_primary" type="primary">
+              立即授权登录
+            </button>
+            <view style="text-align:center;padding:10px 0px;" bindtap="hideAddForm">
+              使用码云帐号密码登录
+            </view>
+          </view>
+        </form>
+      </view>
+    </view>
+    <view class="weui-footer weui-footer_fixed-bottom" style="z-index:9999">
+      <view class="weui-footer__text">本服务由Hamm提供 非码云官方服务</view>
+    </view>
+  </view>
+</view>

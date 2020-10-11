@@ -1,0 +1,38 @@
+<wxs src="../../utils/timeHelper.wxs" module="timeHelper" />
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+      <view class="weui-cells__title">
+        当前分支：
+        <span style="color:#333;">{{branch}}</span>
+        <span style="float:right;color:orangered;" bindtap="changeBranch">切换分支</span>
+      </view>
+      <block wx:if="{{commitList.length>0}}">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__bd">
+            <navigator wx:for="{{commitList}}" wx:key="item" hover-class="navigator-hover" url="../commits/detail?path={{path}}&namespace={{namespace}}&hash={{item.sha}}">
+              <view class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__bd">
+                  <h4 class="weui-media-box__title">{{item.commit.message}}</h4>
+                  <p class="weui-media-box__desc">
+                    <view>
+                      <span style="font-size:14px;color:#999;margin-right:5px;">
+                        {{timeHelper.parse(item.commit.committer.date)}}
+                      </span>
+                      <span style="color:darkgreen;margin-left:5px;">+{{item.stats.additions}}</span>
+                      <span style="color:orangered;margin-left:5px;">-{{item.stats.deletions}}</span>
+                    </view>
+                    <view> 由 {{item.author.name}} ({{item.commit.committer.email}}) 提交</view>
+                  </p>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{commitList.length==0}}">
+        <view style="text-align:center;font-size:14px;color:#999;padding:20px 0px;">
+          最近无Commit记录
+        </view>
+      </block>
+  </view>
+</view>

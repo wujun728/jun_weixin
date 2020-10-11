@@ -1,0 +1,11 @@
+.weui-cell {
+  padding: 15px;
+}
+
+.weui-cells {
+  margin: 0px 20px;
+}
+
+.weui-label {
+  width: 60px;
+}

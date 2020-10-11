@@ -1,0 +1,45 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+	<view class="page__bd">
+		<view class="weui-cells__title" style="margin-left:10px;font-size:16px;">你的资料将直接同步到码云账户</view>
+
+		<form bindsubmit="formSubmit" bindreset="formReset">
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<view class="weui-cell__hd">
+						<view class="weui-label">昵称</view>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="你为自己起的牛逼昵称" value="{{userInfo.name}}" name="name" auto-focus />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_input">
+					<view class="weui-cell__hd">
+						<view class="weui-label">博客</view>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="你博客的地址" value="{{userInfo.blog}}" name="blog" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_input">
+					<view class="weui-cell__hd">
+						<view class="weui-label">微博</view>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="你微博的地址" value="{{userInfo.weibo}}" name="weibo" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_input">
+					<view class="weui-cell__hd">
+						<view class="weui-label">简介</view>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="text " placeholder="不好好为自己吹一次牛逼吗" value="{{userInfo.bio}}" name="bio" />
+					</view>
+				</view>
+			</view>
+			<view class="demos-content-padded" style="padding:0px 20px;margin-top:20px;">
+				<button form-type="submit" class="weui-btn weui-btn_primary" type="primary">更新资料</button>
+			</view>
+		</form>
+	</view>
+</view>

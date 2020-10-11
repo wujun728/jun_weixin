@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationStyle": "default",
+  "navigationBarTitleText": "我Star的仓库",
+  "enablePullDownRefresh": true
+}

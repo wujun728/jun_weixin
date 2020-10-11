@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+  },
+  "navigationStyle": "default",
+  "navigationBarTitleText": "公钥列表",
+  "enablePullDownRefresh": true
+}

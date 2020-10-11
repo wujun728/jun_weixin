@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "wemark": "../../wemark/wemark"
+  },
+  "navigationStyle": "default",
+  "navigationBarTitleText": "仓库详情",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,15 @@
+var parse = function (time) {
+  var date = '';
+  var d = getDate(time);
+  var _month = d.getMonth() + 1;
+  date += (_month < 10 ? ("0" + _month) : _month) + "-";
+  date += (d.getDate() < 10 ? ("0" + d.getDate()) : d.getDate()) + " ";
+  date += (d.getHours() < 10 ? ("0" + d.getHours()) : d.getHours()) + ":";
+  date += (d.getMinutes() < 10 ? ("0" + d.getMinutes()) : d.getMinutes());
+  return date;
+}
+var replace = function (str, find='', replace='') {
+  return str.replace(find,replace);
+};
+module.exports.parse = parse;
+module.exports.replace = replace;

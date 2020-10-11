@@ -1,0 +1,37 @@
+<wxs src="../../utils/timeHelper.wxs" module="timeHelper" />
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <block wx:if="{{list.length>0}}">
+      <view wx:for="{{list}}" wx:key="item" hover-class="navigator-hover" mark:namespace="{{item.namespace.path}}" mark:path="{{item.path}}" bindtap="showMenu">
+        <view class="weui-panel">
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text" style="backround-color:#f5f5f5;">
+              <view class="weui-media-box__title weui-media-box__title_in-text">
+                <i class="icon-icon_dingtab iconfont" wx:if="{{item.public}}" style="font-size:18px;color:#666;"></i>
+                <i class="icon-changyongtubiao-mianxing-7 iconfont" wx:if="{{!item.public}}" style="font-size:18px;color:#666;"></i>
+                {{item.human_name}}
+              </view>
+              <view style="margin-bottom:5px;font-size:14px;color:#999;">
+                {{timeHelper.parse(item.pushed_at)}}
+                <span class="floatRight">
+                  <i class="iconfont icon-eye">{{item.watchers_count}}</i>
+                  <i class="iconfont icon-star">{{item.stargazers_count}}</i>
+                  <i class="iconfont icon-changyongtubiao-mianxing-67">{{item.forks_count}}</i>
+                </span>
+                </view>
+              <view class="weui-media-box__desc">{{item.description?item.description:"暂无描述"}}</view>
+                <view>
+                <span class="badge" wx:if="{{item.language}}">{{item.language?item.language:'JavaScript'}}</span>
+                <span class="badge" wx:if="{{item.public}}">{{item.license?item.license:'MulanPSL-2.0'}}</span>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{list.length==0}}" style="text-align:center;padding-top:100px;">
+      <image src="../../res/image/alert.png" style="width:100px;height:100px;"></image>
+      <view style="font-size:16px;color:#999;margin-top:20px;">没有查询到仓库数据</view>
+    </view>
+  </view>
+</view>

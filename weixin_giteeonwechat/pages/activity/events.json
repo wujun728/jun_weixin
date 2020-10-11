@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationStyle": "default",
+  "navigationBarTitleText": "我的动态",
+  "enablePullDownRefresh": true
+}

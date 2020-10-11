@@ -1,0 +1,54 @@
+<wxs src="../../utils/timeHelper.wxs" module="timeHelper" />
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <view class="searchbox">
+      <!-- <view class="weui-cells weui-cells_form" style="margin:0;border-radius:0;background-color:transparent;padding:8px;">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <i class="iconfont icon-search"></i>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" confirm-type="search" placeholder="输入仓库名称快速查找" value="{{repos_mingcheng}}" bindinput="search"></input>
+          </view>
+        </view>
+      </view> -->
+      <view class="weui-flex">
+        <view class="weui-flex__item" bindtap="typeChanged">{{type_name}}</view>
+        <view class="weui-flex__item" bindtap="sortChanged">{{sort_name}}</view>
+        <view class="weui-flex__item" bindtap="orderChanged">{{order_name}}</view>
+      </view>
+    </view>
+    <block wx:if="{{list.length>0}}">
+      <navigator wx:for="{{list}}" wx:key="item" hover-class="navigator-hover" url="../repos/detail?namespace={{item.namespace.path}}&path={{item.path}}">
+        <view class="weui-panel">
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text" style="backround-color:#f5f5f5;">
+              <view class="weui-media-box__title weui-media-box__title_in-text">
+                <i class="icon-icon_dingtab iconfont" wx:if="{{item.public}}" style="font-size:18px;color:#666;"></i>
+                <i class="icon-changyongtubiao-mianxing-7 iconfont" wx:if="{{!item.public}}" style="font-size:18px;color:#666;"></i>
+                {{item.human_name}}
+              </view>
+              <view style="margin-bottom:5px;font-size:14px;color:#999;">
+                {{timeHelper.parse(item.pushed_at)}}
+                <span class="floatRight">
+                  <i class="iconfont icon-eye">{{item.watchers_count}}</i>
+                  <i class="iconfont icon-star">{{item.stargazers_count}}</i>
+                  <i class="iconfont icon-changyongtubiao-mianxing-67">{{item.forks_count}}</i>
+                </span>
+                </view>
+              <view class="weui-media-box__desc">{{item.description?item.description:"暂无描述"}}</view>
+                <view>
+                <span class="badge" wx:if="{{item.language}}">{{item.language?item.language:'JavaScript'}}</span>
+                <span class="badge" wx:if="{{item.public}}">{{item.license?item.license:'MulanPSL-2.0'}}</span>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <view wx:if="{{list.length==0}}" style="text-align:center;padding-top:100px;">
+      <image src="../../res/image/alert.png" style="width:100px;height:100px;"></image>
+      <view style="font-size:16px;color:#999;margin-top:20px;">没有查询到仓库数据</view>
+    </view>
+  </view>
+</view>

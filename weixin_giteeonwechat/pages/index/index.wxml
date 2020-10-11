@@ -1,0 +1,106 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+	<view class="page__bd">
+		<view class="top" bindtap="ifNeedLogin">
+			<view class="headimg">
+				<image src="{{userInfo.avatar_url}}"></image>
+			</view>
+			<view class="username">{{userInfo.name}}</view>
+			<view class="desc">{{userInfo.bio}}</view>
+			<view style="margin:0px 10%;">
+				<view class="weui-flex" style="background-color:transparent;">
+					<view class="weui-flex__item">
+						<navigator class="placeholder" url="../user/followers" hover-class="weui-grid_active">
+							<view class="top_value">{{userInfo.followers}}</view>
+							<view class="top_key">粉丝</view>
+						</navigator>
+					</view>
+					<view class="weui-flex__item">
+						<navigator class="placeholder"  url="../user/following" hover-class="weui-grid_active">
+							<view class="top_value">{{userInfo.following}}</view>
+							<view class="top_key">关注</view>
+						</navigator>
+					</view>
+					<view class="weui-flex__item">
+						<navigator class="placeholder"  url="../repos/starred" hover-class="weui-grid_active">
+							<view class="top_value">{{userInfo.stared}}</view>
+							<view class="top_key">Star</view>
+						</navigator>
+					</view>
+					<view class="weui-flex__item">
+						<navigator class="placeholder"  url="../repos/watched" hover-class="weui-grid_active">
+							<view class="top_value">{{userInfo.watched}}</view>
+							<view class="top_key">Watch</view>
+						</navigator>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells">
+			<navigator class="weui-cell weui-cell_access" hover-class="app_hover" url="../repos/search">
+				<view class="weui-cell__bd">
+					<view style="color:#999;">输入关键词搜索开源仓库</view>
+				</view>
+				<view class="weui-cell__ft">
+					<i class="item iconfont icon-sousuo5"></i></view>
+			</navigator>
+		</view>
+		<view class="weui-grids">
+			<navigator url="../repos/list" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-rili33"></i>
+				</view>
+				<view class="weui-grid__label">我的仓库</view>
+			</navigator>
+			<navigator url="../repos/list" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-changyongtubiao-xianxingdaochu-zhuanqu-1"></i>
+				</view>
+				<view class="weui-grid__label">Pull Requests</view>
+			</navigator>
+			<navigator url="../repos/list" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-naozhong2"></i>
+				</view>
+				<view class="weui-grid__label">待办任务</view>
+			</navigator>
+			<view bindtap="showMyActivity" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-comment"></i>
+				</view>
+				<view class="weui-grid__label">我的消息</view>
+			</view>
+			<view bindtap="showMyFavRepo" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-shoucang2"></i>
+				</view>
+				<view class="weui-grid__label">关注仓库</view>
+			</view>
+			<view bindtap="showMyFriends" class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-icon_group"></i>
+				</view>
+				<view class="weui-grid__label">好友粉丝</view>
+			</view>
+			<view class="weui-grid" hover-class="weui-grid_active" bindtap="openAccount">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-icon_boss"></i>
+				</view>
+				<view class="weui-grid__label">帐号管理</view>
+			</view>
+			<view class="weui-grid" hover-class="weui-grid_active">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-icon_service"></i>
+				</view>
+				<view class="weui-grid__label">反馈建议</view>
+				<button open-type="contact" style="opacity:0;position:absolute;left:0;right:0;top:0;bottom:0;">
+				</button>
+			</view>
+			<view class="weui-grid" hover-class="weui-grid_active" bindtap="openSetting">
+				<view>
+					<i class="weui-grid__icon item iconfont icon-changyongtubiao-xianxingdaochu-zhuanqu-32"></i>
+				</view>
+				<view class="weui-grid__label">系统设置</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationStyle": "default",
+  "navigationBarTitleText": "我Watch的仓库",
+  "enablePullDownRefresh": true
+}

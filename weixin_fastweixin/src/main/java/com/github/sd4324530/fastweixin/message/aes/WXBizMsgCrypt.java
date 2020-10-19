@@ -15,6 +15,10 @@ package com.github.sd4324530.fastweixin.message.aes;
 
 import org.apache.commons.codec.binary.Base64;
 
+import com.github.sd4324530.fastweixin.util.SignUtil1;
+
+//import com.github.sd4324530.fastweixin.util.SignUtil;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -274,13 +278,15 @@ public class WXBizMsgCrypt {
      */
     public String verifyUrl(String msgSignature, String timeStamp, String nonce, String echoStr)
             throws AesException {
-        String signature = SHA1.getSHA1(token, timeStamp, nonce, echoStr);
-
-        if (!signature.equals(msgSignature)) {
+//        String signature = SHA1.getSHA1(token, timeStamp, nonce, echoStr);
+        
+        if (!SignUtil1.checkSignature( msgSignature, timeStamp,nonce)) {
             throw new AesException(AesException.ValidateSignatureError);
         }
-
-        String result = decrypt(echoStr);
-        return result;
+//        if (!signature.equals(msgSignature)) {
+////            throw new AesException(AesException.ValidateSignatureError);
+//        }
+//        String result = decrypt(echoStr);
+        return echoStr;
     }
 }

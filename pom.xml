@@ -13,6 +13,7 @@
 	</properties>
 
 	<modules>		
+		<module>weixin</module>
 		<module>weixin_mp_springboot</module>
 	<!--	<module>ssh_generator</module>
 	  <module>ssm_generator</module>

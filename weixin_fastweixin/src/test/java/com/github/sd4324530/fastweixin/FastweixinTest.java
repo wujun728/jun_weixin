@@ -10,6 +10,7 @@ import com.github.sd4324530.fastweixin.util.StrUtil;
 import org.apache.http.client.utils.DateUtils;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,12 +26,14 @@ public class FastweixinTest {
 
     private ApiConfig config;
 
-//    @Before
+    @Before
     public void init() {
 //        String appid = "wx8c33ff895df5d0d9";
 //        String secret = "0705aafac0bef944de4c485d71fce900";
-        String appid = "wx337021cfcc3e32fb";
-        String secret = "e244f1244f0ba2798546e0450d3045ea";
+        String appid = "wx1922a087525d2580";
+        String secret = "3abace60187243644e59e51cb805459a";
+//        String appid = "wx337021cfcc3e32fb";
+//        String secret = "e244f1244f0ba2798546e0450d3045ea";
         config = new ApiConfig(appid, secret);
         TestConfigChangeHandle configChangeHandle = new TestConfigChangeHandle();
         config.addHandle(configChangeHandle);
@@ -40,10 +43,10 @@ public class FastweixinTest {
      *AppID(应用ID)wx8c33ff895df5d0d9
      *AppSecret(应用密钥)0705aafac0bef944de4c485d71fce900
      */
-//    @Test
+    @Test
     public void test() {
-        String appid = "wx8c33ff895df5d0d9";
-        String secret = "0705aafac0bef944de4c485d71fce900";
+    	String appid = "wx1922a087525d2580";
+        String secret = "3abace60187243644e59e51cb805459a";
         ApiConfig config = new ApiConfig(appid, secret);
         TestConfigChangeHandle configChangeHandle = new TestConfigChangeHandle();
         config.addHandle(configChangeHandle);

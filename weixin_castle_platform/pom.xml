@@ -24,7 +24,7 @@
 		<commons-lang3.version>3.4</commons-lang3.version>
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<httpmime.version>4.5.2</httpmime.version>
-		<commons-io.version>2.5</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
 		<querydsl.version>4.1.1</querydsl.version>
 		<junit.version>4.12</junit.version>

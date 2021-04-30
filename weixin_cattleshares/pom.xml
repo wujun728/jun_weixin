@@ -14,7 +14,7 @@
         <servlet.version>3.0.1</servlet.version>
         
         <log4j2.version>2.6.2</log4j2.version>
-        <spring.version>4.3.3.RELEASE</spring.version>
+        <spring.version>4.3.29.RELEASE</spring.version>
         <mybaitsplus.version>1.4.9</mybaitsplus.version>
         <mysql.version>5.1.39</mysql.version>
         <druid.version>1.0.26</druid.version>

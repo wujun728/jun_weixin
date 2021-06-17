@@ -1,0 +1,95 @@
+<!--index.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{movies}}" wx:for-index="index">
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view>
+  <view class='v_title'> HISTOMER海皙曼身体肌肤抗衰疗程</view>
+  <view class='v_comment'> HISTOMER海皙曼由意大利著名的化学师、药剂师、皮肤学专家Vittorio Bortolin教授创立，早在20世纪初期Bortolin教授就已经为众多好莱坞明星、皇室贵族打造私人专属肌肤抗衰方案，多年来专注于研发肌肤抗衰老的秘诀。历经18年不断探索与研究，发现了【Histomeric Cells 海皙曼动力细胞】的抗衰老神奇功效，并在瑞士日内瓦获得世界专利技术。
+  </view>
+</view>
+
+<!--视频  -->
+<video src="{{videouri}}" style="width:100%;margin-top:10px"></video>
+
+<view class='center'>
+  到店体验
+</view>
+<view style="width:100%;margin-top:10px">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <view class="section__title">姓名:</view>
+      <view class='form-group'>
+        <input type="text" class="input-text" name="username" placeholder="" value='{{username}}'/>
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">手机:</view>
+      <view class='form-group'>
+        <input type="text" class="input-text" name="phone" placeholder="" value='{{phone1}}'/>
+      </view>
+    </view>
+   <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+   <view class="section__title">到店日期时间:</view>
+      <view class='form-group'>
+      <input type="text" class="input-text" name="enterdate" placeholder="" value=' {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}'/>
+    </view>
+  </picker>
+    <view class="section">
+      <view class="section__title">体验人数:</view>
+      <view class='form-group'>
+        <input type="number" class="input-text" name="count" placeholder="" value='{{count}}'/>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">性别:</view>
+      <view class='form-group'>
+        <radio-group name="gender">
+          <label>
+            <radio value="1" />男</label>
+          <label>
+            <radio value="0" checked='checked' />女</label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="section btn-area">
+      <button class='btn_sub' formType="submit">确认提交</button>
+    </view>
+  </form>
+
+  <view style='margin-left:5px'>
+    <view class='v_top'>店名：{{store}}</view>
+    <view class='v_top'>地址:{{address}}</view>
+    <view class='v_top'>电话：{{phone}}</view>
+  </view>
+
+  <view class='v_top' style='display: flex;flex-direction: row; width:100%'>
+    <view bindtap='to_map' style='width:100%'>
+      <image src='/images/ic_position.png' style='width:15px;height:15px'></image>
+      导航“地图引导”
+      <image src='/images/to.png' style='width:15px;height:15px;float:right'></image>
+    </view>
+  </view>
+
+   <block wx:for="{{images}}" wx:for-index="index">
+    <view class=''>
+      <image src="{{item.url}}" class="ad_image" mode="aspectFill" />
+    </view>
+  </block>
+
+  <!--footer  -->
+  <view class='footer'>小程序</view>
+
+  <view>
+    <button class='circle-float' bindtap='callPhone'>联系客服</button>
+  </view>
+
+  <!-- 黑框提示并消失 -->
+  <toast hidden="{{toast1Hidden}}" bindchange="toast1Change">
+    {{notice_str}}
+  </toast>
+</view>

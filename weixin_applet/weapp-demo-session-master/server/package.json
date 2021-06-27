@@ -15,7 +15,7 @@
     "express": "^4.14.0",
     "file-type": "^3.8.0",
     "lodash": "^4.16.1",
-    "mongodb": "^2.2.10",
+    "mongodb": "^3.6.2",
     "morgan": "^1.7.0",
     "multiparty": "^4.1.2",
     "read-chunk": "^2.0.0",

@@ -1,0 +1,41 @@
+# Tomcat
+server:
+    tomcat:
+        max-threads: 10
+        min-spare-threads: 10
+    port: 80
+
+# mysql
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/wxmp?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: root
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    resources:
+            static-locations: classpath:/static/,classpath:/views/
+    cache:
+        ehcache:
+          config: classpath:property/ehcache.xml
+
+# Mybatis配置
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+
+http:
+    #上传文件大小设置
+    multipart:
+        maxFileSize: 10Mb
+        maxRequestSize: 50Mb
+
+# log文件输出在项目根目录，打包后，也回输出在jar文件统计目录。
+# Spring boot的默认log配置很好用，默认10MB一个文件，回定期归档log文件为gz
+logging:
+  file: logs/app.log
+  level:
+    root: INFO
+    com.wd: DEBUG

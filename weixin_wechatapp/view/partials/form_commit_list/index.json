@@ -1,6 +1,0 @@
-{
-  "component":true,
-  "usingComponents": {
-    "form-item": "../form_item/index"
-    }
-}

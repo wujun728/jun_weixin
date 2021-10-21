@@ -1,6 +1,0 @@
-@import "./../components/shop_grid_list.wxss";
-@import "./../components/bomb_screen.wxss";
-@import "./../components/common/placeholder.wxss";
-@import "./../components/common/bottomLoadMore.wxss";
-@import "./../components/discover.wxss";
-.swiper{height:348rpx}.slide-image{width:100%;height:100%}.pos{position:absolute;top:0;left:0;right:0}.pos .search_content{background:rgba(0,0,0,0.1);border:1px solid #efefee}.pos .search_content .icon-search,.pos .search_content .search_input{color:#efefee}.pos .message{display:block;text-align:center;margin-left:20rpx}.pos .doc{font-size:16rpx;display:block}.nav_list{color:#404040;display:flex;font-size:26rpx;justify-content:space-between;padding:17rpx 50rpx}.nav_list navigator{text-align:center}.nav_list .nav_icon{height:80rpx;margin:0 auto;width:80rpx;margin-bottom:14rpx}.nav_list .nav_text{font-size:26rpx}.recommend-title{padding:40rpx 0;text-align:center;color:#333}

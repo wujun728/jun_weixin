@@ -1,4 +1,0 @@
-
-<template name="footer_img">
-  <image class='footerImg' mode="widthFix" style='width:100%' src="{{jsonData.imageUrl}}" catchtap='tolinkUrl' data-link="{{jsonData.linkUrl}}"></image>
-</template> 

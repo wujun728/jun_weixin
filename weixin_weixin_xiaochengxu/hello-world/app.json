@@ -1,7 +1,0 @@
-{
-  "pages": [
-    "page/hello-world/hello-world",
-    "page/demo-components/demo1/demo1"
-  ],
-  "sitemapLocation": "sitemap.json"
-}

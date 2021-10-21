@@ -1,2 +1,0 @@
-<wxs src="../../public/publicFun.wxs" module="publicFun"></wxs>
-<form-commit_list id="formCommitList"  showBtn="ture" data="{{sendOptionData}}" wx:if='{{sendOptionData}}' bind:returnFormNameFun="getDataFun"></form-commit_list>

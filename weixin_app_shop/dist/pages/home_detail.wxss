@@ -1,5 +1,0 @@
-@import "./../components/common/placeholder.wxss";
-@import "./../components/common/bottomLoadMore.wxss";
-@import "./../components/shop_grid_list.wxss";
-@import "./../components/filter_bar.wxss";
-page{background:#fff}.img_box{width:100%;height:370rpx;background:#000}.discover_img{width:100%;height:370rpx}.info{margin-top:30rpx;padding:0 30rpx}.info .title{margin-bottom:20rpx;color:#000}.info .doc{color:#000000;padding-top:15rpx;display:flex;align-items:center}.info .doc .lx{font-size:20rpx;margin-right:20rpx}

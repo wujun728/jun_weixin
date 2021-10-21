@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "我的信息",
-  "usingComponents": {
-    "form-detail": "/view/partials/form_detail/index"
-  }
-}

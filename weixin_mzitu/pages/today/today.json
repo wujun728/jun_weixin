@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText":"今日推荐",
-    "enablePullDownRefresh": true,
-    "component": true,
-    "usingComponents": {
-      "van-skeleton": "/common/vant/skeleton/index",
-      "wxc-abnor": "/packages/wxc-abnor/dist/index"
-    }
-}

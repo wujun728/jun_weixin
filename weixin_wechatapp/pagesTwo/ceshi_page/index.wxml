@@ -1,7 +1,0 @@
-<view class='container'>
-  <view class='one_block'>
-    <view class='two_block'>
-      <image src='http://image1.sansancloud.com/xianhua/2017_12/18/11/53/30_445.jpg?x-oss-process=style/preview' class='three_block'></image>
-    </view>
-  </view>
-</view>

@@ -1,5 +1,0 @@
-<!--pages/yaoyiyao/yaoyiyao.wxml-->
-<text>pages/yaoyiyao/yaoyiyao.wxml</text>
-<view>x：{{x}}</view>
-<view>y：{{y}}</view>
-<view>z：{{z}}</view>

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "新闻详情",
-  "usingComponents": {
-    "news-posters": "/view/partials/canvas_news_detail/index",
-    "component-customPage": "/view/partials/custom_page/index"
-  }
-}

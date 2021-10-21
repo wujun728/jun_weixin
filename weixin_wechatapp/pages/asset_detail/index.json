@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "资产详细",
-  "usingComponents": {
-    "posters": "/view/partials/canvas/index",
-    "time": "/view/partials/time/time",
-    "pintuan": "/view/partials/pintuan_popup/index",
-    "component-customPage": "/view/partials/custom_page/index"
-  }
-}

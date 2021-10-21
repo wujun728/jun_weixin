@@ -1,6 +1,0 @@
-
-<template name="simple_space">
- <view  style="height:{{jsonData.height}}px;background-color:{{jsonData.color}} "></view>  
-
-</template>
-

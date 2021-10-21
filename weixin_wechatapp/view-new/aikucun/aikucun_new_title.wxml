@@ -1,6 +1,0 @@
-
-<template name="aikucun_new_title" >
-    <view class='title_img'>
-      <image class='title_img_url' src='http://image.tunzai.vip/tunzai/2018_11/1/14/15/35_34.jpg'></image>
-    </view>
-</template>

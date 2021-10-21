@@ -1,2 +1,0 @@
-@import "./../components/rate.wxss";
-.block{background:#fff;padding:20rpx}.block .item-block{display:flex;margin-top:20rpx}.block .title{padding-right:10rpx}.block .textarea{height:200rpx;border-radius:10rpx;border:1rpx solid #efefef;padding:10rpx;width:600rpx}.block .type_green{margin-top:100rpx}

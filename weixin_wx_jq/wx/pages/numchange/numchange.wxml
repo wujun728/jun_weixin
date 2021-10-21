@@ -1,9 +1,0 @@
-<!--pages/numchange/numchange.wxml-->
-<view class="container">
-  <view>商城购买数量增减效果</view>
-  <view class='buy'>
-      <view class='ic' bindtap='evic'>-</view>
-      <input class='in' type="text" placeholder="数量" value='{{num}}' bindblur='evblur'  />
-      <view class='ad' bindtap='evad'>+</view>
-  </view>
-</view>  

@@ -1,4 +1,0 @@
-<!--pages/apply_for_facilitator/apply_for_facilitator.wxml-->
-<!-- <view>1111</view> -->
-
-<web-view src="{{url}}" bindmessage="sendMessage"></web-view>

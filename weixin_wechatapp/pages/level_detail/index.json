@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "会员详情",
-  "usingComponents": {
-    "news-posters": "/view/partials/canvas_news_detail/index",
-    "component-tag-customPage": "/view/partials/custom_page/index"
-  }
-}

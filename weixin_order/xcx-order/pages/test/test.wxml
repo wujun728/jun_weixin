@@ -1,4 +1,0 @@
-<view class="countDownTimeView countDownAllView" bindtap="to" >  
-  <view class="voteText countDownTimeText">{{countDownMinute}}分</view>  
-  <view class="voteText countDownTimeText">{{countDownSecond}}秒</view>  
-</view>  

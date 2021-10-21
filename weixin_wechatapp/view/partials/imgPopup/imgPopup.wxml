@@ -1,9 +1,0 @@
-
-<view style='display:{{display}}'>
-  <view class='bg'></view>
-  <view class='close' bindtap='closeFun' data-url="{{someData.imageUrl}}">x</view>
-  <view class='concent'  >
-    <image mode="aspectFit" src="{{someData.imageUrl}}"  data-url="{{someData.imageUrl}}" bindtap='tolinkUrl'></image> 
-    <view class='price'>支付金额：{{someData.price}}</view>
-  </view>
-</view>

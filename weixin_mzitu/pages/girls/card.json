@@ -1,7 +1,0 @@
-{
-  "enablePullDownRefresh": true,
-  "component": true,
-  "usingComponents": {
-    "wxc-abnor": "/packages/wxc-abnor/dist/index"
-  }
-}

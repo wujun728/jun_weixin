@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "订单详情",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "time": "/view/partials/time/time",
-    "posters-user-info": "/view/partials/canvas_user_info/index"
-  }
-}

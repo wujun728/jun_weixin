@@ -1,9 +1,0 @@
-/* pages/timedjs/timedjs.wxss */
-.container{
-  background-color: #ccc;
-  height: 600rpx;
-}
-.btn view{
-  margin: 30rpx;
-  font-size: 30rpx;
-}

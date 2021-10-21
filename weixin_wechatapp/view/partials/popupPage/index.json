@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "component-form-detail": "../form_detail/index"
-    
-  }
-}

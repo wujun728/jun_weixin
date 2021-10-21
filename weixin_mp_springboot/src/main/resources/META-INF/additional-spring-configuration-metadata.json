@@ -1,9 +1,0 @@
-{
-    "properties": [
-        {
-            "name": "wx.mp.configs",
-            "type": "java.util.List",
-            "description": "Description for wx.mp.configs."
-        }
-    ]
-}

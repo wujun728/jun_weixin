@@ -1,2 +1,0 @@
-1--获取内参列表接口：
-	http://localhost:8080/CattleShares/reference/getAllReference?current=1

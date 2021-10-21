@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-  },
-  "navigationStyle": "default",
-  "navigationBarTitleText": "评论列表",
-  "enablePullDownRefresh": true
-}

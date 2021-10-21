@@ -1,2 +1,0 @@
-/* pages/richText/index.wxss */
-@import"../../wxParse/wxParse.wxss";/* 富文本 */

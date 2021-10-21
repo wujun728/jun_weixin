@@ -1,2 +1,0 @@
-@import "./common/placeholder.wxss";
-.detai-content{background:#fff;margin-top:10rpx}.detai-list{align-items:center;border-bottom:1px solid #efefef;display:flex;height:150rpx;justify-content:space-between;margin:0 40rpx}.detai-time{color:#737373;font-size:26rpx;margin-top:20rpx}.detail-right{text-align:right}.detail-money{color:#eb6623;display:block;font-size:40rpx}

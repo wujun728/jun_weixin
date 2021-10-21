@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText":"历史干货",
-    "enablePullDownRefresh": true,
-    "onReachBottomDistance": 150,
-    "component": true,
-    "usingComponents": {
-      "wxc-abnor": "/packages/wxc-abnor/dist/index"
-    }
-}

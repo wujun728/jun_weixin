@@ -1,3 +1,0 @@
-@import "./../components/common/placeholder.wxss";
-@import "./../components/common/bottomLoadMore.wxss";
-@import "./../components/shop_grid_list.wxss";

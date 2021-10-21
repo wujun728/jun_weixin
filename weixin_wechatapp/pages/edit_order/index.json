@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "我的订单",
-  "usingComponents": {
-    "form-detail": "/view/partials/form_detail/index"
-  }
-}

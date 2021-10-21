@@ -1,9 +1,0 @@
-<!--pages/seamlessscrolling/seamlessscrolling.wxml-->
-<view class="container">
-  <view>无缝滚动</view>
-  <view class='seamlessscrolling' style='height:{{bh}}px;width:{{bw}}px;'>
-        <view style='height:{{direction=="vertical"?bh*clonestr.length:bh}}px;width:{{direction=="horizontal"?bw*clonestr.length:bw}}px;{{horizontal_dire}}:{{bl}}px;{{vertical_dire}}:{{bt}}px;'>
-        <view wx:for="{{clonestr}}" wx:key="unique" style='height:{{bh}}px;line-height:{{bh}}px;width:{{bw}}px;position:absolute;top:{{direction=="vertical"?index*bh:0}}px;left:{{direction=="horizontal"?index*bw:0}}px;'>{{item}}</view>
-      </view>
-  </view>
-</view>

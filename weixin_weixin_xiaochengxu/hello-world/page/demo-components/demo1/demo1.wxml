@@ -1,7 +1,0 @@
-<view class="section">
-    <view>view组件</view>
-    <view class="" hover-class="hover-parent-container" 
-        hover-stop-propagation="false">
-        
-    </view>
-</view>

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "商品管理",
-  "enablePullDownRefresh": true,
-  "backgroundColor": "#f1f1f1",
-  "usingComponents": {
-    "select-product-type-popup": "../../view/partials/select_product_type_popup/index"
-  }
-}

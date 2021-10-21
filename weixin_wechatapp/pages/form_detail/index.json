@@ -1,9 +1,0 @@
-{
-  "enablePullDownRefresh": true,
-  "backgroundColor": "#f1f1f1",
-  "usingComponents": {
-    "form-posters": "/view/partials/canvas_form/index",
-    "form-detail": "/view/partials/form_detail/index",
-    "component-customPage": "/view/partials/custom_page/index"
-  }
-}

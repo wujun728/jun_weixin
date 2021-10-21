@@ -1,8 +1,0 @@
-
-<form-detail id="selectAddress" showBtn="true" data="{{sendOptionData}}" locationList2="{{locationList}}" wx:if='{{sendPageDataState}}' bind:selectPsotion="selectPsotion"></form-detail>
-<!-- <view class='shareFormPoster' style='background:{{setting.platformSetting.defaultColor}}' bindtap='showPoster'>
-  <image class='shareFormPosterImg' src='http://image1.sansancloud.com/xianhua/2018_12/26/11/57/10_263.jpg'></image>
-</view> -->
-<form-posters formId="{{formId}}" ewmImgUrl='{{ewmImgUrl}}'  wx:if='{{posterState}}' bind:closePoaster="getChilrenPoster"></form-posters>
- <!-- 首页组件-详情装饰-->
- <component-customPage data="{{sendFormData}}" wx:if="{{sendFormData}}"></component-customPage> 

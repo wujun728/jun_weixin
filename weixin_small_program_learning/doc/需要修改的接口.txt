@@ -1,4 +1,0 @@
-1）修改时光 和 撒娇的接口，增加字段用于区分
-2）增加我的页面，获取用户信息的接口，返回我的信息 和 恋人的信息
-3）意见反馈接口，报错
->org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [INSERT INTO suggestion(account, msg, sub_time) VALUES (?,??)]; nested exception is java.sql.SQLException: Column count doesn&#39;t match value count at row 1

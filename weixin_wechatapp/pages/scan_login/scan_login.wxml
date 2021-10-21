@@ -1,8 +1,0 @@
-<!--pages/scan_login/scan_login.wxml-->
-<view class="mod-login">
-    <view class="mod-login-in">
-        <text class="login-tips">您确认要登录店铺后台吗？</text>
-        <button class="login-btn login-confirm" bindtap="handleLoginAction" data-type="confirm">确定</button>
-        <button class="login-btn login-cancel" bindtap="handleLoginAction" data-type="cancel">取消</button>
-    </view>
-</view>

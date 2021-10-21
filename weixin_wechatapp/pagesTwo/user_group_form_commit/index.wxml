@@ -1,2 +1,0 @@
-
-<form-commit-list id="formCommitList"  showBtn="ture" data="{{sendOptionData}}" wx:if='{{sendOptionData}}'></form-commit-list>

@@ -1,9 +1,0 @@
-/* pages/allcheckbox/allcheckbox.wxss */
-/*复选框全选效果  */
-.checkbox{
-  padding: 50rpx;
-}
-.checkbox-handle{
-  margin-bottom: 40rpx;
-}
-/*复选框全选效果  */

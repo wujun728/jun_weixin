@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>订单详情</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="description" content="三九手机网是专业的手机在线销售网站,为您提供正品行货手机、品牌手机的以及笔记本、平板电脑专业销售。依托三九手机网强大的技术支持，为您提供优质的售后服务，包括刷机服务、手机维修服务，正版软件安装等服务，三九资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " /> 
+  <meta name="Keywords" content="三九手机网,39手机网,999手机网,39,999,三九,39网,三九网,品牌手机,正品行货手机,手机维修,手机技术支持,手机评测,手机报价,品牌笔记本,平板电脑" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta name="location" content="province=;city=;coord=" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <link rel="apple-touch-icon-precomposed" href="images/screenLogo.png?debug=847" /> 
+  <link rel="stylesheet" type="text/css" href="css/m2015.css?debug=847c" /> 
+  <script src="js/zepto.min.js?debug=847" type="text/javascript"></script> 
+  <script src="js/main.js?debug=847" type="text/javascript"></script> 
+  <script>
+        function TakeProduct(orderid,btn) {
+            $.post("?", { act: 'nahuo', orderid: orderid }, function(rsp) {
+                if (rsp.stats == 1) {
+                    layer.open({ content: "取货成功，请到验机台等候验机", shadeClose: false, btn: ['确定'] });
+                    $(btn).remove();
+                } else {
+                    layer.open({ content: "取货失败，请稍后再试！", shadeClose: false, btn: ['确定'] });
+                }
+            }, "json");
+        }
+
+        function cancelOrder(orderid, type) {
+            layer.open({
+                content: "您确定要取消订单吗？取消后该订单将被删除！",
+                btn: ['确认', '取消'],
+                shadeClose: false,
+                yes: function () {
+                    $.get("orderlist.aspx?act=cancelorder&orderid=" + orderid + "&type=" + type, function (re) {
+                        if (re.stats == 1) {
+                            layer.open({
+                                content: "取消成功！",
+                                shadeClose: false,
+                                btn: ['OK'],
+                                yes: function () {
+                                    window.location.href = "orderlist.aspx";
+                                }
+                            })
+                        } else {
+                            layer.open({
+                                content: re.msg,
+                                shadeClose: false,
+                                btn: ['OK']
+                            })
+                        }
+                    }, "json")
+                }
+            });
+        }
+    </script> 
+  <style>	
+.imeiinfo{ margin-top:10px; font-size:13px; color:#999;}
+.imeiinfo p .c_64b2ff{color:#64b2ff; display:inline; margin-left:10px;}
+.shopbuymsg{ color:#f33; font-weight:bold; }
+</style> 
+ </head> 
+ <body> 
+  <header id="header" style=""> 
+   <div class="topbar"> 
+    <a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a> 
+    <a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a> 
+    <h1 class="page_title">订单详情</h1> 
+   </div> 
+   <div class="home_menu" id="hMenu"> 
+    <a href="http://m.ch999.com/"><i class="iconfont">Ő</i><span>首页</span></a> 
+    <a href="http://m.ch999.com/goods_cat.html"><i class="iconfont">Ɔ</i><span>商品分类</span></a> 
+    <a href="http://m.ch999.comcart.html"><i class="iconfont">ŭ</i><span>购物车</span></a> 
+    <a href="http://m.ch999.commember_index.html"><i class="iconfont">Œ</i><span>会员中心</span></a> 
+   </div> 
+  </header> 
+  <script>
+    SiteName = "三九手机网";
+    var isApp = Cookie.Get("isApp");
+    if (isApp == null || isApp == "") { isApp = 0; }
+    if (isApp == 1) { $("#header").hide(); }
+    $(".top_home").click(function () {
+        var target = $(".home_menu");
+        if (target.slideToggle) target.slideToggle();
+        else  target.toggle(); });
+</script> 
+  <script type="text/javascript">
+    var _mvq = window._mvq || [];
+    window._mvq = _mvq;
+    _mvq.push(['$setAccount', 'm-23995-6']);
+
+    _mvq.push(['$logConversion']);
+    (function () {
+        var mvl = document.createElement('script');
+        mvl.type = 'text/javascript'; mvl.async = true;
+        mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(mvl, s);
+    })();
+
+</script> 
+  <div class="orderstatus border_bottom"> 
+   <h3>已经确认</h3> 
+   <p>订单编号：4632239</p> 
+   <p>下单时间：2015-12-11 03:43</p> 
+   <a href="javascript:;" id="cancelOrderBtn">取消订单</a> 
+  </div> 
+  <div class="odshouhuo"> 
+   <div class="shopbuymsg">
+     哟嚯！订单已经顺利生成了，您订购的宝贝正在备货！ 
+    <br />请在 
+    <span class="daojishi">12月18日(星期五)</span> 后到店取货！ 
+   </div> 
+  </div> 
+  <script>
+        (function(){
+            var daojishi=$('.daojishi');            
+            var time=Math.abs(daojishi.attr('time'));
+            if(daojishi.attr('play')==1){
+                var timer=window.setInterval(function(){
+                    if(time<0) { 
+                        var html=daojishi.parent().html().replace(/<.*>|\s/g,'').replace('请在前','请尽快');
+                        daojishi.parent().html(html);
+                        window.clearInterval(timer);
+                        return;
+                    }
+                    var h = parseInt(time/3600)
+                    var m= parseInt(time/60-h*60);
+                    var s = parseInt(time-h*3600-m*60)
+                    var str=m+"分钟"+s+'秒';
+                    if(h>0) str= h+"小时"+str;
+                    daojishi.html(str);
+                    time--;
+                },1000)
+            }
+        })()
+            </script> 
+  <div class="opro"> 
+   <dl class="border_bottom"> 
+    <dt> 
+     <a href="/product/34932.html"><img src="images/20151014152859424.jpg" width="80" height="80" /></a> 
+    </dt> 
+    <dd> 
+     <div class="tit border_bottom" mobi="True"> 
+      <a href="/product/34932.html"><h4>小九 战速 电动车 60伏20安 碳纤维 </h4></a> 
+      <p><span>￥3290.00</span><em>&times;1</em></p> 
+      <span></span> 
+     </div> 
+    </dd> 
+   </dl> 
+   <dl class="border_bottom"> 
+    <dt> 
+     <a href="/product/33912.html"><img src="images/20150910052509882.jpg" width="80" height="80" /></a> 
+    </dt> 
+    <dd> 
+     <div class="tit border_bottom" mobi="True"> 
+      <a href="/product/33912.html"><h4>iPhone 6s（A1700）国行版 深空灰行货 16G </h4></a> 
+      <p><span>￥4788.00</span><em>&times;1</em></p> 
+      <span></span> 
+     </div> 
+    </dd> 
+   </dl> 
+   <dl class="border_bottom"> 
+    <dt> 
+     <a href="/product/6871.html"><img src="images/20140225120210521.jpg" width="80" height="80" /></a> 
+    </dt> 
+    <dd> 
+     <div class="tit border_bottom" mobi="False"> 
+      <a href="/product/6871.html"><h4>SANDISK/闪迪 8G TF（MicroSD卡）卡 </h4></a> 
+      <p><span>￥40.00</span><em>&times;1</em></p> 
+      <span></span> 
+     </div> 
+    </dd> 
+   </dl> 
+   <dl class="border_bottom"> 
+    <dt> 
+     <a href="/product/23772.html"><img src="images/20150724132715610.jpg" width="80" height="80" /></a> 
+    </dt> 
+    <dd> 
+     <div class="tit border_bottom" mobi="False"> 
+      <a href="/product/23772.html"><h4>小米手环 黑色 </h4></a> 
+      <p><span>￥79.00</span><em>&times;1</em></p> 
+      <span></span> 
+     </div> 
+    </dd> 
+   </dl> 
+   <dl class="border_bottom"> 
+    <dt> 
+     <a href="/product/34281.html"><img src="images/20151204173126181.jpg" width="80" height="80" /></a> 
+    </dt> 
+    <dd> 
+     <div class="tit border_bottom" mobi="False"> 
+      <a href="/product/34281.html"><h4>Linkon蓝牙自拍杆兼容苹果iOS及安卓系统 </h4></a> 
+      <p><span>￥40.00</span><em>&times;1</em></p> 
+      <span></span> 
+     </div> 
+    </dd> 
+   </dl> 
+   <div class="orderinfo" orderid="4632239" shopname="" nahuo="0"> 
+    <p>订单金额：<b>￥8237.00</b></p> 
+    <div class="btn"> 
+     <a href="/WapAlipay/?sub_id=4632239&amp;payType=1&amp;price=8237.00">去付款</a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="odshouhuo"> 
+   <div class="shr border_bottom"> 
+    <p>收货人姓名：hjl416148489</p> 
+    <p>收货人手机：18005151538</p> 
+   </div> 
+   <div class="zfps"> 
+    <p>支付方式：网上支付</p> 
+    <p>配送方式：到店自取</p> 
+    <p>佰腾总店：昆明市圆通北路127号云大晟苑5楼&nbsp;&nbsp;0871-68393939&nbsp;&nbsp;周一至周日:9:00-21:30</p> 
+   </div> 
+  </div> 
+  <div class="odshouhuo"> 
+   <h4>订单进程</h4> 
+   <ul> 
+    <li>• 订单已经顺利生成了，宝贝已经为您单独预留！<br />您选择的到店时间是：2015-12-11 09:00-12:00<br />&nbsp;2015/12/11 3:43:26</li> 
+   </ul> 
+  </div> 
+  <script>
+        $('#cancelOrderBtn').tap(function () {
+            cancelOrder(4632239,0);
+        });
+        (function(){
+            var orderarr=[];
+            $('.orderinfo').each(function(i,el){ var $el=$(el);if($el.attr('nahuo')==1) orderarr.push($el); })
+            if(orderarr.length>0 && navigator.geolocation){
+                function getPositionSuccess(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    $.post('?act=getlocalshop',{latlon:lng+','+lat}, function(res){
+                        if(res.stats==1){
+                            for(var i=0;i<orderarr.length;i++)
+                            {
+                                var shopname=orderarr[0].attr('shopname');
+                                if(shopname!='' && orderarr[i].find('a.quhuobtn').length==0 && res.shops.indexOf(shopname)!=-1){
+                                    orderarr[i].find('div.btn').append('<a class="quhuobtn" onclick="TakeProduct('+orderarr[i].attr('orderid')+',this)">立即取货</a>');
+                                }
+                            }
+                        }
+                    },'json')
+                }
+                function getPositionError(error){ };
+                navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, { enableHighAcuracy: false, timeout: 3000, maximumAge: 1000 });
+            }
+        })()
+    </script> 
+  <div class="g4-tip" style="height:30px;line-height:30px;margin-top:10px;padding:0 10px;display:none;"> 
+   <a href="about.html" style="color:#f44623;">您当前使用的是2G/3G网络，现在就免费升4G &gt;&gt;</a> 
+  </div> 
+  <script src="js/jweixin-1.0.0.js"></script> 
+  <script>
+    wx.config({
+        debug: false,
+        appId: 'wxaaf67ca511a634ab',
+        timestamp: '1432728715',
+        nonceStr: '111',
+        signature: '123',
+        jsApiList: ['hideOptionMenu', 'showOptionMenu', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo']
+    });
+    wx.ready(function () {
+        wx.getNetworkType({
+            success: function (res) {
+                var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+                if (networkType == "2g" || networkType == "3g") {
+                    $(".g4-tip").show();
+                }
+            }
+        });
+    });
+</script> 
+  <div class="foot-nav border_top hide" style=""> 
+   <a href="index.html"><i class="home"></i><span>首页</span></a> 
+   <a href="/goods_cat.html"><i class="cate"></i><span>商品分类</span></a> 
+   <a href="cart.html"><i class="cart"></i><span>购物车</span></a> 
+   <a href="member_index.html"><i class="user"></i><span>我的</span></a> 
+  </div> 
+  <script>
+    var url = window.location.href;
+    if (url == "http://m.ch999.com/") { $(".foot-nav").show(); $(".foot-nav a").eq(0).addClass("cur"); }
+    /*if (url.indexOf("goods_cat.html") > -1) { $(".foot-nav a").eq(1).addClass("cur"); }
+    if (url.indexOf("cart") > -1) { $(".foot-nav a").eq(2).addClass("cur"); }
+    if (url.indexOf("user") > -1) { $(".foot-nav a").eq(3).addClass("cur"); }
+    if (url.indexOf("product") > -1 || url.indexOf("tuan") > -1) { $(".foot-nav").hide(); }*/
+</script> 
+  <footer id="footer" style=""> 
+   <div class="footbar" id="noLogin"> 
+    <a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a> 
+    <a href="http://m.ch999.com/register.aspx">注册</a> 
+    <a href="#" class="backtop_btn">↑回顶部</a> 
+   </div> 
+   <div class="footbar" id="yesLogin" style="display: none"> 
+    <a class="login_btn" href="http://m.ch999.commember_index.html" id="txtUsername"></a> 
+    <a onclick="LoginOut()">退出</a> 
+    <a href="#" class="backtop_btn">↑回顶部</a> 
+   </div> 
+   <p class="footlink"> <a href="http://m.ch999.com/" style="margin:0 18px;">触屏版</a> <a id="link_pc" style="margin:0 18px;">电脑版</a> <a href="http://m.ch999.com/zt/app/" style="margin:0 18px;">客户端</a> <a href="http://job.ch999.com/m/" style="margin:0 18px;">招聘</a> </p> 
+   <p class="footlink">Copyright&copy;2006-2015&nbsp;&nbsp;三九手机网<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.aspx">投诉及建议</a></p> 
+  </footer> 
+  <script>var url = location.href; var platfomrs = ["360ad", "goad", "juxad", "zhtad", "ttad", "tead", "snswxtsad", "snswxgnad", "snsxlad", "snstxad", "snsqzad", "snstbzad", "snstbwad", "snsblad", "snshzad", "snsqtad", "mgzhad", "mttad"]; for (index in platfomrs) { if (url.indexOf(platfomrs[index]) > 0) { Cookie.Set("sem", "on", 60 * 60 * 3); } }</script> 
+  <!--将以下代码放在Footer文件中-->  
+ </body>
+</html>

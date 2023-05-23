@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>附近门店</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="location" content="province=;city=;coord=" /> 
+  <link rel="apple-touch-icon-precomposed" href="images/screenLogo.png?debug=847" /> 
+  <link rel="stylesheet" type="text/css" href="css/m2015.css?debug=847" /> 
+  <script type="text/javascript" src="js/zepto.min.js?debug=847"></script> 
+  <script type="text/javascript" src="js/main.js?debug=847"></script> 
+  <style>.dianpu_list .btn3{width:92px;margin-right:5px;}.dianpu_list .btn3:last-child{margin-right:0;}</style> 
+ </head> 
+ <body> 
+  <header id="header" style=""> 
+   <div class="topbar"> 
+    <a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a> 
+    <a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a> 
+    <h1 class="page_title">附近门店</h1> 
+   </div> 
+   <div class="home_menu" id="hMenu"> 
+    <a href="http://m.ch999.com/"><i class="iconfont">Ő</i><span>首页</span></a> 
+    <a href="http://m.ch999.com/goods_cat.html"><i class="iconfont">Ɔ</i><span>商品分类</span></a> 
+    <a href="http://m.ch999.comcart.html"><i class="iconfont">ŭ</i><span>购物车</span></a> 
+    <a href="http://m.ch999.commember_index.html"><i class="iconfont">Œ</i><span>会员中心</span></a> 
+   </div> 
+  </header> 
+  <script>SiteName ="三九手机网";var isApp =Cookie.Get("isApp");if (isApp ==null ||isApp =="") {isApp =0;}
+if (isApp ==1) {$("#header").hide();}
+$(".top_home").click(function () {var target =$(".home_menu");if (target.slideToggle) target.slideToggle();else target.toggle();});</script> 
+  <script type="text/javascript">var _mvq =window._mvq ||[];window._mvq =_mvq;_mvq.push(['$setAccount','m-23995-6']);_mvq.push(['$logConversion']);(function () {var mvl =document.createElement('script');mvl.type ='text/javascript';mvl.async =true;mvl.src =('https:' ==document.location.protocol ?'https://static-ssl.mediav.com/mvl.js' :'http://static.mediav.com/mvl.js');var s =document.getElementsByTagName('script')[0];s.parentNode.insertBefore(mvl,s);})();</script> 
+  <div class="shop-tab border_bottom"> 
+   <a href="getdianpu.aspx" class="cur">附近门店</a> 
+   <a href="fendianlist.aspx">所有门店</a> 
+   <a href="zitilist.aspx">自提点</a> 
+  </div> 
+  <div class="body assess_list dianpu_list"> 
+   <ul id="adList" class="c999"> 
+   </ul> 
+   <div class="loading_bottom" id="loading"> 
+    <i></i> 
+    <i class="laymloadtwo"></i> 
+    <i></i> 
+   </div> 
+  </div> 
+  <div class="g4-tip" style="height:30px;line-height:30px;margin-top:10px;padding:0 10px;display:none;"> 
+   <a href="about.html" style="color:#f44623;">您当前使用的是2G/3G网络，现在就免费升4G &gt;&gt;</a> 
+  </div> 
+  <script src="js/jweixin-1.0.0.js"></script> 
+  <script>wx.config({debug:false,appId:'wxaaf67ca511a634ab',timestamp:'1432728715',nonceStr:'111',signature:'123',jsApiList:['hideOptionMenu','showOptionMenu','onMenuShareAppMessage','onMenuShareTimeline','onMenuShareQQ','onMenuShareWeibo']
+});wx.ready(function () {wx.getNetworkType({success:function (res) {var networkType =res.networkType;if (networkType =="2g" ||networkType =="3g") {$(".g4-tip").show();}
+}
+});});</script> 
+  <div class="foot-nav border_top hide" style=""> 
+   <a href="index.html"><i class="home"></i><span>首页</span></a> 
+   <a href="/goods_cat.html"><i class="cate"></i><span>商品分类</span></a> 
+   <a href="cart.html"><i class="cart"></i><span>购物车</span></a> 
+   <a href="member_index.html"><i class="user"></i><span>我的</span></a> 
+  </div> 
+  <script>var url =window.location.href;if (url =="http://m.ch999.com/") {$(".foot-nav").show();$(".foot-nav a").eq(0).addClass("cur");}
+</script> 
+  <footer id="footer" style=""> 
+   <div class="footbar" id="noLogin"> 
+    <a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a> 
+    <a href="http://m.ch999.com/register.aspx">注册</a> 
+    <a href="#" class="backtop_btn">↑回顶部</a> 
+   </div> 
+   <div class="footbar" id="yesLogin" style="display: none"> 
+    <a class="login_btn" href="http://m.ch999.commember_index.html" id="txtUsername"></a> 
+    <a onclick="LoginOut()">退出</a> 
+    <a href="#" class="backtop_btn">↑回顶部</a> 
+   </div> 
+   <p class="footlink"> <a href="http://m.ch999.com/" style="margin:0 18px;">触屏版</a> <a id="link_pc" style="margin:0 18px;">电脑版</a> <a href="http://m.ch999.com/zt/app/" style="margin:0 18px;">客户端</a> <a href="http://job.ch999.com/m/" style="margin:0 18px;">招聘</a> </p> 
+   <p class="footlink">Copyright&copy;2006-2015&nbsp;&nbsp;三九手机网<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.aspx">投诉及建议</a></p> 
+  </footer> 
+  <script>var url =location.href;var platfomrs =["360ad","goad","juxad","zhtad","ttad","tead","snswxtsad","snswxgnad","snsxlad","snstxad","snsqzad","snstbzad","snstbwad","snsblad","snshzad","snsqtad","mgzhad","mttad"];for (index in platfomrs) {if (url.indexOf(platfomrs[index]) >0) {Cookie.Set("sem","on",60 *60 *3);} }</script> 
+  <script type="text/javascript">$(function () {if (navigator.geolocation) {var watchInterval =navigator.geolocation.getCurrentPosition(getPositionSuccess,getPositionError,{enableHighAcuracy:false,timeout:30000,maximumAge:1000 });}
+else {$("#adList").html("<li>对不起，您的浏览器不支持获取物理位置，请更换浏览器后重试。</li>");}
+function getPositionSuccess(position) {var lat =position.coords.latitude;var lng =position.coords.longitude;$.ajax({type:"post",dataType:"json",data:{"act":"loadlist","distance":30,"latlon":(lng + "," + lat),"t":+new Date() },url:"getdianpu.aspx",success:function (msg) {$("#loading").hide();var txt ="";if (msg.length >0) {$.each(msg,function (n,s) {var tmp =parseFloat(s.distance) >=1 ?(Math.round((parseFloat(s.distance)) *100) / 100).toString() + " km" :(Math.round((parseFloat(s.distance) *1000) *100) / 100).toString() + " m";txt +="<li>";txt +="<p><strong class='blue'>" + s.area_name + "▪" + s.area + "</strong>";if (s.kind2 !="") {if (s.kind2 =="0") {txt +="<i rel='提供手机及配件销售服务' class='icon_sev'>销售</i><i rel='提供手机维修服务' class='icon_sev icon_hou'>维修</i>";} else if (s.kind2 =="1") {txt +="<i rel='提供手机及配件销售服务' class='icon_sev'>销售</i>";} else {txt +="<i rel='提供手机维修服务' class='icon_sev icon_hou'>维修</i>";}
+}
+txt +=" <span class='orange' style='margin-left:10px;'>" + tmp + "</b></p>";txt +="<p>详细地址：<span class='c666'>" + s.company_address + "</span></p>";txt +="<p>销售热线：<a href='tel:" + s.company_tel1 + "' class='orange'>" + s.company_tel1 + "</a>" + "<a href='tel:" + s.company_tel1 + "'" + "<em class='blue'>（点击拨打）</em></a></p>";txt +="<p>工作时间：<span class='c666'>" + s.hours + "</span></p>";txt +="<p>联系QQ：<span class='c666'>" + s.company_qq + "</span></p>";txt +="<a href=\"http://m.ch999.com/location/" + s.id + ".html\" class=\"btn3\"><i class=\"iconfont\">&#557;</i>查看地图</a> <a class=\"btn3\" href=\"http://m.ch999.com/location/detail/" + s.id + ".html\"><i class=\"icon_enter\"></i>入店指引</a>";txt +=" <a class=\"btn3\" href=\"http://m.ch999.com/location/ParkingTrack/" + s.id + ".html\" " + (s.parkingTrack =="" ?"style='display:none;'" :"style='background:#E95C4D'") + ">P 停车指引</a>";txt +="</li>";});} else {txt ="<li>对不起，没有查询到您附近的门店，请手动查询。</li>";}
+$("#adList").html(txt);}
+});}
+ function getPositionError(error) {$("#adList").html("获取物理信息失败：" + getErrorText(parseInt(error.code)));}
+});$(document).on("tap",".icon_sev",function () {layer.open({content:$(this).attr("rel"),shadeClose:false,btn:['确定'] });});function getErrorText(code) {var msg ="";switch (code) {case 3:msg ="请求超时。";break;default:msg ="网络不可用，或用户拒绝浏览器获取位置信息的请求。";break;} return msg;}
+</script>  
+ </body>
+</html>

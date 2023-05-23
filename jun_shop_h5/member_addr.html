@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>收货地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="三九手机网是专业的手机在线销售网站,为您提供正品行货手机、品牌手机的以及笔记本、平板电脑专业销售。依托三九手机网强大的技术支持，为您提供优质的售后服务，包括刷机服务、手机维修服务，正版软件安装等服务，三九资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="三九手机网,39手机网,999手机网,39,999,三九,39网,三九网,品牌手机,正品行货手机,手机维修,手机技术支持,手机评测,手机报价,品牌笔记本,平板电脑" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png?debug=847" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css?debug=8471" />
+		<script src="js/zepto.min.js?debug=847" type="text/javascript"></script>
+		<script src="js/main.js?debug=847" type="text/javascript"></script>
+		<script>
+			function setDefualt(addId) {
+				$.post("myaddresslist.aspx", {
+						"act": "set",
+						"addId": addId
+					},
+					function(data) {
+						switch(data.stats) {
+							case 1:
+								window.location.reload();
+								break;
+							default:
+								layer.open({
+									content: data.result,
+									btn: ["确定"],
+									shadeClose: false
+								});
+								break;
+						}
+					}, "json");
+			}
+		</script>
+		<style>
+			.addAddr {
+				margin: 10px;
+				display: block;
+				width: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style=""> 
+			<div class="topbar"> 
+			    <a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a> 
+			    <a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a> 
+    			<h1 class="page_title">我的收获地址</h1> 
+   			</div> 
+   			
+		   	<div class="home_menu" id="hMenu"> 
+			    <a href="index.html"><i class="go_index"></i><span>首页</span></a> 
+			    <a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a> 
+			    <a href="cart.html"><i class="go_cart"></i><span>购物车</span></a> 
+			    <a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a> 
+		   	</div> 
+		</header>
+		
+		<script>
+		    //title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="body">
+			<a href="member_addr_add.html" class="btn3 addAddr">添加新地址</a>
+			<div class="xzshouhuodz">
+				<ul>
+					<li id="755739" class="">
+						<p><span class="c999">收件人：</span>易凯悦丶</p>
+						<p><span class="c999">地址：</span>陕西省&nbsp;&nbsp;西安市&nbsp;&nbsp;莲湖区&nbsp;&nbsp;宏府鹍翔九天</p>
+						<p><span class="c999">联系方式：</span>18005151538</p>
+						<p class="hide">
+							<a id="btnDefault755739" onclick="setDefualt('755739')" class="btn2">设为默认地址</a>
+						</p>
+						<a href="javascript:;"><i class="icon_edit"></i></a>
+					</li>
+					<li id="754908" class="">
+						<p><span class="c999">收件人：</span>王晨晨</p>
+						<p><span class="c999">地址：</span>陕西省&nbsp;&nbsp;西安市&nbsp;&nbsp;曲江新区&nbsp;&nbsp;金地碣石公馆</p>
+						<p><span class="c999">联系方式：</span>18005151538</p>
+						<p class="hide">
+							<a id="btnDefault754908" onclick="setDefualt('754908')" class="btn2">设为默认地址</a>
+						</p>
+						<a href="javascript:;"><i class="icon_edit"></i></a>
+					</li>
+					<li id="754907" class="">
+						<p><span class="c999">收件人：</span>房总总</p>
+						<p><span class="c999">地址：</span>陕西省&nbsp;&nbsp;西安市&nbsp;&nbsp;雁塔区&nbsp;&nbsp;南窑头国际社区</p>
+						<p><span class="c999">联系方式：</span>18005151538</p>
+						<p class="hide">
+							<a id="btnDefault754907" onclick="setDefualt('754907')" class="btn2">设为默认地址</a>
+						</p>
+						<a href="javascript:;"><i class="icon_edit"></i></a>
+					</li>
+					<li id="754903" class="">
+						<p><span class="c999">收件人：</span>岳云鹏</p>
+						<p><span class="c999">地址：</span>北京&nbsp;&nbsp;朝阳区&nbsp;&nbsp;五环外庞各庄隆盛园小区</p>
+						<p><span class="c999">联系方式：</span>18005151538</p>
+						<p class="hide">
+							<a id="btnDefault754903" onclick="setDefualt('754903')" class="btn2">设为默认地址</a>
+						</p>
+						<a href="javascript:;"><i class="icon_edit"></i></a>
+					</li>
+					<li id="754878" class="">
+						<p><span class="c999">收件人：</span>张小五</p>
+						<p><span class="c999">地址：</span>云南省&nbsp;&nbsp;昆明市&nbsp;&nbsp;五华区&nbsp;&nbsp;中缅边境的无名小村</p>
+						<p><span class="c999">联系方式：</span>18005151538</p>
+						<p class="hide">
+							<a id="btnDefault754878" onclick="setDefualt('754878')" class="btn2">设为默认地址</a>
+						</p>
+						<a href="javascript:;"><i class="icon_edit"></i></a>
+					</li>
+				</ul>
+			</div>
+			<div id="NoData"></div>
+		</div>
+		
+		<!--<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="/fenlei.aspx"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>-->
+		
+		<footer id="footer" style="">
+			<div class="footbar" id="noLogin" style="display: none;">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<div class="footbar" id="yesLogin" style="display: block">
+				<a class="login_btn" href="javascript:;" id="txtUsername">Admin丶易凯悦</a>
+				<a onClick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		
+		<script>
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			})
+		</script>
+	</body>
+
+</html>

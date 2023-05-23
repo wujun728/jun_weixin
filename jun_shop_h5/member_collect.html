@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>我的收藏</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="易凯商城app,易凯资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="易凯商城app," />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">我的收藏</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="index.html"><i class="go_index"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="go_cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a>
+			</div>
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) {
+					target.slideToggle()
+				} else {
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="collection">
+			<ul id="coUl">
+				<li class="border_top border_bottom">
+					<a href="javascript:;"><img src="images/20150820152738485.jpg" class="left" />
+						<div class="c999">
+							<p class="c666">满足一切学习娱乐，现在下单免费升级至8G内存活动火爆进行中</p>
+							<p class="desc">满足一切学习娱乐，现在下单免费升级至8G内存活动火爆进行中</p>
+							<p class="price red1">￥3599.00</p>
+						</div>
+					</a>
+					<i class="icon_del" delid="77148"></i>
+				</li>
+
+				<li class="border_top border_bottom">
+					<a href="javascript:;"><img src="images/20150708100434245.jpg" class="left" />
+						<div class="c999">
+							<p class="c666">QCY Q29 真无线蓝牙耳机 双耳运动跑步耳机</p>
+							<p class="desc">QCY项圈运动蓝牙耳机终于上市！前1000名用户购买，可获得【速8】10元电影票优惠券</p>
+							<p class="price red1">￥199.00</p>
+						</div>
+					</a>
+					<i class="icon_del" delid="77148"></i>
+				</li>
+			</ul>
+		</div>
+		<div id="NoData"></div>
+		
+		<!--<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>-->
+		
+		<footer id="footer" style="">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="#" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<!--<a onclick="LoginOut()">退出</a>-->
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+					<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+				</p>
+		</footer>
+		
+		<script>
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			});
+			
+			/*删除记录*/
+			$(document).on("tap", ".collection .icon_del", function() {
+				var me = $(this);
+				var id = me.attr("delid");
+				layer.open({type: 2,shadeClose: false});
+				
+				$.ajax({
+					type:"post",
+	            	url:"https://segmentfault.com/a/1190000003982302",
+	            	dataType:"jsonp",
+	            	data:{
+	        			date:$(".month").val(),
+	        			flag:3,
+	        		},
+	            	success: function(data){
+	            		layer.closeAll();
+	            		location.href = "member_index.html"
+	            	},
+	            	error:function(data2){
+	            		layer.closeAll();
+	            		location.href = "member_index.html"
+	            	}
+	            })
+				
+				
+//				$.post("Collection.aspx", {
+//						"act": "del",
+//						"id": id
+//					},
+//					function(data) {
+//						switch(data.stats) {
+//							case 1:
+//								setTimeout(function() {
+//									$(me).parents("li").remove();
+//									layer.closeAll();
+//									layer.open({
+//										content: '删除成功',
+//										style: 'border:none; background:rgba(0,0,0,.8); color:#fff;',
+//										shade: false,
+//										time: 2
+//									});
+//								}, 2000);
+//								break;
+//							default:
+//								setTimeout(function() {
+//									layer.closeAll();
+//									layer.open({
+//										content: '删除失败，请重新尝试。',
+//										style: 'border:none; background:rgba(0,0,0,.8); color:#fff;',
+//										shade: false,
+//										time: 2
+//									});
+//								}, 2000);
+//								break;
+//						}
+//					}, "json");
+			});
+
+			function loadNexPage(page, pagerbar, loadType) {
+				$(pagerbar).html('加载中，请稍后...');
+				if("loadCollection" == loadType) {
+					$.get("?act=" + loadType + "&page=" + page, function(re) {
+						$(pagerbar).remove();
+						if(page == 1) {
+							$('#coUl').html(re);
+							document.body.scrollTop = 0;
+						} else {
+							$('#coUl').append(re);
+						}
+					})
+				}
+			}
+		</script>
+	</body>
+
+</html>

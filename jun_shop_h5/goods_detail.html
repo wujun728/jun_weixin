@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>商品详情</title>
+		<meta name="description" content="易凯商城app,易凯资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="易凯商城app," />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="location" content="province=;city=;coord=" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script src="js/jquery.touchslider.min.js">
+		</script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&amp;ak=2E9486ae97437e84c519f008952b67ae"></script>
+		<script type="text/javascript" src="js/MapWrapper.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.post("?", {
+					"act": "checkCollection",
+					"ppid": "36170"
+				}, function(data) {
+					if(data.stats == 1) {
+						$("#ifCollect").html("已收藏");
+					}
+				}, "json");
+				$("#pro_img").touchSlider({
+					mouseTouch: true,
+					autoplay: false,
+					imgloadflag: true,
+					viewport: '.pro_img_box ul',
+					namespace: "pro_img_box",
+					pagination: '.pro_img_item',
+					currentClass: "cur"
+				});
+				$.get('/ajax/ajaxOperate.aspx?act=checkFave&ppid=36170&_m=' + Math.random(), function(re) {
+					if(re.stats == 1) {
+						$('#myfavbtn').addClass('myfavico2');
+					}
+				}, 'json')
+			});
+			var ppid = 36170;
+
+			function myfav(ppid, obj) {
+				var href = window.location.href;
+				if($.trim(ppid).length > 0) {
+					$.ajax({
+						url: '/ajax/ajaxOperate.aspx',
+						dataType: 'json',
+						data: {
+							'act': 'addCollection',
+							'ppid': ppid
+						},
+						type: 'post',
+						success: function(txt) {
+							switch(txt.stats) {
+								case 1:
+									$("#ifCollect").html("已收藏");
+									$('#myfavbtn').addClass('myfavico2');
+									break;
+								case 2:
+									window.location.href = "/login.aspx?url=" + encodeURI(href);
+									break;
+								case 3:
+									$("#ifCollect").html("已收藏");
+									break;
+							}
+						}
+					});
+				}
+			}
+		</script>
+		<style>
+			.pro_pz dl dt {
+				line-height: 30px;
+			}
+			
+			.smstip {
+				background: #fff;
+				display: none;
+				left: 0;
+				padding: 10px 0;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 99;
+			}
+			
+			.smstip h3 {
+				font-size: 14px;
+				line-height: 40px;
+				margin: 0 10px;
+			}
+			
+			.smstip .inputbox {
+				margin-bottom: 10px;
+			}
+			
+			.smstip .inputbox input {
+				border: solid 1px #ccc;
+				height: 30px;
+				text-indent: 5px;
+				width: 100%;
+			}
+			
+			.smstip .inputbox p {
+				margin-bottom: 10px;
+			}
+			
+			.smstip .inputbox p input {
+				margin: 0 5px;
+				width: 100px;
+			}
+			
+			.smstip .inputbox button {
+				background: #ec6f61;
+				border: 0;
+				border-radius: 3px;
+				color: #fff;
+				height: 30px;
+				margin-top: 10px;
+				width: 100%;
+			}
+			
+			.que {
+				background: #dadada;
+				color: #333;
+				display: block;
+				width: auto;
+			}
+			
+			footer {
+				padding-bottom: 60px;
+			}
+			
+			.mark {
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, .5);
+				width: 100%;
+				height: 100%;
+				z-index: 98;
+				display: none;
+			}
+			
+			.close {
+				background: #f44623;
+				border: 0 none;
+				border-radius: 100%;
+				color: #fff;
+				display: block;
+				float: right;
+				height: 30px;
+				line-height: 30px;
+				margin: 0;
+				margin-right: 10px;
+				padding: 0;
+				text-align: center;
+				width: 30px;
+			}
+			
+			.btn_box {
+				z-index: 9;
+				padding: 0;
+				height: 60px;
+			}
+			
+			.fq_box {}
+			
+			.fq_box h2 {
+				padding: 10px;
+				position: relative;
+			}
+			
+			.fq_box h2 .close {
+				font-size: 30px;
+				position: absolute;
+				right: -20px;
+				top: -20px;
+			}
+			
+			.fq_box dl {
+				margin-bottom: 10px;
+				padding: 10px;
+			}
+			
+			.fq_box dl dt {
+				font-weight: 700;
+				line-height: 35px;
+			}
+			
+			.fq_box dl dt i {
+				width: 25px;
+				height: 25px;
+				background: center no-repeat;
+				background-size: 100% 100%;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 3px;
+			}
+			
+			.fq_box dl table {
+				width: 100%;
+			}
+			
+			.fq_box dl td,
+			.fq_box dl th {
+				border: 1px solid #ddd;
+				padding: 2px 0;
+				text-align: center;
+			}
+			
+			.fq_box dl th {
+				background: #f7f7f7;
+			}
+			
+			.fq_box .btn1 {
+				width: 150px;
+				margin-top: 5px;
+				font-size: 14px;
+			}
+			
+			.installment h2 {
+				padding: 10px;
+				position: relative;
+			}
+			
+			.installment h2 .close {
+				font-size: 24px;
+				position: absolute;
+				right: -15px;
+				top: -15px;
+			}
+			
+			.installment p {
+				padding: 10px;
+				background: #f6f6f6;
+			}
+			
+			.installment .btn a {
+				display: block;
+				padding: 10px;
+				position: relative;
+			}
+			
+			.installment .btn a b {
+				display: block;
+				font-size: 16px;
+				color: #45a1de;
+			}
+			
+			.installment .btn a em {
+				color: #93a0ae;
+			}
+			
+			.installment .btn a i {
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				margin-top: -13px;
+			}
+			
+			.buycarerNormal {
+				display: inline-block;
+				width: 40px;
+				height: 50px;
+				line-height: 25px;
+				text-align: center;
+			}
+			
+			.liji_buy,
+			.add_cart {
+				width: 50%;
+				display: inline-block;
+				height: 60px;
+				text-align: center;
+				line-height: 60px;
+				color: #fff;
+				margin: 0;
+				border-radius: 0;
+			}
+			
+			a.liji_buy.left {
+				float: right;
+			}
+			
+			.btn_box a {
+				margin: 0;
+			}
+			
+			.btn_box .buycarerNormal {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				line-height: 25px;
+				text-align: center;
+				margin: 10px 6px 0 6px;
+			}
+			
+			.add_cart {
+				background-color: #f4a425;
+			}
+			
+			.m_mark {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 399;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.2)
+			}
+			
+			.m_shop {
+				position: fixed;
+				top: 140px;
+				left: 30px;
+				border-radius: 3px;
+				width: 90%;
+				height: 410px;
+				z-index: 499;
+				border: 2px solid rgb(159, 161, 163);
+				background: #fff;
+				overflow: hidden;
+			}
+			
+			.m_shop h3 {
+				padding: 0px 10px;
+				height: 40px;
+				line-height: 40px;
+				background: #DBE1E5;
+			}
+			
+			.m_shop h4 {
+				padding: 0px 5px;
+			}
+			
+			.m_shop .m_close {
+				position: absolute;
+				top: 6px;
+				right: 10px;
+				color: red;
+				display: inline-block;
+				font-size: 3em;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				overflow: hidden;
+				text-shadow: 0 0 2px #fff;
+			}
+			
+			.m_shop_list img {
+				width: 99%;
+			}
+			
+			.m_shop_list {
+				padding: 5px;
+				height: 380px;
+				overflow: auto;
+			}
+			
+			.m_img {
+				text-align: center;
+			}
+			
+			.m_addr {
+				padding: 5px;
+				padding-bottom: 10px;
+			}
+			
+			.yansep {
+				clear: both;
+				font-size: 12px;
+				padding-bottom: 10px;
+			}
+			
+			.fly-img {
+				display: block;
+				width: 30px;
+				height: 30px;
+				border-radius: 100%;
+				position: fixed;
+				z-index: 9999;
+				background: #f60;
+			}
+			
+			.myfavico {
+				width: 34px;
+				height: 30px;
+				background: url(http://img2.ch999img.com/images/favico.png?t=1) no-repeat 0 0;
+				display: inline-block;
+			}
+			
+			.myfavico2 {
+				width: 34px;
+				height: 30px;
+				background: url(http://img2.ch999img.com/images/favico.png?t=1) no-repeat -34px 0;
+				display: inline-block;
+			}
+			
+			.pro_cx p a {
+				margin: 5px 0;
+				color: #f4a425;
+			}
+			
+			.pcfuwu_dl {
+				margin-top: 10px;
+			}
+			
+			.pcfuwu {
+				padding: 0 3px;
+				display: inline-block;
+				line-height: 20px;
+				border: 1px solid #ddd;
+				border-radius: 3px;
+			}
+			
+			.active {
+				border-color: #45a1de;
+				background: #45a1de;
+				color: #fff;
+			}
+			
+			.pcfuwu span {
+				color: #f60;
+				font-weight: bold;
+			}
+			
+			.pcfw_link {
+				display: inline-block;
+				margin-top: 10px;
+				font-size: 12px;
+				text-decoration: underline;
+				color: #39f;
+			}
+			
+			.constrast-btn {
+				position: absolute;
+				display: block;
+				width: 40px;
+				height: 40px;
+				right: 10px;
+				bottom: 10px;
+				text-align: center;
+				line-height: 20px;
+				background: rgba(255, 255, 255, .3);
+				color: #aaa;
+				font-size: 12px;
+				border: solid 1px #eee;
+				border-radius: 5px;
+			}
+			
+			.constrast-btn i {
+				color: #f44623;
+				font-size: 16px;
+				line-height: 14px;
+				margin-top: 6px;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">红米note3 标准双4G版</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="index.html"><i class="go_index"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="go_cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a>
+			</div>
+		</header>
+		
+		<script>
+			SiteName = "三九手机网";
+			var isApp = Cookie.Get("isApp");
+			if(isApp == null || isApp == "") {
+				isApp = 0;
+			}
+			if(isApp == 1) {
+				$("#header").hide();
+			}
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) target.slideToggle();
+				else target.toggle();
+			});
+		</script>
+		
+		<script type="text/javascript">
+			//title右上角隐藏菜单
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) {
+					target.slideToggle()
+				} else {
+					target.toggle()
+				}
+			});
+		</script>
+		
+		<div class="product" style="position:relative;">
+			<div id="bigImg">
+				<div id="pro_img" class="pro_img">
+					<div class="pro_img_box">
+						<ul>
+							<li>
+								<div class="pro_img_wrap">
+									<img src="images/cart/biao.jpg" />
+								</div>
+							</li>
+							<li>
+								<div class="pro_img_wrap">
+									<img src="images/cart/qkl.jpg" />
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="pro_img_nav">
+						<i class="iconfont pro_img_item cur">Ƴ</i>
+						<i class="iconfont pro_img_item">Ƴ</i>
+					</div>
+				</div>
+			</div>
+			<a href="###" class="constrast-btn" onclick="constrast.addProduct(36170,'红米note3 标准双4G版','http://img2.ch999img.com/pic/product/160x160/20151124171824260.jpg',2)"><i>PK</i>对比</a>
+		</div>
+		<div class="pro_tit border_bottom">
+			<h2>红米note3 标准双4G版银色行货 16G </h2>
+			<h3>【12月 噪起来】全金属机身；快至0.3秒！指纹解锁；轻薄 4000mAh大电池；1300万像素，相位对焦！！</h3>
+			<p>
+				<b id="now_price">￥999.00</b>
+				<del>￥1099.00</del>
+				<a href="javascript:;" onclick=" myfav(36170, this) "><i id="myfavbtn" class="iconfont myfavico"></i></a>
+				<a href="javascript:;" style="background: #f6f6f6; border: solid 1px #eee; border-radius: 3px; color: #45a1de; display: inline-block; height: 30px; line-height: 30px; margin-right: 10px; padding: 0 5px;" onclick=" priceTip(36170, 'jjtz') ">降价通知</a>
+			</p>
+			<script type="text/javascript">
+				$.ajax({
+					url: "http://price.ch999img.com/DataAPI.ashx",
+					data: {
+						act: "g-price",
+						ppid: "36170",
+						pid: "31",
+						did: "310104",
+						zid: "3101"
+					},
+					success: function(data) {
+						var that = $("#now_price");
+						var fd = that.parent().attr("title");
+						if(isNaN(data)) {
+							that.text("无价格");
+						} else {
+							that.text("￥" + parseFloat(data).toFixed(2));
+							var payUrl = 'http://www.qufenqi.com/i/calculator?url=m.ch999.com/product/36170.html&price=' + data + '&desc=红米note3 标准双4G版银色行货 16G &from_id=detail@ch999&readonly=true';
+							var fenquUrl = '/fenqifk.aspx?url=' + encodeURIComponent(payUrl);
+							$("#fqfk").attr("data-href", fenquUrl);
+						}
+					},
+					dataType: "jsonp"
+				});
+			</script>
+		</div>
+		<div class="pro_cx">
+			<p>
+				<a href="http://m.ch999.com/product/5991.html"><span>[赠品]</span>买手机免费赠送高清贴膜</a>
+			</p>
+			<p>
+				<a href="/groupbuy/grouplist.aspx?prod=21249&amp;ppid=36170"><span>[优惠购]</span>购买组合套餐，最高省50.00元 &gt;</a>
+			</p>
+			<p><span>[分期购]</span> 月供低至￥<b style="color: #f44623;">98.42/月</b>
+				<a href="javascript:;" onclick="showFqFk();" style="border: 0; color: #45a1de; margin-left: 10px;">现办立取</a>
+			</p>
+		</div>
+		<div class="pro_pz">
+			<dl class="yanse">
+				<dt>颜　　色：</dt>
+				<dd>
+					<a href="/product/36170.html" class="cur">银色行货</a>
+					<a href="/product/36175.html" class="">灰色行货</a>
+					<a href="/product/36176.html" class="">金色行货</a>
+				</dd>
+			</dl>
+			<dl class="yanse">
+				<dt>容　　量：</dt>
+				<dd>
+					<a href="/product/36170.html" class="cur">16G</a>
+				</dd>
+			</dl>
+			<dl class="yanse">
+				<dt>版　　本：</dt>
+				<dd>
+					<a href="/product/36170.html" class="cur">标准双4G版</a>
+					<a href="/product/36173.html">高配双4G版</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="pro_kc">
+			<dl class="yanse">
+				<dt>配 送 至：</dt>
+				<dd>
+					<p class="select_city" id="ps_city"> <span> <select id="ps_sheng"> <option value="53">云南省</option> <option value="52">贵州省</option> <option value="51">四川省</option> <option value="50">重庆市</option> <option value="21">辽宁省</option> </select> </span> <span> <select id="ps_shi"> </select> </span> <span> <select id="ps_xian"> </select> </span> </p>
+					<script type="text/html" id="cityTmpl">
+						{{each}}
+						<option value="{{$value.id}}" data-hasshop="{{if $value.isshop==true}}1{{else}}0{{/if}}">{{$value.name}}</option>
+						{{/each}}
+					</script>
+					<p class="ps_zt"><strong id="lblProductKcState"></strong><span id="lblTextKcState"></span></p>
+				</dd>
+			</dl>
+			<dl id="lblShop" class="yanse">
+				<dt>门店库存：</dt>
+				<dd>
+					<span class="kucun"> <span>徐汇区(<em id="lblProductKcStateShop"></em>)</span></span>
+					<a href="/city.html?backUrl=/product/36170.html">切换城市</a>
+					<div class="kc_show" id="kcState_">
+						<div style="position: relative;">
+							<a id="kc_close"><i class="iconfont">&szlig;</i></a>
+						</div>
+						<div id="transPort"></div>
+						<div id="kcAreaList">
+							<h5>门店库存</h5>
+							<ul id="lblShopList"></ul>
+						</div>
+					</div>
+					<a onclick="m_showshop()">形象门店</a>
+					<p class="yansep"><span>全场包邮配送，实体店正品保证，请放心购买！</span></p>
+				</dd>
+			</dl>
+			<dl class="yanse" id="lblShop1" style="display:none">
+				<dt>门店库存：</dt>
+				<dd>
+					<a onclick="m_showshop()">形象门店</a>
+					<p class="yansep"><span>全场包邮配送，实体店正品保证，请放心购买！</span></p>
+				</dd>
+			</dl>
+			<dl class="fuwu">
+				<dt>支持服务：</dt>
+				<dd>
+					<a style="display: none;" id="sxsId" href="/newsdetail.aspx?newsId=4531" target="_blank" title="现货商品可享受3小时内送达，免费提供，仅限昆明、贵阳、大理城区。支持现场验货、安装调试满意再付款！">3小时极速达</a>
+					<a style="display: none;" id="sjkdId" href="/newsdetail.aspx?newsId=625#send999" target="_blank" title="由三九自有物流负责配送，免费提供，现场验货、安装调试满意再付款！">三九快递</a>
+					<a style="display: none;" id="kuaidiId" href="/newsdetail.aspx?newsId=599#kuaidi" target="_blank" title="三九托第三方快递公司为客户提供送货上门服务，费用由三九手机网承担。">快递运输</a>
+					<a style="display: none;" id="jiajiId" href="/newsdetail.aspx?newsId=4483#jiajisong" target="_blank" title="专人为您进行配送服务，费用：20元/单！">加急配送</a>
+					<a id="fqfk" href="javascript:;" style="background: #f60;">分期付款</a>
+				</dd>
+			</dl>
+			<dl id="_address" class="yanse" style="display: none;">
+			</dl>
+			<dl id="_service" class="yanse">
+				<dt>三九服务：</dt>
+				<dd id="services_">
+					<a href="javascript:;" id="show_sjfw">选择延保服务<i class="iconfont" style="font-size: 12px; margin-left: 5px;">ƕ</i></a>
+					<a href="javascript:;" id="hide_sjfw" style="display: none;">收起<i class="iconfont" style="font-size: 12px; margin-left: 5px;">Ɣ</i></a>
+					<a href="/fuwu.aspx" style="border: 0; color: #45a1de;">详情</a>
+					<div class="sjfwshow" style="display: none;">
+						<a href="javascript:void(0)" ppriceid="20603">延长保修 活动特惠1年 <b class="red1">￥49</b></a>
+						<a href="javascript:void(0)" ppriceid="19881">延长保修 1年 <b class="red1">￥99</b></a>
+						<a href="javascript:void(0)" ppriceid="20602">意外保摔碰管修 活动特惠2年 <b class="red1">￥269</b></a>
+						<a href="javascript:void(0)" ppriceid="20599">意外保摔碰管修 活动特惠1年 <b class="red1">￥99</b></a>
+						<a href="javascript:void(0)" ppriceid="19882">意外保摔碰管修 1年 <b class="red1">￥169</b></a>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<script>
+			$('.pcfuwu').click(function() {
+				var el = $(this),
+					f = el.hasClass('active'),
+					cn = 'active';
+				if(f) {
+					el.removeClass(cn)
+				} else {
+					el.addClass(cn)
+				};
+				return false;
+			})
+		</script>
+		<div class="btn_box border_top" style="">
+			<div style="float:left;width:108px;overflow:hidden;">
+				<a href="http://m.ch999.com/support/index.aspx?SourceUrl=http://m.ch999.com/product/36170.html" class="buycarerNormal" style="position: relative;display:block;float:left;"> <img src="images/de_kefu.png" width="20" height="20" style="display: block; margin: 0 auto;" /> <span style="font-size: 12px; color: #2c3e50; display: block; width: 40px; height: 25px;">客服</span> </a>
+				<a id="mybuycarer" href="http://m.ch999.comcart.html" class="buycarerNormal" style="position: relative;display:block;float:left;"> <em style="position: absolute; top: -5px; right: 0; background: #f44623; color: #fff; display: block; height: 14px; line-height: 14px; padding: 0 3px; border-radius: 14px; display: none;" id="cartCount">0</em> <img src="images/de_gouwuche.png" width="20" height="20" style="display: block; margin: 0 auto;" /> <span style="font-size: 12px; color: #2c3e50; display: block; width: 40px; height: 25px;">购物车</span> </a>
+			</div>
+			<div style="margin-left:112px;">
+				<a href="javascript:void(0)" data-src="" onclick="addCart(2,36170,0)" class="liji_buy left">立即购买</a>
+				<a href="javascript:void(0)" onclick="addCart(2,36170,1)" class="add_cart" data-src="" style="float:right;">在线购买</a>
+			</div>
+			<a id="daohuotz" style="display: none; float: right; width:120px;" class="add_cart" onclick=" priceTip(36170, 'dhtz') " href="javascript:void(0)">到货通知</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div id="_peijian" class="d_peijian">
+			<h4>大家还购买了</h4>
+			<div class="pj_box">
+				<ul>
+					<li>
+						<a href="/product/36479.html"><img src="images/20151204171410541.jpg" width="80" height="80" alt="img" /><em>飞尚 Freeson 红米note3 创意支架透明软胶壳</em><b>￥50.00</b></a>
+					</li>
+					<li>
+						<a href="/product/36480.html"><img src="images/20151209115617145.jpg" width="80" height="80" alt="img" /><em>摩可 Mocoll 红米note3 钢化玻璃膜</em><b>￥60.00</b></a>
+					</li>
+					<li>
+						<a href="/product/28584.html"><img src="images/20150722110138130.jpg" width="80" height="80" alt="img" /><em>羽博 YOOBAO T4 移动电源 充电宝 10000毫安 2A输出</em><b>￥89.00</b></a>
+					</li>
+					<li>
+						<a href="/product/24899.html"><img src="images/20140910102448809.jpg" width="80" height="80" alt="img" /><em>东芝 TOSHIBA 8G Class10 TF（Micro SD卡）存储卡</em><b>￥30.00</b></a>
+					</li>
+					<li>
+						<a href="/product/14901.html"><img src="images/20150708112159605.jpg" width="80" height="80" alt="img" /><em>Plantronics 缤特力 Marque 2 M165 音乐蓝牙耳机</em><b>￥240.00</b></a>
+					</li>
+					<li>
+						<a href="/product/22189.html"><img src="images/20140421143423870.jpg" width="80" height="80" alt="img" /><em>东芝 TOSHIBA 16G Class10 TF（Micro SD卡）存储卡</em><b>￥50.00</b></a>
+					</li>
+					<li>
+						<a href="/product/24769.html"><img src="images/20150708100434245.jpg" width="80" height="80" alt="img" /><em>吾爱 蜗牛单声道 蓝牙耳机 增强版</em><b>￥148.00</b></a>
+					</li>
+					<li>
+						<a href="/product/22886.html"><img src="images/20150707164445269.jpg" width="80" height="80" alt="img" /><em>羽博 YOOBAO S3 移动电源 充电宝 6000毫安 2A输出</em><b>￥59.00</b></a>
+					</li>
+					<li>
+						<a href="/product/13539.html"><img src="images/20150722180442583.jpg" width="80" height="80" alt="img" /><em>JABRA 捷波朗 easycall 易用 蓝牙耳机</em><b>￥210.00</b></a>
+					</li>
+					<li>
+						<a href="/product/14585.html"><img src="images/20150722162740145.jpg" width="80" height="80" alt="img" /><em>JABRA 捷波朗 CLEAR 酷丽 蓝牙耳机</em><b>￥249.00</b></a>
+					</li>
+					<li>
+						<a href="/product/9039.html"><img src="images/20150722161632648.jpg" width="80" height="80" alt="img" /><em>JABRA 捷波朗 easygo+ 易行 蓝牙耳机</em><b>￥230.00</b></a>
+					</li>
+					<li>
+						<a href="/product/22453.html"><img src="images/20140430155440103.jpg" width="80" height="80" alt="img" /><em>三星原装 8G class6 TF（Micro SD卡）存储卡 标准版 新款</em><b>￥30.00</b></a>
+					</li>
+					<li>
+						<a href="/product/22190.html"><img src="images/20140421143841503.jpg" width="80" height="80" alt="img" /><em>东芝 TOSHIBA 32G Class10 TF（Micro SD卡）存储卡</em><b>￥90.00</b></a>
+					</li>
+					<li>
+						<a href="/product/22450.html"><img src="images/20140430155527973.jpg" width="80" height="80" alt="img" /><em>三星原装 16G class6 TF（Micro SD卡）存储卡 标准版（蓝） 新款</em><b>￥50.00</b></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="jb_canshu">
+			<h4>基本参数 </h4>
+			<ul>
+				<li>商品名称：红米note3 标准双4G版</li>
+				<li>网络制式：移动4G（TD-LTE）,&nbsp;&nbsp;联通4G（TD/FDD-LTE）,&nbsp;&nbsp;移动3G（TD-SCDMA）,&nbsp;&nbsp;联通3G（WCDMA）,&nbsp;&nbsp;移动2G/联通2G（GSM ）,&nbsp;&nbsp;双卡</li>
+				<li>SIM卡规格：两个小卡(Micro-SIM卡)</li>
+				<li>操作系统：安卓（Android）</li>
+				<li>CPU型号：Helio X10</li>
+				<li>CPU频率：2.0GHz</li>
+				<li>核心数：八核</li>
+				<li>ROM容量：16GB</li>
+				<li>RAM容量：2GB</li>
+				<li>上市时间：2015年11月</li>
+				<li>屏幕尺寸：5.5英寸</li>
+				<li>后置摄像头像素：1300万像素</li>
+				<li>主屏分辨率：1920*1080</li>
+				<li>标配电池：4000mAh.</li>
+			</ul>
+		</div>
+		<div class="detail_pgmenu border_top">
+			<a href="/paramdetail.aspx?type=1&amp;ppid=36170">详细参数<i class="iconfont">ƒ</i></a>
+			<a href="/paramdetail.aspx?type=2&amp;ppid=36170">图文详情<em>建议在wifi环境使用</em><i class="iconfont">ƒ</i></a>
+			<a href="/news/index.aspx?cid=12&amp;productid=21249" style="display:block">相关评测<span>(6)</span><i class="iconfont">ƒ</i></a>
+			<a href="/productpeijian.aspx?ppid=36170" style="">相关配件<span>(14)</span><i class="iconfont">ƒ</i></a>
+			<a href="/wxpeijian.aspx?pro=21249">维修配件<span>(0)</span><i class="iconfont">ƒ</i></a>
+			<a href="/productzixun.aspx?proid=21249&amp;ppid=36170">购买咨询<span>(5)</span><i class="iconfont">ƒ</i></a>
+			<a href="/productxinde.aspx?proid=21249&amp;ppid=36170">使用心得<span>(5)</span><i class="iconfont">ƒ</i></a>
+		</div>
+		<div id="mark" class="mark"></div>
+		<div class="smstip">
+			<a href="javascript:;" class="close" onclick=" $('.smstip').hide();mark('hide'); "><i class="iconfont">&szlig;</i></a>
+			<h3>降价通知：</h3>
+			<div id="jjtz" style="padding: 10px 20px;">
+				<div style="background: #fffcf1; border: dashed 1px #ff5a00; margin-bottom: 10px; padding: 10px;">
+					<span style="color: #666; line-height: 18px;">当商品价格低于您设定的价格我们将通知您，通知短信最多发送一次，不会对您造成干扰。</span>
+				</div>
+				<p style="margin-bottom: 10px;"><span>现价：</span><strong id="jj_nowprice" style="color: #f00; font-size: 16px;">￥<em style="font-weight: bold;"></em></strong></p>
+				<div class="inputbox" id="jiangjia">
+					<script>
+						function loadId() {
+							$.post("?", {
+								act: "getweixinID"
+							}, function(rsp) {
+								if(rsp.oid != "") {
+									var str = '<p>当价格低于 ￥<input type="number" id="price" />时通知我！</p><button  onclick="wxsubTip(36170)">微信订阅降价通知</button>';
+									$("#jiangjia").html(str);
+								} else {
+									var str = '<p>当价格低于 ￥<input type="number" id="price" />时通知我！</p><input type="tel" placeholder="输入您的手机号接收通知" id="phone" value="' + rsp.phone + '" /><button onclick=" subTip(36170) ">提交</button>';
+									$("#jiangjia").html(str);
+								}
+							}, "json");
+						};
+					</script>
+				</div>
+			</div>
+			<div id="dhtz" style="display: none; padding: 10px 20px;">
+				<div style="background: #ffeae2; border: dashed 1px #ff5a00; margin-bottom: 10px; padding: 10px;">
+					<h2 style="color: #0048a3; font-size: 14px; font-weight: bold; line-height: 25px;" id="proname">红米note3 标准双4G版银色行货 16G </h2>
+					<span style="color: #666; line-height: 18px;">当商品到货时我们将通知您，通知短信最多发送一次，不会对您造成干扰。</span>
+				</div>
+				<div class="inputbox">
+					<input type="tel" placeholder="输入您的手机号接收通知" id="phone1" />
+					<button onclick=" subTip1(36170) ">提交</button>
+				</div>
+			</div>
+		</div>
+		<div id="fqBox" class="hide">
+			<div class="fq_box">
+				<h2 class="border_bottom"><span class="close right">&times;</span>分期付款</h2>
+				<dl class="border_bottom" style="padding: 10px;">
+					<dt> 
+      <i style="background-image: url(http://img2.ch999img.com/m/images/icon_qufenqi.png);"></i>趣分期费率 
+     </dt>
+					<dd>
+						<table>
+							<tbody>
+								<tr>
+									<th>3期</th>
+									<th>6期</th>
+									<th>9期</th>
+									<th>12期</th>
+								</tr>
+								<tr>
+									<td>6%</td>
+									<td>10%</td>
+									<td>9%</td>
+									<td>14%</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="red2">*适合在校大学生</p>
+						<a class="btn1" href="http://www.qufenqi.com/i/calculator?url=m.ch999.com/product/36170.html&amp;price=999.00&amp;desc=红米note3 标准双4G版银色行货 16G &amp;from_id=detail@ch999&amp;readonly=true">使用趣分期购买</a>
+					</dd>
+				</dl>
+				<dl style="padding: 10px;">
+					<dt> 
+      <i style="background-image: url(http://img2.ch999img.com/m/images/icon_alipay.png);"></i>支付宝分期费率 
+     </dt>
+					<dd>
+						<table>
+							<tbody>
+								<tr>
+									<th>3期</th>
+									<th>6期</th>
+									<th>9期</th>
+									<th>12期</th>
+								</tr>
+								<tr>
+									<td>2%~3.5%</td>
+									<td>3%~4.9%</td>
+									<td>4%</td>
+									<td>5%~6.9%</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="red2">*适合拥有信用卡人群</p>
+						<a href="/fenqifk.aspx?url=http%3a%2f%2fwww.qufenqi.com%2fi%2fcalculator%3furl%3dm.ch999.com%2fproduct%2f36170.html%26price%3d999.00%26desc%3d%e7%ba%a2%e7%b1%b3note3+%e6%a0%87%e5%87%86%e5%8f%8c4G%e7%89%88%e9%93%b6%e8%89%b2%e8%a1%8c%e8%b4%a7+16G+%26from_id%3ddetail%40ch999%26readonly%3dtrue" class="btn1">查看分期方法</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="installment" class="hide">
+			<div class="installment">
+				<h2 class="border_bottom"><span class="close right">&times;</span>分期付款</h2>
+				<p class="border_bottom"> 三九 <span style="color: #1dccaa;">免信用卡、免担保</span> 分期，进店1小时快速过审取机。<br /> 红米note3 标准双4G版<br /> 分期付款最低<b style="color: #f44623;">￥98.42/月</b> </p>
+				<div class="btn">
+					<a class="border_bottom" href="http://www.qufenqi.com/i/calculator?url=m.ch999.com/product/36170.html&amp;price=999.00&amp;desc=红米note3 标准双4G版银色行货 16G &amp;from_id=detail@ch999&amp;readonly=true" title="使用趣分期"><b>大学生分期</b><em>无需攒钱，自食其力</em><i class="arrow_r"></i></a>
+					<a href="/puhui.aspx?pid=36170" title="使用普惠快信分期"><b>社会人士分期</b> <em>6000元以下0首付</em> <i class="arrow_r"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="m_mark" style="display:none"></div>
+		<div class="m_shop" style="display:none">
+			<h3>形象店面</h3>
+			<a class="m_close" onclick="m_closeshop();">&times;</a>
+			<div class="m_shop_list" id="m_shop_list">
+				<input type="hidden" id="cityId" value="310104" />
+			</div>
+		</div>
+		<script src="js/constrast.js?debug=847" type="text/javascript"></script>
+		<div class="g4-tip" style="height:30px;line-height:30px;margin-top:10px;padding:0 10px;display:none;">
+			<a href="about.html" style="color:#f44623;">您当前使用的是2G/3G网络，现在就免费升4G &gt;&gt;</a>
+		</div>
+		<script src="js/jweixin-1.0.0.js"></script>
+		<script>
+			wx.config({
+				debug: false,
+				appId: 'wxaaf67ca511a634ab',
+				timestamp: '1432728715',
+				nonceStr: '111',
+				signature: '123',
+				jsApiList: ['hideOptionMenu', 'showOptionMenu', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo']
+			});
+			wx.ready(function() {
+				wx.getNetworkType({
+					success: function(res) {
+						var networkType = res.networkType;
+						if(networkType == "2g" || networkType == "3g") {
+							$(".g4-tip").show();
+						}
+					}
+				});
+			});
+		</script>
+		<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="/goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		<script>
+			var url = window.location.href;
+			if(url == "http://m.ch999.com/") {
+				$(".foot-nav").show();
+				$(".foot-nav a").eq(0).addClass("cur");
+			}
+		</script>
+		<footer id="footer" style="">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="http://m.ch999.com/register.aspx">注册</a>
+				<a href="#" class="backtop_btn">↑回顶部</a>
+			</div>
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="http://m.ch999.commember_index.html" id="txtUsername"></a>
+				<a onclick="LoginOut()">退出</a>
+				<a href="#" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="http://m.ch999.com/" style="margin:0 18px;">触屏版</a>
+				<a id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="http://m.ch999.com/zt/app/" style="margin:0 18px;">客户端</a>
+				<a href="http://job.ch999.com/m/" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright&copy;2006-2015&nbsp;&nbsp;三九手机网
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.aspx">投诉及建议</a>
+			</p>
+		</footer>
+		<script>
+			var url = location.href;
+			var platfomrs = ["360ad", "goad", "juxad", "zhtad", "ttad", "tead", "snswxtsad", "snswxgnad", "snsxlad", "snstxad", "snsqzad", "snstbzad", "snstbwad", "snsblad", "snshzad", "snsqtad", "mgzhad", "mttad"];
+			for(index in platfomrs) {
+				if(url.indexOf(platfomrs[index]) > 0) {
+					Cookie.Set("sem", "on", 60 * 60 * 3);
+				}
+			}
+		</script>
+		<script>
+			! function(a) {
+				a.fly = function(b, c) {
+					var d = {
+							version: "1.0.0",
+							autoPlay: !0,
+							vertex_Rtop: 20,
+							speed: 1.2,
+							start: {},
+							end: {},
+							onEnd: a.noop
+						},
+						e = this,
+						f = a(b);
+					e.init = function(a) {
+						this.setOptions(a), !!this.settings.autoPlay && this.play()
+					}, e.setOptions = function(b) {
+						this.settings = a.extend(!0, {}, d, b);
+						var c = this.settings,
+							e = c.start,
+							g = c.end;
+						f.css({
+							marginTop: "0px",
+							marginLeft: "0px",
+							position: "fixed"
+						}).appendTo("body"), null != g.width && null != g.height && a.extend(!0, e, {
+							width: f.width(),
+							height: f.height()
+						});
+						var h = Math.min(e.top, g.top) - Math.abs(e.left - g.left) / 3;
+						h < c.vertex_Rtop && (h = Math.min(c.vertex_Rtop, Math.min(e.top, g.top)));
+						var i = Math.sqrt(Math.pow(e.top - g.top, 2) + Math.pow(e.left - g.left, 2)),
+							j = Math.ceil(Math.min(Math.max(Math.log(i) / .05 - 75, 30), 100) / c.speed),
+							k = e.top == h ? 0 : -Math.sqrt((g.top - h) / (e.top - h)),
+							l = (k * e.left - g.left) / (k - 1),
+							m = g.left == l ? 0 : (g.top - h) / Math.pow(g.left - l, 2);
+						a.extend(!0, c, {
+							count: -1,
+							steps: j,
+							vertex_left: l,
+							vertex_top: h,
+							curvature: m
+						})
+					}, e.play = function() {
+						this.move()
+					}, e.move = function() {
+						var b = this.settings,
+							c = b.start,
+							d = b.count,
+							e = b.steps,
+							g = b.end,
+							h = c.left + (g.left - c.left) * d / e,
+							i = 0 == b.curvature ? c.top + (g.top - c.top) * d / e : b.curvature * Math.pow(h - b.vertex_left, 2) + b.vertex_top;
+						if(null != g.width && null != g.height) {
+							var j = e / 2,
+								k = g.width - (g.width - c.width) * Math.cos(j > d ? 0 : (d - j) / (e - j) * Math.PI / 2),
+								l = g.height - (g.height - c.height) * Math.cos(j > d ? 0 : (d - j) / (e - j) * Math.PI / 2);
+							f.css({
+								width: k + "px",
+								height: l + "px",
+								"font-size": Math.min(k, l) + "px"
+							})
+						}
+						f.css({
+							left: h + "px",
+							top: i + "px"
+						}), b.count++;
+						var m = window.requestAnimationFrame(a.proxy(this.move, this));
+						d == e && (window.cancelAnimationFrame(m), b.onEnd.apply(this))
+					}, e.destory = function() {
+						f.remove()
+					}, e.init(c)
+				}, a.fn.fly = function(b) {
+					return this.each(function() {
+						void 0 == a(this).data("fly") && a(this).data("fly", new a.fly(this, b))
+					})
+				}
+			}(jQuery);
+			$("#fqfk").click(function() {
+				var pagei = layer.open({
+					type: 1,
+					content: $("#installment").html(),
+					shadeClose: false,
+					style: 'width:' + ($(window).width() * 0.9) + 'px; max-height:' + ($(window).height() * 0.9) + 'px;border-radius:5px; border:none;',
+					success: function(olayer) {
+						var cla = 'getElementsByClassName';
+						olayer[cla]('close')[0].onclick = function() {
+							layer.closeAll();
+						}
+					},
+					shadeClose: false
+				});
+			});
+			if($(".pro_pz dl").length < 1) {
+				$(".pro_pz").hide();
+			}
+			var isFlag = true;
+
+			function priceTip(ppid, _type) {
+				loadId();
+				$(".smstip").show();
+				mark("show");
+				if(_type == "jjtz") {
+					$(".smstip h3").html("降价通知：");
+					$("#jjtz").show().siblings("div").hide();
+					$("#jj_nowprice em").html($("#now_price").text().substring(1, $("#now_price").text().length));
+				} else {
+					$(".smstip h3").html("到货通知：");
+					$("#dhtz").show().siblings("div").hide();
+				}
+				$("#mark").click(function() {
+					$(".smstip").hide();
+				});
+			}
+
+			function subTip(ppid) {
+				var phone = $("#phone").val(),
+					price = $("#price").val();
+				if(phone == "" || phone == null) {
+					layer.open({
+						content: "手机号码不能为空！",
+						shadeClose: false,
+						btn: ["确定"]
+					});
+					return false;
+				}
+				if(price == "" || price == null) {
+					layer.open({
+						content: "价格不能为空！",
+						shadeClose: false,
+						btn: ["确定"]
+					});
+					return false;
+				}
+				$.post("?", {
+					act: "addNotify",
+					ppid: ppid,
+					phone: phone,
+					price: price
+				}, function(d) {
+					if(d.stats == 1) {
+						layer.open({
+							content: "提交成功！",
+							shadeClose: false,
+							btn: ["确定"]
+						});
+						$(".smstip, #mark").hide();
+						mark("hide");
+					} else {
+						layer.open({
+							content: d.result,
+							shadeClose: false,
+							btn: ["确定"]
+						});
+					}
+				}, "json");
+			}
+
+			function wxsubTip(ppid) {
+				var price = $("#price").val();
+				if(price == "" || price == null) {
+					layer.open({
+						content: "价格不能为空！",
+						shadeClose: false,
+						btn: ["确定"]
+					});
+					return false;
+				}
+				$.post("?", {
+					act: "WXaddNotify",
+					ppid: ppid,
+					price: price
+				}, function(d) {
+					if(d.stats == 1) {
+						layer.open({
+							content: "提交成功！",
+							shadeClose: false,
+							btn: ["确定"]
+						});
+						$(".smstip, #mark").hide();
+						mark("hide");
+					} else {
+						layer.open({
+							content: d.result,
+							shadeClose: false,
+							btn: ["确定"]
+						});
+					}
+				}, "json");
+			}
+
+			function subTip1(ppid) {
+				var phone = $("#phone1").val();
+				if(phone == "" || phone == null) {
+					layer.open({
+						content: "手机号码不能为空！",
+						shadeClose: false,
+						btn: ["确定"]
+					});
+					return false;
+				}
+				$.post("?", {
+					act: "daohuoNotify",
+					ppid: ppid,
+					phone: phone
+				}, function(d) {
+					if(d.stats == 1) {
+						layer.open({
+							content: "提交成功！",
+							shadeClose: false,
+							btn: ["确定"]
+						});
+						$(".smstip, #mark").hide();
+						mark("hide");
+					} else {
+						layer.open({
+							content: d.result,
+							shadeClose: false,
+							btn: ["确定"]
+						});
+					}
+				}, "json");
+			}
+			var ppid = 0;
+
+			function subSelect() {
+				$(".se_yanse").hide();
+				if(ppid != 0) {
+					window.location = "/product/" + ppid + ".html";
+				}
+			}
+			var isdo = 1;
+
+			function selectst(obj) {
+				if(isdo == 1) {
+					isdo = 0;
+					ppid = $(obj).attr("ppriceid");
+					$.get("/detail.aspx", {
+						act: "getguige",
+						ppid: ppid,
+						t: +new Date()
+					}, function(res) {
+						$(obj).addClass("cur").siblings(".cur").removeClass("cur");
+						$("#guigelist").html(res);
+						isdo = 1;
+					}, "text");
+				}
+			}
+			$(".pj_box ul").css({
+				width: 100 * $(".pj_box ul li").length
+			});
+			$("#show_sjfw").click(function() {
+				$(".sjfwshow").toggle();
+				$(this).hide();
+				$("#hide_sjfw").removeClass("cur").show();
+			});
+			$("#hide_sjfw").click(function() {
+				$(".sjfwshow").toggle();
+				$(this).hide();
+				$("#show_sjfw").removeClass("cur").show();
+			});
+			if(parseInt($("#now_price").html()) > 600) {
+				$("#fenqi").show();
+			}
+			$(".kucun").click(function() {
+				$(".kc_show").show();
+				$(this).addClass("kucuncur");
+			});
+			$("#kc_close").click(function() {
+				$(".kc_show").hide();
+				$(".kucun").removeClass("kucuncur");
+			});
+			$(function() {
+				$("#services_ a").click(function() {
+					$(this).toggleClass("cur");
+				});
+				$("#mark").click(function() {
+					$("#bigImg").removeClass("bigImg");
+					$("#bigImg").find("img").attr("style", "");
+					$("#mark").hide();
+					$(".wrapper").removeClass("mg0");
+					$(".pro_img_nav").attr("style", "");
+				});
+				$("#bigImg").click(function() {
+					var bigImgBox = $(this);
+					if($(this).hasClass("bigImg")) {
+						$("#mark").trigger("click");
+					} else {
+						bigImgBox.addClass("bigImg");
+						$(".wrapper").addClass("mg0");
+						var w = $(window).width();
+						var h = $(window).height();
+						bigImgBox.find("img").css("width", w + "px");
+						var curH = bigImgBox.find(".pro_img_wrap").first().height();
+						var t = 0;
+						if(h > curH) {
+							t = (h - curH) * 0.5;
+						}
+						$(".pro_img_nav").css("top", -t + 5 + "px");
+						bigImgBox.css({
+							"top": t + "px",
+							"width": w + "px"
+						});
+						$("#mark").show();
+					}
+				});
+			});
+
+			function addCart(buyType, ppriceid, addType) {
+				var otherPPid = "";
+				if($("#services_ a[class=cur]").length > 0) {
+					$("#services_ a[class=cur]").each(function() {
+						otherPPid += $(this).attr("ppriceid") + ",";
+					});
+					otherPPid = otherPPid.substring(0, otherPPid.length - 1);
+				}
+				if(buyType != 2) {
+					layer.open({
+						content: "M站暂不支持非裸机方式购买",
+						shadeClose: false,
+						btn: ["确定"]
+					});
+				} else {
+					layer.open({
+						type: 2,
+						content: "加载中...",
+						shadeClose: false
+					});
+					var pcfwid = 0;
+					if($('#pcfw_dl .pcfuwu').length > 1) {
+						var pcfw = $('#pcfw_dl .pcfuwu').first();
+						if(pcfw.hasClass('active'))
+							pcfwid = pcfw.attr('ppid');
+					};
+					$.ajax({
+						url: '/ajax/initCart.aspx',
+						dataType: 'json',
+						type: 'post',
+						data: {
+							'type': 'm',
+							'ppid': ppriceid,
+							'otherPPID': otherPPid,
+							'pcfwid': pcfwid
+						},
+						success: function(res) {
+							layer.closeAll();
+							if(addType == 0) {
+								window.location.href = "cart.html";
+							} else {
+								var self = $(".add_cart");
+								var seltLeft = self.offset().left;
+								var selftTop = $(window).height() - 50;
+								var offset = $('#mybuycarer').offset();
+								var src = self.attr("data-src");
+								var flyDom = src ? $('<img class="fly-img" src="images/>') : $('<span class="fly-img"></span>');
+								flyDom.fly({
+									start: {
+										left: seltLeft,
+										top: selftTop - 100
+									},
+									end: {
+										left: offset.left + 20,
+										top: offset.top - $(window).scrollTop(),
+										width: 10,
+										height: 10
+									},
+									onEnd: function() {
+										setTimeout(function() {
+											$(".fly-img").remove();
+											$("#cartCount").show().html(res.cartcount);
+										}, 100);
+									}
+								});
+							}
+						}
+					});
+				}
+			}
+
+			function buyInShop(buyType, ppriceid, addType) {
+				layer.open({
+					type: 2,
+					content: "加载中...",
+					shadeClose: false
+				});
+				$.post("/ajax/initCart.aspx", {
+					type: 'm',
+					ppid: ppriceid
+				}, function(res) {
+					if(res.stats == 1) {
+						window.location.href = "cart.html?ppid=" + ppriceid;
+					} else {
+						layer.closeAll();
+					}
+				}, "json");
+			}
+			var UArea = {
+				pid: "99",
+				zid: "9901",
+				did: "990101",
+				dname: "全国",
+				Init: function() {
+					this.pid = Cookie.Get("pidc") || 99;
+					this.zid = Cookie.Get("zidc") || 9901;
+					this.did = Cookie.Get("didc") || 990101;
+					if(Cookie.Get('dnamec') != null) {
+						this.dname = Cookie.Get('dnamec');
+					}
+					if(this.dname == null || this.dname == "") {
+						this.dname = '全国';
+						Cookie.Set('dnamec', '全国');
+					}
+				}
+			};
+			var hasShop = Cookie.Get("hasshop");
+
+			function AreaClick(the) {
+				var time = 24 * 300;
+				Cookie.Set('pidc', $(the).attr('pid'), time);
+				Cookie.Set('zidc', $(the).attr('zid'), time);
+				Cookie.Set('didc', $(the).attr('did'), time);
+				Cookie.Set('dnamec', $(the).attr('dname'), time);
+				var cityid_ = $(the).attr("did") == 0 ? $(the).attr("zid") == 0 ? $(the).attr("pid") == 0 ? 0 : $(the).attr("pid") : $(the).attr("zid") : $(the).attr("did");
+				Cookie.Set('cityid', cityid_, time);
+				Cookie.Set('ischecked', 1, time);
+				Cookie.Set('hasshop', hasShop, time);
+				UArea.Init();
+				window.location.reload();
+				return false;
+			}
+			UArea.Init();
+			var nowpid = UArea.pid,
+				nowzid = UArea.zid,
+				nowdid = UArea.did,
+				nowdame = UArea.dname;
+			var re, nowpname, nowzname;
+			$.get("/area/0", function(rsp) {
+				if(rsp.stats == 1) {
+					$('#ps_sheng').html(template("cityTmpl", rsp.result)).val(nowpid);
+				}
+			}, 'json');
+
+			function buidCity(pid, zid, did) {
+				$.get("/area/" + pid, function(json) {
+					if(json.stats == 1) {
+						re = json.result;
+						var zname = "",
+							shiStr = '<option value="0">请选择</option>',
+							xianStr = '<option value="0">请选择</option>';
+						for(var i = 0; i < re.length; i++) {
+							var reItem = re[i];
+							if(reItem.pid == pid) {
+								var chile = reItem.items;
+								shiStr += "<option pid='" + reItem.pid + "' value=" + reItem.id + ">" + reItem.name + "</option>";
+								if(did != 0) {
+									if(reItem.id == zid) {
+										for(var j = 0; j < chile.length; j++) {
+											var xian = reItem.items[j];
+											xianStr += "<option pid='" + reItem.pid + "' zid='" + reItem.id + "' did='" + xian.id + "'  value='" + xian.id + "' dname='" + xian.name + "'>" + xian.name + (xian.iskc == true ? "*" : "") + "</option>";
+										}
+										$("#ps_xian").html(xianStr).val(did);
+									}
+								} else {
+									$("#ps_xian").html(xianStr);
+								}
+							}
+							$("#ps_shi").data("mdata" + reItem.id, reItem.items);
+							$("#ps_shi").html(shiStr).val(zid);
+							$('#ps_sheng').val(pid);
+						}
+					}
+				}, 'JSON');
+			}
+			buidCity(nowpid, nowzid, nowdid);
+			$("#ps_sheng").change(function() {
+				var pid = this.value;
+				var isshop = $(this).find("option:selected").attr("data-hasshop");
+				hasShop = isshop == 1 ? "true" : "false";
+				buidCity(pid, 0, 0);
+			});
+			$("#ps_shi").change(function() {
+				var chile = $(this).data("mdata" + this.value),
+					xianStr = "";
+				for(var j = 0; j < chile.length; j++) {
+					var xian = chile[j],
+						slted = $("#ps_shi > option:selected");
+					xianStr += "<option pid='" + slted.attr("pid") + "' zid='" + this.value + "' did='" + xian.id + "' dname='" + xian.name + "'>" + xian.name + (xian.iskc == true ? "*" : "") + "</option>";
+				}
+				$("#ps_xian").html("<option value='0'>请选择</option>" + xianStr);
+			});
+			$("#ps_xian").change(function() {
+				if(this.value == 0) {
+					return;
+				} else {
+					var objoption = this.options[this.selectedIndex];
+					AreaClick(objoption);
+				}
+			});
+
+			function showmsg(txt) {
+				layer.open({
+					content: txt,
+					shadeClose: false,
+					btn: ["确定"]
+				});
+				return;
+			}
+
+			function m_showshop() {
+				$.post("?", {
+					act: "getMenDian"
+				}, function(rsp) {
+					if(rsp.stats == 1) {
+						var result = eval(rsp.result);
+						var html = "";
+						var basepath = "http://img2.ch999img.com/";
+						for(i = 0; i < result.length; i++) {
+							var re = result[i];
+							html += "<div class=\"m_img\"> <img src=\"" + basepath + re.mainpic + "\"/></div>";
+							html += "<h4 ><a href=\"http://m.ch999.com/location/" + re.Id + ".html\" target=\"blank_\">" + re.AreaName + "</a></h4>";
+							html += "<p class=\"m_addr\"><a href=\"http://m.ch999.com/location/" + re.Id + ".html\" target=\"blank_\">地址：</span>" + re.ShopAddress + "</a></p></div>";
+						}
+						html += "<div style=\"height:10px; overflow:hidden\"></div>"
+						$("#m_shop_list").html(html);
+					}
+				}, "json")
+				$('.m_mark, .m_shop').show();
+				var w = $(window).width() - 64;
+				$('.m_mark').height($('html,body').height()).click(m_closeshop);
+				var h = $(window).height() - $('.m_shop').height();
+				$('.m_shop').css({
+					width: w + 'px',
+					top: (h * 0.5) + 'px'
+				});
+			}
+
+			function m_closeshop() {
+				$('.m_mark, .m_shop').hide();
+			}
+
+			function addbooking(obj) {
+				var proid = $(obj).attr("proid");
+				var ppid = $(obj).attr("ppid");
+				$.post("?", {
+					act: "addbooking",
+					proid: 21249,
+					ppid: 36170,
+					t: +new Date()
+				}, function(res) {
+					switch(res.status) {
+						case -1:
+							if(window.confirm(res.msg)) {
+								window.location = "/login.aspx?url=" + encodeURI(res.url);
+							}
+							break;
+						default:
+							layer.open({
+								content: res.msg,
+								shadeClose: false,
+								btn: ["确定"]
+							});
+							break;
+					}
+				}, "json");
+			}
+
+			function isKC(d) {
+				switch(d) {
+					case 1:
+						return "现货";
+						break;
+					case 2:
+						return "在途";
+						break;
+					case 3:
+						return "预订";
+						break;
+					case 4:
+						return "已下市";
+						break;
+					case 5:
+						return "缺货";
+						break;
+					case 6:
+						return "预约";
+						break;
+					case 7:
+						return "有货";
+						break;
+				}
+			}
+			(function() {
+				var hasshop = Cookie.Get("hasshop") == "false" || Cookie.Get("hasshop") == null ? false : true;
+				var cityid = 310104;
+				if(!hasshop) {
+					cityid = 990101
+				}
+				$.ajax({
+					url: "http://price.ch999img.com/DataAPI.ashx",
+					data: {
+						act: "kc-get",
+						ppid: "36170",
+						cityId: cityid
+					},
+					success: function(data) {
+						var webKC = isKC(data.WebStoreState);
+						if(data.WebStoreState == 5) {
+							$(".liji_buy").css({
+								background: "#ddd",
+								color: "#333"
+							}).attr({
+								"title": "商品缺货不可购买",
+								href: "javascript:;"
+							}).removeAttr("onclick").html("商品缺货").siblings("a").hide();
+							$(".liji_buy").addClass("left");
+							$("#mybuycarer").show();
+							$("#lblTextKcState").html("该商品已缺货，到货时间不确定，");
+							$("#daohuotz").show();
+						} else if(data.WebStoreState == 4) {
+							$(".liji_buy").addClass("que").removeClass("yuyuebtn").attr({
+								"title": "商品下市不可购买",
+								href: "javascript:;"
+							}).removeAttr("onclick").html("商品已下市").siblings("a").hide();
+							$("#lblTextKcState").html("该商品已下市，不可购买！");
+							$("#mybuycarer").show().addClass("right");
+							if($("#fenqifuBtn").length > 0) {
+								$("#fenqifuBtn").hide();
+							}
+						} else if(data.WebStoreState == 6) {
+							$(".liji_buy").addClass("yuyuebtn").removeClass("que").attr({
+								"title": "商品未上市可提前预约，以到货价为准",
+								href: "javascript:;",
+								onclick: "addbooking(this)"
+							}).html("预约购买").siblings("a").hide();
+							$("#mybuycarer").show().addClass("right");
+							$("#lblTextKcState").html("商品未上市可提前预约，以到货价为准");
+						} else {
+							$("#lblTextKcState").html(data.WebStoreDes);
+							$(".liji_buy").removeClass("que yuyuebtn").attr({
+								"title": "",
+								href: "javascript:void(0);",
+								"data-src": 'http://img2.ch999img.com/pic/product/70x70/20151124171824260.jpg',
+								onclick: 'buyInShop(2,36170,0)'
+							}).html("到店购买");
+						}
+						$("#lblProductKcState").text(webKC);
+						$("#lblProductKcStateShop").text(isKC(data.ShopStoreState));
+						var ShopStores = data.ShopStores;
+						var html = "",
+							zitiHtml = "";
+						if(ShopStores == null && data.ZITI == null) {
+							$("#lblShop").hide();
+							$("#lblShop1").show();
+						} else if(ShopStores != null) {
+							for(var i = 0; i < ShopStores.length; i++) {
+								var _class = "";
+								var StoreDes = ShopStores[i].StoreDes;
+								if(StoreDes == "少量" || StoreDes == "现货" || StoreDes == "充足") {
+									_class = "xianhuo";
+								} else if(StoreDes == "预订" || StoreDes == "预约") {
+									_class = "yuding";
+								} else if(StoreDes == "已下市" || StoreDes == "缺货" || StoreDes == "下市") {
+									_class = "quehuo";
+								} else if(StoreDes == "在途") {
+									_class = "zaitu";
+								}
+								var url = ShopStores[i].url.substring(ShopStores[i].url.lastIndexOf("/") + 1, ShopStores[i].url.length);
+								html += '<li><a href="http://m.ch999.com/location/' + url + '" title="点击查看' + ShopStores[i].ShopName + '详细信息">' + ShopStores[i].ShopName + '</a><em class="' + _class + '">[' + StoreDes + ']</em></li>';
+							}
+							$("#lblShopList").html(html);
+						} else {
+							$("#lblShop dt").text("自 提 点：");
+							$("#lblShop h5").text("自 提 点：");
+							$("#lblProductKcStateShop").parent().hide().after("查看自提点");
+							var ztItem = data.ZITI,
+								zitiHtml = "";
+							for(var i = 0; i < ztItem.length; i++) {
+								zitiHtml += '<li><a href="http://m.ch999.com/zitilist.aspx?#zt_' + ztItem[i].Id + '">' + ztItem[i].Name + '自提点</a></li>';
+							}
+							$("#lblShopList").html(zitiHtml);
+						}
+						if(data.Support39Transfer) {
+							$("#sjkdId").show();
+							if($("#dnfwId").length > 0) {
+								$("#dnfwId").show();
+							}
+						}
+						if(data.SupportFreeMaintenance) {}
+						if(data.SupportInstallment) {}
+						if(data.supportJiaji) {
+							$("#jiajiId").show();
+						}
+						if(data.SupportThreeHourReach) {
+							$("#sxsId").show();
+						}
+						if(data.SupportExpressDelivery) {
+							$("#kuaidiId").show();
+						}
+						if("2" == "187") {
+							$("#sxsId").hide();
+						}
+					},
+					dataType: "jsonp"
+				});
+			})();
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var IfHavMendian = "0";
+				if(IfHavMendian == "1" || true) {
+					var address_lng = Cookie.Get('address_lng');
+					var address_lat = Cookie.Get('address_lat');
+					if(address_lng == null || address_lat == null) {
+						if(navigator.geolocation) {
+							var watchInterval = navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, {
+								enableHighAcuracy: false,
+								timeout: 30000,
+								maximumAge: 1000
+							});
+						}
+
+						function getPositionSuccess(position) {
+							var lat = position.coords.latitude;
+							var lng = position.coords.longitude;
+							Cookie.Set('address_lng', lng, 0.5);
+							Cookie.Set('address_lat', lat, 0.5);
+							getAddressInfo(lng, lat);
+						}
+
+						function getPositionError(error) {}
+					} else {
+						getAddressInfo(address_lng, address_lat);
+					}
+
+					function getAddressInfo(lng, lat) {
+						$.post("/getdianpu.aspx", {
+							"act": "loadlist",
+							"distance": 30,
+							"latlon": (lng + "," + lat)
+						}, function(msg) {
+							if(msg.length > 0) {
+								var tmp = parseFloat(msg[0].distance) >= 1 ? (Math.round((parseFloat(msg[0].distance)) * 100) / 100).toString() + " km" : (Math.round((parseFloat(msg[0].distance) * 1000) * 100) / 100).toString() + " m";
+								var txt = "<dt>最近门店：</dt>" +
+									"<dd class='sjfwshow' style='padding-top:4px;'><span style='color: #45A1DE;margin-right: 10px;'>" + msg[0].area_name + "</span>  距离：" + tmp + " <br>" + msg[0].company_address + "<a href=\"http://m.ch999.com/location/" + msg[0].id + ".html\" style=\"border:0;color:08c;\">查看详情</a><br />" + "<a href='tel:" + msg[0].company_tel1 + "'>电话：" + msg[0].company_tel1 + "(点击拨打)</a></dd>";
+								$("#_address").html(txt);
+								$("#_address").show();
+							}
+						}, "json");
+					}
+				}
+			});
+		</script>
+		<script type="text/javascript">
+			var _mvq = window._mvq || [];
+			window._mvq = _mvq;
+			_mvq.push(['$setAccount', 'm-23995-6']);
+			_mvq.push(['$setGeneral', 'goodsdetail', '', '', '']);
+			_mvq.push(['$logConversion']);
+			_mvq.push(['setPageUrl', 'http://m.ch999.com/product/36170.html']);
+			_mvq.push(['$addGoods', '2', '9', '红米note3 标准双4G版银色行货 16G ', '36170', '999.00', 'pic/product/440x440/20151124171824260.jpg', '手机', '小米（MI）', '1', '', '', '']);
+			_mvq.push(['$addPricing', '']);
+			_mvq.push(['$logData']);
+
+			function showFqFk() {
+				$('#fqfk').trigger('click')
+			}
+		</script>
+	</body>
+
+</html>

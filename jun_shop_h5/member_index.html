@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>个人中心 - 首页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="易凯商城app,易凯资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="易凯商城app," />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+	</head>
+
+	<body style="background-color: #f0f0f0">
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">个人中心</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="index.html"><i class="go_index"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="go_cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a>
+			</div>
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) {
+					target.slideToggle()
+				} else {
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="vip-header">
+			<a href="javascript:;">
+				<dl>
+					<dt>
+						<img src="images/member_index/user2b.png" />
+					</dt>
+					<dd>
+						<h4>Admin易凯悦丶<span>普通会员</span></h4>
+						<p><span>积分：<i>618</i></span>&nbsp;&nbsp;<span>红包：<i>2</i></span></p>
+					</dd>
+				</dl>
+			</a>
+			<ul>
+				<li>
+					<a href="javascript:;"><span>1</span>
+						<p>待付款</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><span>0</span>
+						<p>待收货</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><span>0</span>
+						<p>待评价</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="vip-club border_top_bottom">
+			<div class="vip-club-title border_bottom">
+				<span><i class="iconfont"></i>会员俱乐部</span>
+				<a href="javascript:;">每日签到领积分<i class="iconfont"></i></a>
+			</div>
+			<ul>
+				<li>
+					<a href="member_order.html"><i class="iconfont"></i>
+						<p>我的订单</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="iconfont"></i>
+						<p>我的抢购</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="iconfont" style="font-size: 28px;"></i>
+						<p>我的众筹</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="iconfont"></i>
+						<p>我的预约</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="vip-club border_top_bottom vip-account">
+			<div class="vip-club-title border_bottom">
+				<span><i class="iconfont"></i>我的账户</span>
+				<a href="javascript:;">积分兑换商品<i class="iconfont"></i></a>
+			</div>
+			<ul>
+				<li>
+					<a href="javascript:;"><i class="color_f44623">156元</i>
+						<p>账户余额</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="color_f4a425">618</i>
+						<p>我的积分</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="color_45a1de">0</i>
+						<p>我的礼券</p>
+					</a>
+				</li>
+				<li>
+					<a href="member_collect.html"><i class="color_1dccaa">3</i>
+						<p>我的收藏</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="vip-list-icon border_top_bottom">
+			<ul>
+				<li class="border_bottom">
+					<a href="javascript:;" class="border_right"><i class="iconfont" style="font-size:22px;"></i><em>商品查询</em></a>
+					<a href="javascript:;" ><i class="iconfont" style="font-size:24px;"></i><em>配送查询</em></a>
+					
+				</li>
+				<li class="border_bottom">
+					<a href="javascript:;" class="border_right"><i class="iconfont"></i><em>评价晒单</em></a>
+					<a href="member_addr.html"><i class="iconfont" style="font-size:24px;"></i><em>收货地址</em></a>
+				</li>
+				<li class="border_bottom">
+					<a href="javascript:;" class="border_right"><i class="iconfont"></i><em>我的咨询</em></a>
+					<a href="aftersale.html"><i class="iconfont" style="font-size:20px; text-indent:2px;"></i><em>我的售后</em></a>
+				</li>
+			</ul>
+		</div>
+		<div class="vip-club vip-like border_top_bottom">
+			<div class="vip-club-title  border_bottom">
+				<span><i class="iconfont"></i>猜你喜欢</span>
+				<a style="" href="javascript:;">去逛逛<i class="iconfont"></i></a>
+			</div>
+			<div class="pj_box">
+				<ul>
+					<li>
+						<a href="javascript:;"><img src="images/like/20150910052509882.jpg" width="80" height="80" alt="img" />
+							<em>iPhone 6s（A1700）国行版</em>
+							<b>￥4788.00</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/biao.jpg" width="80" height="80" alt="img" />
+							<em>瑞士浪琴名匠系列38.5mm 盘机械手表</em>
+							<b>￥10488.00</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/chanel.jpg" width="80" height="80" alt="img" />
+							<em>Chanel/香奈儿 邂逅清新淡香水</em>
+							<b>￥709.00</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/tbh.jpg" width="80" height="80" alt="img" />
+							<em>特百惠茶韵随心水杯子500ml塑料防漏便携运动茶杯</em>
+							<b>￥89.00</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/yg.jpg" width="80" height="80" alt="img" />
+							<em>狮王CLINICA洁净牙膏清新薄荷130g</em>
+							<b>￥29.80</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/tj.jpg" width="80" height="80" alt="img" />
+							<em>西湖牌菊花茶花草茶叶 正宗桐乡杭白菊特级胎菊王50g</em>
+							<b>￥126.00</b>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="images/like/milk.jpg" width="80" height="80" alt="img" />
+							<em>澳洲进口德运全脂高钙青少年成人冲饮牛奶粉1kg新鲜</em>
+							<b>￥79.00</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script>
+			// <猜你喜欢> 横向滑动
+			var num_li = Number($(".pj_box li").length);
+			$(".pj_box ul").css("width", (num_li * 100));
+		</script>
+		
+		<div class="foot-nav border_top hide" style="display: block;">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user" style="background-position: -72px -25px;"></i><span style="color: #f44263;">我的</span></a>
+		</div>
+		
+		<footer id="footer" style="">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="#" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<!--<a onclick="LoginOut()">退出</a>-->
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+					<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+				</p>
+		</footer>
+		
+	</body>
+
+</html>

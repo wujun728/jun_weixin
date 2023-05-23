@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>购物车结算</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/main.js"></script>
+		<!--<script src="js/switchery.min.js" type="text/javascript"></script>-->
+		<style>
+			.popUpBox {}
+			
+			.popUpBox>div {
+				padding: 20px 10px;
+			}
+			
+			.popUpBox .close {
+				float: right;
+				font-size: 16px;
+				color: #f33;
+				background: #fff;
+				width: 20px;
+				text-align: center;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #ddd;
+				margin: -5px -5px 0 0;
+			}
+			
+			.popUpBox h2 {
+				padding-bottom: 10px;
+			}
+			
+			.popUpBox .btn1 {
+				width: auto;
+			}
+			
+			.popUpBox .radio_box {
+				font-family: 'Microsoft YaHei', SimHei;
+				overflow-y: auto;
+				margin-bottom: 10px;
+				border: 1px solid #ddd;
+				background: #fff;
+			}
+			
+			.popUpBox .radio_box>div {
+				display: block;
+				height: 40px;
+				line-height: 40px;
+				font-size: 16px;
+				color: #666;
+				padding-left: 10px;
+				position: relative;
+				border-top: 1px solid #ddd;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			
+			.popUpBox .radio_box>div:first-child {
+				border-top: 0;
+			}
+			
+			.popUpBox .radio_box>div div {
+				display: inline-block;
+				height: 40px;
+				line-height: 40px;
+				font-size: 16px;
+				display: -webkit-inline-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+			
+			.popUpBox .radio_box>label {
+				display: block;
+				padding: 5px;
+				border-bottom: dashed 1px #dadada;
+				margin: 0 5px;
+			}
+			
+			.popUpBox .radio_box>label:last-child {
+				border: 0;
+			}
+			
+			.popUpBox .radio_box>label span {
+				display: inline-block;
+			}
+			
+			.popUpBox .radio_box>div img {
+				width: 30px;
+				height: 30px;
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+			
+			.popUpBox .radio_box>div.no {
+				cursor: default;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+			}
+			
+			.yhm_box {
+				height: 40px;
+				line-height: 40px;
+				display: block;
+			}
+			
+			.yhm_box .arrow_r {
+				margin-top: 7px;
+			}
+			
+			.cart_other {
+				margin: 0;
+			}
+			
+			.cart_other h5 {
+				font-weight: 400;
+			}
+			
+			.cart_box .vlist ul ul {
+				padding: 0;
+			}
+			
+			.cart_box .vlist ul ul li {
+				padding: 3px 0;
+				margin-top: 0;
+				border: 0;
+			}
+			
+			.cart_box .vlist ul ul li em {
+				display: inline;
+			}
+			
+			.beizhu textarea {
+				width: 100%;
+			}
+			
+			.sj_fuwu li {
+				line-height: 18px;
+				height: auto;
+			}
+			
+			.recieve-info {
+				min-width: 300px;
+				margin: 10px 0;
+				border-top: solid 1px #dadada;
+				-webkit-border-image: url(/m/images/border.gif) 2 0 round;
+				border-image: url(/m/images/border.gif) 2 0 round;
+				border-width: 1px 0;
+				padding: 10px;
+				background: #fff;
+			}
+			
+			.recieve-info h3 {
+				font-weight: normal;
+				font-size: 12px;
+				color: #999;
+			}
+			/*.recieve-mode a { display: inline-block; padding: 5px 10px; border: solid 1px #ccc; border-radius: 3px; margin-right: 5px; margin-top: 8px; }
+        .recieve-mode a.cur { background: #f44623; border-color: #f44623; color: #fff; }*/
+			
+			.acheck {
+				display: block;
+				padding: 8px 0;
+				margin-left: 28px;
+				border-bottom: solid 1px #e3e3e3;
+				position: relative;
+				border-top: solid 1px #dadada;
+				-webkit-border-image: url(/m/images/border.gif) 2 0 round;
+				border-image: url(/m/images/border.gif) 2 0 round;
+				border-width: 0 0 1px 0;
+			}
+			
+			.acheck:last-child {
+				border: 0;
+				padding-bottom: 0;
+			}
+			
+			.acheck:before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				position: absolute;
+				left: -28px;
+				top: 10px;
+				margin: 0;
+				padding: 0;
+				width: 20px;
+				height: 20px;
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAMAAAD/eoL4AAAB+FBMV…dP3csBnrqX8Kl7iVTYjU/d3a4Mn7qubBc+dXe5MnzqlrMfu1R4bEiwMZUAAAAASUVORK5CYII=) no-repeat;
+				border: none;
+				background-position: -100px 0;
+			}
+			
+			@media (-o-min-device-pixel-ratio:5/4),
+			(-webkit-min-device-pixel-ratio:1.25),
+			(min-resolution:120dpi),
+			(min-resolution:1.25dppx) {
+				.acheck:before {
+					background-image: url(data:image/png;base64,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);
+					-webkit-background-size: 200px 20px;
+					background-size: 200px 20px;
+				}
+			}
+			
+			.acheck.cur:before {
+				background-position: -140px 0;
+			}
+			
+			.reciever a h4 {
+				font-weight: normal;
+			}
+			
+			.edit-address {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+			
+			#jiajiTiYanBtn {
+				display: none;
+			}
+			
+			.nocheck {
+				color: #999;
+			}
+			
+			.jiaji {
+				display: none;
+			}
+			
+			.ios_menu {
+				margin: 0px 0 10px;
+			}
+			
+			.ios_menu a,
+			.ios_menu .item {
+				height: 45px;
+				line-height: 45px;
+				overflow: hidden;
+			}
+			
+			.slide-right-in {
+				position: fixed;
+				right: 0;
+				top: 0;
+				height: 100%;
+				overflow: auto;
+				transition: all .3s linear;
+				background: #f3f3f3;
+				width: 0%;
+				z-index: 99;
+				-webkit-overflow-scrolling: touch;
+				box-shadow: 0 0 3px #666;
+			}
+			
+			.default-reciever a {
+				line-height: 23px;
+				padding: 10px 10px 10px 0;
+				position: relative;
+			}
+			
+			.default-reciever a em {
+				height: 22px;
+				display: inline-block;
+			}
+			
+			.default-reciever i {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			
+			.ziti-list,
+			.shop-list,
+			.reciever,
+			.use-code {
+				max-height: 330px;
+				overflow: auto;
+				padding: 0 10px 10px;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.recieve-pay-btn {
+				display: block;
+				margin: 10px;
+				background: #f44623;
+				color: #fff;
+				text-align: center;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 3px;
+			}
+			
+			.jiaji .switchery,
+			.jifen-box .switchery {
+				margin-top: 8px;
+			}
+			
+			.backup-box {
+				padding: 10px;
+			}
+			
+			.backup-box h3,
+			.qingdan h3 {
+				font-size: 15px;
+				color: #2c3e50;
+			}
+			
+			.backup-box textarea {
+				border: 0;
+				display: block;
+				width: 100%;
+				height: 45px;
+				resize: none;
+			}
+			
+			.qingdan {
+				padding: 10px;
+				border: solid 1px #EEEEEE;
+				border-width: 1px 0;
+			}
+			
+			.cart_box .vlist ul {
+				padding: 0;
+			}
+			
+			.cart_box .vlist {
+				padding: 0;
+			}
+			
+			.cart_box .vlist ul li:last-child {
+				border-bottom: 0;
+			}
+			
+			.mail-top {
+				height: 3px;
+				background: url(http://img2.ch999img.com/m/images/mail_top.png) repeat-x;
+				background-size: auto 100%;
+			}
+			
+			.mail-bottom {
+				height: 3px;
+				background: url(http://img2.ch999img.com/m/images/mail_bottom.png) repeat-x;
+				background-size: auto 100%;
+			}
+			
+			.stock-status {
+				padding: 2px 5px;
+				color: #fff;
+			}
+			
+			.stock-status.xianhuo {
+				background: #f44623;
+			}
+			
+			.stock-status.yuding {
+				background: #1dccaa;
+			}
+			
+			.stock-status.quehuo {
+				background: #999;
+			}
+			
+			.stock-status.zaitu {
+				background: #45a1de;
+			}
+			
+			.use-code .add-yhm dt {
+				margin: 8px 0;
+			}
+			
+			.use-code .add-yhm dt i {
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				font-size: 14px;
+				border-radius: 50%;
+				border: 1px solid #e3e3e3;
+				color: #666;
+				display: inline-block;
+				line-height: 19px;
+				margin-right: 5px;
+			}
+			
+			.use-code .add-yhm dd {
+				display: none;
+				margin: 3px 0;
+				height: 45px;
+			}
+			
+			.use-code .add-yhm dd input {
+				height: 30px;
+				border-radius: 5px;
+				outline: none
+			}
+			
+			.use-code .add-yhm dd input[name=yhm] {
+				width: 65%;
+				border: 1px solid #e3e3e3;
+				outline: none;
+				text-indent: 2px;
+			}
+			
+			.use-code .add-yhm dd input[name=ok-btn] {
+				width: 25%;
+				margin-left: 5px;
+				background: #f44623;
+				color: #fff;
+				border: none;
+			}
+			
+			.use-code .add-yhm dd input[name=ok-btn].disable {
+				background: #fafafa;
+				color: #ddd;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">填写核对订单</h1>
+			</div>
+			<div class="home_menu" id="hMenu"> 
+			    <a href="index.html"><i class="go_index"></i><span>首页</span></a> 
+			    <a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a> 
+			    <a href="cart.html"><i class="go_cart"></i><span>购物车</span></a> 
+			    <a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a> 
+		   	</div> 
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+		
+		<div class="default-option" title="默认选择项">
+			<!--默认选择的配送、支付方式以及收货人、门店、自提点等-->
+				<div class="ios_menu default-reciever ">
+					<div class="mail-top"></div>
+					<a href="javascript:;" style="height: auto;">
+						<b>收货人：</b>周凯文<br />
+						<b>联系电话：</b> 13488009937<br />
+						<b>支付方式：</b>在线支付<br />
+						<em><b>收货地址：</b>西安市晶城秀府小区10号楼4-703</em>
+						<em style="line-height: 22px;margin-top: 10px;">您可以选择新的或添加您的收货地址</em>
+						<i class="arrow_r"></i>
+					</a>
+					<div class="mail-bottom"></div>
+				</div>
+				
+				<div class="ios_menu" style="padding:10px;">
+					<div id="appoint-time" style="margin-bottom:10px;">
+						<h3 style="color:#2c3e50;margin-bottom:5px;">选择给您送货的时间</h3>
+						<select id="toShopDate" style="margin-right:5px;">
+							<option value="">即买即送</option>
+							<option value="">到店自取</option>
+							<option value="">周末送货</option>
+							<option value="">联系送货</option>
+						</select>
+						<select id="toShopTime">
+							<option value="">请选择</option>
+						</select>
+					</div>
+					<p id="queTip" style="font-size:12px;color:#f44623;"></p>
+				</div>
+		</div>
+		<div class="ios_menu backup-box">
+			<h3>订单备注</h3>
+			<textarea id="OrderRemark" placeholder="填写您的特殊要求或备注"></textarea>
+		</div>
+		<div class="qingdan cart_box">
+			<h3>商品清单</h3>
+			<div class="vlist">
+				<ul>
+					<li class="cart_one" data-count="1" data-istjpro="1"> <img src="images/cart/biao.jpg" class="list_img" />
+						<div class="list_info">
+							<p class="tit c666">瑞士浪琴名匠系列38.5mm 盘机械手表 326 </p>
+							<p class="price red2"> ￥10488.00 <input type="hidden" value="4788.00" name="price" /> <input type="hidden" class="much_one" value="4788.00" name="cartprice" /> </p>
+							<input type="hidden" value="3215346" name="basket_id" />
+							<p class="qingdan_shul cart_num">数量：<span>1</span><span class="stock-status right" ppid="33912"></span></p>
+							<p class="c999 lh"></p>
+						</div>
+					</li>
+					<li class="cart_one" data-count="1" data-istjpro="0"> <img src="images/cart/qkl.jpg" class="list_img" />
+						<div class="list_info">
+							<p class="tit c666">比利时进口德菲丝松露巧克力黑传统 1kg  </p>
+							<p class="price red2"> ￥75.90 <input type="hidden" value="40.00" name="price" /> <input type="hidden" class="much_one" value="75.90" name="cartprice" /> </p>
+							<input type="hidden" value="3215347" name="basket_id" />
+							<p class="qingdan_shul cart_num">数量：<span>1</span><span class="stock-status right" ppid="6871"></span></p>
+							<p class="c999 lh"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<!--优惠券-->
+		<!--<div class="ios_menu">
+			<a href="javascript:;" id="yhmBtn" onclick="useCode()"> <b>使用优惠券 <em></em></b> <i class="arrow_r"></i> <span id="yhmStatus">未使用</span> </a>
+			<div class="item jifen-box" style="display:none;" data-jfprice="0" id="useJF">
+				<b>使用积分 <em style="font-size: 12px;">共30积分，可用0积分抵0元</em></b>
+				<input type="checkbox" class="right" id="jifenCheck" />
+			</div>
+		</div>-->
+		
+		
+		<!--<script type="text/html" id="codeTmpl">
+			<div class="use-code">
+				<dl class="add-yhm">
+					<dt><i>+</i>使用优惠码</dt>
+					<dd>
+						<input type="text" name="yhm" placeholder="输入优惠码" /><input type="button" name="ok-btn" value=" 确定" />
+					</dd>
+				</dl>
+				{{each}}
+				<a class="acheck" href="javascript:;" code="{{$value.code}}" price="{{$value.price}}" leijia="{{$value.leijia}}" onclick="setCode({{$value.leijia}},this)">
+					<h4>{{$value.price}}元优惠券 {{if $value.leijia}}<em style="color: #f44623;">[可累加使用]</em>{{/if}}</h4>
+					<p>有效期至{{$value.endtime}}</p>
+				</a>
+				{{/each}}
+			</div>
+		</script>-->
+		<div class="tijiaodd m10">
+			<p><b id="lbTotalCount"></b>件商品，共：<span id="lbTotalAmount">￥8420.00元</span></p>
+			<p>运费：<span id="lbDelievryFee">￥15.00</span></p>
+			<!--<p>优惠：<span id="lbTotalReduce"></span></p>-->
+			<p id="totalJFli" style="display: block">积分抵扣：<span id="totalJF">￥0.00</span></p>
+			<p>总计：<strong id="lbTotalCartPrice">10578.90元</strong></p>
+			<a class="tijiao_btn" href="javascript:;" onclick="buy()" style="background: #f44623; border-radius: 3px;">提交订单</a>
+			<div class="clear"></div>
+		</div>
+		
+		<footer id="footer" style="padding-bottom: 20px;">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<a onclick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+		
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		
+		<script type="text/javascript">
+			//计算共 多少 件商品
+			$("#lbTotalCount").html($(".vlist ul li").length)
+			
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			})
+			
+			function buy() {
+            layer.open({ type: 2, content: "加载中", shadeClose: false });
+            $.ajax({
+				type:"post",
+            	url:"https://segmentfault.com/a/1190000003982302",
+            	dataType:"jsonp",
+            	data:{
+        			date:$(".month").val(),
+        			flag:3,
+        		},
+            	success: function(data){
+            		layer.closeAll();
+            		location.href = "cart_order.html"
+            	},
+            	error:function(ddd){
+            		layer.closeAll();
+            		location.href = "cart_order.html"
+            	}
+            })
+        }
+		</script>
+	</body>
+
+</html>

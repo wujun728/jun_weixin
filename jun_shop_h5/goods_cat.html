@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>商品分类</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="易凯商城app,易凯资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="易凯商城app," />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<style>
+			.cate-wrap {
+				height: 500px;
+				width: 100%;
+			}
+			
+			.top-cate {
+				height: 100%;
+				width: 35%;
+				background: #f6f6f6;
+				overflow: auto;
+			}
+			
+			.top-cate a {
+				display: block;
+				height: 60px;
+				line-height: 60px;
+				padding: 0 10px;
+				border: solid 1px #dadada;
+				border-width: 0 1px 1px 0;
+			}
+			
+			.top-cate a img {
+				width: 24px;
+				height: 24px;
+				vertical-align: middle;
+				position: relative;
+				bottom: 1px;
+				margin-right: 2px;
+			}
+			
+			.top-cate a.cur {
+				background: #fff;
+				color: #f44623;
+				font-weight: bold;
+				border-right: 0;
+			}
+			
+			.right-cate {
+				background: #fff;
+				height: 100%;
+				margin-left: 35%;
+				overflow: auto;
+			}
+			
+			.child-cate {
+				display: none;
+				padding: 10px 0;
+				overflow: hidden;
+			}
+			
+			.child-cate a {
+				display: block;
+				width: 44%;
+				height: 35px;
+				line-height: 35px;
+				color: #45a1de;
+				margin: 0 0% 3% 6%;
+				float: left;
+				border-radius: 3px;
+				overflow: hidden;
+			}
+			
+			div.elecfenlei a {
+				height: 4.6rem;
+				margin: 0;
+				width: 50%;
+			}
+			
+			div.elecfenlei a img {
+				width: 3.2rem;
+				height: 3.2rem;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			div.elecfenlei a span {
+				display: block;
+				margin: 0 auto;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">商品分类</h1>
+			</div>
+			<div class="home_menu" id="hMenu"> 
+			    <a href="index.html"><i class="go_index"></i><span>首页</span></a> 
+			    <a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a> 
+			    <a href="cart.html"><i class="go_cart"></i><span>购物车</span></a> 
+			    <a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a> 
+		   	</div> 
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="cate-wrap">
+			<div class="top-cate left">
+				<a href="javascript:;" class="cur"> <img src="images/goods_cat/pic1.jpg" /> 休闲零食 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic2.jpg" /> 酒水乳饮 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic3.jpg" /> 粮油副食 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic4.jpg" /> 洗护美妆 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic5.jpg" /> 家居用品 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic6.jpg" /> 家用电器</a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic7.jpg" /> 进口食品</a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic8.jpg" /> 纸品家清 </a>
+				<a href="javascript:;"> <img src="images/goods_cat/pic9.jpg" /> 母婴玩具</a>
+			</div>
+			<div class="right-cate">
+				<div class="child-cate" style="display:block;">
+					<a href="javascript:;"><span>Three Squirrels/三只松鼠</span></a>
+					<a href="javascript:;"><span>良品铺子</span></a>
+					<a href="javascript:;"><span>BE＆CHEERY/百草味</span></a>
+					<a href="javascript:;"><span>Dove/德芙</span></a>
+					<a href="javascript:;"><span>Lay’s/乐事</span></a>
+					<a href="javascript:;"><span>ORION/好丽友</span></a>
+					<a href="javascript:;"><span>AJI</span></a>
+					<a href="javascript:;"><span>葡记</span></a>
+					<a href="javascript:;"><span>奥利奥</span></a>
+					<a href="javascript:;"><span>盼盼</span></a>
+					<a href="javascript:;"><span>WRIGLEY/箭牌</span></a>
+					<a href="javascript:;"><span>徐福记</span></a>
+					<a href="javascript:;"><span>77牌（台湾）</span></a>
+					<a href="javascript:;"><span>Kong WENG/港荣</span></a>
+					<a href="javascript:;"><span>华味亨</span></a>
+					<a href="javascript:;"><span>炎亭渔夫</span></a>
+					<a href="javascript:;"><span>旺旺</span></a>
+					<a href="javascript:;"><span>TIPO/友谊牌（越南）</span></a>
+					<a href="javascript:;"><span>姚太太</span></a>
+					<a href="javascript:;"><span>Nestle/雀巢</span></a>
+					<a href="javascript:;"><span>DANISA/皇冠</span></a>
+					<a href="javascript:;"><span>ChaCheer/洽洽</span></a>
+					<a href="javascript:;"><span>达利园</span></a>
+					<a href="javascript:;"><span>KAM YUEN/甘源</span></a>
+					<a href="javascript:;"><span>西域美农</span></a>
+					<a href="javascript:;"><span>康师傅</span></a>
+					<a href="javascript:;"><span>楼兰蜜语</span></a>
+					<a href="javascript:;"><span>哎哟咪</span></a>
+					<a href="javascript:;"><span>雪海梅乡</span></a>
+					<a href="javascript:;"><span>LIUM/溜溜梅</span></a>
+					<a href="javascript:;"><span>熊孩子</span></a>
+					<a href="javascript:;"><span>Tctc/踢克踏克食品</span></a>
+					<a href="javascript:;"><span>笨笨狗</span></a>
+					<a href="javascript:;"><span>嘉士利</span></a>
+					<a href="javascript:;"><span>UNCLE POP/米老头</span></a>
+					<a href="javascript:;"><span>Danco/丹夫</span></a>
+					<a href="javascript:;"><span>乡乡嘴</span></a>
+					<a href="javascript:;"><span>小老板（泰国）</span></a>
+					<a href="javascript:;"><span>Ten Wow/天喔</span></a>
+					<a href="javascript:;"><span>香楠</span></a>
+					<a href="javascript:;"><span>善味阁</span></a>
+					<a href="javascript:;"><span>哈得斯（英国）</span></a>
+					<a href="javascript:;"><span>来伊份</span></a>
+					<a href="javascript:;"><span>TAODO/淘豆</span></a>
+					<a href="javascript:;"><span>Meiji/明治</span></a>
+					<a href="javascript:;"><span>HERSHEY’S/好时</span></a>
+					<a href="javascript:;"><span>西域良品</span></a>
+					<a href="javascript:;"><span>小胡鸭</span></a>
+					<a href="javascript:;"><span>童记三利和</span></a>
+					<a href="javascript:;"><span>好吃点</span></a>
+					<a href="javascript:;"><span>盐津铺子</span></a>
+					<a href="javascript:;"><span>啪啪通（印度尼西亚）</span></a>
+					<a href="javascript:;"><span>Lotte/乐天</span></a>
+					<a href="javascript:;"><span>麦初心语</span></a>
+					<a href="javascript:;"><span>多悦</span></a>
+					<a href="javascript:;"><span>KERCHIN/科尔沁</span></a>
+					<a href="javascript:;"><span>Morinaga/森永</span></a>
+					<a href="javascript:;"><span>UHA/悠哈</span></a>
+					<a href="javascript:;"><span>蜀道香</span></a>
+					<a href="javascript:;"><span>Ubite/悠伴</span></a>
+					<a href="javascript:;"><span>稻香村</span></a>
+					<a href="javascript:;"><span>Mo.land/喵在岛</span></a>
+					<a href="javascript:;"><span>萨啦咪</span></a>
+					<a href="javascript:;"><span>BELVITA/焙朗</span></a>
+					<a href="javascript:;"><span>嘉顿</span></a>
+					<a href="javascript:;"><span>COCON/可康</span></a>
+					<a href="javascript:;"><span>友臣</span></a>
+					<a href="javascript:;"><span>Munchy's/马奇新新</span></a>
+					<a href="javascript:;"><span>MILKA/妙卡</span></a>
+					<a href="javascript:;"><span>喜之郎</span></a>
+					<a href="javascript:;"><span>BIMBO/宾堡</span></a>
+					<a href="javascript:;"><span>EGO（马来西亚）</span></a>
+					<a href="javascript:;"><span>Stride/炫迈</span></a>
+					<a href="javascript:;"><span>香巴佬</span></a>
+					<a href="javascript:;"><span>Trident/清至</span></a>
+					<a href="javascript:;"><span>TUC/闲趣</span></a>
+					<a href="javascript:;"><span>汤姆农场（韩国）</span></a>
+					<a href="javascript:;"><span>mage’s/麦吉士</span></a>
+					<a href="javascript:;"><span>大唐西域</span></a>
+					<a href="javascript:;"><span>老鲜生</span></a>
+					<a href="javascript:;"><span>A’GAN/阿甘正馔</span></a>
+					<a href="javascript:;"><span>阿里山</span></a>
+					<a href="javascript:;"><span>SABAVA/沙巴哇</span></a>
+					<a href="javascript:;"><span>Oishi/上好佳</span></a>
+					<a href="javascript:;"><span>其他</span></a>
+				</div>
+				
+				<div class="child-cate">
+					<a href="javascript:;"><span>特仑苏</span></a>
+					<a href="javascript:;"><span>伊利</span></a>
+					<a href="javascript:;"><span>蒙牛</span></a>
+					<a href="javascript:;"><span>银桥</span></a>
+					<a href="javascript:;"><span>光明</span></a>
+					<a href="javascript:;"><span>椰树牌椰汁</span></a>
+					<a href="javascript:;"><span>雀巢</span></a>
+					<a href="javascript:;"><span>农夫山泉</span></a>
+					<a href="javascript:;"><span>维维豆奶</span></a>
+					<a href="javascript:;"><span>永和豆浆</span></a>
+					<a href="javascript:;"><span>乐虎</span></a>
+					<a href="javascript:;"><span>脉动</span></a>
+					<a href="javascript:;"><span>康师傅</span></a>
+					<a href="javascript:;"><span>加多宝</span></a>
+					<a href="javascript:;"><span>AD钙奶</span></a>
+					<a href="javascript:;"><span>六个核桃</span></a>
+					<a href="javascript:;"><span>旺仔牛奶</span></a>
+					<a href="javascript:;"><span>星巴克</span></a>
+					<a href="javascript:;"><span>麦斯威尔</span></a>
+					<a href="javascript:;"><span>红牛</span></a>
+					<a href="javascript:;"><span>Moutai/茅台</span></a>
+					<a href="javascript:;"><span>五粮液</span></a>
+					<a href="javascript:;"><span>泸州老窖</span></a>
+					<a href="javascript:;"><span>洋河</span></a>
+					<a href="javascript:;"><span>剑南春</span></a>
+					<a href="javascript:;"><span>牛栏山</span></a>
+					<a href="javascript:;"><span>郎</span></a>
+					<a href="javascript:;"><span>古井贡</span></a>
+					<a href="javascript:;"><span>江小白</span></a>
+					<a href="javascript:;"><span>红星</span></a>
+					<a href="javascript:;"><span>习酒</span></a>
+					<a href="javascript:;"><span>水井坊</span></a>
+					<a href="javascript:;"><span>国窖1573</span></a>
+					<a href="javascript:;"><span>汾酒</span></a>
+					<a href="javascript:;"><span>衡水老白干</span></a>
+					<a href="javascript:;"><span>白云边</span></a>
+					<a href="javascript:;"><span>西凤</span></a>
+					<a href="javascript:;"><span>劲牌</span></a>
+					<a href="javascript:;"><span>杏花村</span></a>
+					<a href="javascript:;"><span>金六福</span></a>
+					<a href="javascript:;"><span>稻花香</span></a>
+					<a href="javascript:;"><span>白水杜康</span></a>
+					<a href="javascript:;"><span>古越龙山</span></a>
+					<a href="javascript:;"><span>Scybe/喜碧</span></a>
+					<a href="javascript:;"><span>RIO/锐澳鸡尾酒</span></a>
+					<a href="javascript:;"><span>威士忌</span></a>
+					<a href="javascript:;"><span>拉菲1980</span></a>
+					<a href="javascript:;"><span>长城干红</span></a>
+					<a href="javascript:;"><span>百威</span></a>
+					<a href="javascript:;"><span>青岛</span></a>
+					<a href="javascript:;"><span>干啤</span></a>
+					<a href="javascript:;"><span>小木屋果啤</span></a>
+					<a href="javascript:;"><span>其他</span></a>
+				</div>
+				<div class="child-cate">
+					<a href="javascript:;"><span>金龙鱼</span></a>
+					<a href="javascript:;"><span>福临门</span></a>
+					<a href="javascript:;"><span>HADAY/海天</span></a>
+					<a href="javascript:;"><span>统一</span></a>
+					<a href="javascript:;"><span>双汇</span></a>
+					<a href="javascript:;"><span>十月稻田</span></a>
+					<a href="javascript:;"><span>鲁花</span></a>
+					<a href="javascript:;"><span>MIGHTY/多力</span></a>
+					<a href="javascript:;"><span>Gaia Farm/盖亚农场</span></a>
+					<a href="javascript:;"><span>太太乐</span></a>
+					<a href="javascript:;"><span>康师傅</span></a>
+					<a href="javascript:;"><span>老干妈</span></a>
+					<a href="javascript:;"><span>味好美</span></a>
+					<a href="javascript:;"><span>泰金香</span></a>
+					<a href="javascript:;"><span>NISSIN/日清</span></a>
+					<a href="javascript:;"><span>乌江</span></a>
+					<a href="javascript:;"><span>LEE KUM KEE/李锦记</span></a>
+					<a href="javascript:;"><span>厨邦</span></a>
+					<a href="javascript:;"><span>银鹭</span></a>
+					<a href="javascript:;"><span>CENTURY/鲜得味</span></a>
+					<a href="javascript:;"><span>FONDEE/枫缇</span></a>
+					<a href="javascript:;"><span>knife/刀唛</span></a>
+				</div>
+				<div class="child-cate">
+					<a href="javascript:;">DARLIE/黑人</a>
+					<a href="javascript:;">Colgate/高露洁</a>
+					<a href="javascript:;">LION/狮王</a>
+					<a href="javascript:;">LUX/力士</a>
+					<a href="javascript:;">沙宣</a>
+					<a href="javascript:;">safeguard/舒肤佳</a>
+					<a href="javascript:;">Saky/舒客</a>
+					<a href="javascript:;">云南白药</a>
+					<a href="javascript:;">CLEAR/清扬</a>
+					<a href="javascript:;">kuyura/可悠然</a>
+					<a href="javascript:;">Walch/威露士</a>
+					<a href="javascript:;">Dove/多芬</a>
+					<a href="javascript:;">海飞丝</a>
+					<a href="javascript:;">Crest/佳洁士</a>
+					<a href="javascript:;">潘婷</a>
+					<a href="javascript:;">SYOSS/丝蕴</a>
+					<a href="javascript:;">Schwarzkopf/施华蔻</a>
+					<a href="javascript:;">六神</a>
+					<a href="javascript:;">REJOICE/飘柔</a>
+					<a href="javascript:;">蜂花</a>
+					<a href="javascript:;">Durex/杜蕾斯</a>
+					<a href="javascript:;">L＇oreal/欧莱雅</a>
+					<a href="javascript:;">隆力奇</a>
+					<a href="javascript:;">拉芳</a>
+					<a href="javascript:;">COCOVEL/蔻露薇</a>
+					<a href="javascript:;">Adidas/阿迪达斯</a>
+					<a href="javascript:;">Dettol/滴露</a>
+					<a href="javascript:;">Shiseido/资生堂</a>
+					<a href="javascript:;">黛丝恩（日本）</a>
+					<a href="javascript:;">HOME DIY/智创意</a>
+					<a href="javascript:;">蓝月亮</a>
+				</div>
+				<div class="child-cate">
+					<a href="javascript:;">化妆/美容工具</a>
+					<a href="javascript:;">个人清洁用具</a>
+					<a href="javascript:;">衣物洗晒/护理</a>
+					<a href="javascript:;">整理/收纳用具</a>
+					<a href="javascript:;">伞/雨具</a>
+					<a href="javascript:;">保暖贴/冰贴</a>
+					<a href="javascript:;">口罩</a>
+					<a href="javascript:;">鞋用品</a>
+					<a href="javascript:;">竹炭包</a>
+					<a href="javascript:;">防霉驱虫</a>
+					<a href="javascript:;">卫浴用具/配件</a>
+					<a href="javascript:;">家用五金/插座/零件</a>
+					<a href="javascript:;">小件杂货</a>
+					<a href="javascript:;">宠物食品</a>
+				</div>
+				<div class="child-cate">
+					<a href="javascript:;">智能家居</a>
+					<a href="javascript:;">智趣酷玩</a>
+					<a href="javascript:;">智能穿戴</a>
+					<a href="javascript:;">网络盒子</a>
+					<a href="javascript:;">厨房小家电</a>
+					<a href="javascript:;">冰箱/洗衣机</a>
+					<a href="javascript:;">平板电视</a>
+					
+				</div>
+				<div class="child-cate">
+					<a href="javascript:;"><span>巧克力</span></a>
+					<a href="javascript:;"><span>糖果</span></a>
+					<a href="javascript:;"><span> 口香糖</span></a>
+					<a href="javascript:;"><span>棒棒糖</span></a>
+					<a href="javascript:;"><span>果冻</span></a>
+					<a href="javascript:;"><span>软糖奶糖</span></a>
+					<a href="javascript:;"><span>饮料茶饮</span></a>
+					<a href="javascript:;"><span>碳酸饮料</span></a>
+					<a href="javascript:;"><span>即饮咖啡</span></a>
+					<a href="javascript:;"><span>饼干/曲奇</span></a>
+					<a href="javascript:;"><span>糕点/蛋卷</span></a>
+					<a href="javascript:;"><span>面包/薯片</span></a>
+					<a href="javascript:;"><span>肉松饼</span></a>
+					<a href="javascript:;"><span>蛋黄派</span></a>
+					<a href="javascript:;"><span>其它</span></a>
+				</div>
+				
+				<div class="child-cate">
+					<a href="javascript:;"><span>挂钩/粘钩</span></a>
+					<a href="javascript:;"><span>压缩袋</span></a>
+					<a href="javascript:;"><span>抽气泵</span></a>
+					<a href="javascript:;"><span>收纳袋</span></a>
+					<a href="javascript:;"><span>收纳盒</span></a>
+					<a href="javascript:;"><span>整理架/置物架</span></a>
+					<a href="javascript:;"><span>防尘罩</span></a>
+					<a href="javascript:;"><span>收纳箱</span></a>
+					<a href="javascript:;"><span>纸巾盒</span></a>
+					<a href="javascript:;"><span>蓝泡泡</span></a>
+					<a href="javascript:;"><span>洁厕液</span></a>
+					<a href="javascript:;"><span>卫浴清洁</span></a>
+					<a href="javascript:;"><span>管道疏通剂</span></a>
+				</div>
+				
+				<div class="child-cate elecfenlei">
+					<a href="javascript:;"><img src="images/goods_cat/use1.jpg" /><span>纸尿裤/拉拉裤</span></a>
+					<a href="javascript:;"><img src="images/goods_cat/use2.jpg" /><span>宝宝退烧贴</span></a>
+					<a href="javascript:;"><img src="images/goods_cat/use3.jpg" /><span>洗衣液/柔顺剂</span></a>
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			$(".cate-wrap").css({ height: $(window).height() - 45 });
+			
+			$(".top-cate a").click(function(){ 
+				$(this).addClass("cur").siblings().removeClass("cur"); 
+				var i = $(this).index();
+				$(".child-cate").eq(i).show().siblings().hide(); 
+			});
+		</script>
+	</body>
+
+</html>

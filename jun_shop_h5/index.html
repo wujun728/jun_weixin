@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="易凯商城app,易凯资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="易凯商城app," />
+		<!--<meta name="apple-itunes-app" content="app-id=477927812" />-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<script src="js/swiper.min.js" type="text/javascript"></script>
+		<style>
+			.hot-news-roller dt {
+				width: 75px;
+			}
+			
+			.hot-news-roller dd {
+				margin-right: 0;
+			}
+			
+			.hot-news-roller dd ul li i {
+				display: inline-block;
+				border: solid 1px #f44623;
+				color: #f44623;
+				height: 18px;
+				line-height: 18px;
+				padding: 0 5px;
+				border-radius: 5px;
+				margin-right: 5px;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="index_wrapper">
+			<header>
+				<div class="index-top">
+					<span class="title_ty">易凯商城·创造生活美学</span>
+					<div class="logo">
+						<img src="images/index/ylogo.png" height="45" />
+					</div>
+					
+					<div class="search">
+			        	<input type="text" name="search" value="" placeholder="请输入您要搜索的关键词">
+			            <button type="button" name="sear" class="sear"><img src="images/index/search.png"></button>
+			        </div>
+			        
+			        <div class="btn_sou"></div>
+				</div>
+			</header>
+			
+			<div class="bannerbox">
+				<div class="banner">
+					<ul>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151111235240_5083.jpg" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151130101354_3821.jpg" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151205114524_7652.jpg" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151207174118_3134.jpg" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151209091812_5096.jpg" /></a>
+						</li>
+						<li>
+							<a href="javascript:;"> <img src="images/index/banner/960_360/20151210181614_1383.jpg" /></a>
+						</li>
+					</ul>
+					<div class="ban-nav">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(".banner").css({ height: $(".banner").width() / 640 * 240 });
+				
+				$('.banner').swipeSlide({
+					continuousScroll: true,
+					speed: 3000,
+					transitionType: 'cubic-bezier(0.22, 0.69, 0.72, 0.88)'
+				}, function(i) { 
+					$('.ban-nav').children().eq(i).addClass('cur').siblings().removeClass('cur'); 
+				});
+				$("#s_inputbox").css({ width: $(window).width() - 90 });
+				
+				//点击X 顶部input框显示
+				$(".btn_sou").click(function(){
+					if($(this).hasClass("active")){
+						$(this).removeClass("active");
+						$(".search").removeClass("active")
+					}else{
+						$(this).addClass("active");
+						$(".search").addClass("active")
+					}
+				})
+				
+			</script>
+			<nav class="index_nav border_bottom">
+				<div class="index_menu flex">
+					<a href="javascript:;"><img src="images/index/nav/number1.png" width="36" height="36" /><span>附近门店</span></a>
+					<a href="javascript:;"><img src="images/index/nav/number2.png" width="36" height="36" /><span>会员俱乐部</span></a>
+					<a href="javascript:;"><img src="images/index/nav/number3.png" width="36" height="36" /><span>热销集中营</span></a>
+					<a href="javascript:;" id="kefu"><img src="images/index/nav/number4.png" width="36" height="36" /><span>冠军销量</span></a>
+				</div>
+				<div class="index_menu index_menu2 flex">
+					<a href="javascript:;"><img src="images/index/nav/number5.png" width="36" height="36" /><span>配送查询</span></a>
+					<a href="javascript:;"><img src="images/index/nav/number6.png" width="36" height="36" /><span>商家特惠</span></a>
+					<a href="javascript:;"><img src="images/index/nav/number7.png" width="36" height="36" /><span>商家资讯</span></a>
+					<a href="javascript:;"><img src="images/index/nav/number8.png" width="36" height="36" /><span>全部</span></a>
+				</div>
+			</nav>
+			<dl class="notice hot-news-roller border_bottom">
+				<dt><img width="65" height="40" src="images/index/logo_say.png" /></dt>
+				<dd class="notice-roller">
+					<ul>
+						<li>
+							<a href="javascript:;">我们来啦！易凯商城App让您购物无忧</a>
+						</li>
+						<li>
+							<a href="javascript:;">附近商家一点通，让您购物不出门更省心</a>
+						</li>
+						<li>
+							<a href="javascript:;">年末检验智商的时候来啦，这些传言信过多少</a>
+						</li>
+						<li>
+							<a href="javascript:;">易凯商城App-携手快递、停车等社区服务！</a>
+						</li>
+						<li>
+							<a href="javascript:;">那么多购物类App，易凯感谢您的选择和信任！</a>
+						</li>
+						<li>
+							<a href="javascript:;">教科书式的好评，魅族教友商做手机</a>
+						</li>
+						<li>
+							<a href="javascript:;">iPad的完美替代品，小米平板2评测</a>
+						</li>
+						<li>
+							<a href="javascript:;">买手机不求人，教你一分钟看懂手机参数</a>
+						</li>
+						<li>
+							<a href="javascript:;">民族旗舰 华为Mate8主观体验报告</a>
+						</li>
+						<li>
+							<a href="javascript:;">虽然这手机有点短命，但不妨碍它大卖</a>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+			<div class="baokuan floor">
+				<h3><i style="background:#f44623"></i>
+					今日销冠
+					<a href="javascript:;">Iphone7 Plus 玫红<s class="arrow_r"></s></a>
+				</h3>
+				<div class="bk-slide">
+					<div class="swiper-wrapper">
+						<a href="goods_detail.html" class="swiper-slide"><img src="images/20151209180539_0929.jpg" /></a>
+						<a href="goods_detail.html" class="swiper-slide"><img src="images/20151203142830_9764.jpg" /></a>
+						<a href="goods_detail.html" class="swiper-slide"><img src="images/20151125172404_2356.jpg" /></a>
+						<a href="goods_detail.html" class="swiper-slide"><img src="images/20151125172411_9069.jpg" /></a>
+						<a href="goods_detail.html" class="swiper-slide"><img src="images/20151125172358_2969.jpg" /></a>
+					</div>
+				</div>
+			</div>
+			<script>
+				var baokuan = new Swiper('.bk-slide', { slidesPerView: 3, slidesPerColumn: 1, freeMode: true, spaceBetween: 10, });
+			</script>
+			<nav class="pic-nav flex">
+				<div class="flex-item">
+					<a href="goods_detail.html"><img src="images/20151205115552_8098.jpg" /></a>
+				</div>
+				<div class="flex-item">
+					<a href="goods_detail.html"><img src="images/20151204113830_6480.jpg" /></a>
+					<a href="goods_detail.html"><img src="images/20151210085508_4292.jpg" /></a>
+				</div>
+				<div class="flex-item">
+					<a href="goods_detail.html"><img src="images/20151127145216_9351.jpg" /></a>
+					<a href="goods_detail.html"><img src="images/20151119144218_9335.jpg" /></a>
+				</div>
+			</nav>
+			<div class="floor">
+				<h3><i style="background:#c44cde"></i>好货推荐</h3>
+				<ul>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151209163811_7000.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151210184213_1472.jpg" /></a>
+						</div>
+					</li>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151205115917_7912.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151208101058_4434.jpg" /></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="floor">
+				<h3><i></i>为你优选</h3>
+				<ul>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151209085336_0258.jpg" /></a>
+						</div>
+					</li>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151209103459_4729.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="goods_detail.html" class="two"><img src="images/20151123180151_8449.jpg" /></a>
+							<a href="goods_detail.html" class="two"><img src="images/20151208175356_8887.jpg" /></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="floor">
+				<h3><i style="background:#f4a425;"></i>总有惊喜</h3>
+				<ul>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151209180853_2772.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="goods_detail.html" class="two"><img src="images/20150909114520_6343.jpg" /></a>
+							<a href="goods_detail.html" class="two"><img src="images/20151109092835_9026.jpg" /></a>
+						</div>
+					</li>
+					<li>
+						<div class="aditem">
+							<a href="goods_detail.html"><img src="images/20151208110028_6058.jpg" /></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="floor">
+				<h3><i style="background:#1dccaa;"></i>热门直通车</h3>
+				<ul>
+					<li>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910165223_4481.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20151023181009_1163.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910165241_2361.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20151203165053_3643.jpg" /></a>
+						</div>
+					</li>
+					<li>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910164636_2161.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910164644_5701.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910183034_4405.jpg" /></a>
+						</div>
+						<div class="aditem">
+							<a href="javascript:;"><img src="images/20150910165138_6182.jpg" /></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="guessulike">
+				<h3><i style="background:#f36713;"></i>猜你喜欢</h3>
+				<div class="pj_box">
+					<ul style="width: 1800px;">
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/20150910052509882.jpg" width="80" height="80" alt="img" />
+								<em>iPhone 6s（A1700）国行版</em>
+								<b>￥4788.00</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/biao.jpg" width="80" height="80" alt="img" />
+								<em>瑞士浪琴名匠系列38.5mm 盘机械手表</em>
+								<b>￥10488.00</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/chanel.jpg" width="80" height="80" alt="img" />
+								<em>Chanel/香奈儿 邂逅清新淡香水 </em>
+								<b>￥709.00</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/tbh.jpg" width="80" height="80" alt="img" />
+								<em>特百惠茶韵随心水杯子500ml塑料防漏便携运动茶杯</em>
+								<b>￥89.00</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/yg.jpg" width="80" height="80" alt="img" />
+								<em>狮王CLINICA洁净牙膏清新薄荷130g</em>
+								<b>￥29.80</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/tj.jpg" width="80" height="80" alt="img" />
+								<em>西湖牌菊花茶花草茶叶 正宗桐乡杭白菊特级胎菊王50g</em>
+								<b>￥126.00</b>
+							</a>
+						</li>
+						<li>
+							<a href="goods_detail.html">
+								<img src="images/like/milk.jpg" width="80" height="80" alt="img" />
+								<em>澳洲进口德运全脂高钙青少年成人冲饮牛奶粉1kg新鲜</em>
+								<b>￥79.00</b>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<dl class="notice border_bottom">
+				<dt><img src="images/index/notice.png" width="20" height="20" />公告</dt>
+				<dd class="notice-roller">
+					<ul style="margin-left: 5px;">
+						<li>
+							<a href="javascript:;">399秒iPhone 6s，成都市金牛万达店盛大开业</a>
+						</li>
+						<li>
+							<a href="javascript:;">线上预约维修服务正式开通，可享9.5折优惠！</a>
+						</li>
+						<li>
+							<a href="javascript:;">iOS9.2正式版发布，升级过硬盘也可放心更新</a>
+						</li>
+						<li>
+							<a href="javascript:;">1元贴钢化膜，楚雄州武定县武定店开业钜惠</a>
+						</li>
+						<li>
+							<a href="javascript:;">从你下单开始，手机就在门店等你！</a>
+						</li>
+					</ul>
+				</dd>
+				<dd style="float: right;width: 30px;margin: -40px 0 0 0;">
+					<a href="javascript:;">更多</a>
+				</dd>
+			</dl>
+			
+			<div class="foot-nav border_top hide" style="">
+				<a href="index.html"><i class="home"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+			</div>
+			<footer id="footer" style="">
+				<div class="footbar" id="noLogin" style="display: none;">
+					<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+					<a href="javascript:;">注册</a>
+					<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+				</div>
+				<div class="footbar" id="yesLogin" style="display: block">
+					<a class="login_btn" href="javascript:;" id="txtUsername">Admin丶易凯悦</a>
+					<a onClick="">退出</a>
+					<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+				</div>
+				<p class="footlink">
+					<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+					<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+					<a href="javascript:;" style="margin:0 18px;">客户端</a>
+					<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+				</p>
+				<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+					<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+				</p>
+			</footer>
+		</div>
+		
+		<script type="text/javascript">
+			$(".foot-nav").show();
+			$(".foot-nav a").eq(0).addClass("cur");
+			
+			function scrollUp(tag, height, timer) { 
+				tag.each(function() { 
+					var ul = $(this).find("ul");
+					setInterval(function(){ 
+						ul.animate({ marginTop: - height }, "normal", function(){
+							ul.find("li:first").clone().appendTo(ul);
+							ul.find("li:first").remove();
+							ul.css({ marginTop: 0 }); 
+						})
+					}, timer);
+				});
+			};
+			
+			scrollUp($(".notice-roller"), 40, 3000);
+			
+			//点击搜索
+			$(".sear").click(function(){
+				alert("搜索功能暂未开启")
+			})
+			
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			})
+		</script>
+		
+	</body>
+
+</html>

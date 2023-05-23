@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>订单提交成功</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js"></script>
+		<style>
+			.cart_finish {
+				background: none;
+				padding: 10px 0px;
+			}
+			
+			.cart_finish .red2 {
+				line-height: 21px;
+				font-size: 14px;
+				padding: 0 16px;
+				color: #666;
+				font-weight: normal;
+			}
+			
+			.cart_finish .red2 b {
+				color: #f90;
+			}
+			
+			.cart_finish_p {
+				background: #fff;
+				padding: 0 16px;
+				margin: 10px 0;
+				overflow: hidden;
+			}
+			
+			.cart_finish p {
+				line-height: 36px;
+				float: left;
+				width: 50%;
+			}
+			
+			.cart_finish_p .cart_finish_lline {
+				padding: 0 16px;
+				float: left;
+				width: 100%;
+				margin-left: -16px;
+			}
+			
+			.btn3 {
+				color: #999;
+				background: none;
+				border-radius: 3px;
+				border: 1px #aaa solid;
+				width: 100px;
+				height: 35px;
+				text-align: center;
+				line-height: 35px;
+				display: block;
+				margin: 0 auto;
+				margin-top: 20px;
+			}
+			
+			.cart_finish p span {
+				color: #999;
+			}
+			
+			.cart_step {
+				background-color: #fff;
+			}
+			
+			.cart_step h2 {
+				font-size: 14px;
+				padding: 0;
+				line-height: 36px;
+				padding-left: 16px;
+				font-weight: normal;
+				color: #999;
+			}
+			
+			.zfb {
+				height: 48px;
+				line-height: 48px;
+			}
+			
+			.cart_step .logo {
+				background: url(images/paylogo.png) no-repeat;
+				background-size: auto 100%;
+				width: 22px;
+				float: left;
+				display: block;
+				height: 22px;
+				margin-top: 13px;
+				margin-right: 8px;
+			}
+			
+			.yhlist a {
+				font-size: 16px;
+				padding-left: 0;
+				display: block;
+				color: #666;
+				margin-left: 16px;
+				overflow: hidden;
+			}
+			
+			.cart_step .zfbzf {
+				background: url(images/zhifubao.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.cart_step span.border_bottom {
+				display: block;
+				margin-left: 46px;
+			}
+			
+			.cart_step .xykzf {
+				background: url(images/yinlian.png) no-repeat;
+				background-size: auto 100%;
+			}
+			
+			.submsg p {
+				color: #555;
+				padding-bottom: 10px;
+				width: 100%;
+				clear: both;
+				line-height: 130%;
+			}
+			
+			.submsg p span {
+				color: #555;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">成功提交订单</h1>
+			</div>
+			<div class="home_menu" id="hMenu"> 
+			    <a href="index.html"><i class="go_index"></i><span>首页</span></a> 
+			    <a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a> 
+			    <a href="cart.html"><i class="go_cart"></i><span>购物车</span></a> 
+			    <a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a> 
+		   	</div> 
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+		
+		<div class="body">
+			<div class="cart_finish">
+				<div class="submsg red2">
+					<p>吼吼~ 订单已经顺利生成了，您订购的宝贝正在备货！</p>
+					<p>请您电话保持畅通，我们会尽快与您联系。</p>
+				</div>
+				
+				<div class="cart_finish_p">
+					<p>订单编号：<span class="blue">5201314</span></p>
+					<p>应付金额：<strong class="red2">￥10578.90</strong></p>
+					<span class="cart_finish_lline border_bottom"></span>
+					<p>配送方式：<span class="blue">即买即送</span></p>
+					<p>支付方式：<span class="blue">网上支付</span></p>
+				</div>
+				<a href="javascript:;" class="btn3" style="">查看订单</a>
+			</div>
+			<div class="cart_finish" style="padding-bottom:30px">
+				<div id="payList" class="yhlist cart_step">
+					<h2 class="border_bottom">选择支付方式</h2>
+					<a id="btnWeixin" href="javascript:;" class="zfb "><span class="logo"></span>微信支付</a>
+					<span class="border_bottom"></span>
+					<a href="javascript:;" class="zfb ap"><span class="logo zfbzf "></span>支付宝账户支付</a>
+					<span class="border_bottom"></span>
+					<a href="javascript:;" class="zfb ap"><span class="logo xykzf"></span>银联支付</a>
+				</div>
+			</div>
+		</div>
+		<div class="foot-nav border_top hide" style="display: block;">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		
+		<footer id="footer" style="padding-bottom: 62px;">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<a onclick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+		
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		<script>
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			})
+		</script>
+		
+	</body>
+
+</html>

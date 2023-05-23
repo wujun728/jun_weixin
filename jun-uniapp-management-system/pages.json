@@ -1,0 +1,281 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationStyle":"custom" 
+			}
+		},{
+			"path": "pages/login/register",
+			"style": {
+				"navigationStyle":"custom" 
+			}
+		},{
+			"path": "pages/statistics/index",
+			"style": {
+				"navigationBarTitleText": "统计",
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+		    "path": "pages/user/account",
+		    "style": {
+		    	"navigationBarTitleText": "帐号管理"
+		    }
+		},
+		{
+			"path": "pages/user/about",
+			"style": {
+				"navigationBarTitleText": "关于"
+			}
+		},
+		{
+			"path": "pages/user/feedback",
+			"style": {
+				"navigationBarTitleText": "问题反馈"
+			}
+		}
+	    ,{
+            "path": "pages/user/service",
+            "style": {
+            	"navigationBarTitleText": "服务条款及协议"
+            }
+        },
+		{
+		    "path": "pages/user/message", 
+		    "style": {
+		    	"navigationBarTitleText": "新消息通知"
+		    }
+		},
+		{
+			"path": "pages/commodity/addtype",
+			"style": {
+				"navigationBarTitleText": "添加商品分类"
+			}
+		},
+		{
+			"path": "pages/commodity/unit",
+			"style": {
+				"navigationBarTitleText": "商品单位",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/commodity/type",
+			"style": {
+				"navigationBarTitleText": "商品类别",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/commodity/commodityinfo",
+			"style": {
+				"navigationBarTitleText": "商品信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/commodity/addcommodity",
+			"style": {
+				"navigationBarTitleText": "添加商品信息"
+			}
+		},
+		{
+			"path": "pages/information/supplier/supplierlist",
+			"style": {
+				"navigationBarTitleText": "供应商管理",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/information/supplier/supplierdetails",
+			"style": {
+				"navigationBarTitleText": "供应商详情"
+			}
+		},
+		{
+			"path": "pages/information/supplier/addsupplier",
+			"style": {
+				"navigationBarTitleText": "添加供应商"
+			}
+		},
+		{
+			"path": "pages/information/warehouse/index",
+			"style": {
+				"navigationBarTitleText": "仓库信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/information/warehouse/details",
+			"style": {
+				"navigationBarTitleText": "仓库详情"
+			}
+		},
+		{
+			"path": "pages/information/warehouse/add",
+			"style": {
+				"navigationBarTitleText": "添加仓库"
+			}
+		},
+		{
+			"path": "pages/information/partition/index",
+			"style": {
+				"navigationBarTitleText": "仓库分区",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/information/partition/add",
+			"style": {
+				"navigationBarTitleText": "添加分区"
+			}
+		},
+		{
+			"path": "pages/information/customerinfo/index",
+			"style": {
+				"navigationBarTitleText": "客户信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/information/customerinfo/details",
+			"style": {
+				"navigationBarTitleText": "客户信息详情"
+			}
+		},
+		{
+			"path": "pages/information/customerinfo/add",
+			"style": {
+				"navigationBarTitleText": "添加客户"
+			}
+		},
+		{
+			"path": "pages/purchase/addorder",
+			"style": {
+				"navigationBarTitleText": "采购录单"
+			}
+		},
+		{
+			"path": "pages/purchase/addpurchase",
+			"style": {
+				"navigationBarTitleText": "选择商品"
+			}
+		},
+		{
+			"path": "pages/purchase/order",
+			"style": {
+				"navigationBarTitleText": "采购订单"
+			}
+		},
+		{
+			"path": "pages/purchase/orderdetail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/purchase/addretire",
+			"style": {
+				"navigationBarTitleText": "采购退单"
+			}
+		},
+		{
+			"path": "pages/purchase/retire",
+			"style": {
+				"navigationBarTitleText": "退货单"
+			}
+		},
+		{
+			"path": "pages/sell/addorder",
+			"style": {
+				"navigationBarTitleText": "销售录单"
+			}
+		},
+		{
+			"path": "pages/sell/addsell",
+			"style": {
+				"navigationBarTitleText": "选择商品"
+			}
+		},
+		{
+			"path": "pages/sell/order",
+			"style": {
+				"navigationBarTitleText": "销售订单"
+			}
+		},
+		{
+			"path": "pages/sell/orderdetail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/sell/addretire",
+			"style": {
+				"navigationBarTitleText": "销售退单"
+			}
+		},
+		{
+			"path": "pages/sell/retire",
+			"style": {
+				"navigationBarTitleText": "退货单"
+			}
+		},
+		{
+			"path": "pages/information/index",
+			"style": {
+				"navigationBarTitleText": "库存"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#2fc25b",
+		"backgroundColor": "#2fc25b"
+	},
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"tabBar": {
+	"color": "#333333",
+    "backgroundColor": "#fff",
+		"selectedColor": "#00B26A",
+		"list": [{
+				"pagePath": "pages/home/index",
+				"text": "首页",
+				"iconPath": "static/images/tabbar/home.png",
+				"selectedIconPath": "static/images/tabbar/home-act.png"
+			},
+			{
+				"pagePath": "pages/information/index",
+				"text": "库存",
+				"iconPath": "static/images/tabbar/information.png",
+				"selectedIconPath": "static/images/tabbar/information-act.png"
+			},{
+				"pagePath": "pages/statistics/index",
+				"text": "统计",
+				"iconPath": "static/images/tabbar/statistics.png",
+				"selectedIconPath": "static/images/tabbar/statistics-act.png"
+			}
+			,{
+				"pagePath": "pages/user/index",
+				"text": "我的",
+				"iconPath": "static/images/tabbar/user.png",
+				"selectedIconPath": "static/images/tabbar/user-act.png"
+			}
+		]
+	}
+}

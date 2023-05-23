@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>投诉及建议</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<!--<script src="js/jquery.AreaWebselect.js"></script>-->
+		<style>
+			.radDiv,
+			.noteDiv {
+				padding: 10px;
+				background: #fff;
+			}
+			
+			.radDiv span,
+			.radDiv label {
+				display: inline-block;
+			}
+			
+			.radDiv label {
+				cursor: pointer;
+				margin-right: 10px;
+				line-height: 30px;
+				height: 30px;
+				padding: 0 10px;
+				background-color: #fff;
+				border-radius: 5px;
+				border: 1px solid #ddd;
+			}
+			
+			.radDiv label.cur {
+				background-color: #ec6f61;
+				cursor: pointer;
+				color: #fff;
+				border-color: #ec6f61;
+			}
+			
+			.radDiv label input {
+				vertical-align: middle;
+				margin-right: 8px;
+				display: none;
+			}
+			
+			.select_city {
+				margin-top: 10px;
+			}
+			
+			.select_city span {
+				width: 90px;
+				font-size: 14px;
+				height: 30px;
+				margin-right: 3px;
+			}
+			
+			.select_city select {
+				width: 85px;
+				font-size: 14px;
+				height: 30px;
+			}
+			
+			.select_city span i {
+				right: 5px;
+				top: 6px;
+				color: #ddd;
+			}
+			
+			.contactDiv span {
+				display: block;
+				margin-bottom: 10px;
+			}
+			
+			.contactDiv input[type=text],
+			.contactDiv input[type=tel],
+			.contactDiv input[type=email],
+			.ComContent {
+				display: block;
+				border: 1px solid #ddd;
+				height: 30px;
+				line-height: 30px;
+				margin-bottom: 10px;
+				width: 100%;
+				text-indent: 2%;
+			}
+			
+			.ComContent {
+				display: block;
+				width: 100%;
+				height: 90px;
+				margin: 10px 0;
+			}
+			
+			.radDiv .btn1 {
+				margin: 15px auto 30px;
+			}
+			
+			.liji_buy,
+			.noteDiv {
+				border: 0;
+				margin-bottom: 10px;
+			}
+			
+			.noteDiv {
+				border: 0;
+				margin: 0 0 10px 0;
+				padding: 0;
+			}
+			
+			.noteDiv li {
+				line-height: 25px;
+				text-indent: 2em;
+			}
+			
+			.city {
+				float: none;
+				line-height: inherit;
+				margin-left: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">投诉及建议</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="index.html"><i class="go_index"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="go_cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a>
+			</div>
+		</header>
+		
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="body">
+			<div class="radDiv border_bottom">
+				<span>投诉对象：</span>
+				<label class="cur"><input type="radio" name="complainObj" checked="checked" value="0" /><span>门店</span></label>
+				<label><input type="radio" name="complainObj" value="1" /><span>其他</span></label>
+				<div class="SeleDiv">
+					<span id="city1" class="areaweb select_city"> 
+						<span>
+							<select id="pid" class="prov" title="41" onchange="">
+								<option value ="volvo">货品质量</option>
+								<option value ="saab">配送时间</option>
+								<option value="opel">价格错误</option>
+  								<option value="audi">其他</option>
+							</select>
+						</span> 
+						
+						<span>
+							<select id="zid" class="city" title="4103" onchange="">
+								<option value ="volvo">退款退货</option>
+								<option value ="saab">仅投诉</option>
+							</select>
+						</span> 
+						
+						<span>
+							<select id="did" class="dist" title="410301" onchange="getDianpu('')">
+								<option value ="volvo">无需反馈</option>
+								<option value ="saab">需反馈</option>
+							</select>
+						</span> 
+						
+						<span style="display:none;"><select id="dpid" title="0"></select><i class="iconfont">ƕ</i></span> 
+					</span>
+					<div class="clear"></div>
+				</div>
+				<textarea id="txtContents" class="ComContent" placeholder="请填写投诉内容（必填项）" maxlength="1000" style="resize: none;"></textarea>
+				<div class="contactDiv" style="border-top:1px dashed #dadada;">
+					<p class="c999" style="line-height:30px;">以便与您核实联系，请您留下联系方式，谢谢！</p>
+					<input id="txtUsername1" type="text" placeholder="您的称呼" value="" maxlength="20" />
+					<input id="txtEmail" type="email" placeholder="您的Email" value="" maxlength="50" />
+					<input id="txtPhone" type="tel" placeholder="您的手机号码（必填项）" value="" maxlength="14" />
+					<button id="btnSubmit" class="btn1 ">提交</button>
+				</div>
+				<div class="noteDiv c666">
+					<div class="border_bottom" style="padding-bottom:5px;margin-bottom:5px;font-weight:700;">
+						Tips：
+					</div>
+					<div>
+						有效投诉奖励：100积分（可在商城购物中使用）
+					</div>
+					<div>
+						您还可以通过以下方式提出您的宝贵意见和建议：
+					</div>
+					<ul>
+						<li>1、致电投诉电话：
+							<a class="blue" href="tel:17702929112">17702929112</a>
+						</li>
+						<li>2、关注易凯信息微信“易凯信息”直接反馈您的宝贵意见及建议（或搜索微信号“TY-simplelife”关注）。</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		
+		<footer id="footer" style="padding-bottom: 20px;">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<a onclick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+					<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+				</p>
+		</footer>
+		
+		<script type="text/javascript">
+			//表单验证
+			var dianpuId = "",
+				dianpuName = "";
+				
+			//选择<门店>或<其他>投诉
+			$(".radDiv label").tap(function() {
+				$(this).addClass("cur").siblings(".cur").removeClass("cur");
+				var _val = $(this).find("input").attr("value");
+				if(_val == 0) { 
+					$("#city1").show(); 
+				}else{ 
+					$("#city1").hide(); 
+				}
+			});
+			
+			$("#btnSubmit").tap(function(){
+				var contents = $.trim($("#txtContents").val());
+				var username = $.trim($("#txtUsername1").val());
+				var email = $.trim($("#txtEmail").val());
+				var phone = $.trim($("#txtPhone").val());
+				if(contents == ""){ 
+					layer.open({
+						content: "请填写要投诉的内容", 
+						btn: ["确定"], 
+						shadeClose: false 
+					}); 
+					return; 
+				}else if(email != "" && !isEmail(email)){
+					layer.open({ content: "请填写正确的Email地址",
+					btn: ["确定"],
+					shadeClose: false
+					}); 
+					return;
+				}else if(phone == ""){ 
+					layer.open({
+					content: "请填写您的手机号码",
+					btn: ["确定"], 
+					shadeClose: false 
+					}); 
+					return;
+				}else if(!isPhone(phone)){ 
+					layer.open({
+						content: "请填写正确的手机号码",
+						btn: ["确定"], 
+						shadeClose: false 
+					}); 
+					return; 
+				}
+				layer.open({ content: "提交中...", type: 2, shadeClose: false });
+//					$.post("tousu.aspx", { act: "addtousu", objType: objType, area: dianpuId, areaname: dianpuName, contents: contents, username: username, email: email, phone: phone, t: +new Date() }, function(data) { layer.open({ content: data.msg, btn: ["确定"], shadeClose: false }); }, "json");
+				});
+
+				function isEmail(str){ 
+					var result = str.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/); 
+					if(result == null) 
+					return false;
+					else return true; 
+				}
+				
+				function isPhone(str) { var result = str.match(/^1[3|4|5|7|8][0-9]\d{8}$/); if(result == null) return false;
+					else return true; 
+				}
+				
+				//底部按钮-回到顶部
+				$(".backtop_btn").click(function(){
+					$(window).scrollTop(0);
+					return false;
+				})
+			
+			</script> 
+	</body>
+
+</html>

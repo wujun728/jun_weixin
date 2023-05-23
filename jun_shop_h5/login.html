@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png?debug=847" />
+		<meta name="location" content="province=;city=;coord=" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css?debug=847" />
+		<script src="js/zepto.min.js?debug=847" type="text/javascript"></script>
+		<script src="js/main.js?debug=847" type="text/javascript"></script>
+		<style>
+			#autoPwsLogin {
+				display: inline-block;
+				width: 45%;
+				background: #628094;
+			}
+		</style>
+		<script type="text/javascript">
+			var backurl = "http://m.ch999.com/product/36170.html";
+			var sig = request("sig");
+			var openid = request("openid");
+			var time = request("time");
+			var ifValid = "0";
+			if($.trim(sig) != "" && $.trim(openid) != "" && $.trim(time) != "" && ifValid == "0") {
+				window.location = "erorrpage.html";
+			}
+
+			function request(paras) {
+				var _url = location.href;
+				var paraString = _url.substring(_url.indexOf("?") + 1, _url.length).split("&");
+				var paraObj = {};
+				for(i = 0; j = paraString[i]; i++) {
+					paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+				}
+				var returnValue = paraObj[paras.toLowerCase()];
+				if(typeof(returnValue) == "undefined") {
+					return "";
+				} else {
+					return returnValue;
+				}
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">成功提交订单</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="index.html"><i class="go_index"></i><span>首页</span></a>
+				<a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a>
+				<a href="cart.html"><i class="go_cart"></i><span>购物车</span></a>
+				<a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a>
+			</div>
+		</header>
+		<script>
+			//title右上角隐藏菜单
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) {
+					target.slideToggle()
+				} else {
+					target.toggle()
+				}
+			});
+		</script>
+		<div class="wrapper">
+			<div class="login">
+				<div class="loginbox">
+					<i class="iconfont">Œ</i>
+					<input id="txtUser" name="txtUser" type="text" placeholder="用户名/邮箱/手机号" value="" />
+				</div>
+				<div class="loginbox">
+					<i class="iconfont">ƺ</i>
+					<input id="txtPwd" name="txtPwd" type="password" placeholder="密码" />
+				</div>
+				<div id="codediv" style="margin-top:10px; display:none">
+					<input id="txtCode" name="txtCode" type="text" placeholder="图片验证码" style="border:1px solid #ddd; height:30px; line-height:30px; width: 160px;vertical-align: middle" />
+					<img id="valideteCode" style="height: 30px; vertical-align: middle" />
+				</div>
+				<div id="msg" style="margin-top:10px;"></div>
+				<div style="text-align:center;">
+					<button id="btnLogin" type="button" style="display:inline-block;width:48%">登录</button>
+					<button id="autoPwsLogin" type="button">获取动态密码登录</button>
+				</div>
+				<div style="margin:20px 10px 10px ;">
+					<input type="checkbox" id="chkIfSave" class="checkbox" />
+					<label for="chkIfSave" class="lable"> 保存一个月</label>
+				</div>
+				<p class="zczh">
+					<a href="javascript:;" id="_register" class="zc_btn">免费注册</a>
+					<a href="javascript:;" class="zhaohui_btn" onclick="">找回密码</a>
+				</p>
+				<div class="clear"></div>
+				<div class="login_hz">
+					<h3>其他方式登录商城</h3>
+					<a href="javascript:void(0);" id="LoginByQQ">QQ登录</a>
+					<a href="javascript:void(0);" id="LoginByAlipay">支付宝登录</a>
+					<a href="javascript:void(0);" style="display: none">微博登录</a>
+					<a href="javascript:void(0);" style="display: none">人人登录</a>
+					<a href="javascript:void(0);" style="display: none">豆瓣登录</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		
+		<footer id="footer" style="padding-bottom: 10px; margin-top: 20px; display: none;">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<a onclick="">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+		
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		
+		<script>
+			/*$(".checkbox").click(function () {
+	            if ($(this).attr("checked") == "checked") {
+	                $(this).removeClass("checkcur");
+	                $(this).removeAttr("checked");
+	            } else {
+	                $(this).addClass("checkcur");
+	                $(this).attr("checked", "checked")
+	            }
+	        });*/
+	       
+			$(".checkbox").trigger("click");
+			$("#LoginByQQ").click(function() {
+				window.location = "http://www.tysimplelife.com/online/qq/login.aspx?kind=3&backUrl=" + encodeURI(backurl);
+			});
+			$("#LoginByQQ").click(function() {
+				window.location = "http://www.tysimplelife.com/online/qq/login.aspx?kind=3&backUrl=" + getUrlParam('url');
+			});
+			$("#LoginByAlipay").click(function() {
+				window.location = "http://www.ch999.com/online/alipay/login.aspx?kind=3&backUrl=" + encodeURI(backurl);
+			});
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");	//构造一个含有目标参数的正则表达式对象
+				var r = window.location.search.substr(1).match(reg);	//匹配目标参数
+				if(r != null) return unescape(r[2]);
+				return '/';	//返回参数值
+			}
+			var autopl_timer = null,
+				vreq = 0;
+			$('#autoPwsLogin').click(function(){
+				var user = $("#txtUser").val();
+				if(!(/^1(3|4|5|7|8)([0-9]{1})([0-9]{8})$/.test(user))) {
+					layer.open({
+						content: "动态密码登录，请输入手机号码",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					return;
+				}
+				if(vreq == 1) return;
+				vreq = 1;
+				var plbtn = $(this);
+				$.post('?act=getmcode',{
+					mobile: user
+				}, function(re) {
+					if(re.stats == 1){
+						plbtn.css({
+							'background': '#8FC7B9',
+							width: '48%'
+						}).text('120秒后可重新获取');
+						$('#msg').css({
+							color: '#f60'
+						}).html('动态密码已发送至手机，请注意查收');
+						var time = 0;
+						autopl_timer = window.setInterval(function() {
+							time++;
+							if(time > 120) {
+								time = 0;
+								vreq = 0;
+								window.clearInterval(autopl_timer);
+								plbtn.css({
+									background: '#00A97E'
+								}).text('重新获取密码');
+							} else {
+								plbtn.text((120 - time) + '秒后可重新获取');
+							}
+						}, 1000);
+						$('#btnLogin').show();
+					} else {
+						if(re.msg) {
+							$('#msg').css({
+								color: '#f60'
+							}).html(re.msg);
+						}
+						plbtn.css({
+							background: '#00A97E'
+						}).text('获取失败，重新获取');
+					}
+				}, 'json').error(function(a, b, c) {
+					plbtn.css({
+						background: '#00A97E'
+					}).text('获取失败，重新获取');
+				})
+			});
+
+			$("#txtUser,#txtPwd").keypress(function(e) {
+				if(e.keyCode == 13) {
+					$("#btnLogin").click();
+				}
+			});
+
+			$("#btnLogin").click(function() {
+				var vimg = $("#valideteCode");
+				var act = request("act");
+				var user = $("#txtUser").val();
+				var pwd = $("#txtPwd").val();
+				var code = $.trim($('#txtCode').val());
+				var ifSave = $("#chkIfSave").prop("checked") ? "1" : "0";
+				var errcount = vimg.attr('errcount') || 0;
+				if($.trim(user) == "") {
+					layer.open({
+						content: "请填写用户名",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtUser").focus();
+					return false;
+				}
+				if($.trim(pwd) == "") {
+					layer.open({
+						content: "请填写密码",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtPwd").focus();
+					return false;
+				}
+				if(errcount > 1) {
+					if(code == null || code == '') {
+						layer.open({
+							content: "请输入验证码",
+							btn: ["好的"],
+							shadeClose: false
+						});
+						return;
+					}
+				}
+				$("#btnLogin").prop("disabled", true).text("正在登录...");
+				
+				$.post("login.aspx", {
+						"act": "login",
+						"user": user,
+						"pwd": pwd,
+						"imgcode": code,
+						"errcount": errcount,
+						"ifSave": ifSave,
+						"url": backurl,
+						"sig": sig,
+						"openid": openid,
+						"time": time
+					},
+					function(data) {
+						if(data.stats == 0 && data.errcount) {
+							vimg.attr('errcount', data.errcount);
+							if((data.errcount + 1) > 2) {
+								$('#codediv').show();
+								vimg.attr("src", "/imgCode.aspx?r=" + Math.random());
+							}
+						}
+						switch(data.stats) {
+							case 1:
+								{
+									if(backurl == "") {
+										window.location = "user/";
+									} else {
+										window.location = backurl;
+									}
+								}
+								break;
+
+							case 0:
+								{
+									$("#btnLogin").prop("disabled", false).text("登录");
+									layer.open({
+										content: pwd.length == 4 ? "密码错误！" : data.result,
+										btn: ["好的"],
+										shadeClose: false
+									});
+									$("#txtPwd").focus();
+								}
+								break;
+
+							case 2:
+								{
+									layer.open({
+										content: data.result,
+										btn: ["好的"],
+										shadeClose: false
+									});
+									window.location = "erorrpage.html";
+								}
+								break;
+
+							case 3:
+								{
+									$("#btnLogin").prop("disabled", false).text("登录");
+									layer.open({
+										content: data.result,
+										btn: ["好的"],
+										shadeClose: false
+									});
+									$("#txtPwd").val("");
+									$("#txtPwd").focus();
+								}
+								break;
+						}
+					},
+					"json");
+			});
+			
+		</script>
+	</body>
+
+</html>

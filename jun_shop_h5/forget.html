@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>找回密码</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css" />
+		<script src="js/zepto.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<style>
+			.reg .sendyzm1 {
+				border-radius: 3px;
+				background: #1dccaa;
+				border: 0;
+				color: #fff;
+				width: 100%;
+				height: 40px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style="">
+			<div class="topbar">
+				<a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a>
+				<a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a>
+				<h1 class="page_title">找回密码</h1>
+			</div>
+			<div class="home_menu" id="hMenu">
+				<a href="http://m.ch999.com/"><i class="iconfont">Ő</i><span>首页</span></a>
+				<a href="http://m.ch999.com/goods_cat.html"><i class="iconfont">Ɔ</i><span>商品分类</span></a>
+				<a href="http://m.ch999.comcart.html"><i class="iconfont">ŭ</i><span>购物车</span></a>
+				<a href="http://m.ch999.commember_index.html"><i class="iconfont">Œ</i><span>会员中心</span></a>
+			</div>
+		</header>
+		<script>
+			SiteName = "三九手机网";
+			var isApp = Cookie.Get("isApp");
+			if(isApp == null || isApp == "") {
+				isApp = 0;
+			}
+			if(isApp == 1) {
+				$("#header").hide();
+			}
+			$(".top_home").click(function() {
+				var target = $(".home_menu");
+				if(target.slideToggle) target.slideToggle();
+				else target.toggle();
+			});
+		</script>
+		<script type="text/javascript">
+			var _mvq = window._mvq || [];
+			window._mvq = _mvq;
+			_mvq.push(['$setAccount', 'm-23995-6']);
+			_mvq.push(['$logConversion']);
+			(function() {
+				var mvl = document.createElement('script');
+				mvl.type = 'text/javascript';
+				mvl.async = true;
+				mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(mvl, s);
+			})();
+		</script>
+		<div class="wrapper">
+			<div id="_item1" class="reg">
+				<input id="txtUser" name="txtUser" type="text" placeholder="填写您的用户名" maxlength="20" value="" />
+				<input id="txtCode1" name="txtCode" type="text" placeholder="填写验证码" style="width: 80px;" maxlength="10" />
+				<img id="valideteCode" style="height: 30px; vertical-align: middle" />
+				<button id="btnNext1">下一步</button>
+			</div>
+			<div id="_item2" class="reg" style="display: none">
+				<input id="txtPhone" type="text" placeholder="填写您注册时使用的手机号码" maxlength="15" style="display:none" />
+				<input id="txtMail" type="text" placeholder="填写您注册时使用的邮箱地址" maxlength="200" style="display:none" />
+				<p style="margin-top:10px;text-align:center;">请选择</p>
+				<button id="btnToPhone" class="sendyzm1" style="margin:10px 0;">发送验证码到手机</button>
+				<p style="text-align:center;">或者</p>
+				<button id="btnToMail" class="sendyzm1" style="margin:10px 0;">发送验证码到邮箱</button>
+				<input id="txtCode2" type="text" placeholder="填写您接收到的验证码" maxlength="10" class="hide" />
+				<button id="btnNext2" class="hide">下一步</button>
+			</div>
+			<div id="_item3" class="reg" style="display: none">
+				<input id="txtNewPWD1" type="password" placeholder="设置新密码" />
+				<button id="btnSubmit">确定修改</button>
+			</div>
+		</div>
+		
+		<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		
+		<footer id="footer" style="padding-bottom: 62px;">
+			<div class="footbar" id="noLogin">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<div class="footbar" id="yesLogin" style="display: none">
+				<a class="login_btn" href="javascript:;" id="txtUsername"></a>
+				<a onclick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+		
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		
+		<script>
+			$("#_item1").show();
+			$("#_item2").hide();
+			$("#_item3").hide();
+
+			function LoadCode() {
+				$("#valideteCode").attr("src", "imgCode.aspx?r=" + Math.random());
+			}
+
+			function ValidUser() {
+				var user = $("#txtUser").val();
+				var code = $("#txtCode1").val();
+				if($.trim(user) == "") {
+					layer.open({
+						content: "请填写用户名",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtUser").focus();
+					return;
+				} else if($.trim(code) == "") {
+					layer.open({
+						content: "请填写验证码",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtCode1").focus();
+					return;
+				}
+				$.post("findpwd.aspx", {
+					act: "validuser",
+					user: user,
+					code: code,
+					t: +new Date()
+				}, function(res) {
+					switch(res.status) {
+						case 0:
+							{
+								layer.open({
+									content: res.msg,
+									btn: ["好的"],
+									shadeClose: false
+								});$("#txtUser").focus();
+								return;
+							}
+							break;
+						case 1:
+							{
+								$("#_item1").hide();$("#_item2").show();$("#_item3").hide();
+								if($.trim(res.Phone) != "") {
+									$("#txtPhone").val(res.Phone);
+									$("#btnToPhone").text("发送验证码到手机(" + res.Phone + ")");
+									$("#btnToPhone").click(function() {
+										SendValicode(1);
+										smsTimer(120, this);
+									});
+								} else {
+									$("#btnToPhone").text("您未绑定手机号码");
+									$("#btnToPhone").attr("disabled", "disabled");
+								}
+								if($.trim(res.Mail) != "") {
+									$("#txtMail").val(res.Mail);
+									$("#btnToMail").text("发送验证码到邮箱(" + res.Mail + ")");
+									$("#btnToMail").click(function() {
+										SendValicode(2);
+										smsTimer(120, this);
+									});
+								} else {
+									$("#btnToMail").text("您未绑定邮箱地址");
+									$("#btnToMail").attr("disabled", "disabled");
+								}
+							}
+							break;
+						case 2:
+							{
+								layer.open({
+									content: res.msg,
+									btn: ["好的"],
+									shadeClose: false
+								});$("#txtCode1").focus();
+								return;
+							}
+							break;
+					}
+				}, "json");
+			}
+
+			function SendValicode(type) {
+				var phone = $("#txtPhone").val();
+				var mail = $("#txtMail").val();
+				switch(type) {
+					case 1:
+						if($.trim(phone) == "") {
+							layer.open({
+								content: "请填写手机号码。",
+								btn: ["好的"],
+								shadeClose: false
+							});
+							$("#txtPhone").focus();
+							return;
+						}
+						break;
+					case 2:
+						if($.trim(mail) == "") {
+							layer.open({
+								content: "请填写邮箱地址。",
+								btn: ["好的"],
+								shadeClose: false
+							});
+							$("#txtMail").focus();
+							return;
+						}
+						break;
+				}
+				$.post("findpwd.aspx", {
+					act: "sendvalid",
+					type: type,
+					phone: phone,
+					mail: mail,
+					t: +new Date()
+				}, function(res) {
+					switch(res.status) {
+						case 1:
+							{
+								layer.open({
+									content: res.msg,
+									btn: ["好的"],
+									shadeClose: false
+								});smsTimer(120, $("#" + (type == 1 ? "btnToPhone" : "btnToMail")));
+							}
+							break;
+						case 2:
+							{
+								layer.open({
+									content: "您填写的手机号码与注册时不一致。",
+									btn: ["好的"],
+									shadeClose: false
+								});$("#txtPhone").focus();
+								return;
+							}
+							break;
+						case 3:
+							{
+								layer.open({
+									content: "您填写的邮箱地址与注册时不一致。",
+									btn: ["好的"],
+									shadeClose: false
+								});$("#txtMail").focus();
+								return;
+							}
+							break;
+						default:
+							layer.open({
+								content: res.msg,
+								btn: ["好的"],
+								shadeClose: false
+							});
+							break;
+					}
+					$("#btnNext2").click(function() {
+						Getvalidcode();
+					});
+					$("#txtCode2,#btnNext2").show();
+				}, "json");
+			}
+
+			function Getvalidcode() {
+				var validcode = $("#txtCode2").val();
+				if($.trim(validcode) == "") {
+					layer.open({
+						content: "您填写您收到的验证码。",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtCode2").focus();
+					return;
+				}
+				$.get("findpwd.aspx", {
+					act: "getvalidcode",
+					validcode: validcode,
+					t: +new Date()
+				}, function(res) {
+					switch(res.status) {
+						case 1:
+							{
+								$("#_item1").hide();$("#_item2").hide();$("#_item3").show();$("#btnSubmit").click(function() {
+									ResetPWD();
+								});
+							}
+							break;
+						case 2:
+							{
+								location.href = './findpwd.aspx';
+							}
+							break;
+						default:
+							{
+								layer.open({
+									content: res.msg,
+									btn: ["好的"],
+									shadeClose: false
+								});$("#txtCode2").focus();
+							}
+							break;
+					}
+				}, "json");
+			}
+
+			function ResetPWD() {
+				var pwd1 = $("#txtNewPWD1").val();
+				var validcode = $("#txtCode2").val();
+				if($.trim(pwd1) == "") {
+					layer.open({
+						content: "请填写您的新密码。",
+						btn: ["好的"],
+						shadeClose: false
+					});
+					$("#txtNewPWD1").focus();
+					return;
+				}
+				$.post("findpwd.aspx", {
+					act: "resetpwd",
+					pwd1: pwd1,
+					validcode: validcode,
+					t: +new Date()
+				}, function(res) {
+					switch(res.status) {
+						case 1:
+							layer.open({
+								content: "您的新密码已经生效。",
+								btn: ["好的"],
+								shadeClose: false
+							});
+							window.location = "http://m.ch999.com";
+							break;
+						default:
+							layer.open({
+								content: res.msg,
+								btn: ["好的"],
+								shadeClose: false
+							});
+							break;
+					}
+				}, "json");
+			}
+
+			function smsTimer(times, obj) {
+				times--;
+				if(times >= 0) {
+					setTimeout(function() {
+						obj.html("" + times + "秒后重新发送").attr("disabled", "disabled");
+						smsTimer(times, obj);
+					}, 1000);
+				} else {
+					obj.removeAttr("disabled").html("重新发送");
+				}
+			}
+			LoadCode();
+			$("#valideteCode").click(LoadCode);
+			$("#btnNext1").click(function() {
+				ValidUser();
+			});
+		</script>
+	</body>
+
+</html>

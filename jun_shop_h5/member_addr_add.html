@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>收货地址 - 添加</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="description" content="三九手机网是专业的手机在线销售网站,为您提供正品行货手机、品牌手机的以及笔记本、平板电脑专业销售。依托三九手机网强大的技术支持，为您提供优质的售后服务，包括刷机服务、手机维修服务，正版软件安装等服务，三九资讯畅销榜为您提供技术支持、资源下载、价格咨询、手机咨询、手机评测、热门机型推荐、手机使用经验分享等全方位的服务! " />
+		<meta name="Keywords" content="三九手机网,39手机网,999手机网,39,999,三九,39网,三九网,品牌手机,正品行货手机,手机维修,手机技术支持,手机评测,手机报价,品牌笔记本,平板电脑" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="location" content="province=;city=;coord=" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="apple-touch-icon-precomposed" href="images/screenLogo.png?debug=847" />
+		<link rel="stylesheet" type="text/css" href="css/m2015.css?debug=847" />
+		<script src="js/zepto.min.js?debug=847" type="text/javascript"></script>
+		<script src="js/main.js?debug=847" type="text/javascript"></script>
+		<script src="js/region.js" type="text/javascript"></script>
+		<script src="js/iSelect.js" type="text/javascript"></script>
+		<script src="js/switchery.min.js" type="text/javascript"></script>
+		<style>
+			.edit-address {
+				background: #fff;
+				padding-bottom: 10px;
+			}
+			
+			.edit-address dl {
+				min-height: 50px;
+				line-height: 50px;
+				padding: 0 10px;
+				overflow: hidden;
+			}
+			
+			.edit-address dl dt {
+				float: left;
+				width: 70px;
+				color: #93a0ae;
+			}
+			
+			.edit-address dl dd {
+				margin-left: 70px;
+			}
+			
+			.edit-address dl dd input[type=text] {
+				height: 50px;
+				width: 100%;
+				border: none;
+				outline: none;
+				font-size: 16px;
+			}
+			
+			.edit-address dl dd select {
+				max-width: 70px;
+			    -webkit-padding-end: 18px;
+			    -webkit-padding-start: 6px;
+			}
+			
+			.edit-address #btnSaveAddr {
+				margin: 0 10px;
+				background: #f44623;
+				display: block;
+				height: 50px;
+				font-size: 18px;
+				color: #fff;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 3px;
+			}
+			
+			#isdefault {
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" style=""> 
+			<div class="topbar"> 
+			    <a href="javascript:history.back();" class="back_btn"><i class="iconfont">ş</i></a> 
+			    <a href="javascript:;" class="top_home"><i class="iconfont">ƙ</i></a> 
+    			<h1 class="page_title">添加收货地址</h1> 
+   			</div> 
+   			
+		   	<div class="home_menu" id="hMenu"> 
+			    <a href="index.html"><i class="go_index"></i><span>首页</span></a> 
+			    <a href="goods_cat.html"><i class="go_fenlei"></i><span>商品分类</span></a> 
+			    <a href="cart.html"><i class="go_cart"></i><span>购物车</span></a> 
+			    <a href="member_index.html"><i class="go_me"></i><span>会员中心</span></a> 
+		   	</div> 
+		</header>
+		
+		<script>
+		    //title右上角隐藏菜单
+			$(".top_home").click(function(){
+				var target = $(".home_menu"); 
+				if(target.slideToggle){
+					target.slideToggle()
+				}else{
+					target.toggle()
+				}
+			});
+		</script>
+	
+		<div class="edit-address">
+			<dl class="border_bottom">
+				<dt>收货人</dt>
+				<dd>
+					<input id="txtLinkman" type="text" value="" />
+				</dd>
+			</dl>
+			<dl class="border_bottom">
+				<dt>手机号码</dt>
+				<dd>
+					<input id="txtMobile" type="text" value="" />
+				</dd>
+			</dl>
+			<dl class="border_bottom">
+				<dt>所在地区</dt>
+				<dd>
+					<select class="prov" name="ProvinceId" id="ddl_p"></select>
+					<select name="CityId" id="ddl_z"></select>
+					<select class="dist" name="AreaId" id="ddl_d"></select>
+				</dd>
+			</dl>
+			<dl class="border_bottom">
+				<dt>收货地址</dt>
+				<dd>
+					<input id="txtAddress" type="text" value="" />
+				</dd>
+			</dl>
+			<dl>
+				<dt style="width:100px;">设为默认地址</dt>
+				<dd style="text-align:right;">
+					<input id="isdefault" type="checkbox" />
+				</dd>
+			</dl>
+			<a href="javascript:;" id="btnSaveAddr">保存</a>
+		</div>
+		<script>
+			
+			//底部按钮-回到顶部
+			$(".backtop_btn").click(function(){
+				$(window).scrollTop(0);
+				return false;
+			})
+			
+			new Switchery(document.querySelector('#isdefault'));
+			var city = iSelect('#ddl_p', '#ddl_z', '#ddl_d', AreaData);
+			city.set("61", "6101", "0");
+
+			$(document).on("click", "#btnSaveAddr", function() {
+				var self = $(this);
+				var reciver = $.trim($("#txtLinkman").val());
+				var mobile = $.trim($("#txtMobile").val());
+				var did = $("#ddl_d option:selected").val();
+				var address = $.trim($("#txtAddress").val());
+
+				var addId = "";
+				var type = "";
+
+				var ismoble = /^1[3|4|5|7|8][0-9]\d{8}$/.test(mobile);
+				var isdefault = 0;
+				if($("#isdefault").is(":checked")) {
+					isdefault = 1;
+				}
+
+				if(reciver.length < 1) {
+					layer.open({
+						content: "请填写收货人姓名",
+						shadeClose: false,
+						btn: ['OK']
+					});
+					return false;
+				}
+				if(!ismoble) {
+					layer.open({
+						content: "请填写手机号码",
+						shadeClose: false,
+						btn: ['OK']
+					});
+					return false;
+				}
+				if(did == undefined || did == 0) {
+					layer.open({
+						content: "请选择收货区域",
+						shadeClose: false,
+						btn: ['OK']
+					});
+					return false;
+				}
+				if(address.length < 2) {
+					layer.open({
+						content: "请填写街道地址",
+						shadeClose: false,
+						btn: ['OK']
+					});
+					return false;
+				}
+				layer.open({type: 2,shadeClose: false,content: "保存中..."});
+				$.ajax({
+					type:"post",
+	            	url:"https://segmentfault.com/a/1190000003982302",
+	            	dataType:"jsonp",
+	            	data:{
+	        			date:$(".month").val(),
+	        			flag:3,
+	        		},
+	            	success: function(data){
+	            		layer.closeAll();
+	            		location.href = "member_addr.html"
+	            	},
+	            	error:function(data2){
+	            		layer.closeAll();
+	            		location.href = "member_addr.html"
+	            	}
+	            })
+//				
+//				$.post("myaddress.aspx", {
+//						"act": ($.trim(addId) != "" ? "edit" : "SaveAdd"),
+//						"reciver": reciver,
+//						"mobile": mobile,
+//						"did": did,
+//						"address": address,
+//						"addId": addId,
+//						'type': type,
+//						'isdefault': isdefault
+//					},
+//					function(data) {
+//						layer.closeAll();
+//						if(data.stats == 1) {
+//							layer.open({
+//								content: "保存成功",
+//								shadeClose: false,
+//								btn: ['OK']
+//							});
+//							setTimeout(function() {
+//								switch(type) {
+//									case "o":
+//										window.location.href = "/cart/cartStep.aspx?type=new&excode=" + "";
+//										break;
+//									case "l":
+//										window.location.href = "myaddresslist.aspx";
+//										break;
+//									case "i":
+//										window.location.href = "myinfo.aspx";
+//										break;
+//									case "Crowd":
+//										window.location.href = "../Crowd/cartStep.aspx?detailId=" + "" + "&id=" + "" + "&excode=" + $("#txtExcode").val() + "&t=" + +new Date();;
+//										break;
+//									case "vip":
+//										window.location.href = "/vipclub/order.aspx?id=" + "0";
+//										break;
+//									case "q":
+//										window.location.href = "/cart/LimitOrder.aspx?rid=" + "";
+//										break;
+//									case "tuan":
+//										window.location.href = "/tuanbuy.aspx?tuanid=" + "";
+//										break;
+//									default:
+//										window.location.href = "myaddresslist.aspx";
+//										break;
+//								}
+//							}, 2000);
+//						} else {
+//							layer.open({
+//								content: "操作失败，请重新尝试。",
+//								shadeClose: false,
+//								btn: ['OK']
+//							});
+//						}
+//					}, "json");
+			});
+		</script>
+		
+		<div class="foot-nav border_top hide" style="">
+			<a href="index.html"><i class="home"></i><span>首页</span></a>
+			<a href="goods_cat.html"><i class="cate"></i><span>商品分类</span></a>
+			<a href="cart.html"><i class="cart"></i><span>购物车</span></a>
+			<a href="member_index.html"><i class="user"></i><span>我的</span></a>
+		</div>
+		
+		<!--<script>
+			var url = window.location.href;
+			if(url == "http://m.ch999.com/") {
+				$(".foot-nav").show();
+				$(".foot-nav a").eq(0).addClass("cur");
+			}
+		</script>-->
+		
+		<footer id="footer" style="">
+			<div class="footbar" id="noLogin" style="display: none;">
+				<a id="f1_btnLogin" href="javascript:;" class="login_btn">登录</a>
+				<a href="javascript:;">注册</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<div class="footbar" id="yesLogin" style="display: block">
+				<a class="login_btn" href="javascript:;" id="txtUsername">Admin丶易凯悦</a>
+				<a onClick="LoginOut()">退出</a>
+				<a href="javascript:;" class="backtop_btn">↑回顶部</a>
+			</div>
+			<p class="footlink">
+				<a href="javascript:;" style="margin:0 18px;">触屏版</a>
+				<a href="javascript:;" id="link_pc" style="margin:0 18px;">电脑版</a>
+				<a href="javascript:;" style="margin:0 18px;">客户端</a>
+				<a href="http://www.tysimplelife.com/TY_recruitment/index.html" style="margin:0 18px;">招聘</a>
+			</p>
+			<p class="footlink">Copyright©&nbsp;易凯信息技术有限公司
+				<a style="margin:0 0 0 10px;" id="_tousu" href="tousu.html">投诉建议</a>
+			</p>
+		</footer>
+		
+	</body>
+
+</html>

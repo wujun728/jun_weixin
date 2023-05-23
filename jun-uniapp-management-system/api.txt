@@ -1,0 +1,349 @@
+main.js中IP地址：http://127.0.0.1:8081/
+
+
+<!-- /* 
+ *Copyright© 2016-2021 星游源码 版权所有
+ * 购买地址 https://www.huzhan.com/code/goods403940.html
+ */ -->
+-------------------------------------------
+登录请求
+api/user/login
+account
+password
+返回
+{
+	"code":1,
+	"msg":"登录成功",
+	"time":"1593422850",
+	"data":{
+		"userinfo":{
+		"id":1,
+		"username":"admin",
+		"nickname":"admin",
+		"mobile":"13888888888",
+		"avatar":"",
+		"score":0,
+		"token":"c8edcb1d-8c5c-4e5d-9e53-71d7024f9030",
+		"user_id":1,
+		"createtime":1593422850,
+		"expiretime":1596014850,
+		"expires_in":2592000}}
+}
+
+---------------------------------------------------------
+上传图片
+api/common/upload
+filePath: ,
+name: 'file',
+返回成功data.url
+
+
+-------------------------------------------
+请求商品单位
+/api/ykjp/product/unit/getUnitList
+返回
+{
+	"code": 1,
+	"msg": "返回成功",
+	"time": "1593423069",
+	"data": {
+		"data": [{
+			"id": 1,
+			"name": "件",
+			"firmid": null,
+			"createtime": 1593348050,
+			"updatetime": 1593348050,
+			"deletetime": null
+		}, {
+			"id": 2,
+			"name": "条",
+			"firmid": null,
+			"createtime": 1593348057,
+			"updatetime": 1593348057,
+			"deletetime": null
+		}]
+	}
+}
+
+---------------------------------------------------------
+删除商品单位
+/api/ykjp/product/unit/deleteUnit
+id
+返回成功
+
+
+-------------------------------------------
+添加商品单位
+/api/ykjp/product/unit/addUnit
+返回成功
+
+-------------------------------------------
+请求商品类型
+/api/ykjp/product/type/getType
+返回
+{
+	"code": 1,
+	"msg": "返回成功",
+	"time": "1593423069",
+	"data": {
+		"data": [{
+			createtime:1594827893
+			deletetime:null
+			firmid:null
+			id:8
+			image:"http://127.0.0.1:8081/uploads/20200715/b8219f88b484274acc31cd1b81156ba7.jpg"
+			name:"服装"
+			pid:0
+			product_id:null
+			prop:"[{"title":"服装"}]"
+			updatetime:1594827893
+			weigh:0
+		},{
+			createtime:1594827893
+			deletetime:null
+			firmid:null
+			id:8
+			image:"http://127.0.0.1:8081/uploads/20200715/b8219f88b484274acc31cd1b81156ba7.jpg"
+			name:"服装2"
+			pid:0
+			product_id:null
+			prop:"[{"title":"服装2"}]"
+			updatetime:1594827893
+			weigh:0
+		} ]
+	}
+}
+
+---------------------------------------------------------
+删除商品类型
+/api/ykjp/product/type/deleteType
+id
+返回删除成功
+
+---------------------------------------------------------
+添加商品类型
+/api/ykjp/product/type/add
+pid:,//上级id，可为空
+name:,//分类名称
+props:,//标题
+image:,//类型图片url
+返回添加成功
+
+
+---------------------------------------------------------
+获取商品信息
+/api/ykjp/product/product/getProduct
+{
+    "code":1,
+    "msg":"返回成功",
+    "time":"1595150038",
+    "data":{
+        "data":[
+            {
+                "id":2,
+                "firmid":null,
+                "name":"衣服",
+                "product_type_id":10,
+                "specification":"2件55元",
+                "sku":"",
+                "prop":"[{"title":"上衣","value":""}]",
+                "inventory":0,
+                "min_warning":0,
+                "max_warning":0,
+                "raise":0,
+                "remark":"",
+                "createtime":1595149254,
+                "updatetime":1595149254,
+                "deletetime":null,
+                "product_unit_id":13,
+                "unit":"件"
+            }
+        ]
+    }
+}
+
+---------------------------------------------------------
+删除商品信息
+/api/ykjp/product/product/deleteProduct
+id
+返回删除成功
+
+---------------------------------------------------------
+添加商品信息
+name://名称
+product_type_id://分类id
+specification://规格
+sku://库存
+prop://标题
+remark://备注
+product_unit_id://单位id
+unit://单位
+返回添加成功
+
+
+---------------------------------------------------------
+获取商品信息
+/api/ykjp/information/basisinfo/supplier/index
+{
+    "code":1,
+    "msg":"返回成功",
+    "time":"1595157992",
+    "data":{
+        "data":[
+            {
+                "id":2,
+                "avatar":"",
+                "code":"SP20200719184024",
+                "name":"北京冰河服饰有限公司",
+                "abbname":"",
+                "contact":"程卓",
+                "phone":"13529746799",
+                "city":"北京/北京市/崇文区",
+                "address":"北京市丰台区菜户营58号11032室(太平桥企业集中办公区)",
+                "fax":"",
+                "mobile":"0877262422",
+                "bank":"",
+                "banknums":"",
+                "term":21,
+                "identifier":"",
+                "credit":"",
+                "amount":"0",
+                "salesman_id":0,
+                "firmid":null,
+                "description":"说明",
+                "createtime":1595155341,
+                "updatetime":1595155341,
+                "deletetime":null,
+                "status":0
+            }
+        ]
+    }
+}
+
+
+---------------------------------------------------------
+获取商品详情信息
+/api/ykjp/information/basisinfo/supplier/getdetails
+{id}
+{
+    "code":1,
+    "msg":"返回成功",
+    "time":"1595157992",
+    "data":{
+        "data":[
+            {
+                "id":2,
+                "avatar":"",
+                "code":"SP20200719184024",
+                "name":"北京冰河服饰有限公司",
+                "abbname":"",
+                "contact":"程卓",
+                "phone":"13529746799",
+                "city":"北京/北京市/崇文区",
+                "address":"北京市丰台区菜户营58号11032室(太平桥企业集中办公区)",
+                "fax":"",
+                "mobile":"0877262422",
+                "bank":"",
+                "banknums":"",
+                "term":21,
+                "identifier":"",
+                "credit":"",
+                "amount":"0",
+                "salesman_id":0,
+                "firmid":null,
+                "description":"说明",
+                "createtime":1595155341,
+                "updatetime":1595155341,
+                "deletetime":null,
+                "status":0
+            }
+        ]
+    }
+}
+
+
+---------------------------------------------------------
+删除供应商信息
+/api/ykjp/information/basisinfo/supplier/deleteProduct
+id
+返回删除成功
+
+
+
+---------------------------------------------------------
+添加供应商信息
+/api/ykjp/information/basisinfo/supplier/add
+name://名称
+contact://联系人
+address://详细地址
+city://城市
+description://规格
+phone://手机
+term://
+返回添加成功
+
+
+---------------------------------------------------------
+新增仓库
+/api/ykjp/information/basisinfo/warehouse/add
+name://名称
+contact://联系人
+address://详细地址
+city://城市
+remark://备注
+phone://手机
+type://类型
+
+
+/api/ykjp/summary/Purchase/index
+{
+    "code": 1,
+    "msg": "返回成功",
+    "time": "1595157992",
+    "data": {
+        "data": {
+            "purchase": {
+                "totalMoney": 6661
+            },
+            "Retprodcut": {
+                "totalMoney": 6662
+            },
+            "deliveryPro": {
+                "totalMoney": 6663
+            },
+            "sellreturn": {
+                "totalMoney": 6664
+            },
+            "status": 0
+        }
+    }
+}
+
+
+
+/api/index/getmenus2
+{
+    "code": 1,
+    "msg": "返回成功",
+    "time": "1595157992",
+    "data": {
+    "menus": {
+        "title": "功能模块666",
+        "info": [
+            {
+                "title": "111",
+                "src": "http://cdn.uviewui.com/uview/swiper/swiper1.png",
+            },
+            {
+                "title": "222",
+                "src": "http://cdn.uviewui.com/uview/swiper/swiper2.png",
+            },
+            {
+                "title": "333",
+                "src": "http://cdn.uviewui.com/uview/swiper/swiper3.png",
+            }
+        ],
+        "status": 0
+    }
+}
+}

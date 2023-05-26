@@ -31,9 +31,9 @@
 
 #### 我的另一个项目：
 
- **AiDex Sharp 快速开发平台** 基于著名的开源项目“ **若依-RuoYi-Vue** ”改造而成，追求 **极致的UI交互体验** 和 **快速开发** ，一切向 **效率** 看齐， **重构优化** 后端的代码，对前端页面进行了 **美化** 。 **我们将持续升级，持续完善，欢迎友友们收藏和点赞** 。
+ **Qixing Sharp 快速开发平台** 基于著名的开源项目“ **若依-RuoYi-Vue** ”改造而成，追求 **极致的UI交互体验** 和 **快速开发** ，一切向 **效率** 看齐， **重构优化** 后端的代码，对前端页面进行了 **美化** 。 **我们将持续升级，持续完善，欢迎友友们收藏和点赞** 。
 
-* [打开Aidex Sharp](https://gitee.com/big-hedgehog/aidex-sharp)
+* [打开Qixing Sharp](https://gitee.com/big-hedgehog/Qixing-sharp)
 
 <table>
     <tr>
@@ -72,7 +72,7 @@
 
 ##### 5、后端代码适配ruoyi-vue
 
-    1. 可以启动后端，直接访问http://aidex.vip的公共服务，如果要自己适配，请将doc目录下的代码放到项目中即可。
+    1. 可以启动后端，直接访问http://Qixing.vip的公共服务，如果要自己适配，请将doc目录下的代码放到项目中即可。
 #### 界面截图
 
 
@@ -101,12 +101,12 @@
 
 ## 我的另一个项目：
 
- **AiDex Sharp 快速开发平台** 基于著名的开源项目“ **若依-RuoYi-Vue** ”改造而成，追求 **极致的UI交互体验** 和 **快速开发** ，一切向 **效率** 看齐， **重构优化** 后端的代码，对前端页面进行了 **美化** 。 **我们将持续升级，持续完善，欢迎友友们收藏和点赞** 。
+ **Qixing Sharp 快速开发平台** 基于著名的开源项目“ **若依-RuoYi-Vue** ”改造而成，追求 **极致的UI交互体验** 和 **快速开发** ，一切向 **效率** 看齐， **重构优化** 后端的代码，对前端页面进行了 **美化** 。 **我们将持续升级，持续完善，欢迎友友们收藏和点赞** 。
 
-* [打开Aidex Sharp](https://gitee.com/big-hedgehog/aidex-sharp)
+* [打开Qixing Sharp](https://gitee.com/big-hedgehog/Qixing-sharp)
 
 官方QQ群
-Aidex Sharp快速开发平台3群 208511180 使用问题请入群由专人负责简答
+Qixing Sharp快速开发平台3群 208511180 使用问题请入群由专人负责简答
 
 ## 后台系统截图
 
@@ -140,7 +140,7 @@ Aidex Sharp快速开发平台3群 208511180 使用问题请入群由专人负责
 
 ## 在线体验
 
-演示地址：http://aidex.vip  帐号：admin 密码：admin123
+演示地址：http://Qixing.vip  帐号：admin 密码：admin123
 
 #### uniapp知识
 
@@ -176,4 +176,4 @@ Aidex Sharp快速开发平台3群 208511180 使用问题请入群由专人负责
 <img src="https://images.gitee.com/uploads/images/2021/1112/114207_bb1bac92_9700683.jpeg" width="220" height="220" >&nbsp; &nbsp; &nbsp;&nbsp; 
 <img src="https://images.gitee.com/uploads/images/2021/1115/164243_d4e0d61d_9700683.png" width="220" height="220" >&nbsp; &nbsp; &nbsp;&nbsp;
 
-版权所有Copyright © 2017-2021 By AiDex (http://www.aidex.vip) All rights reserved
+版权所有Copyright © 2017-2021 By Qixing (http://www.Qixing.vip) All rights reserved

@@ -21,7 +21,7 @@
 <script>
 	import HeadNavBar from '@/components/headnavbar/index';
 	/**
-	 * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+	 * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
 	 */
 	export default {
 		components: {
@@ -66,7 +66,7 @@
 			getReandomImage(i) {
 				// const length = this.imageList.length;
 				// const i = this.getRandomInt(0, length - 1);
-				return '/static/aidex/images/' + this.imageList[i] + '.png';
+				return '/static/Qixing/images/' + this.imageList[i] + '.png';
 			},
 			navTo(url) {
 				uni.navigateTo({

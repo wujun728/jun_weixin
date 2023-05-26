@@ -14,7 +14,7 @@
 <script>
 	 import HeadNavBar from '@/components/headnavbar/index';
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	components: {
@@ -23,11 +23,11 @@ export default {
 	data() {
 		return {
 			show: false,
-			head: '/static/aidex/images/head.png',
+			head: '/static/Qixing/images/head.png',
 			imgList: [
-				{image: '/static/aidex/banner/banner01.png'},
-				{image: '/static/aidex/banner/banner02.png'}, 
-				{image: '/static/aidex/banner/banner03.png'}
+				{image: '/static/Qixing/banner/banner01.png'},
+				{image: '/static/Qixing/banner/banner02.png'}, 
+				{image: '/static/Qixing/banner/banner03.png'}
 			],
 			todoCount: 3
 		};

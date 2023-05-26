@@ -4,14 +4,14 @@
 			<view class="userinfo">
 				<view class="image" @click="navTo('info')">
 					<!-- <image :src="avatarUrl"></image> -->
-					<u-avatar size="100"  src="/static/aidex/images/user01.png"></u-avatar>
+					<u-avatar size="100"  src="/static/Qixing/images/user01.png"></u-avatar>
 					</view>
 				<view class="info" style="display: flex;justify-content: space-between;">
 					<view>
 						<view class="username">管理员</view>
 						<view class="usercode">普通会员</view>
 					</view>
-					<view class="sign-in-images"><image src="/static/aidex/images/sign-in.png"></image></view>
+					<view class="sign-in-images"><image src="/static/Qixing/images/sign-in.png"></image></view>
 				</view>
 			</view>
 			<!-- <u-row class="userinfo-topbox" gutter="16" justify="center">
@@ -50,7 +50,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	data() {
@@ -62,7 +62,7 @@ export default {
 		avatarUrl() {
 			// let url = this.vuex_user.avatarUrl || '/ctxPath/static/images/user1.jpg';
 			// url = url.replace('/ctxPath/', this.vuex_config.baseUrl + '/');
-			let url = this.vuex_config.baseUrl+ this.vuex_user.avatar ||  '/static/aidex/tabbar/my_2.png';
+			let url = this.vuex_config.baseUrl+ this.vuex_user.avatar ||  '/static/Qixing/tabbar/my_2.png';
 			url = this.replaceAll(url,'\\','/');
 			return url + '?t=' + new Date().getTime();
 		}

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 // 此处第二个参数vm，就是我们在页面使用的this，你可以通过vm获取vuex等操作
 const install = (Vue, vm) => {

@@ -14,7 +14,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 import base64 from '@/common/base64.js';
 export default {

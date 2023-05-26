@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
 		<view class="service-banner">
-			<image class="" src="/static/aidex/images/service02.png"></image>
+			<image class="" src="/static/Qixing/images/service02.png"></image>
 		</view>
 		<u-gap height="20" bg-color="#ffffff"></u-gap>
 		<u-cell-group class="service-box">

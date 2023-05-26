@@ -117,9 +117,9 @@
             "splashscreen" : {
                 "androidStyle" : "default",
                 "android" : {
-                    "hdpi" : "E:/vueworkspace/aidex-m2m/src/assets/logo.png",
-                    "xhdpi" : "E:/vueworkspace/aidex-m2m/src/assets/logo.png",
-                    "xxhdpi" : "E:/vueworkspace/aidex-m2m/src/assets/logo.png"
+                    "hdpi" : "E:/vueworkspace/Qixing-m2m/src/assets/logo.png",
+                    "xhdpi" : "E:/vueworkspace/Qixing-m2m/src/assets/logo.png",
+                    "xxhdpi" : "E:/vueworkspace/Qixing-m2m/src/assets/logo.png"
                 },
                 "useOriginalMsgbox" : false,
                 "iosStyle" : "common"

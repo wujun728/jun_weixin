@@ -1,6 +1,6 @@
 /**
  * 通用js方法封装处理
- * Copyright (c) 2019 aidex
+ * Copyright (c) 2019 Qixing
  */
 
 export function replaceAll (text,stringToFind,stringToReplace) {

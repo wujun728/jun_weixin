@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 // 此处第二个参数vm，就是我们在页面使用的this，你可以通过vm获取vuex等操作
 const install = (Vue, vm) => {
@@ -12,7 +12,7 @@ const install = (Vue, vm) => {
 	Vue.prototype.$u.http.setConfig({
 		baseUrl: vm.vuex_config.baseUrl,
 		originalData: true, 
-		// 默认头部，http2约定header名称统一小写 aidex
+		// 默认头部，http2约定header名称统一小写 Qixing
 		header: {
 			//'content-type': 'application/x-www-form-urlencoded',
 			'x-requested-with': 'XMLHttpRequest',
@@ -36,12 +36,12 @@ const install = (Vue, vm) => {
 			req.header[ajaxHeader] = 'json';
 		}
 		
-		// 设定传递 Token 认证参数 aidex
+		// 设定传递 Token 认证参数 Qixing
 		if (!req.header[sessionIdHeader] && vm.vuex_token){
 			req.header[sessionIdHeader] = vm.vuex_token;
 		}
 		
-		// 为节省流量，记住我数据不是每次都发送的，当会话失效后，尝试重试登录 aidex
+		// 为节省流量，记住我数据不是每次都发送的，当会话失效后，尝试重试登录 Qixing
 		if (!req.header[rememberMeHeader] && vm.vuex_remember && req.remember){
 			req.header[rememberMeHeader] = vm.vuex_remember;
 			req.remember = false;

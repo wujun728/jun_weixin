@@ -1,6 +1,6 @@
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	onLaunch() {
@@ -25,5 +25,5 @@ export default {
 </style>
 <style lang="scss">
 @import "uview-ui/index.scss";
-@import "pages/common/aidex.scss";
+@import "pages/common/Qixing.scss";
 </style>

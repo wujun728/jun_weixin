@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
 		<view class="u-p-t-30 u-p-b-30 u-flex u-flex-col u-text-center">
-			<!-- <u-avatar size="250" src="/static/aidex/logo200.png"></u-avatar> -->
+			<!-- <u-avatar size="250" src="/static/Qixing/logo200.png"></u-avatar> -->
 			<view class="title">齐兴移动APP</view>
 			<!-- <view class="version">{{vuex_config.productVersion}}</view> -->
 		</view>
@@ -18,11 +18,11 @@
 		</u-cell-group>
 		<u-row gutter="16" style="margin-top: 20px;">
 			<u-col span="6" text-align="center">
-				<view class="cade-box"><image src="/static/aidex/images/code01.jpg"></image></view>
+				<view class="cade-box"><image src="/static/Qixing/images/code01.jpg"></image></view>
 				<view class="cade-text">公众号</view>
 			</u-col>
 			<u-col span="6" text-align="center">
-				<view class="cade-box"><image src="/static/aidex/images/code02.jpg"></image></view>
+				<view class="cade-box"><image src="/static/Qixing/images/code02.jpg"></image></view>
 				<view class="cade-text">扫一扫 加我微信</view>
 			</u-col>
 		</u-row>
@@ -34,7 +34,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	methods: {

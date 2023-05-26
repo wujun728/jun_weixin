@@ -400,7 +400,7 @@ export default {
 					}).catch(err => {
 						// 进入catch回调的话，继续下一张
 						// return this.uploadFile(index + 1);
-						// 在 cache 中 return 只是返回本方法，并不是返回 uploadFile 方法，需要在外层进行返回 aidex
+						// 在 cache 中 return 只是返回本方法，并不是返回 uploadFile 方法，需要在外层进行返回 Qixing
 						error = true;
 					})
 					if (error){

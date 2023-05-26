@@ -203,7 +203,7 @@ export default {
 			// #endif
 		},
 		init() {
-			// 如果没有数据的时候多处报未定义 aidex
+			// 如果没有数据的时候多处报未定义 Qixing
 			if (!this.list || this.list.length == 0){
 				return
 			}
@@ -229,7 +229,7 @@ export default {
 				let num = 1;
 				let column = this.list;
 				// 只要有元素并且第一个元素有children属性，继续历遍
-				while(column[0] && column[0][this.childName]) { // 增加 column[0] 判断，如果没有数据的时候会报 undefined aidex
+				while(column[0] && column[0][this.childName]) { // 增加 column[0] 判断，如果没有数据的时候会报 undefined Qixing
 					column = column[0] ? column[0][this.childName] : {};
 					num ++;
 				}
@@ -299,7 +299,7 @@ export default {
 				// 只有在最后一次数据稳定后的结果是正确的，此前的历遍中，可能会产生undefined，故需要判断
 				columnIndex.map((item, index) => {
 					if (!this.columnData[index]){
-						return; // 如果列树不固定，会报空 aidex
+						return; // 如果列树不固定，会报空 Qixing
 					}
 					let data = this.columnData[index][columnIndex[index]];
 					let tmp = {

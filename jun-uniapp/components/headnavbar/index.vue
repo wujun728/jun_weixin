@@ -29,7 +29,7 @@
 		},
 		computed: {
 			avatarUrl() {
-				var url = this.vuex_config.baseUrl + this.vuex_user.avatar || '/static/aidex/tabbar/my_2.png';
+				var url = this.vuex_config.baseUrl + this.vuex_user.avatar || '/static/Qixing/tabbar/my_2.png';
 				url = this.replaceAll(url,'\\','/');
 				return url + '?t=' + new Date().getTime();
 			}

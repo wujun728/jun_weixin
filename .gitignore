@@ -24,6 +24,8 @@ bin
 
 .mvn
 
+doc
+
 # Idea
 .idea
 *.iml

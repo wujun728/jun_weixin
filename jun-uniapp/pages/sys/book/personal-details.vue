@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
 		<view class="list-cell">
-			<image class="user-images" src="/static/aidex/images/user06.png"></image>
+			<image class="user-images" src="/static/Qixing/images/user06.png"></image>
 			<view class="user-name">
 				<span>{{username}}</span>
 					<u-icon size="32" color="#f04d94" name="woman"></u-icon><br>
@@ -25,7 +25,7 @@
 <script>
 	 import HeadNavBar from '@/components/headnavbar/index';
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	components: {

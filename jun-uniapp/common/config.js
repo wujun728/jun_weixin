@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 const config = {
 	
 	// 产品名称
-	productName: 'Aidex Mobile',
+	productName: 'Qixing Mobile',
 	
 	// 公司名称
-	companyName: 'Aidex',
+	companyName: 'Qixing',
 	
 	// 产品版本号
 	productVersion: 'V4.3.0',

@@ -11,7 +11,7 @@
 					<u-card class="task-list-item" :border="false" padding="20" margin="10rpx 20rpx" @click="navTo('/pages/sys/msg/details')">
 						<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 							<view style="display: flex;align-items: center;font-size: 30rpx;">
-								<image class="user-images" src="/static/aidex/images/user06.png"></image>{{item.lastItem}}
+								<image class="user-images" src="/static/Qixing/images/user06.png"></image>{{item.lastItem}}
 							</view>
 							<view style="color: #999999;font-size: 22rpx;">{{item.lastDate}}</view>
 						</view>
@@ -49,7 +49,7 @@
 				<u-card class="task-list-item" :border="false" padding="20" margin="20rpx" @click="navTo('/pages/sys/msg/details2')">
 					<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 						<view style="display: flex;align-items: center;font-size: 30rpx;">
-							<image class="user-images" src="/static/aidex/images/user06.png"></image>{{item.lastItem}}
+							<image class="user-images" src="/static/Qixing/images/user06.png"></image>{{item.lastItem}}
 						</view>
 						<view style="color: #999999;font-size: 22rpx;">{{item.lastDate}}</view>
 					</view>
@@ -74,7 +74,7 @@
 				<!-- <u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 					<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 						<view style="display: flex;align-items: center;font-size: 30rpx;">
-							<image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请
+							<image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请
 						</view>
 						<view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 					</view>
@@ -98,7 +98,7 @@
 				<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 					<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 						<view style="display: flex;align-items: center;font-size: 30rpx;">
-							<image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请
+							<image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请
 						</view>
 						<view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 					</view>
@@ -127,7 +127,7 @@
 				<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 					<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 						<view style="display: flex;align-items: center;font-size: 30rpx;">
-							<image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请
+							<image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请
 						</view>
 						<view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 					</view>
@@ -151,7 +151,7 @@
 				<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 					<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
 						<view style="display: flex;align-items: center;font-size: 30rpx;">
-							<image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请
+							<image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请
 						</view>
 						<view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 					</view>
@@ -179,7 +179,7 @@
 </template>
 <script>
 	/**
-	 * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+	 * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
 	 */
 	export default {
 		data() {

@@ -16,7 +16,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	data() {
@@ -60,9 +60,9 @@ export default {
 			if (this.avatarBase64 != ''){
 				return this.avatarBase64;
 			}
-			let url = this.vuex_config.baseUrl+ this.vuex_user.avatar ||  '/static/aidex/tabbar/my_2.png';
+			let url = this.vuex_config.baseUrl+ this.vuex_user.avatar ||  '/static/Qixing/tabbar/my_2.png';
 			url = this.replaceAll(url,'\\','/');
-			//url = url.replace('/aidex/', this.vuex_config.baseUrl + '/');
+			//url = url.replace('/Qixing/', this.vuex_config.baseUrl + '/');
 			/* alert(url); */
 			return url;
 		}

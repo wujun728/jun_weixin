@@ -6,7 +6,7 @@
 		<scroll-view class="scroll-list msg-list-item" scroll-y="true" >
 			<view v-for="(item, index) in list" :key="item.id">
 				<view class="msg-time">11:05</view>
-				<u-card :title="item.lastItem" :sub-title="item.lastDate" padding="20" margin="0rpx 20rpx" thumb="/static/aidex/images/list-icon.png" @click="navTo(item.navTo)">
+				<u-card :title="item.lastItem" :sub-title="item.lastDate" padding="20" margin="0rpx 20rpx" thumb="/static/Qixing/images/list-icon.png" @click="navTo(item.navTo)">
 					<view class="" slot="body">
 						<view class="u-body-item u-flex  u-col-between u-p-t-0">
 							<view class="u-body-item-title u-line-2">{{item.lastMsg}}</view>
@@ -16,7 +16,7 @@
 				</u-card>
 			</view>
 			<!-- <view class="msg-time">11月10日 15:32</view>
-			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月10日" padding="20" margin="0rpx 20rpx" thumb="/static/aidex/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
+			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月10日" padding="20" margin="0rpx 20rpx" thumb="/static/Qixing/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
 				<view class="" slot="body">
 					<view class="u-body-item u-flex u-col-between u-p-t-0">
 						<view class="u-body-item-title u-line-2">在常用的社交分享组件中，微信（微信好友和朋友圈）、微博、QQ（QQ好友和QQ空间）是三大主要平台 ...</view>
@@ -25,7 +25,7 @@
 				<view class="" slot="foot"><u-icon name="eye" size="34" color="" label="30"></u-icon> <u-icon name="thumb-up" size="34" color="" label="15"></u-icon></view>
 			</u-card>
 			<view class="msg-time">11月08日 10:05</view>
-			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月08日" padding="20" margin="0rpx 20rpx" thumb="/static/aidex/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
+			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月08日" padding="20" margin="0rpx 20rpx" thumb="/static/Qixing/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
 				<view class="" slot="body">
 					<view class="u-body-item u-flex u-col-between u-p-t-0">
 						<view class="u-body-item-title u-line-2">在常用的社交分享组件中，微信（微信好友和朋友圈）、微博、QQ（QQ好友和QQ空间）是三大主要平台 ...</view>
@@ -34,7 +34,7 @@
 				<view class="" slot="foot"><u-icon name="eye" size="34" color="" label="30"></u-icon> <u-icon name="thumb-up" size="34" color="" label="15"></u-icon></view>
 			</u-card>
 			<view class="msg-time">11月08日 09:32</view>
-			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月08日" padding="20" margin="0rpx 20rpx" thumb="/static/aidex/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
+			<u-card title="用户分享内容到社交媒体或好友" sub-title="11月08日" padding="20" margin="0rpx 20rpx" thumb="/static/Qixing/images/list-icon.png" @click="navTo('/pages/sys/msg/form')">
 				<view class="" slot="body">
 					<view class="u-body-item u-flex u-col-between u-p-t-0">
 						<view class="u-body-item-title u-line-2">在常用的社交分享组件中，微信（微信好友和朋友圈）、微博、QQ（QQ好友和QQ空间）是三大主要平台 ...</view>
@@ -48,7 +48,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 export default {
 	data() {

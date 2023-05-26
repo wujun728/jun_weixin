@@ -4,7 +4,7 @@
 			<view class="userinfo" @click="navTo('info')">
 				<view class="image">
 					<!-- <image :src="avatarUrl"></image> -->
-					<image class="user-images" src="/static/aidex/images/user06.png"></image>
+					<image class="user-images" src="/static/Qixing/images/user06.png"></image>
 					<!-- <u-avatar size="80" :src="avatarUrl"></u-avatar> -->
 				</view>
 				<view class="info" style="flex:1;display: flex;justify-content: space-between;">
@@ -37,7 +37,7 @@
 				<u-time-line-item nodeTop="2">
 						<!-- 此处自定义了左边内容，用一个图标替代 -->
 					<template v-slot:node>
-						<image class="user-images" src="/static/aidex/images/user06.png"></image>
+						<image class="user-images" src="/static/Qixing/images/user06.png"></image>
 					</template>
 					<template v-slot:content>
 						<view style="justify-content: space-between;display: flex;">
@@ -49,7 +49,7 @@
 				<u-time-line-item nodeTop="2">
 						<!-- 此处自定义了左边内容，用一个图标替代 -->
 					<template v-slot:node>
-						<image class="user-images" src="/static/aidex/images/user06.png"></image>
+						<image class="user-images" src="/static/Qixing/images/user06.png"></image>
 					</template>
 					<template v-slot:content>
 						<view style="justify-content: space-between;display: flex;">
@@ -62,7 +62,7 @@
 				<u-time-line-item nodeTop="2">
 						<!-- 此处自定义了左边内容，用一个图标替代 -->
 					<template v-slot:node>
-						<image class="user-images" src="/static/aidex/images/user06.png"></image>
+						<image class="user-images" src="/static/Qixing/images/user06.png"></image>
 					</template>
 					<template v-slot:content>
 						<view style="justify-content: space-between;display: flex;">
@@ -88,7 +88,7 @@
 			</view>
 			<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 				<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
-					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
+					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 				</view>
 				<view class="" slot="body">
 					<u-row gutter="16">
@@ -109,7 +109,7 @@
 			</u-card>
 			<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 				<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
-					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
+					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 				</view>
 				<view class="" slot="body">
 					<u-row gutter="16">
@@ -130,7 +130,7 @@
 			</u-card>
 			<u-card class="task-list-item" :border="false" padding="20" margin="20rpx">
 				<view slot="head" style="display: flex;align-items: center;justify-content: space-between;">
-					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/aidex/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
+					<view style="display: flex;align-items: center;font-size: 30rpx;"><image class="user-images" src="/static/Qixing/images/user06.png"></image>张XX的请假申请</view><view style="color: #999999;font-size: 22rpx;">2021年10月24日</view>
 				</view>
 				<view class="" slot="body">
 					<u-row gutter="16">

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 import Vue from 'vue';
 import App from './App';

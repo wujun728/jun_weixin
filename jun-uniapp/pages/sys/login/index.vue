@@ -13,7 +13,7 @@
 				<view class="list-call">
 					<view class="iconfont icon-key" style="font-size: 22px;color:#5473e8;"></view>
 					<input class="u-input" type="text" v-model="password" maxlength="32" :placeholder="$t('login.placeholderPassword')" :password="!showPassword" value="admin123" />
-					<image class="u-icon-right" :src="'/static/aidex/login/eye_' + (showPassword ? 'open' : 'close') + '.png'" @click="showPass()"></image>
+					<image class="u-icon-right" :src="'/static/Qixing/login/eye_' + (showPassword ? 'open' : 'close') + '.png'" @click="showPass()"></image>
 				</view>
 				<div style="padding:15rpx 0 0;">
 					<view class="register">
@@ -86,7 +86,7 @@
 </template>
 <script>
 /**
- * Copyright (c) 2013-Now http://aidex.vip All rights reserved.
+ * Copyright (c) 2013-Now http://Qixing.vip All rights reserved.
  */
 import base64 from '@/common/base64.js';
 export default {
